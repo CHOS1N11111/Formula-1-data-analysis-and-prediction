@@ -1,0 +1,151 @@
+{
+  "built_at": "2026-05-28T23:34:34",
+  "figure_dir": "outputs\\figures",
+  "figure_count": 24,
+  "figures": [
+    {
+      "filename": "yearly_records_2019_2025.png",
+      "title": "Modern Dataset Size by Season",
+      "source": "dataset_overview_by_year.csv",
+      "description": "Shows yearly sample size and race count for the 2019-2025 modern historical analysis dataset."
+    },
+    {
+      "filename": "grid_position_outcome_rates.png",
+      "title": "Race Outcome Rates by Grid Position",
+      "source": "f1_features.csv filtered to 2019-2025",
+      "description": "Compares win, podium, and top-10 rates for each starting grid position without 2026 data."
+    },
+    {
+      "filename": "qualifying_position_outcome_rates.png",
+      "title": "Qualifying Position and Race Outcome",
+      "source": "f1_features.csv filtered to 2019-2025",
+      "description": "Shows how qualifying position relates to podium rate, top-10 rate, and average finish without 2026 data."
+    },
+    {
+      "filename": "grid_advantage_historical_vs_modern.png",
+      "title": "Grid Advantage: Historical vs Modern Era",
+      "source": "f1_features.csv filtered to 2019-2025; grid_finish_summary_historical.csv",
+      "description": "Compares grid-position outcome rates between long-run history and the 2019-2025 modern historical dataset."
+    },
+    {
+      "filename": "top10_driver_points_2019_2025.png",
+      "title": "Top 10 Drivers by Total Points",
+      "source": "f1_features.csv filtered to 2019-2025",
+      "description": "Ranks the top drivers in the 2019-2025 modern historical dataset by total points."
+    },
+    {
+      "filename": "constructor_points_2019_2025.png",
+      "title": "Top Constructors by Total Points",
+      "source": "f1_features.csv filtered to 2019-2025",
+      "description": "Ranks constructors by total points in the 2019-2025 modern historical dataset."
+    },
+    {
+      "filename": "driver_points_trend_top6.png",
+      "title": "Driver Points Trend, Top 6 Modern Drivers",
+      "source": "driver_points_by_year.csv",
+      "description": "Shows season-by-season point trends for the highest-scoring drivers."
+    },
+    {
+      "filename": "constructor_points_trend_top6.png",
+      "title": "Constructor Points Trend, Top 6 Modern Teams",
+      "source": "constructor_points_by_year.csv",
+      "description": "Shows season-by-season point trends for leading constructors."
+    },
+    {
+      "filename": "historical_races_by_year.png",
+      "title": "Formula 1 Race Count by Year",
+      "source": "races_by_year_historical.csv",
+      "description": "Shows the expansion of the F1 calendar from 1950 to 2018."
+    },
+    {
+      "filename": "historical_top10_driver_wins.png",
+      "title": "Historical Top 10 Driver Wins",
+      "source": "driver_wins_historical.csv",
+      "description": "Ranks the top race-winning drivers in the historical SQLite data."
+    },
+    {
+      "filename": "historical_top10_constructor_wins.png",
+      "title": "Historical Top 10 Constructor Wins",
+      "source": "constructor_wins_historical.csv",
+      "description": "Ranks the top race-winning constructors in the historical SQLite data."
+    },
+    {
+      "filename": "circuit_pole_win_rate_top12.png",
+      "title": "Circuits with Highest Pole Win Rate",
+      "source": "f1_features.csv filtered to 2019-2025",
+      "description": "Highlights circuits where pole position most often converted to victory without 2026 data."
+    },
+    {
+      "filename": "driver_points_heatmap_top10.png",
+      "title": "Driver Points Heatmap, Top 10 Drivers",
+      "source": "driver_points_by_year.csv filtered to 2019-2025",
+      "description": "Shows year-by-year points for the top modern drivers as a compact heatmap."
+    },
+    {
+      "filename": "constructor_points_share_top6.png",
+      "title": "Constructor Points Share, Top 6 Teams",
+      "source": "constructor_points_by_year.csv filtered to 2019-2025",
+      "description": "Shows how leading teams' point totals changed relative to each other over time."
+    },
+    {
+      "filename": "constructor_podiums_wins_2019_2025.png",
+      "title": "Constructor Podiums and Wins",
+      "source": "f1_features.csv filtered to 2019-2025",
+      "description": "Compares podium counts and wins by constructor in the modern historical period."
+    },
+    {
+      "filename": "driver_podiums_wins_2019_2025.png",
+      "title": "Driver Podiums and Wins",
+      "source": "f1_features.csv filtered to 2019-2025",
+      "description": "Compares podium counts and wins by driver in the modern historical period."
+    },
+    {
+      "filename": "status_mix_by_year_2019_2025.png",
+      "title": "Race Result Status Mix by Season",
+      "source": "f1_features.csv filtered to 2019-2025",
+      "description": "Shows the share of finished, lapped, and other race statuses by season."
+    },
+    {
+      "filename": "circuit_position_change_2019_2025.png",
+      "title": "Average Position Change by Circuit",
+      "source": "f1_features.csv filtered to 2019-2025",
+      "description": "Contrasts circuits where drivers tend to gain or lose positions from start to finish."
+    },
+    {
+      "filename": "qualifying_finish_heatmap_2019_2025.png",
+      "title": "Qualifying Position vs Finish Position Heatmap",
+      "source": "f1_features.csv filtered to 2019-2025",
+      "description": "Shows the joint distribution of qualifying position and final race position."
+    },
+    {
+      "filename": "constructor_rank_bump_chart_2019_2025.png",
+      "title": "Constructor Championship Rank Bump Chart",
+      "source": "constructor_points_by_year.csv filtered to 2019-2025",
+      "description": "Shows how leading constructor ranking changed across seasons."
+    },
+    {
+      "filename": "circuit_grid_importance_bubble_2019_2025.png",
+      "title": "Circuit Grid Importance Bubble Chart",
+      "source": "f1_features.csv filtered to 2019-2025",
+      "description": "Compares circuits by pole win rate, position-change volatility, race count, and grid-finish correlation."
+    },
+    {
+      "filename": "driver_consistency_scatter_2019_2025.png",
+      "title": "Driver Performance and Consistency",
+      "source": "f1_features.csv filtered to 2019-2025",
+      "description": "Compares drivers by average finish, finish variability, podium rate, and average points."
+    },
+    {
+      "filename": "constructor_qualifying_race_efficiency_2019_2025.png",
+      "title": "Constructor Qualifying-to-Race Efficiency",
+      "source": "f1_features.csv filtered to 2019-2025",
+      "description": "Compares teams' average grid position with average finish position, sized by podium rate."
+    },
+    {
+      "filename": "position_change_distribution_2019_2025.png",
+      "title": "Race Position Change Distribution",
+      "source": "f1_features.csv filtered to 2019-2025",
+      "description": "Shows how often drivers gained or lost positions relative to their grid starts."
+    }
+  ]
+}

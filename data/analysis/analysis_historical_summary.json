@@ -1,0 +1,13 @@
+{
+  "built_at": "2026-05-27T03:05:38.490187+00:00",
+  "source_database": "formula-1-race-data-sqlite\\Formula1.sqlite",
+  "output_dir": "data\\analysis",
+  "output_files": [
+    "dataset_overview_historical.csv",
+    "races_by_year_historical.csv",
+    "driver_wins_historical.csv",
+    "constructor_wins_historical.csv",
+    "grid_finish_summary_historical.csv",
+    "grid_position_summary_historical.csv"
+  ]
+}

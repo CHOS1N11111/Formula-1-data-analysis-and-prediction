@@ -1,0 +1,82 @@
+﻿season,constructor_id,constructor_name,records,total_points,wins,podiums,top10s,avg_finish_position
+2019,mercedes,Mercedes,42,739.0000,15,32,40,3.2381
+2019,ferrari,Ferrari,42,504.0000,3,19,34,6.0000
+2019,red_bull,Red Bull,42,417.0000,3,9,36,6.2619
+2019,mclaren,McLaren,42,145.0000,0,1,24,10.6905
+2019,renault,Renault,42,91.0000,0,0,18,11.9762
+2019,toro_rosso,Toro Rosso,42,85.0000,0,2,20,11.5000
+2019,racing_point,Racing Point,42,73.0000,0,0,17,11.7857
+2019,alfa,Alfa Romeo,42,57.0000,0,0,13,12.7381
+2019,haas,Haas F1 Team,42,28.0000,0,0,7,14.4048
+2019,williams,Williams,42,1.0000,0,0,1,16.4048
+2020,mercedes,Mercedes,34,573.0000,13,25,31,3.7353
+2020,red_bull,Red Bull,34,319.0000,2,13,24,7.7059
+2020,racing_point,Racing Point,34,210.0000,1,4,25,9.2059
+2020,mclaren,McLaren,34,202.0000,0,2,25,8.6176
+2020,renault,Renault,34,181.0000,0,3,24,8.9412
+2020,ferrari,Ferrari,34,131.0000,0,3,17,10.7059
+2020,alphatauri,AlphaTauri,34,107.0000,1,1,17,10.7059
+2020,alfa,Alfa Romeo,34,8.0000,0,0,5,13.8529
+2020,haas,Haas F1 Team,34,3.0000,0,0,2,15.7941
+2020,williams,Williams,34,0.0000,0,0,0,15.7353
+2021,mercedes,Mercedes,44,604.5000,9,28,35,5.4091
+2021,red_bull,Red Bull,44,578.5000,11,23,35,5.8409
+2021,ferrari,Ferrari,44,322.5000,0,5,38,7.1136
+2021,mclaren,McLaren,44,274.0000,1,5,33,7.7955
+2021,alpine,Alpine F1 Team,44,155.0000,1,2,29,10.2500
+2021,alphatauri,AlphaTauri,44,142.0000,0,1,22,11.2727
+2021,aston_martin,Aston Martin,44,77.0000,0,1,16,12.0000
+2021,williams,Williams,44,23.0000,0,1,6,14.7273
+2021,alfa,Alfa Romeo,44,13.0000,0,0,6,13.2045
+2021,haas,Haas F1 Team,44,0.0000,0,0,0,17.3864
+2022,red_bull,Red Bull,44,724.0000,17,28,39,4.4545
+2022,ferrari,Ferrari,44,519.0000,4,20,35,6.6818
+2022,mercedes,Mercedes,44,495.0000,1,17,39,5.5227
+2022,alpine,Alpine F1 Team,44,170.0000,0,0,30,9.8636
+2022,mclaren,McLaren,44,150.0000,0,1,24,10.6364
+2022,aston_martin,Aston Martin,44,55.0000,0,0,18,11.8864
+2022,alfa,Alfa Romeo,44,53.0000,0,0,12,13.2045
+2022,alphatauri,AlphaTauri,44,35.0000,0,0,10,13.5227
+2022,haas,Haas F1 Team,44,33.0000,0,0,8,14.2727
+2022,williams,Williams,44,8.0000,0,0,5,14.9545
+2023,red_bull,Red Bull,44,790.0000,21,30,41,3.5682
+2023,mercedes,Mercedes,44,374.0000,0,8,37,7.1364
+2023,ferrari,Ferrari,44,363.0000,1,9,34,7.8636
+2023,aston_martin,Aston Martin,44,266.0000,0,8,31,8.9091
+2023,mclaren,McLaren,44,266.0000,0,9,27,9.4545
+2023,alpine,Alpine F1 Team,44,110.0000,0,2,23,11.2727
+2023,williams,Williams,44,26.0000,0,0,8,14.1136
+2023,alphatauri,AlphaTauri,44,22.0000,0,0,8,13.6136
+2023,alfa,Alfa Romeo,44,16.0000,0,0,7,14.0000
+2023,haas,Haas F1 Team,44,9.0000,0,0,4,15.0682
+2024,mclaren,McLaren,48,609.0000,6,21,46,4.7083
+2024,ferrari,Ferrari,48,595.0000,5,22,42,5.1458
+2024,red_bull,Red Bull,48,537.0000,9,18,39,6.6250
+2024,mercedes,Mercedes,48,433.0000,4,9,42,6.8542
+2024,aston_martin,Aston Martin,48,94.0000,0,0,20,11.7708
+2024,alpine,Alpine F1 Team,48,63.0000,0,2,14,13.3125
+2024,haas,Haas F1 Team,48,51.0000,0,0,16,12.3958
+2024,rb,RB F1 Team,48,40.0000,0,0,14,13.2917
+2024,williams,Williams,47,17.0000,0,0,6,15.1277
+2024,sauber,Sauber,48,4.0000,0,0,1,15.6667
+2025,mclaren,McLaren,48,775.0000,14,34,43,4.2292
+2025,mercedes,Mercedes,48,424.0000,2,12,37,7.1875
+2025,red_bull,Red Bull,48,410.0000,8,15,30,8.1042
+2025,ferrari,Ferrari,48,360.0000,0,7,39,7.6250
+2025,williams,Williams,48,124.0000,0,2,21,11.6042
+2025,rb,RB F1 Team,48,88.0000,0,1,17,12.3125
+2025,aston_martin,Aston Martin,47,80.0000,0,0,16,12.7660
+2025,haas,Haas F1 Team,48,73.0000,0,0,18,12.1458
+2025,sauber,Sauber,48,70.0000,0,1,14,13.5208
+2025,alpine,Alpine F1 Team,48,20.0000,0,0,5,15.3542
+2026,mercedes,Mercedes,8,160.0000,4,6,8,2.0000
+2026,ferrari,Ferrari,8,89.0000,0,3,8,4.6250
+2026,mclaren,McLaren,8,71.0000,0,3,5,9.6250
+2026,red_bull,Red Bull,8,26.0000,0,0,4,12.1250
+2026,alpine,Alpine F1 Team,8,22.0000,0,0,5,11.3750
+2026,haas,Haas F1 Team,8,17.0000,0,0,3,11.6250
+2026,rb,RB F1 Team,8,12.0000,0,0,3,12.1250
+2026,williams,Williams,8,5.0000,0,0,3,14.0000
+2026,audi,Audi,8,2.0000,0,0,1,14.7500
+2026,cadillac,Cadillac F1 Team,8,0.0000,0,0,0,16.6250
+2026,aston_martin,Aston Martin,8,0.0000,0,0,0,17.6250

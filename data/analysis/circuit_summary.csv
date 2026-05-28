@@ -1,0 +1,32 @@
+﻿circuit_id,circuit_name,country,race_count,records,avg_position_change,pole_win_rate,front3_podium_rate,winner_constructor_count
+albert_park,Albert Park Grand Prix Circuit,Australia,6,121,0.0000,0.6667,0.6667,4
+americas,Circuit of the Americas,USA,6,120,-0.1610,0.5000,0.7222,3
+bahrain,Bahrain International Circuit,Bahrain,8,160,-0.0377,0.6250,0.5833,5
+baku,Baku City Circuit,Azerbaijan,6,120,-0.1197,0.3333,0.6667,3
+catalunya,Circuit de Barcelona-Catalunya,Spain,7,139,-0.0507,0.5714,0.7143,3
+hockenheimring,Hockenheimring,Germany,1,20,0.0000,0.0000,0.3333,1
+hungaroring,Hungaroring,Hungary,7,140,-0.1250,0.1429,0.5714,4
+imola,Autodromo Enzo e Dino Ferrari,Italy,5,100,-0.0306,0.4000,0.7333,2
+interlagos,Autódromo José Carlos Pace,Brazil,6,120,-0.0932,0.6667,0.4444,3
+istanbul,Istanbul Park,Turkey,2,40,-0.0789,0.5000,0.5000,1
+jeddah,Jeddah Corniche Circuit,Saudi Arabia,5,100,0.0000,0.6000,0.8000,3
+losail,Losail International Circuit,Qatar,4,80,0.0000,0.5000,0.5000,2
+marina_bay,Marina Bay Street Circuit,Singapore,5,100,-0.0612,0.6000,0.6000,4
+miami,Miami International Autodrome,USA,5,102,0.0400,0.2000,0.6000,3
+monaco,Circuit de Monaco,Monaco,6,120,0.0000,0.6667,0.7778,4
+monza,Autodromo Nazionale di Monza,Italy,7,140,-0.0073,0.2857,0.7143,4
+mugello,Autodromo Internazionale del Mugello,Italy,1,20,0.0000,1.0000,0.6667,1
+nurburgring,Nürburgring,Germany,1,20,0.0000,0.0000,0.6667,1
+portimao,Autódromo Internacional do Algarve,Portugal,2,40,0.0000,0.5000,1.0000,1
+red_bull_ring,Red Bull Ring,Austria,9,180,-0.1017,0.6667,0.7037,4
+ricard,Circuit Paul Ricard,France,3,60,-0.1186,0.6667,0.6667,2
+rodriguez,Autódromo Hermanos Rodríguez,Mexico,6,120,-0.0847,0.5000,0.6667,4
+shanghai,Shanghai International Circuit,China,4,82,-0.1235,0.7500,0.9167,3
+silverstone,Silverstone Circuit,UK,8,160,-0.0252,0.3750,0.6667,4
+sochi,Sochi Autodrom,Russia,3,60,-0.2542,0.0000,0.6667,1
+spa,Circuit de Spa-Francorchamps,Belgium,7,140,0.0074,0.4286,0.8095,4
+suzuka,Suzuka Circuit,Japan,6,122,-0.0248,0.8333,0.7778,2
+vegas,Las Vegas Strip Street Circuit,USA,3,60,0.0000,0.3333,0.5556,2
+villeneuve,Circuit Gilles Villeneuve,Canada,5,100,-0.0303,0.6000,0.8667,2
+yas_marina,Yas Marina Circuit,UAE,7,140,0.0000,1.0000,0.8571,3
+zandvoort,Circuit Park Zandvoort,Netherlands,5,100,-0.1959,1.0000,0.6667,2

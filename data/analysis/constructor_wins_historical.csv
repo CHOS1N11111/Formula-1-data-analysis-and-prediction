@@ -1,0 +1,31 @@
+﻿constructor_id,constructor_name,nationality,wins,first_win_year,last_win_year
+ferrari,Ferrari,Italian,230,1951,2017
+mclaren,McLaren,British,178,1972,2012
+williams,Williams,British,114,1979,2012
+mercedes,Mercedes,German,76,1954,2017
+red_bull,Red Bull,Austrian,55,2009,2017
+team_lotus,Team Lotus,British,45,1960,1987
+renault,Renault,French,35,1979,2008
+benetton,Benetton,Italian,27,1986,1997
+brabham,Brabham,British,23,1970,1985
+tyrrell,Tyrrell,British,23,1971,1983
+lotus-climax,Lotus-Climax,British,22,1961,1965
+brm,BRM,British,17,1959,1972
+cooper-climax,Cooper-Climax,British,12,1959,1962
+alfa,Alfa Romeo,Italian,11,1950,1951
+lotus-ford,Lotus-Ford,British,11,1967,1969
+vanwall,Vanwall,British,10,1957,1958
+ligier,Ligier,French,9,1977,1996
+maserati,Maserati,Italian,9,1953,1957
+matra-ford,Matra-Ford,French,9,1968,1969
+brabham-repco,Brabham-Repco,British,8,1966,1967
+brawn,Brawn,British,8,2009,2009
+kurtis_kraft,Kurtis Kraft,American,5,1950,1955
+jordan,Jordan,Irish,4,1998,2003
+mclaren-ford,McLaren-Ford,British,4,1968,1969
+honda,Honda,Japanese,3,1965,2006
+march,March,British,3,1970,1976
+watson,Watson,American,3,1956,1960
+wolf,Wolf,Canadian,3,1977,1977
+brabham-climax,Brabham-Climax,British,2,1964,1964
+brabham-ford,Brabham-Ford,British,2,1969,1969

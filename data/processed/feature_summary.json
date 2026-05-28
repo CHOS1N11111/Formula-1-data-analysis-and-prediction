@@ -1,0 +1,36 @@
+{
+  "built_at": "2026-05-26T13:22:11.813547+00:00",
+  "input": "data\\processed\\f1_model_dataset.csv",
+  "output": "data\\processed\\f1_features.csv",
+  "rows_total": 3126,
+  "rows_by_year": {
+    "2019": 420,
+    "2020": 340,
+    "2021": 440,
+    "2022": 440,
+    "2023": 440,
+    "2024": 479,
+    "2025": 479,
+    "2026": 88
+  },
+  "rolling_window": 3,
+  "feature_fields": [
+    "driver_pre_race_points",
+    "driver_pre_race_rank",
+    "constructor_pre_race_points",
+    "constructor_pre_race_rank",
+    "driver_last3_avg_points",
+    "driver_last3_avg_finish_position",
+    "driver_last3_podium_count",
+    "constructor_last3_avg_points",
+    "constructor_last3_podium_count",
+    "driver_history_count",
+    "constructor_history_count",
+    "driver_has_history",
+    "constructor_has_history",
+    "missing_qualifying",
+    "grid_is_zero"
+  ],
+  "missing_qualifying_rows": 7,
+  "grid_zero_rows": 44
+}

@@ -1,0 +1,25 @@
+{
+  "built_at": "2026-05-28T08:37:45.544593+00:00",
+  "input_features": "data\\processed\\f1_features.csv",
+  "input_2026_schedule": "data\\processed\\f1_2026_schedule.csv",
+  "output_dir": "data\\analysis",
+  "output_files": [
+    "dataset_overview.csv",
+    "dataset_overview_by_year.csv",
+    "grid_finish_summary.csv",
+    "grid_position_summary.csv",
+    "qualifying_position_summary.csv",
+    "driver_summary.csv",
+    "driver_points_by_year.csv",
+    "constructor_summary.csv",
+    "constructor_points_by_year.csv",
+    "circuit_summary.csv",
+    "current_2026_driver_standings.csv",
+    "current_2026_constructor_standings.csv",
+    "completed_2026_results.csv",
+    "remaining_2026_schedule.csv"
+  ],
+  "record_count": 3126,
+  "current_2026_completed_races": 4,
+  "current_2026_remaining_races": 18
+}

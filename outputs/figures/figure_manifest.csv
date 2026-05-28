@@ -1,0 +1,25 @@
+﻿filename,title,source,description
+yearly_records_2019_2025.png,Modern Dataset Size by Season,dataset_overview_by_year.csv,Shows yearly sample size and race count for the 2019-2025 modern historical analysis dataset.
+grid_position_outcome_rates.png,Race Outcome Rates by Grid Position,f1_features.csv filtered to 2019-2025,"Compares win, podium, and top-10 rates for each starting grid position without 2026 data."
+qualifying_position_outcome_rates.png,Qualifying Position and Race Outcome,f1_features.csv filtered to 2019-2025,"Shows how qualifying position relates to podium rate, top-10 rate, and average finish without 2026 data."
+grid_advantage_historical_vs_modern.png,Grid Advantage: Historical vs Modern Era,f1_features.csv filtered to 2019-2025; grid_finish_summary_historical.csv,Compares grid-position outcome rates between long-run history and the 2019-2025 modern historical dataset.
+top10_driver_points_2019_2025.png,Top 10 Drivers by Total Points,f1_features.csv filtered to 2019-2025,Ranks the top drivers in the 2019-2025 modern historical dataset by total points.
+constructor_points_2019_2025.png,Top Constructors by Total Points,f1_features.csv filtered to 2019-2025,Ranks constructors by total points in the 2019-2025 modern historical dataset.
+driver_points_trend_top6.png,"Driver Points Trend, Top 6 Modern Drivers",driver_points_by_year.csv,Shows season-by-season point trends for the highest-scoring drivers.
+constructor_points_trend_top6.png,"Constructor Points Trend, Top 6 Modern Teams",constructor_points_by_year.csv,Shows season-by-season point trends for leading constructors.
+historical_races_by_year.png,Formula 1 Race Count by Year,races_by_year_historical.csv,Shows the expansion of the F1 calendar from 1950 to 2018.
+historical_top10_driver_wins.png,Historical Top 10 Driver Wins,driver_wins_historical.csv,Ranks the top race-winning drivers in the historical SQLite data.
+historical_top10_constructor_wins.png,Historical Top 10 Constructor Wins,constructor_wins_historical.csv,Ranks the top race-winning constructors in the historical SQLite data.
+circuit_pole_win_rate_top12.png,Circuits with Highest Pole Win Rate,f1_features.csv filtered to 2019-2025,Highlights circuits where pole position most often converted to victory without 2026 data.
+driver_points_heatmap_top10.png,"Driver Points Heatmap, Top 10 Drivers",driver_points_by_year.csv filtered to 2019-2025,Shows year-by-year points for the top modern drivers as a compact heatmap.
+constructor_points_share_top6.png,"Constructor Points Share, Top 6 Teams",constructor_points_by_year.csv filtered to 2019-2025,Shows how leading teams' point totals changed relative to each other over time.
+constructor_podiums_wins_2019_2025.png,Constructor Podiums and Wins,f1_features.csv filtered to 2019-2025,Compares podium counts and wins by constructor in the modern historical period.
+driver_podiums_wins_2019_2025.png,Driver Podiums and Wins,f1_features.csv filtered to 2019-2025,Compares podium counts and wins by driver in the modern historical period.
+status_mix_by_year_2019_2025.png,Race Result Status Mix by Season,f1_features.csv filtered to 2019-2025,"Shows the share of finished, lapped, and other race statuses by season."
+circuit_position_change_2019_2025.png,Average Position Change by Circuit,f1_features.csv filtered to 2019-2025,Contrasts circuits where drivers tend to gain or lose positions from start to finish.
+qualifying_finish_heatmap_2019_2025.png,Qualifying Position vs Finish Position Heatmap,f1_features.csv filtered to 2019-2025,Shows the joint distribution of qualifying position and final race position.
+constructor_rank_bump_chart_2019_2025.png,Constructor Championship Rank Bump Chart,constructor_points_by_year.csv filtered to 2019-2025,Shows how leading constructor ranking changed across seasons.
+circuit_grid_importance_bubble_2019_2025.png,Circuit Grid Importance Bubble Chart,f1_features.csv filtered to 2019-2025,"Compares circuits by pole win rate, position-change volatility, race count, and grid-finish correlation."
+driver_consistency_scatter_2019_2025.png,Driver Performance and Consistency,f1_features.csv filtered to 2019-2025,"Compares drivers by average finish, finish variability, podium rate, and average points."
+constructor_qualifying_race_efficiency_2019_2025.png,Constructor Qualifying-to-Race Efficiency,f1_features.csv filtered to 2019-2025,"Compares teams' average grid position with average finish position, sized by podium rate."
+position_change_distribution_2019_2025.png,Race Position Change Distribution,f1_features.csv filtered to 2019-2025,Shows how often drivers gained or lost positions relative to their grid starts.

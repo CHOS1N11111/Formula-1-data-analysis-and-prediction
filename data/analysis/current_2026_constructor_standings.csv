@@ -1,0 +1,12 @@
+﻿rank,constructor_id,constructor_name,points,podiums,top10s
+1,mercedes,Mercedes,160.0000,6,8
+2,ferrari,Ferrari,89.0000,3,8
+3,mclaren,McLaren,71.0000,3,5
+4,red_bull,Red Bull,26.0000,0,4
+5,alpine,Alpine F1 Team,22.0000,0,5
+6,haas,Haas F1 Team,17.0000,0,3
+7,rb,RB F1 Team,12.0000,0,3
+8,williams,Williams,5.0000,0,3
+9,audi,Audi,2.0000,0,1
+10,cadillac,Cadillac F1 Team,0.0000,0,0
+11,aston_martin,Aston Martin,0.0000,0,0

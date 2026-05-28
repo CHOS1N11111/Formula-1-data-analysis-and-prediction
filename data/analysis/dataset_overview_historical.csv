@@ -1,0 +1,13 @@
+﻿metric,value
+race_year_min,1950
+race_year_max,2018
+race_count,997
+result_year_min,1950
+result_year_max,2017
+result_count,23777
+qualifying_year_min,1994
+qualifying_year_max,2017
+qualifying_count,7516
+driver_count,842
+constructor_count,208
+circuit_count,73
