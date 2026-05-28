@@ -1,7 +1,7 @@
 {
-  "built_at": "2026-05-28T23:34:34",
+  "built_at": "2026-05-29T00:12:00",
   "figure_dir": "outputs\\figures",
-  "figure_count": 24,
+  "figure_count": 28,
   "figures": [
     {
       "filename": "yearly_records_2019_2025.png",
@@ -146,6 +146,30 @@
       "title": "Race Position Change Distribution",
       "source": "f1_features.csv filtered to 2019-2025",
       "description": "Shows how often drivers gained or lost positions relative to their grid starts."
+    },
+    {
+      "filename": "feature_correlation_heatmap_2019_2025.png",
+      "title": "Feature Correlation Heatmap",
+      "source": "f1_features.csv filtered to 2019-2025",
+      "description": "Summarizes correlations between race features and finish, podium, and top-10 outcomes."
+    },
+    {
+      "filename": "constructor_competitiveness_by_year_2019_2025.png",
+      "title": "Constructor Points Concentration by Season",
+      "source": "constructor_competitiveness_by_year.csv filtered to 2019-2025",
+      "description": "Shows how much of each season's constructor points were captured by the top teams."
+    },
+    {
+      "filename": "top_driver_position_gain_2019_2025.png",
+      "title": "Top Driver Average Position Gains",
+      "source": "f1_features.csv filtered to 2019-2025",
+      "description": "Ranks drivers by average race position gain from grid to finish."
+    },
+    {
+      "filename": "top_constructor_position_gain_2019_2025.png",
+      "title": "Top Constructor Average Position Gains",
+      "source": "f1_features.csv filtered to 2019-2025",
+      "description": "Ranks constructors by average race position gain from grid to finish."
     }
   ]
 }

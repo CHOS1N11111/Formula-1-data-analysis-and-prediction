@@ -439,6 +439,68 @@ def build_constructor_efficiency_rows(rows):
     return summary_rows
 
 
+def build_feature_correlation_matrix(rows):
+    features = [
+        "grid",
+        "qualifying_position",
+        "driver_pre_race_points",
+        "driver_pre_race_rank",
+        "constructor_pre_race_points",
+        "constructor_pre_race_rank",
+        "driver_last3_avg_points",
+        "driver_last3_avg_finish_position",
+        "driver_last3_podium_count",
+        "constructor_last3_avg_points",
+        "constructor_last3_podium_count",
+    ]
+    targets = ["finish_position", "is_podium", "is_top10"]
+    matrix = []
+    for feature in features:
+        row_values = []
+        for target in targets:
+            row_values.append(
+                pearson_correlation(
+                    [
+                        (to_float(row[feature]), to_float(row[target]))
+                        for row in rows
+                        if row[feature] != "" and row[target] != ""
+                    ]
+                )
+            )
+        matrix.append(row_values)
+    return features, targets, matrix
+
+
+def build_position_gain_summary(rows, group_key, name_key, min_records=20):
+    grouped = {}
+    for row in rows:
+        if to_int(row["grid"]) <= 0:
+            continue
+        grouped.setdefault(row[group_key], []).append(row)
+
+    summary_rows = []
+    for item_id, group in grouped.items():
+        if len(group) < min_records:
+            continue
+        changes = [
+            to_int(row["grid"]) - to_int(row["finish_position"])
+            for row in group
+            if to_int(row["grid"]) > 0
+        ]
+        summary_rows.append(
+            {
+                group_key: item_id,
+                name_key: group[-1][name_key],
+                "records": len(changes),
+                "avg_position_change": average(changes),
+                "positive_change_rate": pct(
+                    sum(1 for value in changes if value > 0), len(changes)
+                ),
+            }
+        )
+    return sorted(summary_rows, key=lambda row: row["avg_position_change"], reverse=True)
+
+
 def setup_figure(width=10, height=6):
     plt.rcParams.update(
         {
@@ -1342,6 +1404,136 @@ def plot_position_change_distribution(manifest, modern_rows):
     )
 
 
+def plot_feature_correlation_heatmap(manifest, modern_rows):
+    features, targets, matrix = build_feature_correlation_matrix(modern_rows)
+    labels = {
+        "grid": "Grid",
+        "qualifying_position": "Qualifying",
+        "driver_pre_race_points": "Driver pre pts",
+        "driver_pre_race_rank": "Driver pre rank",
+        "constructor_pre_race_points": "Team pre pts",
+        "constructor_pre_race_rank": "Team pre rank",
+        "driver_last3_avg_points": "Driver L3 pts",
+        "driver_last3_avg_finish_position": "Driver L3 finish",
+        "driver_last3_podium_count": "Driver L3 podiums",
+        "constructor_last3_avg_points": "Team L3 pts",
+        "constructor_last3_podium_count": "Team L3 podiums",
+        "finish_position": "Finish",
+        "is_podium": "Podium",
+        "is_top10": "Top 10",
+    }
+
+    fig, ax = setup_figure(8.5, 7.5)
+    image = ax.imshow(matrix, cmap="coolwarm", vmin=-1, vmax=1, aspect="auto")
+    ax.set_title("Feature Correlation Heatmap, 2019-2025")
+    ax.set_xticks(range(len(targets)))
+    ax.set_xticklabels([labels[target] for target in targets])
+    ax.set_yticks(range(len(features)))
+    ax.set_yticklabels([labels[feature] for feature in features])
+    ax.grid(False)
+    for y_index, row_values in enumerate(matrix):
+        for x_index, value in enumerate(row_values):
+            ax.text(
+                x_index,
+                y_index,
+                f"{value:.2f}" if value is not None else "",
+                ha="center",
+                va="center",
+                fontsize=8,
+                color="white" if value is not None and abs(value) > 0.45 else "#111827",
+            )
+    colorbar = fig.colorbar(image, ax=ax, fraction=0.035, pad=0.03)
+    colorbar.set_label("Pearson correlation")
+
+    filename = "feature_correlation_heatmap_2019_2025.png"
+    save_current_figure(filename)
+    add_manifest(
+        manifest,
+        filename,
+        "Feature Correlation Heatmap",
+        "f1_features.csv filtered to 2019-2025",
+        "Summarizes correlations between race features and finish, podium, and top-10 outcomes.",
+    )
+
+
+def plot_constructor_competitiveness(manifest):
+    rows = [
+        row
+        for row in read_csv(ANALYSIS_DIR / "constructor_competitiveness_by_year.csv")
+        if 2019 <= to_int(row["season"]) <= 2025
+    ]
+    years = [row["season"] for row in rows]
+    top1 = [to_float(row["top1_points_share"]) * 100 for row in rows]
+    top2 = [to_float(row["top2_points_share"]) * 100 for row in rows]
+    top3 = [to_float(row["top3_points_share"]) * 100 for row in rows]
+
+    fig, ax = setup_figure(10, 5.8)
+    ax.plot(years, top1, marker="o", linewidth=2.2, color=COLORS["red"], label="Top 1 team")
+    ax.plot(years, top2, marker="o", linewidth=2.2, color=COLORS["orange"], label="Top 2 teams")
+    ax.plot(years, top3, marker="o", linewidth=2.2, color=COLORS["blue"], label="Top 3 teams")
+    ax.set_title("Constructor Points Concentration by Season, 2019-2025")
+    ax.set_xlabel("Season")
+    ax.set_ylabel("Share of total constructor points (%)")
+    ax.set_ylim(0, 100)
+    ax.legend()
+
+    filename = "constructor_competitiveness_by_year_2019_2025.png"
+    save_current_figure(filename)
+    add_manifest(
+        manifest,
+        filename,
+        "Constructor Points Concentration by Season",
+        "constructor_competitiveness_by_year.csv filtered to 2019-2025",
+        "Shows how much of each season's constructor points were captured by the top teams.",
+    )
+
+
+def plot_position_gain_leaders(manifest, modern_rows):
+    driver_rows = build_position_gain_summary(modern_rows, "driver_id", "driver_name")[:12]
+    constructor_rows = build_position_gain_summary(
+        modern_rows, "constructor_id", "constructor_name"
+    )[:10]
+
+    driver_rows = list(reversed(driver_rows))
+    fig, ax = setup_figure(10, 6.5)
+    labels = [row["driver_name"] for row in driver_rows]
+    values = [row["avg_position_change"] for row in driver_rows]
+    bars = ax.barh(labels, values, color=COLORS["green"])
+    ax.axvline(0, color="#111827", linewidth=1)
+    ax.set_title("Top Driver Average Position Gains, 2019-2025")
+    ax.set_xlabel("Average grid position minus finish position")
+    add_bar_labels(ax, bars, "{:.2f}", padding=max(values) * 0.01)
+    filename = "top_driver_position_gain_2019_2025.png"
+    save_current_figure(filename)
+    add_manifest(
+        manifest,
+        filename,
+        "Top Driver Average Position Gains",
+        "f1_features.csv filtered to 2019-2025",
+        "Ranks drivers by average race position gain from grid to finish.",
+    )
+
+    constructor_rows = list(reversed(constructor_rows))
+    fig, ax = setup_figure(10, 6)
+    labels = [row["constructor_name"] for row in constructor_rows]
+    values = [row["avg_position_change"] for row in constructor_rows]
+    colors = [TEAM_COLORS.get(label, COLORS["green"]) for label in labels]
+    bars = ax.barh(labels, values, color=colors)
+    ax.axvline(0, color="#111827", linewidth=1)
+    ax.set_title("Top Constructor Average Position Gains, 2019-2025")
+    ax.set_xlabel("Average grid position minus finish position")
+    add_bar_labels(ax, bars, "{:.2f}", padding=max(values) * 0.01)
+    filename = "top_constructor_position_gain_2019_2025.png"
+    save_current_figure(filename)
+    add_manifest(
+        manifest,
+        filename,
+        "Top Constructor Average Position Gains",
+        "f1_features.csv filtered to 2019-2025",
+        "Ranks constructors by average race position gain from grid to finish.",
+    )
+
+
 def main():
     clear_old_figures()
     manifest = []
@@ -1370,6 +1562,9 @@ def main():
     plot_driver_consistency_scatter(manifest, modern_rows)
     plot_constructor_efficiency_scatter(manifest, modern_rows)
     plot_position_change_distribution(manifest, modern_rows)
+    plot_feature_correlation_heatmap(manifest, modern_rows)
+    plot_constructor_competitiveness(manifest)
+    plot_position_gain_leaders(manifest, modern_rows)
 
     write_csv(MANIFEST_CSV, ["filename", "title", "source", "description"], manifest)
     write_json(

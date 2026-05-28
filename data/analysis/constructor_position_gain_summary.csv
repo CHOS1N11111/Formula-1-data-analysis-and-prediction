@@ -1,0 +1,16 @@
+﻿constructor_id,constructor_name,records,avg_position_change,positive_change_rate,large_gain_count,large_loss_count
+toro_rosso,Toro Rosso,41,1.1463,0.5610,9,6
+racing_point,Racing Point,75,0.8267,0.5600,16,11
+sauber,Sauber,96,0.7917,0.5521,15,7
+alfa,Alfa Romeo,201,0.6965,0.5721,34,23
+williams,Williams,304,0.6546,0.5461,49,32
+aston_martin,Aston Martin,230,0.6391,0.5391,42,27
+alpine,Alpine F1 Team,234,0.0726,0.4615,36,34
+haas,Haas F1 Team,306,0.0000,0.4935,35,37
+red_bull,Red Bull,306,-0.0784,0.4641,50,42
+alphatauri,AlphaTauri,159,-0.2201,0.4465,24,25
+mercedes,Mercedes,311,-0.4148,0.4244,27,43
+mclaren,McLaren,312,-0.6346,0.4103,28,52
+renault,Renault,75,-0.6933,0.4533,8,14
+ferrari,Ferrari,312,-0.9135,0.3750,32,50
+rb,RB F1 Team,104,-1.3558,0.3654,6,21

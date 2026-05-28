@@ -87,6 +87,36 @@ def pearson_correlation(x_values, y_values):
     return numerator / (denominator_x * denominator_y)
 
 
+def spearman_correlation(x_values, y_values):
+    pairs = [
+        (x, y)
+        for x, y in zip(x_values, y_values)
+        if x is not None and y is not None
+    ]
+    if len(pairs) < 2:
+        return None
+
+    xs = [pair[0] for pair in pairs]
+    ys = [pair[1] for pair in pairs]
+    return pearson_correlation(rank_values(xs), rank_values(ys))
+
+
+def rank_values(values):
+    sorted_values = sorted((value, index) for index, value in enumerate(values))
+    ranks = [0.0] * len(values)
+    position = 0
+    while position < len(sorted_values):
+        end = position
+        while end + 1 < len(sorted_values) and sorted_values[end + 1][0] == sorted_values[position][0]:
+            end += 1
+        average_rank = (position + 1 + end + 1) / 2
+        for item_index in range(position, end + 1):
+            original_index = sorted_values[item_index][1]
+            ranks[original_index] = average_rank
+        position = end + 1
+    return ranks
+
+
 def pct(numerator, denominator):
     if denominator == 0:
         return None
@@ -245,6 +275,52 @@ def build_grid_finish_analysis(rows):
     return summary, by_grid, by_qualifying
 
 
+def build_feature_correlation_summary(rows):
+    fields = [
+        "grid",
+        "qualifying_position",
+        "driver_pre_race_points",
+        "driver_pre_race_rank",
+        "constructor_pre_race_points",
+        "constructor_pre_race_rank",
+        "driver_last3_avg_points",
+        "driver_last3_avg_finish_position",
+        "driver_last3_podium_count",
+        "constructor_last3_avg_points",
+        "constructor_last3_podium_count",
+        "driver_history_count",
+        "constructor_history_count",
+        "missing_qualifying",
+        "grid_is_zero",
+    ]
+    targets = ["finish_position", "is_podium", "is_top10"]
+    output_rows = []
+
+    for field in fields:
+        x_values = [to_float(row[field]) for row in rows]
+        for target in targets:
+            y_values = [to_float(row[target]) for row in rows]
+            output_rows.append(
+                {
+                    "feature": field,
+                    "target": target,
+                    "pearson_correlation": format_float(
+                        pearson_correlation(x_values, y_values)
+                    ),
+                    "spearman_correlation": format_float(
+                        spearman_correlation(x_values, y_values)
+                    ),
+                    "records": sum(
+                        1
+                        for x_value, y_value in zip(x_values, y_values)
+                        if x_value is not None and y_value is not None
+                    ),
+                }
+            )
+
+    return output_rows
+
+
 def build_driver_summary(rows):
     grouped = defaultdict(list)
     for row in rows:
@@ -381,6 +457,35 @@ def build_constructor_points_by_year(rows):
     )
 
 
+def build_constructor_competitiveness_by_year(constructor_points_by_year):
+    grouped = defaultdict(list)
+    for row in constructor_points_by_year:
+        grouped[row["season"]].append(row)
+
+    output_rows = []
+    for season, group in sorted(grouped.items(), key=lambda item: to_int(item[0])):
+        sorted_group = sorted(
+            group, key=lambda row: to_float(row["total_points"], 0.0), reverse=True
+        )
+        total_points = sum(to_float(row["total_points"], 0.0) for row in sorted_group)
+        top1 = sum(to_float(row["total_points"], 0.0) for row in sorted_group[:1])
+        top2 = sum(to_float(row["total_points"], 0.0) for row in sorted_group[:2])
+        top3 = sum(to_float(row["total_points"], 0.0) for row in sorted_group[:3])
+        output_rows.append(
+            {
+                "season": season,
+                "constructor_count": len(sorted_group),
+                "total_points": format_float(total_points),
+                "top_constructor": sorted_group[0]["constructor_name"] if sorted_group else "",
+                "top1_points_share": format_float(pct(top1, total_points)),
+                "top2_points_share": format_float(pct(top2, total_points)),
+                "top3_points_share": format_float(pct(top3, total_points)),
+            }
+        )
+
+    return output_rows
+
+
 def build_circuit_summary(rows):
     grouped = defaultdict(list)
     for row in rows:
@@ -417,6 +522,46 @@ def build_circuit_summary(rows):
         )
 
     return sorted(summary_rows, key=lambda row: row["circuit_id"])
+
+
+def build_position_gain_summary(rows, group_key, name_key, min_records=20):
+    grouped = defaultdict(list)
+    for row in rows:
+        grid = to_int(row["grid"])
+        finish = to_int(row["finish_position"])
+        if grid is None or finish is None or grid <= 0:
+            continue
+        grouped[row[group_key]].append(row)
+
+    summary_rows = []
+    for item_id, group in grouped.items():
+        if len(group) < min_records:
+            continue
+        changes = [
+            to_int(row["grid"]) - to_int(row["finish_position"])
+            for row in group
+            if to_int(row["grid"], 0) > 0
+        ]
+        positive_count = sum(1 for value in changes if value > 0)
+        large_gain_count = sum(1 for value in changes if value >= 5)
+        large_loss_count = sum(1 for value in changes if value <= -5)
+        summary_rows.append(
+            {
+                group_key: item_id,
+                name_key: group[-1][name_key],
+                "records": len(changes),
+                "avg_position_change": format_float(average(changes)),
+                "positive_change_rate": format_float(pct(positive_count, len(changes))),
+                "large_gain_count": large_gain_count,
+                "large_loss_count": large_loss_count,
+            }
+        )
+
+    return sorted(
+        summary_rows,
+        key=lambda row: to_float(row["avg_position_change"], 0.0),
+        reverse=True,
+    )
 
 
 def build_2026_outputs(rows, schedule_rows):
@@ -489,11 +634,21 @@ def main():
 
     overview, overview_by_year = build_dataset_overview(rows)
     grid_summary, by_grid, by_qualifying = build_grid_finish_analysis(rows)
+    feature_correlation_summary = build_feature_correlation_summary(rows)
     driver_summary = build_driver_summary(rows)
     driver_points_by_year = build_driver_points_by_year(rows)
     constructor_summary = build_constructor_summary(rows)
     constructor_points_by_year = build_constructor_points_by_year(rows)
+    constructor_competitiveness_by_year = build_constructor_competitiveness_by_year(
+        constructor_points_by_year
+    )
     circuit_summary = build_circuit_summary(rows)
+    driver_position_gain_summary = build_position_gain_summary(
+        rows, "driver_id", "driver_name"
+    )
+    constructor_position_gain_summary = build_position_gain_summary(
+        rows, "constructor_id", "constructor_name"
+    )
     (
         current_driver_standings,
         current_constructor_standings,
@@ -520,6 +675,11 @@ def main():
             by_qualifying,
         ),
         (
+            "feature_correlation_summary.csv",
+            ["feature", "target", "pearson_correlation", "spearman_correlation", "records"],
+            feature_correlation_summary,
+        ),
+        (
             "driver_summary.csv",
             ["driver_id", "driver_name", "nationality", "seasons", "starts", "total_points", "avg_points", "wins", "podiums", "top10s", "avg_finish_position", "avg_grid", "avg_qualifying_position"],
             driver_summary,
@@ -540,9 +700,24 @@ def main():
             constructor_points_by_year,
         ),
         (
+            "constructor_competitiveness_by_year.csv",
+            ["season", "constructor_count", "total_points", "top_constructor", "top1_points_share", "top2_points_share", "top3_points_share"],
+            constructor_competitiveness_by_year,
+        ),
+        (
             "circuit_summary.csv",
             ["circuit_id", "circuit_name", "country", "race_count", "records", "avg_position_change", "pole_win_rate", "front3_podium_rate", "winner_constructor_count"],
             circuit_summary,
+        ),
+        (
+            "driver_position_gain_summary.csv",
+            ["driver_id", "driver_name", "records", "avg_position_change", "positive_change_rate", "large_gain_count", "large_loss_count"],
+            driver_position_gain_summary,
+        ),
+        (
+            "constructor_position_gain_summary.csv",
+            ["constructor_id", "constructor_name", "records", "avg_position_change", "positive_change_rate", "large_gain_count", "large_loss_count"],
+            constructor_position_gain_summary,
         ),
         (
             "current_2026_driver_standings.csv",

@@ -23,3 +23,7 @@ circuit_grid_importance_bubble_2019_2025.png,Circuit Grid Importance Bubble Char
 driver_consistency_scatter_2019_2025.png,Driver Performance and Consistency,f1_features.csv filtered to 2019-2025,"Compares drivers by average finish, finish variability, podium rate, and average points."
 constructor_qualifying_race_efficiency_2019_2025.png,Constructor Qualifying-to-Race Efficiency,f1_features.csv filtered to 2019-2025,"Compares teams' average grid position with average finish position, sized by podium rate."
 position_change_distribution_2019_2025.png,Race Position Change Distribution,f1_features.csv filtered to 2019-2025,Shows how often drivers gained or lost positions relative to their grid starts.
+feature_correlation_heatmap_2019_2025.png,Feature Correlation Heatmap,f1_features.csv filtered to 2019-2025,"Summarizes correlations between race features and finish, podium, and top-10 outcomes."
+constructor_competitiveness_by_year_2019_2025.png,Constructor Points Concentration by Season,constructor_competitiveness_by_year.csv filtered to 2019-2025,Shows how much of each season's constructor points were captured by the top teams.
+top_driver_position_gain_2019_2025.png,Top Driver Average Position Gains,f1_features.csv filtered to 2019-2025,Ranks drivers by average race position gain from grid to finish.
+top_constructor_position_gain_2019_2025.png,Top Constructor Average Position Gains,f1_features.csv filtered to 2019-2025,Ranks constructors by average race position gain from grid to finish.

@@ -1,0 +1,36 @@
+﻿driver_id,driver_name,records,avg_position_change,positive_change_rate,large_gain_count,large_loss_count
+bearman,Oliver Bearman,31,2.3226,0.6452,9,2
+raikkonen,Kimi Räikkönen,54,1.7037,0.7222,14,6
+kubica,Robert Kubica,20,1.6000,0.6500,2,0
+latifi,Nicholas Latifi,59,1.4407,0.5932,7,3
+kvyat,Daniil Kvyat,38,1.3684,0.5526,10,4
+zhou,Guanyu Zhou,67,1.1791,0.6119,12,3
+stroll,Lance Stroll,151,1.1523,0.5828,38,20
+colapinto,Franco Colapinto,31,1.0645,0.4839,6,0
+ocon,Esteban Ocon,132,0.8030,0.5682,26,14
+perez,Sergio Pérez,125,0.7120,0.5760,28,16
+giovinazzi,Antonio Giovinazzi,59,0.7119,0.5085,9,5
+mazepin,Nikita Mazepin,22,0.6364,0.5909,1,0
+sargeant,Logan Sargeant,36,0.6111,0.5833,4,3
+hamilton,Lewis Hamilton,155,0.4452,0.5161,19,15
+albon,Alexander Albon,131,0.2214,0.5115,24,20
+mick_schumacher,Mick Schumacher,43,0.1395,0.5116,5,6
+bortoleto,Gabriel Bortoleto,28,0.0000,0.4286,4,2
+vettel,Sebastian Vettel,78,-0.0128,0.5000,13,11
+lawson,Liam Lawson,39,-0.1795,0.4615,5,6
+russell,George Russell,153,-0.2353,0.4771,16,21
+hulkenberg,Nico Hülkenberg,99,-0.2525,0.4646,14,18
+ricciardo,Daniel Ricciardo,107,-0.2617,0.4766,11,17
+max_verstappen,Max Verstappen,156,-0.3910,0.3910,17,18
+kevin_magnussen,Kevin Magnussen,101,-0.4752,0.4653,5,14
+gasly,Pierre Gasly,152,-0.4868,0.4211,20,23
+tsunoda,Yuki Tsunoda,110,-0.5273,0.4091,18,24
+sainz,Carlos Sainz,155,-0.5548,0.4323,22,27
+alonso,Fernando Alonso,118,-0.5593,0.4576,10,20
+norris,Lando Norris,156,-0.7564,0.3910,12,25
+antonelli,Andrea Kimi Antonelli,28,-0.9286,0.2143,3,7
+piastri,Oscar Piastri,74,-1.0135,0.3649,5,11
+bottas,Valtteri Bottas,131,-1.0305,0.3817,8,24
+leclerc,Charles Leclerc,156,-1.2821,0.3269,12,26
+grosjean,Romain Grosjean,34,-1.8235,0.2941,2,7
+hadjar,Isack Hadjar,28,-2.4286,0.2857,1,7
