@@ -1,0 +1,37 @@
+{
+  "built_at": "2026-05-28T23:51:44",
+  "sources": [
+    "formula-1-race-data-sqlite\\Formula1.sqlite",
+    "data\\raw\\jolpica\\2018\\results.json",
+    "data\\processed\\f1_features.csv"
+  ],
+  "constructor_video_season_range": [
+    1950,
+    2025
+  ],
+  "driver_video_season_range": [
+    2019,
+    2025
+  ],
+  "note": "Videos exclude 2026 data. Constructor videos combine SQLite 1950-2017, Jolpica 2018, and processed 2019-2025 rows.",
+  "videos": [
+    {
+      "filename": "constructor_points_race_progress_1950_2025.mp4",
+      "title": "Constructor Season Points Race-by-Race Progress, 1950-2025",
+      "description": "Animated bar chart of constructor season cumulative points after each race. Points reset each season.",
+      "frames": 1149
+    },
+    {
+      "filename": "constructor_all_time_points_progress_1950_2025.mp4",
+      "title": "Constructor All-Time Points Race-by-Race Progress, 1950-2025",
+      "description": "Animated bar chart of all-time constructor cumulative points after each race. Points do not reset by season.",
+      "frames": 1149
+    },
+    {
+      "filename": "driver_points_race_progress_2019_2025.mp4",
+      "title": "Driver Points Race-by-Race Progress, 2019-2025",
+      "description": "Animated bar chart of driver cumulative points after each race.",
+      "frames": 152
+    }
+  ]
+}
