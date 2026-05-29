@@ -318,6 +318,78 @@ video_manifest.json
 
 注意：可视化图表不包含 2026 数据。2026 数据仍保留在分析 CSV 中，后续用于赛季预测，但不进入当前报告图表。
 
+### 11. `train_f1_podium_model.py`
+
+为进入机器学习预测阶段，新增领奖台分类模型脚本。
+
+该脚本读取：
+
+```text
+data/processed/f1_features.csv
+```
+
+输出目录：
+
+```text
+data/modeling/
+```
+
+模型目标：
+
+```text
+is_podium
+```
+
+即预测某位车手在某一站比赛中是否进入前三名领奖台。
+
+使用的主要特征包括：
+
+- 发车位置；
+- 排位名次；
+- 车手赛前积分和赛前排名；
+- 车队赛前积分和赛前排名；
+- 车手近 3 场平均积分、平均完赛名次和领奖台次数；
+- 车队近 3 场平均积分和领奖台次数；
+- 历史参赛次数；
+- 车手、车队和赛道类别特征。
+
+回测方式：
+
+```text
+训练集：2019-2024
+测试集：2025
+```
+
+这样可以模拟真实预测场景，即只能使用过去赛季数据预测未来赛季，避免随机切分带来的未来信息泄露。
+
+模型对比：
+
+- 逻辑回归：作为可解释基线模型；
+- 随机森林：作为非线性集成模型，捕捉特征之间的复杂关系；
+- 极端随机树：作为随机森林的对照集成模型，观察树模型稳定性；
+- 直方图梯度提升：作为提升树模型，进一步比较非线性模型效果。
+
+输出文件包括：
+
+```text
+data/modeling/podium_model_metrics.csv
+data/modeling/podium_predictions_2025.csv
+data/modeling/podium_top3_predictions_2025.csv
+data/modeling/podium_feature_importance.csv
+data/modeling/podium_logistic_feature_effects.csv
+data/modeling/podium_completed_2026_probabilities.csv
+data/modeling/podium_model_summary.json
+```
+
+同时生成模型图表：
+
+```text
+outputs/figures/podium_model_confusion_matrix_2025.png
+outputs/figures/podium_model_feature_importance_2025.png
+```
+
+需要注意：当前还没有对 2026 未完成比赛做最终预测，因为未来比赛的真实排位名次和发车位置尚不可知。当前脚本只对 2026 已完成比赛输出模型概率，用于检查模型对当前赛季已有结果的拟合情况。
+
 ## Jolpica-F1 数据下载结果
 
 已运行 `download_jolpica_f1_data.py`，并使用 `validate_jolpica_f1_data.py` 完成完整性校验。
@@ -1020,6 +1092,73 @@ outputs/videos/video_manifest.json
 
 该文件记录了视频文件名、标题、数据范围、帧数和说明。
 
+## 机器学习建模结果
+
+已运行：
+
+```powershell
+python train_f1_podium_model.py
+```
+
+输出目录：
+
+```text
+data/modeling/
+```
+
+本阶段完成的是“是否登上领奖台”的二分类模型。为了避免未来信息泄露，模型采用时间顺序回测：
+
+```text
+训练集：2019-2024，共 2559 条记录，其中领奖台样本 384 条
+测试集：2025，共 479 条记录，其中领奖台样本 72 条
+```
+
+模型对比结果：
+
+```text
+| 模型 | F1 | ROC-AUC | 逐站 Top 3 命中率 | 平均每站命中真实领奖台车手数 |
+| --- | ---: | ---: | ---: | ---: |
+| Logistic Regression | 0.6826 | 0.9193 | 0.6528 | 1.9583 |
+| Random Forest | 0.7375 | 0.9482 | 0.7222 | 2.1667 |
+| Extra Trees | 0.7052 | 0.9370 | 0.6806 | 2.0417 |
+| HistGradientBoosting | 0.6950 | 0.9338 | 0.6528 | 1.9583 |
+```
+
+因此当前选择随机森林作为第一版最佳模型。模型结果说明，基于赛前积分、近期状态、排位和发车位置等特征，可以较好地区分领奖台候选车手。
+
+主要输出文件：
+
+```text
+data/modeling/podium_model_metrics.csv
+data/modeling/podium_predictions_2025.csv
+data/modeling/podium_top3_predictions_2025.csv
+data/modeling/podium_feature_importance.csv
+data/modeling/podium_logistic_feature_effects.csv
+data/modeling/podium_completed_2026_probabilities.csv
+data/modeling/podium_model_summary.json
+```
+
+模型图表：
+
+```text
+outputs/figures/podium_model_confusion_matrix_2025.png
+outputs/figures/podium_model_feature_importance_2025.png
+```
+
+随机森林特征重要性最高的变量包括：
+
+```text
+grid
+qualifying_position
+constructor_last3_avg_points
+constructor_pre_race_rank
+driver_pre_race_rank
+driver_last3_avg_points
+constructor_last3_podium_count
+```
+
+这与 F1 场景相符：发车位置、排位表现、车队近期实力和车手赛前状态是领奖台概率的重要影响因素。
+
 ## 后续预测方案
 
 ### 1. 预测目标
@@ -1212,15 +1351,15 @@ is_top10 = 1 if finish_position <= 10 else 0
 
 ## 下一步计划
 
-建模宽表、赛前特征、基础统计、深度分析指标、静态图表和动态视频均已生成。下一步应进入第一版预测模型和课程报告整理。
+建模宽表、赛前特征、基础统计、深度分析指标、静态图表、动态视频和第一版领奖台预测模型均已生成。下一步应继续完善 2026 赛季预测和课程报告整理。
 
 建议后续按以下顺序推进：
 
-1. 基于 `data/processed/f1_features.csv` 训练第一版“是否领奖台”分类模型；
-2. 使用时间顺序回测评价模型，避免随机切分造成未来信息泄露；
-3. 输出模型评价指标、特征重要性和混淆矩阵；
-4. 将 2026 当前积分榜与剩余赛程结合，生成赛季排名预测；
-5. 整理课程报告中的数据来源、处理流程、分析结果、可视化和后续改进部分。
+1. 为 2026 未完成比赛构造可预测特征，处理未知排位和发车位问题；
+2. 将 2026 当前积分榜与剩余比赛预测概率结合，生成赛季排名预测；
+3. 输出 2026 预测积分榜和预测领奖台概率表；
+4. 为预测结果补充可视化图表；
+5. 整理课程报告中的数据来源、处理流程、分析结果、模型结果、可视化和后续改进部分。
 
 ## 当前运行方式
 
@@ -1297,6 +1436,7 @@ python analyze_f1_basic_stats.py
 python analyze_f1_historical_sqlite.py
 python visualize_f1_analysis.py
 python animate_f1_points.py
+python train_f1_podium_model.py
 ```
 
 如果基础 Kaggle 数据集已经存在，可以跳过第一步。

@@ -36,12 +36,14 @@
 |-- analyze_f1_historical_sqlite.py
 |-- visualize_f1_analysis.py
 |-- animate_f1_points.py
+|-- train_f1_podium_model.py
 |-- project_log.md
 |-- README.md
 |-- README_zh.md
 |-- requirements.txt
 |-- data/
 |   |-- processed/
+|   |-- modeling/
 |   `-- analysis/
 `-- outputs/
     |-- figures/
@@ -94,6 +96,7 @@ python analyze_f1_basic_stats.py
 python analyze_f1_historical_sqlite.py
 python visualize_f1_analysis.py
 python animate_f1_points.py
+python train_f1_podium_model.py
 ```
 
 如果本地已经存在 Kaggle 数据集或 Jolpica-F1 原始数据，可以跳过对应下载步骤。
@@ -112,6 +115,12 @@ data/processed/f1_2026_schedule.csv
 
 ```text
 data/analysis/
+```
+
+机器学习输出：
+
+```text
+data/modeling/
 ```
 
 静态图表：
@@ -153,6 +162,13 @@ outputs/OUTPUTS_DESCRIPTION.md
 - 队友内部对比分析；
 - 赛道波动指数分析；
 - 2026 当前赛季状态表。
+
+机器学习部分包括：
+
+- 以“是否登上领奖台”为分类目标；
+- 使用 2019-2024 训练、2025 测试的时间顺序回测；
+- 对比逻辑回归、随机森林、极端随机树和直方图梯度提升模型；
+- 输出混淆矩阵、特征重要性和逐站 Top 3 领奖台候选命中情况。
 
 历史背景分析包括：
 

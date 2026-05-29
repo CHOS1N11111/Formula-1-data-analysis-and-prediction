@@ -36,10 +36,12 @@ For report figures, the visualizations intentionally exclude 2026 data. The 2026
 |-- analyze_f1_historical_sqlite.py
 |-- visualize_f1_analysis.py
 |-- animate_f1_points.py
+|-- train_f1_podium_model.py
 |-- project_log.md
 |-- requirements.txt
 |-- data/
 |   |-- processed/
+|   |-- modeling/
 |   `-- analysis/
 `-- outputs/
     |-- figures/
@@ -99,6 +101,7 @@ python analyze_f1_basic_stats.py
 python analyze_f1_historical_sqlite.py
 python visualize_f1_analysis.py
 python animate_f1_points.py
+python train_f1_podium_model.py
 ```
 
 If the Kaggle datasets or raw Jolpica-F1 data already exist locally, the download steps can be skipped.
@@ -117,6 +120,12 @@ Analysis tables:
 
 ```text
 data/analysis/
+```
+
+Model outputs:
+
+```text
+data/modeling/
 ```
 
 Figures:
@@ -151,6 +160,13 @@ Modern analysis includes:
 - Teammate comparison
 - Circuit volatility index
 - 2026 current-season state tables
+
+Machine learning includes:
+
+- Podium classification target
+- Time-based backtest with 2019-2024 training and 2025 testing
+- Logistic regression, random forest, extra trees, and histogram gradient boosting comparison
+- Confusion matrix, feature importance, and race-level top-3 podium candidate evaluation
 
 Historical analysis includes:
 

@@ -297,3 +297,21 @@ These files list all generated figures, their titles, source data, and descripti
 #### [`videos/video_manifest.json`](videos/video_manifest.json)
 
 This file lists all generated videos, their titles, data ranges, sources, frame counts, and descriptions.
+
+## Model Figures
+
+#### [`figures/podium_model_confusion_matrix_2025.png`](figures/podium_model_confusion_matrix_2025.png)
+
+![Podium Prediction Confusion Matrix](figures/podium_model_confusion_matrix_2025.png)
+
+Shows the 2025 backtest confusion matrix for the selected podium prediction model. It compares actual podium labels with predicted podium labels.
+
+Use in report: machine learning model evaluation.
+
+#### [`figures/podium_model_feature_importance_2025.png`](figures/podium_model_feature_importance_2025.png)
+
+![Podium Model Feature Importance](figures/podium_model_feature_importance_2025.png)
+
+Shows the strongest logistic-regression feature effects for podium prediction. Positive coefficients increase podium probability, while negative coefficients reduce it.
+
+Use in report: model interpretation and feature analysis.

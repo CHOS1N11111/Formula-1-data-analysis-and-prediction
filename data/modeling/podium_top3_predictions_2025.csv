@@ -1,0 +1,73 @@
+﻿season,round,race_name,predicted_rank,driver_id,driver_name,constructor_name,podium_probability,actual_is_podium,actual_finish_position
+2025,1,Australian Grand Prix,1,norris,Lando Norris,McLaren,0.823790,1,1
+2025,1,Australian Grand Prix,2,max_verstappen,Max Verstappen,Red Bull,0.812251,1,2
+2025,1,Australian Grand Prix,3,piastri,Oscar Piastri,McLaren,0.803131,0,9
+2025,2,Chinese Grand Prix,1,norris,Lando Norris,McLaren,0.885693,1,2
+2025,2,Chinese Grand Prix,2,max_verstappen,Max Verstappen,Red Bull,0.815691,0,4
+2025,2,Chinese Grand Prix,3,russell,George Russell,Mercedes,0.792423,1,3
+2025,3,Japanese Grand Prix,1,norris,Lando Norris,McLaren,0.923479,1,2
+2025,3,Japanese Grand Prix,2,piastri,Oscar Piastri,McLaren,0.864684,1,3
+2025,3,Japanese Grand Prix,3,max_verstappen,Max Verstappen,Red Bull,0.796316,1,1
+2025,4,Bahrain Grand Prix,1,piastri,Oscar Piastri,McLaren,0.894301,1,1
+2025,4,Bahrain Grand Prix,2,russell,George Russell,Mercedes,0.839864,1,2
+2025,4,Bahrain Grand Prix,3,antonelli,Andrea Kimi Antonelli,Mercedes,0.713646,0,11
+2025,5,Saudi Arabian Grand Prix,1,piastri,Oscar Piastri,McLaren,0.916253,1,1
+2025,5,Saudi Arabian Grand Prix,2,max_verstappen,Max Verstappen,Red Bull,0.834821,1,2
+2025,5,Saudi Arabian Grand Prix,3,russell,George Russell,Mercedes,0.834569,0,5
+2025,6,Miami Grand Prix,1,norris,Lando Norris,McLaren,0.920109,1,2
+2025,6,Miami Grand Prix,2,piastri,Oscar Piastri,McLaren,0.891919,1,1
+2025,6,Miami Grand Prix,3,max_verstappen,Max Verstappen,Red Bull,0.878648,0,4
+2025,7,Emilia Romagna Grand Prix,1,piastri,Oscar Piastri,McLaren,0.924249,1,3
+2025,7,Emilia Romagna Grand Prix,2,norris,Lando Norris,McLaren,0.870723,1,2
+2025,7,Emilia Romagna Grand Prix,3,russell,George Russell,Mercedes,0.831503,0,7
+2025,8,Monaco Grand Prix,1,piastri,Oscar Piastri,McLaren,0.912560,1,3
+2025,8,Monaco Grand Prix,2,norris,Lando Norris,McLaren,0.909109,1,1
+2025,8,Monaco Grand Prix,3,max_verstappen,Max Verstappen,Red Bull,0.769012,0,4
+2025,9,Spanish Grand Prix,1,norris,Lando Norris,McLaren,0.915236,1,2
+2025,9,Spanish Grand Prix,2,piastri,Oscar Piastri,McLaren,0.909112,1,1
+2025,9,Spanish Grand Prix,3,max_verstappen,Max Verstappen,Red Bull,0.833464,0,10
+2025,10,Canadian Grand Prix,1,piastri,Oscar Piastri,McLaren,0.910203,0,4
+2025,10,Canadian Grand Prix,2,max_verstappen,Max Verstappen,Red Bull,0.801895,1,2
+2025,10,Canadian Grand Prix,3,russell,George Russell,Mercedes,0.733670,1,1
+2025,11,Austrian Grand Prix,1,piastri,Oscar Piastri,McLaren,0.897150,1,2
+2025,11,Austrian Grand Prix,2,norris,Lando Norris,McLaren,0.895952,1,1
+2025,11,Austrian Grand Prix,3,leclerc,Charles Leclerc,Ferrari,0.869190,1,3
+2025,12,British Grand Prix,1,piastri,Oscar Piastri,McLaren,0.918775,1,2
+2025,12,British Grand Prix,2,norris,Lando Norris,McLaren,0.896122,1,1
+2025,12,British Grand Prix,3,max_verstappen,Max Verstappen,Red Bull,0.769261,0,5
+2025,13,Belgian Grand Prix,1,piastri,Oscar Piastri,McLaren,0.916433,1,1
+2025,13,Belgian Grand Prix,2,norris,Lando Norris,McLaren,0.905981,1,2
+2025,13,Belgian Grand Prix,3,leclerc,Charles Leclerc,Ferrari,0.800404,1,3
+2025,14,Hungarian Grand Prix,1,piastri,Oscar Piastri,McLaren,0.917556,1,2
+2025,14,Hungarian Grand Prix,2,norris,Lando Norris,McLaren,0.904618,1,1
+2025,14,Hungarian Grand Prix,3,leclerc,Charles Leclerc,Ferrari,0.843990,0,4
+2025,15,Dutch Grand Prix,1,piastri,Oscar Piastri,McLaren,0.920886,1,1
+2025,15,Dutch Grand Prix,2,norris,Lando Norris,McLaren,0.912332,0,18
+2025,15,Dutch Grand Prix,3,max_verstappen,Max Verstappen,Red Bull,0.729617,1,2
+2025,16,Italian Grand Prix,1,piastri,Oscar Piastri,McLaren,0.917793,1,3
+2025,16,Italian Grand Prix,2,norris,Lando Norris,McLaren,0.897684,1,2
+2025,16,Italian Grand Prix,3,max_verstappen,Max Verstappen,Red Bull,0.783160,1,1
+2025,17,Azerbaijan Grand Prix,1,max_verstappen,Max Verstappen,Red Bull,0.837350,1,1
+2025,17,Azerbaijan Grand Prix,2,russell,George Russell,Mercedes,0.656617,1,2
+2025,17,Azerbaijan Grand Prix,3,piastri,Oscar Piastri,McLaren,0.644595,0,20
+2025,18,Singapore Grand Prix,1,max_verstappen,Max Verstappen,Red Bull,0.889613,1,2
+2025,18,Singapore Grand Prix,2,piastri,Oscar Piastri,McLaren,0.869988,0,4
+2025,18,Singapore Grand Prix,3,russell,George Russell,Mercedes,0.766009,1,1
+2025,19,United States Grand Prix,1,max_verstappen,Max Verstappen,Red Bull,0.890227,1,1
+2025,19,United States Grand Prix,2,norris,Lando Norris,McLaren,0.881915,1,2
+2025,19,United States Grand Prix,3,russell,George Russell,Mercedes,0.820551,0,6
+2025,20,Mexico City Grand Prix,1,norris,Lando Norris,McLaren,0.876106,1,1
+2025,20,Mexico City Grand Prix,2,russell,George Russell,Mercedes,0.820717,0,7
+2025,20,Mexico City Grand Prix,3,max_verstappen,Max Verstappen,Red Bull,0.788030,1,3
+2025,21,São Paulo Grand Prix,1,norris,Lando Norris,McLaren,0.887681,1,1
+2025,21,São Paulo Grand Prix,2,leclerc,Charles Leclerc,Ferrari,0.851999,0,19
+2025,21,São Paulo Grand Prix,3,piastri,Oscar Piastri,McLaren,0.795858,0,5
+2025,22,Las Vegas Grand Prix,1,norris,Lando Norris,McLaren,0.926432,0,19
+2025,22,Las Vegas Grand Prix,2,max_verstappen,Max Verstappen,Red Bull,0.904954,1,1
+2025,22,Las Vegas Grand Prix,3,russell,George Russell,Mercedes,0.750871,1,2
+2025,23,Qatar Grand Prix,1,norris,Lando Norris,McLaren,0.892208,0,4
+2025,23,Qatar Grand Prix,2,max_verstappen,Max Verstappen,Red Bull,0.874687,1,1
+2025,23,Qatar Grand Prix,3,piastri,Oscar Piastri,McLaren,0.844946,1,2
+2025,24,Abu Dhabi Grand Prix,1,max_verstappen,Max Verstappen,Red Bull,0.930082,1,1
+2025,24,Abu Dhabi Grand Prix,2,norris,Lando Norris,McLaren,0.876302,1,3
+2025,24,Abu Dhabi Grand Prix,3,piastri,Oscar Piastri,McLaren,0.857799,1,2

@@ -68,6 +68,8 @@ def write_json(path, data):
 def clear_old_figures():
     FIGURE_DIR.mkdir(parents=True, exist_ok=True)
     for path in FIGURE_DIR.glob("*.png"):
+        if path.name.startswith("podium_model_"):
+            continue
         path.unlink()
 
 

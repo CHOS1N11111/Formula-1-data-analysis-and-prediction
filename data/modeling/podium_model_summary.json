@@ -1,0 +1,25 @@
+{
+  "built_at": "2026-05-29T06:25:18.123663+00:00",
+  "input_features": "data\\processed\\f1_features.csv",
+  "output_dir": "data\\modeling",
+  "target": "is_podium",
+  "train_seasons": "2019-2024",
+  "test_season": 2025,
+  "best_model": "random_forest",
+  "best_model_metric": "f1",
+  "model_metrics_file": "podium_model_metrics.csv",
+  "prediction_files": [
+    "podium_predictions_2025.csv",
+    "podium_top3_predictions_2025.csv",
+    "podium_completed_2026_probabilities.csv"
+  ],
+  "feature_files": [
+    "podium_feature_importance.csv",
+    "podium_logistic_feature_effects.csv"
+  ],
+  "figures": [
+    "outputs\\figures\\podium_model_confusion_matrix_2025.png",
+    "outputs\\figures\\podium_model_feature_importance_2025.png"
+  ],
+  "note": "2026 future races are not predicted yet because future qualifying/grid positions are unknown in the current feature table."
+}
