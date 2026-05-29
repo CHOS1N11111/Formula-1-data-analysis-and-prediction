@@ -782,6 +782,8 @@ data/analysis/remaining_2026_schedule.csv
 ```text
 data/analysis/feature_correlation_summary.csv
 data/analysis/constructor_competitiveness_by_year.csv
+data/analysis/pre_race_strength_bins.csv
+data/analysis/circuit_grid_importance_score.csv
 data/analysis/driver_position_gain_summary.csv
 data/analysis/constructor_position_gain_summary.csv
 ```
@@ -789,7 +791,9 @@ data/analysis/constructor_position_gain_summary.csv
 其中：
 
 - `feature_correlation_summary.csv` 统计赛前特征与完赛名次、领奖台、前十结果之间的 Pearson 和 Spearman 相关系数；
-- `constructor_competitiveness_by_year.csv` 统计每赛季前 1、前 2、前 3 车队积分占比，用于衡量车队竞争集中度；
+- `constructor_competitiveness_by_year.csv` 统计每赛季前 1、前 2、前 3 车队积分占比、HHI 指数和有效车队数量，用于衡量车队竞争集中度；
+- `pre_race_strength_bins.csv` 按赛前积分排名和近期状态分箱，统计不同强弱区间的领奖台率、前十率和平均完赛名次；
+- `circuit_grid_importance_score.csv` 构造赛道排位重要性综合指标，综合杆位夺冠率、发车前三领奖台率和发车-完赛相关性；
 - `driver_position_gain_summary.csv` 统计车手从发车位到完赛名次的平均名次提升、正向提升比例、大幅提升次数和大幅下滑次数；
 - `constructor_position_gain_summary.csv` 统计车队层面的平均名次提升能力。
 
@@ -875,7 +879,7 @@ python visualize_f1_analysis.py
 outputs/figures/
 ```
 
-共生成 28 张 PNG 图表：
+共生成 31 张 PNG 图表：
 
 ```text
 yearly_records_2019_2025.png
@@ -904,6 +908,9 @@ constructor_qualifying_race_efficiency_2019_2025.png
 position_change_distribution_2019_2025.png
 feature_correlation_heatmap_2019_2025.png
 constructor_competitiveness_by_year_2019_2025.png
+constructor_hhi_competitiveness_2019_2025.png
+pre_race_strength_podium_rate_2019_2025.png
+circuit_grid_importance_score_2019_2025.png
 top_driver_position_gain_2019_2025.png
 top_constructor_position_gain_2019_2025.png
 ```
@@ -927,6 +934,9 @@ outputs/figures/figure_manifest.json
 - `position_change_distribution_2019_2025.png`：展示正赛中车手相对发车位的整体名次变化分布。
 - `feature_correlation_heatmap_2019_2025.png`：展示赛前特征与完赛名次、领奖台、前十结果之间的相关性；
 - `constructor_competitiveness_by_year_2019_2025.png`：展示每赛季前 1、前 2、前 3 车队积分占比，用于分析竞争集中度；
+- `constructor_hhi_competitiveness_2019_2025.png`：使用 HHI 指数和有效车队数量分析车队竞争集中度；
+- `pre_race_strength_podium_rate_2019_2025.png`：展示赛前排名和近期状态分箱下的领奖台率差异；
+- `circuit_grid_importance_score_2019_2025.png`：展示赛道排位重要性综合指标排名；
 - `top_driver_position_gain_2019_2025.png`：展示平均名次提升最高的车手；
 - `top_constructor_position_gain_2019_2025.png`：展示平均名次提升最高的车队。
 

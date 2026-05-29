@@ -1,7 +1,7 @@
 {
-  "built_at": "2026-05-29T00:12:00",
+  "built_at": "2026-05-29T11:47:59",
   "figure_dir": "outputs\\figures",
-  "figure_count": 28,
+  "figure_count": 31,
   "figures": [
     {
       "filename": "yearly_records_2019_2025.png",
@@ -158,6 +158,24 @@
       "title": "Constructor Points Concentration by Season",
       "source": "constructor_competitiveness_by_year.csv filtered to 2019-2025",
       "description": "Shows how much of each season's constructor points were captured by the top teams."
+    },
+    {
+      "filename": "constructor_hhi_competitiveness_2019_2025.png",
+      "title": "Constructor Championship Concentration Index",
+      "source": "constructor_competitiveness_by_year.csv filtered to 2019-2025",
+      "description": "Uses HHI and effective constructor count to measure season-level competitive concentration."
+    },
+    {
+      "filename": "pre_race_strength_podium_rate_2019_2025.png",
+      "title": "Pre-Race Strength and Podium Rate",
+      "source": "pre_race_strength_bins.csv filtered to 2019-2025 variables",
+      "description": "Shows whether pre-race standings and recent form separate podium probability."
+    },
+    {
+      "filename": "circuit_grid_importance_score_2019_2025.png",
+      "title": "Circuit Grid Importance Score",
+      "source": "circuit_grid_importance_score.csv",
+      "description": "Ranks circuits by a composite score using pole win rate, front-3 podium rate, and grid-finish correlation."
     },
     {
       "filename": "top_driver_position_gain_2019_2025.png",

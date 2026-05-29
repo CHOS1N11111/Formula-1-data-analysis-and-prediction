@@ -468,6 +468,12 @@ def build_constructor_competitiveness_by_year(constructor_points_by_year):
             group, key=lambda row: to_float(row["total_points"], 0.0), reverse=True
         )
         total_points = sum(to_float(row["total_points"], 0.0) for row in sorted_group)
+        shares = [
+            to_float(row["total_points"], 0.0) / total_points
+            for row in sorted_group
+            if total_points > 0
+        ]
+        hhi = sum(share**2 for share in shares)
         top1 = sum(to_float(row["total_points"], 0.0) for row in sorted_group[:1])
         top2 = sum(to_float(row["total_points"], 0.0) for row in sorted_group[:2])
         top3 = sum(to_float(row["total_points"], 0.0) for row in sorted_group[:3])
@@ -480,10 +486,79 @@ def build_constructor_competitiveness_by_year(constructor_points_by_year):
                 "top1_points_share": format_float(pct(top1, total_points)),
                 "top2_points_share": format_float(pct(top2, total_points)),
                 "top3_points_share": format_float(pct(top3, total_points)),
+                "hhi": format_float(hhi),
+                "effective_constructor_count": format_float(1 / hhi if hhi else None),
             }
         )
 
     return output_rows
+
+
+def assign_rank_bin(rank):
+    rank = to_int(rank)
+    if rank is None:
+        return "unknown"
+    if rank <= 3:
+        return "1-3"
+    if rank <= 6:
+        return "4-6"
+    if rank <= 10:
+        return "7-10"
+    return "11+"
+
+
+def assign_points_bin(value):
+    value = to_float(value)
+    if value is None:
+        return "unknown"
+    if value == 0:
+        return "0"
+    if value < 5:
+        return "0-5"
+    if value < 10:
+        return "5-10"
+    if value < 15:
+        return "10-15"
+    return "15+"
+
+
+def summarize_bin(rows, variable, bin_name, bin_value):
+    return {
+        "variable": variable,
+        "bin": bin_name,
+        "bin_sort": bin_value,
+        "records": len(rows),
+        "podium_rate": format_float(pct(sum(to_int(row["is_podium"], 0) for row in rows), len(rows))),
+        "top10_rate": format_float(pct(sum(to_int(row["is_top10"], 0) for row in rows), len(rows))),
+        "avg_finish_position": format_float(average([to_float(row["finish_position"]) for row in rows])),
+        "avg_points": format_float(average([to_float(row["points"]) for row in rows])),
+    }
+
+
+def build_pre_race_strength_bins(rows):
+    configs = [
+        ("driver_pre_race_rank", lambda row: assign_rank_bin(row["driver_pre_race_rank"]), {"1-3": 1, "4-6": 2, "7-10": 3, "11+": 4}),
+        ("constructor_pre_race_rank", lambda row: assign_rank_bin(row["constructor_pre_race_rank"]), {"1-3": 1, "4-6": 2, "7-10": 3, "11+": 4}),
+        ("driver_last3_avg_points", lambda row: assign_points_bin(row["driver_last3_avg_points"]), {"0": 1, "0-5": 2, "5-10": 3, "10-15": 4, "15+": 5}),
+        ("constructor_last3_avg_points", lambda row: assign_points_bin(row["constructor_last3_avg_points"]), {"0": 1, "0-5": 2, "5-10": 3, "10-15": 4, "15+": 5}),
+    ]
+    output_rows = []
+
+    for variable, bin_func, bin_order in configs:
+        grouped = defaultdict(list)
+        for row in rows:
+            grouped[bin_func(row)].append(row)
+        for bin_name, group in grouped.items():
+            output_rows.append(
+                summarize_bin(
+                    group,
+                    variable,
+                    bin_name,
+                    bin_order.get(bin_name, 99),
+                )
+            )
+
+    return sorted(output_rows, key=lambda row: (row["variable"], row["bin_sort"]))
 
 
 def build_circuit_summary(rows):
@@ -522,6 +597,71 @@ def build_circuit_summary(rows):
         )
 
     return sorted(summary_rows, key=lambda row: row["circuit_id"])
+
+
+def build_circuit_grid_importance_score(rows):
+    grouped = defaultdict(list)
+    for row in rows:
+        grouped[row["circuit_id"]].append(row)
+
+    output_rows = []
+    for circuit_id, group in grouped.items():
+        races = {(row["season"], row["round"]) for row in group}
+        valid_grid_rows = [row for row in group if to_int(row["grid"], 0) > 0]
+        valid_quali_rows = [row for row in group if row["qualifying_position"] != ""]
+        pole_rows = [row for row in valid_grid_rows if to_int(row["grid"]) == 1]
+        front3_rows = [row for row in valid_grid_rows if 1 <= to_int(row["grid"]) <= 3]
+        if len(races) < 3 or len(valid_grid_rows) < 20 or not pole_rows:
+            continue
+
+        grid_corr = pearson_correlation(
+            [to_float(row["grid"]) for row in valid_grid_rows],
+            [to_float(row["finish_position"]) for row in valid_grid_rows],
+        )
+        qualifying_corr = pearson_correlation(
+            [to_float(row["qualifying_position"]) for row in valid_quali_rows],
+            [to_float(row["finish_position"]) for row in valid_quali_rows],
+        )
+        pole_win_rate = pct(
+            sum(1 for row in pole_rows if to_int(row["finish_position"]) == 1),
+            len(pole_rows),
+        )
+        front3_podium_rate = pct(
+            sum(to_int(row["is_podium"], 0) for row in front3_rows),
+            len(front3_rows),
+        )
+        avg_abs_position_change = average(
+            [
+                abs(to_int(row["grid"]) - to_int(row["finish_position"]))
+                for row in valid_grid_rows
+            ]
+        )
+        grid_importance_score = (
+            0.4 * pole_win_rate
+            + 0.3 * front3_podium_rate
+            + 0.3 * max(grid_corr or 0, 0)
+        )
+
+        output_rows.append(
+            {
+                "circuit_id": circuit_id,
+                "circuit_name": group[-1]["circuit_name"],
+                "country": group[-1]["circuit_country"],
+                "race_count": len(races),
+                "pole_win_rate": format_float(pole_win_rate),
+                "front3_podium_rate": format_float(front3_podium_rate),
+                "grid_finish_correlation": format_float(grid_corr),
+                "qualifying_finish_correlation": format_float(qualifying_corr),
+                "avg_abs_position_change": format_float(avg_abs_position_change),
+                "grid_importance_score": format_float(grid_importance_score),
+            }
+        )
+
+    return sorted(
+        output_rows,
+        key=lambda row: to_float(row["grid_importance_score"], 0.0),
+        reverse=True,
+    )
 
 
 def build_position_gain_summary(rows, group_key, name_key, min_records=20):
@@ -642,7 +782,9 @@ def main():
     constructor_competitiveness_by_year = build_constructor_competitiveness_by_year(
         constructor_points_by_year
     )
+    pre_race_strength_bins = build_pre_race_strength_bins(rows)
     circuit_summary = build_circuit_summary(rows)
+    circuit_grid_importance_score = build_circuit_grid_importance_score(rows)
     driver_position_gain_summary = build_position_gain_summary(
         rows, "driver_id", "driver_name"
     )
@@ -701,13 +843,23 @@ def main():
         ),
         (
             "constructor_competitiveness_by_year.csv",
-            ["season", "constructor_count", "total_points", "top_constructor", "top1_points_share", "top2_points_share", "top3_points_share"],
+            ["season", "constructor_count", "total_points", "top_constructor", "top1_points_share", "top2_points_share", "top3_points_share", "hhi", "effective_constructor_count"],
             constructor_competitiveness_by_year,
+        ),
+        (
+            "pre_race_strength_bins.csv",
+            ["variable", "bin", "bin_sort", "records", "podium_rate", "top10_rate", "avg_finish_position", "avg_points"],
+            pre_race_strength_bins,
         ),
         (
             "circuit_summary.csv",
             ["circuit_id", "circuit_name", "country", "race_count", "records", "avg_position_change", "pole_win_rate", "front3_podium_rate", "winner_constructor_count"],
             circuit_summary,
+        ),
+        (
+            "circuit_grid_importance_score.csv",
+            ["circuit_id", "circuit_name", "country", "race_count", "pole_win_rate", "front3_podium_rate", "grid_finish_correlation", "qualifying_finish_correlation", "avg_abs_position_change", "grid_importance_score"],
+            circuit_grid_importance_score,
         ),
         (
             "driver_position_gain_summary.csv",

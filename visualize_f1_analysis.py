@@ -1488,6 +1488,118 @@ def plot_constructor_competitiveness(manifest):
     )
 
 
+def plot_constructor_hhi(manifest):
+    rows = [
+        row
+        for row in read_csv(ANALYSIS_DIR / "constructor_competitiveness_by_year.csv")
+        if 2019 <= to_int(row["season"]) <= 2025
+    ]
+    years = [row["season"] for row in rows]
+    hhi = [to_float(row["hhi"]) for row in rows]
+    effective_count = [to_float(row["effective_constructor_count"]) for row in rows]
+
+    fig, ax = setup_figure(10, 5.8)
+    ax.plot(years, hhi, marker="o", linewidth=2.2, color=COLORS["red"], label="HHI")
+    ax.set_title("Constructor Championship Concentration Index, 2019-2025")
+    ax.set_xlabel("Season")
+    ax.set_ylabel("HHI")
+    ax2 = ax.twinx()
+    ax2.plot(
+        years,
+        effective_count,
+        marker="s",
+        linewidth=2.0,
+        color=COLORS["blue"],
+        label="Effective constructor count",
+    )
+    ax2.set_ylabel("Effective constructor count")
+    ax2.grid(False)
+    ax.legend(loc="upper left")
+    ax2.legend(loc="upper right")
+
+    filename = "constructor_hhi_competitiveness_2019_2025.png"
+    save_current_figure(filename)
+    add_manifest(
+        manifest,
+        filename,
+        "Constructor Championship Concentration Index",
+        "constructor_competitiveness_by_year.csv filtered to 2019-2025",
+        "Uses HHI and effective constructor count to measure season-level competitive concentration.",
+    )
+
+
+def plot_pre_race_strength_bins(manifest):
+    rows = [
+        row
+        for row in read_csv(ANALYSIS_DIR / "pre_race_strength_bins.csv")
+        if row["variable"] in {"driver_pre_race_rank", "driver_last3_avg_points"}
+    ]
+    labels_by_variable = {
+        "driver_pre_race_rank": "Driver pre-race rank",
+        "driver_last3_avg_points": "Driver last-3 average points",
+    }
+
+    fig, ax = setup_figure(10, 5.8)
+    for variable, color in [
+        ("driver_pre_race_rank", COLORS["blue"]),
+        ("driver_last3_avg_points", COLORS["green"]),
+    ]:
+        group = sorted(
+            [row for row in rows if row["variable"] == variable],
+            key=lambda row: to_int(row["bin_sort"]),
+        )
+        x_values = [row["bin"] for row in group]
+        y_values = [to_float(row["podium_rate"]) * 100 for row in group]
+        ax.plot(
+            x_values,
+            y_values,
+            marker="o",
+            linewidth=2.2,
+            color=color,
+            label=labels_by_variable[variable],
+        )
+
+    ax.set_title("Pre-Race Strength and Podium Rate, 2019-2025")
+    ax.set_xlabel("Strength bin")
+    ax.set_ylabel("Podium rate (%)")
+    ax.set_ylim(0, 70)
+    ax.legend()
+
+    filename = "pre_race_strength_podium_rate_2019_2025.png"
+    save_current_figure(filename)
+    add_manifest(
+        manifest,
+        filename,
+        "Pre-Race Strength and Podium Rate",
+        "pre_race_strength_bins.csv filtered to 2019-2025 variables",
+        "Shows whether pre-race standings and recent form separate podium probability.",
+    )
+
+
+def plot_circuit_grid_importance_score(manifest):
+    rows = read_csv(ANALYSIS_DIR / "circuit_grid_importance_score.csv")[:12]
+    rows = list(reversed(rows))
+    labels = [row["circuit_name"] for row in rows]
+    scores = [to_float(row["grid_importance_score"]) for row in rows]
+
+    fig, ax = setup_figure(11, 7)
+    bars = ax.barh(labels, scores, color=COLORS["teal"])
+    ax.set_title("Circuit Grid Importance Score, 2019-2025")
+    ax.set_xlabel("Composite grid importance score")
+    ax.set_xlim(0, max(scores) * 1.18)
+    add_bar_labels(ax, bars, "{:.3f}", padding=max(scores) * 0.01)
+
+    filename = "circuit_grid_importance_score_2019_2025.png"
+    save_current_figure(filename)
+    add_manifest(
+        manifest,
+        filename,
+        "Circuit Grid Importance Score",
+        "circuit_grid_importance_score.csv",
+        "Ranks circuits by a composite score using pole win rate, front-3 podium rate, and grid-finish correlation.",
+    )
+
+
 def plot_position_gain_leaders(manifest, modern_rows):
     driver_rows = build_position_gain_summary(modern_rows, "driver_id", "driver_name")[:12]
     constructor_rows = build_position_gain_summary(
@@ -1564,6 +1676,9 @@ def main():
     plot_position_change_distribution(manifest, modern_rows)
     plot_feature_correlation_heatmap(manifest, modern_rows)
     plot_constructor_competitiveness(manifest)
+    plot_constructor_hhi(manifest)
+    plot_pre_race_strength_bins(manifest)
+    plot_circuit_grid_importance_score(manifest)
     plot_position_gain_leaders(manifest, modern_rows)
 
     write_csv(MANIFEST_CSV, ["filename", "title", "source", "description"], manifest)
