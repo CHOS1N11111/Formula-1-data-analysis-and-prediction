@@ -1,0 +1,17 @@
+# Python package dependencies for this project.
+#
+# Most scripts use only the Python standard library:
+# csv, json, sqlite3, pathlib, urllib, collections, datetime, math.
+#
+# Install with:
+# pip install -r requirements.txt
+
+# Download Kaggle datasets in download_formula1_dataset.py
+kagglehub
+
+# Generate static figures and MP4 animations
+matplotlib
+
+# System dependency, not installed by pip:
+# ffmpeg is required by animate_f1_points.py to export MP4 videos.
+# Check with: ffmpeg -version
