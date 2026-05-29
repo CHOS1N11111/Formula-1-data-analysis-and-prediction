@@ -1,10 +1,10 @@
 ﻿metric,value
-record_count,3126
+record_count,3038
 season_min,2019
-season_max,2026
-race_count,156
-driver_count,40
-constructor_count,17
+season_max,2025
+race_count,152
+driver_count,39
+constructor_count,15
 circuit_count,31
-podium_records,468
-top10_records,1560
+podium_records,456
+top10_records,1520

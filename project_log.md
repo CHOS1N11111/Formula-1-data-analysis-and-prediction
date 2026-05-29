@@ -192,10 +192,19 @@ data/analysis/
 - 车队表现汇总；
 - 车队按年份表现汇总；
 - 赛道特征汇总；
+- 赛前特征相关性分析；
+- 车队竞争集中度和 HHI 指标；
+- 赛道排位重要性指标；
+- 车手与车队名次提升能力；
+- 可靠性与完赛状态分析；
+- 队友内部对比分析；
+- 赛道波动指数分析；
 - 2026 当前车手积分榜；
 - 2026 当前车队积分榜；
 - 2026 已完成比赛结果；
 - 2026 剩余赛程。
+
+其中，统计分析主体使用 2019-2025 完整赛季数据；2026 作为不完整赛季，只单独输出当前状态和剩余赛程，避免把未完成赛季混入历史统计结论。
 
 ### 8. `analyze_f1_historical_sqlite.py`
 
@@ -673,11 +682,22 @@ dataset_overview_by_year.csv
 grid_finish_summary.csv
 grid_position_summary.csv
 qualifying_position_summary.csv
+feature_correlation_summary.csv
 driver_summary.csv
 driver_points_by_year.csv
 constructor_summary.csv
 constructor_points_by_year.csv
+constructor_competitiveness_by_year.csv
+pre_race_strength_bins.csv
 circuit_summary.csv
+circuit_grid_importance_score.csv
+driver_position_gain_summary.csv
+constructor_position_gain_summary.csv
+reliability_by_year.csv
+driver_reliability_summary.csv
+constructor_reliability_summary.csv
+teammate_comparison.csv
+circuit_volatility_index.csv
 current_2026_driver_standings.csv
 current_2026_constructor_standings.csv
 completed_2026_results.csv
@@ -688,30 +708,34 @@ analysis_summary.json
 数据概况：
 
 ```text
-记录数：3126
-年份范围：2019-2026
-比赛数量：156
-车手数量：40
-车队数量：17
+统计分析记录数：3038
+统计分析年份范围：2019-2025
+比赛数量：152
+车手数量：39
+车队数量：15
 赛道数量：31
-领奖台记录数：468
-前十记录数：1560
+领奖台记录数：456
+前十记录数：1520
+
+全部可用记录数：3126
+2026 当前已完成正赛：4 站
+2026 剩余待预测或待更新：18 站
 ```
 
 发车位置、排位名次与正赛结果关系：
 
 ```text
-发车位置与完赛名次相关系数：0.6282
-排位名次与完赛名次相关系数：0.6422
-杆位夺冠率：0.5385
-发车前三领奖台率：0.6902
-发车前十进入前十率：0.7662
-平均完赛名次：10.5221
+发车位置与完赛名次相关系数：0.6266
+排位名次与完赛名次相关系数：0.6408
+杆位夺冠率：0.5263
+发车前三领奖台率：0.6908
+发车前十进入前十率：0.7673
+平均完赛名次：10.4937
 ```
 
 这些结果说明，发车位置和排位名次与正赛完赛名次存在明显正相关，排位表现和发车位置是后续预测模型中的重要基础变量。
 
-车手汇总结果中，2019-2026 数据范围内总积分最高的车手包括：
+车手汇总结果中，2019-2025 完整赛季范围内总积分最高的车手包括：
 
 ```text
 Max Verstappen
@@ -758,7 +782,9 @@ data/analysis/constructor_points_by_year.csv
 平均完赛名次
 ```
 
-这两个文件用于展示 2019-2026 年车手状态变化和车队竞争格局变化，例如 Mercedes、Red Bull、Ferrari、McLaren 的近年积分趋势。
+这两个文件用于展示 2019-2025 年车手状态变化和车队竞争格局变化，例如 Mercedes、Red Bull、Ferrari、McLaren 的近年积分趋势。
+
+当前统计口径已调整为：这些年度趋势统计只覆盖 2019-2025 完整赛季。2026 不完整赛季不参与趋势统计，只进入当前状态表。
 
 2026 当前状态：
 
@@ -786,6 +812,11 @@ data/analysis/pre_race_strength_bins.csv
 data/analysis/circuit_grid_importance_score.csv
 data/analysis/driver_position_gain_summary.csv
 data/analysis/constructor_position_gain_summary.csv
+data/analysis/reliability_by_year.csv
+data/analysis/driver_reliability_summary.csv
+data/analysis/constructor_reliability_summary.csv
+data/analysis/teammate_comparison.csv
+data/analysis/circuit_volatility_index.csv
 ```
 
 其中：
@@ -796,6 +827,10 @@ data/analysis/constructor_position_gain_summary.csv
 - `circuit_grid_importance_score.csv` 构造赛道排位重要性综合指标，综合杆位夺冠率、发车前三领奖台率和发车-完赛相关性；
 - `driver_position_gain_summary.csv` 统计车手从发车位到完赛名次的平均名次提升、正向提升比例、大幅提升次数和大幅下滑次数；
 - `constructor_position_gain_summary.csv` 统计车队层面的平均名次提升能力。
+- `reliability_by_year.csv` 按赛季统计完赛/被套圈归类率、事故类退赛率和机械或其他状态比例；
+- `driver_reliability_summary.csv` 和 `constructor_reliability_summary.csv` 分别从车手和车队角度统计可靠性表现；
+- `teammate_comparison.csv` 在同赛季、同车队内部比较队友之间的积分份额、完赛名次优势和队友压制情况；
+- `circuit_volatility_index.csv` 构造赛道波动指数，综合大幅名次提升率、大幅名次下滑率和非前三发车夺冠率，用于识别更容易出现位置变化或爆冷结果的赛道。
 
 ## 历史背景分析结果
 
@@ -863,7 +898,7 @@ Mercedes
 Red Bull
 ```
 
-该历史背景线与 2019-2026 现代分析线分开处理。历史线用于报告中的案例背景和长期趋势描述，现代线用于后续 2026 当前赛季分析与预测。
+该历史背景线与 2019-2025 现代完整赛季分析线分开处理。历史线用于报告中的案例背景和长期趋势描述，现代线用于分析近年 F1 格局，2026 数据单独用于当前赛季分析与预测。
 
 ## 可视化图表生成结果
 
@@ -1177,15 +1212,15 @@ is_top10 = 1 if finish_position <= 10 else 0
 
 ## 下一步计划
 
-建模宽表已经生成，下一步应进入数据清洗、探索性分析和第一版模型训练。
+建模宽表、赛前特征、基础统计、深度分析指标、静态图表和动态视频均已生成。下一步应进入第一版预测模型和课程报告整理。
 
 建议后续按以下顺序推进：
 
-1. 编写数据质量检查脚本，统计缺失值、异常发车位、各年份样本数量和标签比例；
-2. 生成基础统计图，包括发车位置与完赛名次关系、排位名次与领奖台概率关系、车队近年积分变化；
-3. 根据基础统计结果整理报告中的数据分析部分；
-4. 继续扩展赛道历史表现、车手同赛道历史表现等基础分析功能；
-5. 在基础分析完成后，再进入第一版“是否领奖台”机器学习模型。
+1. 基于 `data/processed/f1_features.csv` 训练第一版“是否领奖台”分类模型；
+2. 使用时间顺序回测评价模型，避免随机切分造成未来信息泄露；
+3. 输出模型评价指标、特征重要性和混淆矩阵；
+4. 将 2026 当前积分榜与剩余赛程结合，生成赛季排名预测；
+5. 整理课程报告中的数据来源、处理流程、分析结果、可视化和后续改进部分。
 
 ## 当前运行方式
 

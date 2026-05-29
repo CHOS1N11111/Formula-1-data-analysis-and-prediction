@@ -1,37 +1,36 @@
 ﻿driver_id,driver_name,nationality,seasons,starts,total_points,avg_points,wins,podiums,top10s,avg_finish_position,avg_grid,avg_qualifying_position
-max_verstappen,Max Verstappen,Dutch,8,156,2653.5000,17.0096,66,105,141,4.0513,3.6603,3.2839
-hamilton,Lewis Hamilton,British,8,155,1980.5000,12.7774,32,69,140,5.2516,5.6968,5.4581
-leclerc,Charles Leclerc,Monegasque,8,156,1595.0000,10.2244,8,52,126,6.7051,5.4231,5.1859
-norris,Lando Norris,British,8,156,1382.0000,8.8590,11,45,124,7.3013,6.5449,6.5128
-sainz,Carlos Sainz,Spanish,8,155,1090.5000,7.0355,4,29,111,8.4839,7.9290,7.6299
-perez,Sergio Pérez,Mexican,7,130,1056.0000,8.1231,6,31,94,8.0538,8.6240,8.7462
-russell,George Russell,British,8,156,1020.0000,6.5385,6,26,90,9.4103,9.0458,9.2115
-bottas,Valtteri Bottas,Finnish,7,132,825.0000,6.2500,7,37,61,10.2955,9.2595,9.0000
-piastri,Oscar Piastri,Australian,4,74,761.0000,10.2838,9,28,58,6.8784,5.8649,5.9459
-alonso,Fernando Alonso,Spanish,6,118,481.0000,4.0763,0,9,72,10.1695,9.6102,9.5847
-gasly,Pierre Gasly,French,8,156,432.0000,2.7692,1,5,73,11.4744,10.9145,11.0449
+max_verstappen,Max Verstappen,Dutch,7,152,2631.5000,17.3125,66,105,138,3.9276,3.4868,3.2105
+hamilton,Lewis Hamilton,British,7,151,1937.5000,12.8311,32,68,136,5.2649,5.7020,5.4570
+leclerc,Charles Leclerc,Monegasque,7,152,1549.0000,10.1908,8,50,122,6.7632,5.4671,5.2237
+norris,Lando Norris,British,7,152,1344.0000,8.8421,11,44,121,7.2829,6.5789,6.5461
+sainz,Carlos Sainz,Spanish,7,151,1086.5000,7.1954,4,29,109,8.3907,7.6954,7.4768
+perez,Sergio Pérez,Mexican,6,126,1056.0000,8.3810,6,31,94,7.8016,8.2645,8.3968
+russell,George Russell,British,7,152,953.0000,6.2697,5,24,86,9.5855,9.2215,9.3882
+bottas,Valtteri Bottas,Finnish,6,128,825.0000,6.4453,7,37,61,10.0781,8.9449,8.6719
+piastri,Oscar Piastri,Australian,3,70,728.0000,10.4000,9,26,56,6.6286,5.9143,6.0000
+alonso,Fernando Alonso,Spanish,5,114,481.0000,4.2193,0,9,72,9.9298,9.3070,9.2719
+gasly,Pierre Gasly,French,7,152,417.0000,2.7434,1,5,70,11.4868,10.9595,11.0921
 vettel,Sebastian Vettel,German,4,80,353.0000,4.4125,1,11,40,10.3125,10.1538,10.5750
-ocon,Esteban Ocon,French,7,134,339.0000,2.5299,1,4,67,11.4104,12.2045,12.2239
+ocon,Esteban Ocon,French,6,130,338.0000,2.6000,1,4,66,11.3923,12.1797,12.2000
 ricciardo,Daniel Ricciardo,Australian,6,107,334.0000,3.1215,1,3,46,10.9907,10.7290,10.8972
-albon,Alexander Albon,Thai,7,133,309.0000,2.3233,0,2,51,11.8797,12.1679,12.1970
-stroll,Lance Stroll,Canadian,8,154,269.0000,1.7468,0,2,57,12.4545,13.5430,13.8758
-antonelli,Andrea Kimi Antonelli,Italian,2,28,228.0000,8.1429,3,7,18,8.6071,7.6786,7.5357
-hulkenberg,Nico Hülkenberg,German,7,100,140.0000,1.4000,0,1,32,12.8100,12.5556,12.5400
+albon,Alexander Albon,Thai,6,129,308.0000,2.3876,0,2,50,11.7519,12.0079,12.0703
+stroll,Lance Stroll,Canadian,7,150,269.0000,1.7933,0,2,57,12.3000,13.3537,13.7467
+hulkenberg,Nico Hülkenberg,German,6,96,140.0000,1.4583,0,1,32,12.6875,12.6105,12.5938
+antonelli,Andrea Kimi Antonelli,Italian,1,24,135.0000,5.6250,0,3,14,9.8333,8.7500,8.5833
 tsunoda,Yuki Tsunoda,Japanese,5,114,108.0000,0.9474,0,0,33,13.3246,12.7091,12.7018
 kvyat,Daniil Kvyat,Russian,2,38,69.0000,1.8158,0,1,17,11.5000,12.8684,12.9474
-bearman,Oliver Bearman,British,3,31,62.0000,2.0000,0,0,13,11.5161,13.8387,13.6129
 kevin_magnussen,Kevin Magnussen,Danish,5,104,59.0000,0.5673,0,0,19,14.5000,14.0297,13.9423
 raikkonen,Kimi Räikkönen,Finnish,3,58,57.0000,0.9828,0,0,15,12.5862,14.2037,14.7759
-hadjar,Isack Hadjar,French,2,28,54.0000,1.9286,0,1,11,12.3214,9.8929,9.7857
-lawson,Liam Lawson,New Zealander,4,39,52.0000,1.3333,0,0,12,12.7692,12.5897,12.6923
+hadjar,Isack Hadjar,French,1,24,50.0000,2.0833,0,1,10,11.7917,9.7917,9.6667
+bearman,Oliver Bearman,British,2,27,46.0000,1.7037,0,0,11,11.5556,13.9630,13.7037
+lawson,Liam Lawson,New Zealander,3,35,44.0000,1.2571,0,0,10,12.8286,12.6857,12.8000
 giovinazzi,Antonio Giovinazzi,Italian,3,60,21.0000,0.3500,0,0,9,13.8000,14.5254,14.5085
-bortoleto,Gabriel Bortoleto,Brazilian,2,28,21.0000,0.7500,0,0,6,14.1786,14.1786,13.9630
+bortoleto,Gabriel Bortoleto,Brazilian,1,24,19.0000,0.7917,0,0,5,14.2500,14.2083,13.9565
 zhou,Guanyu Zhou,Chinese,3,68,16.0000,0.2353,0,0,7,14.6471,15.8209,16.1471
 mick_schumacher,Mick Schumacher,German,2,44,12.0000,0.2727,0,0,2,15.6591,15.6977,16.2791
-colapinto,Franco Colapinto,Argentine,3,31,12.0000,0.3871,0,0,4,14.7742,15.8387,16.0645
 grosjean,Romain Grosjean,French,2,36,10.0000,0.2778,0,0,4,15.1667,13.3824,14.0556
 latifi,Nicholas Latifi,Canadian,3,61,9.0000,0.1475,0,0,3,15.8525,17.2373,17.8852
-arvid_lindblad,Arvid Lindblad,British,1,4,4.0000,1.0000,0,0,1,12.0000,12.5000,12.5000
+colapinto,Franco Colapinto,Argentine,2,27,5.0000,0.1852,0,0,2,15.2222,16.2963,16.5556
 de_vries,Nyck de Vries,Dutch,2,11,2.0000,0.1818,0,0,1,15.2727,15.8182,16.5455
 kubica,Robert Kubica,Polish,2,23,1.0000,0.0435,0,0,1,16.7826,18.4000,19.4348
 sargeant,Logan Sargeant,American,2,36,1.0000,0.0278,0,0,1,16.3333,16.9444,17.3333

@@ -1,5 +1,5 @@
 {
-  "built_at": "2026-05-29T03:47:05.224416+00:00",
+  "built_at": "2026-05-29T04:28:08.505527+00:00",
   "input_features": "data\\processed\\f1_features.csv",
   "input_2026_schedule": "data\\processed\\f1_2026_schedule.csv",
   "output_dir": "data\\analysis",
@@ -20,12 +20,19 @@
     "circuit_grid_importance_score.csv",
     "driver_position_gain_summary.csv",
     "constructor_position_gain_summary.csv",
+    "reliability_by_year.csv",
+    "driver_reliability_summary.csv",
+    "constructor_reliability_summary.csv",
+    "teammate_comparison.csv",
+    "circuit_volatility_index.csv",
     "current_2026_driver_standings.csv",
     "current_2026_constructor_standings.csv",
     "completed_2026_results.csv",
     "remaining_2026_schedule.csv"
   ],
-  "record_count": 3126,
+  "analysis_season_range": "2019-2025",
+  "analysis_record_count": 3038,
+  "all_available_record_count": 3126,
   "current_2026_completed_races": 4,
   "current_2026_remaining_races": 18
 }

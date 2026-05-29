@@ -704,6 +704,229 @@ def build_position_gain_summary(rows, group_key, name_key, min_records=20):
     )
 
 
+def classify_status(status):
+    normalized = (status or "").strip().lower()
+    if normalized == "finished" or "lap" in normalized:
+        return "classified"
+    if any(keyword in normalized for keyword in ["accident", "collision", "spun"]):
+        return "incident"
+    return "mechanical_or_other"
+
+
+def build_reliability_by_year(rows):
+    grouped = defaultdict(list)
+    for row in rows:
+        grouped[row["season"]].append(row)
+
+    output_rows = []
+    for season, group in sorted(grouped.items(), key=lambda item: to_int(item[0], 0)):
+        classified = sum(1 for row in group if classify_status(row["status"]) == "classified")
+        incident = sum(1 for row in group if classify_status(row["status"]) == "incident")
+        other = len(group) - classified - incident
+        output_rows.append(
+            {
+                "season": season,
+                "records": len(group),
+                "classified_rate": format_float(pct(classified, len(group))),
+                "incident_rate": format_float(pct(incident, len(group))),
+                "mechanical_or_other_rate": format_float(pct(other, len(group))),
+            }
+        )
+    return output_rows
+
+
+def build_reliability_summary(rows, group_key, name_key, min_records=20):
+    grouped = defaultdict(list)
+    for row in rows:
+        grouped[row[group_key]].append(row)
+
+    output_rows = []
+    for item_id, group in grouped.items():
+        if len(group) < min_records:
+            continue
+        classified = sum(1 for row in group if classify_status(row["status"]) == "classified")
+        incident = sum(1 for row in group if classify_status(row["status"]) == "incident")
+        other = len(group) - classified - incident
+        output_rows.append(
+            {
+                group_key: item_id,
+                name_key: group[-1][name_key],
+                "records": len(group),
+                "classified_rate": format_float(pct(classified, len(group))),
+                "incident_rate": format_float(pct(incident, len(group))),
+                "mechanical_or_other_rate": format_float(pct(other, len(group))),
+                "avg_points": format_float(
+                    average([to_float(row["points"], 0.0) for row in group])
+                ),
+            }
+        )
+
+    return sorted(
+        output_rows,
+        key=lambda row: (
+            -to_float(row["classified_rate"], 0.0),
+            -to_float(row["avg_points"], 0.0),
+        ),
+    )
+
+
+def build_teammate_comparison(rows, min_shared_races=8):
+    grouped = defaultdict(list)
+    for row in rows:
+        grouped[(row["season"], row["constructor_id"], row["round"])].append(row)
+
+    pair_stats = defaultdict(lambda: defaultdict(float))
+    for (season, constructor_id, _round), group in grouped.items():
+        valid_group = [
+            row
+            for row in group
+            if to_int(row["finish_position"]) is not None
+            and to_float(row["points"], 0.0) is not None
+        ]
+        if len(valid_group) != 2:
+            continue
+
+        first, second = sorted(
+            valid_group,
+            key=lambda row: to_int(row["finish_position"], 99),
+        )
+        pair_key = (
+            season,
+            constructor_id,
+            first["constructor_name"],
+            first["driver_id"],
+            first["driver_name"],
+            second["driver_id"],
+            second["driver_name"],
+        )
+        reverse_key = (
+            season,
+            constructor_id,
+            first["constructor_name"],
+            second["driver_id"],
+            second["driver_name"],
+            first["driver_id"],
+            first["driver_name"],
+        )
+
+        pair_stats[pair_key]["shared_races"] += 1
+        pair_stats[pair_key]["finish_ahead_count"] += 1
+        pair_stats[pair_key]["points"] += to_float(first["points"], 0.0)
+        pair_stats[pair_key]["teammate_points"] += to_float(second["points"], 0.0)
+        pair_stats[pair_key]["finish_position_sum"] += to_float(first["finish_position"], 0.0)
+        pair_stats[pair_key]["teammate_finish_position_sum"] += to_float(second["finish_position"], 0.0)
+
+        pair_stats[reverse_key]["shared_races"] += 1
+        pair_stats[reverse_key]["points"] += to_float(second["points"], 0.0)
+        pair_stats[reverse_key]["teammate_points"] += to_float(first["points"], 0.0)
+        pair_stats[reverse_key]["finish_position_sum"] += to_float(second["finish_position"], 0.0)
+        pair_stats[reverse_key]["teammate_finish_position_sum"] += to_float(first["finish_position"], 0.0)
+
+    output_rows = []
+    for (
+        season,
+        constructor_id,
+        constructor_name,
+        driver_id,
+        driver_name,
+        teammate_driver_id,
+        teammate_driver_name,
+    ), stats in pair_stats.items():
+        shared_races = int(stats["shared_races"])
+        if shared_races < min_shared_races:
+            continue
+        points = stats["points"]
+        teammate_points = stats["teammate_points"]
+        output_rows.append(
+            {
+                "season": season,
+                "constructor_id": constructor_id,
+                "constructor_name": constructor_name,
+                "driver_id": driver_id,
+                "driver_name": driver_name,
+                "teammate_driver_id": teammate_driver_id,
+                "teammate_driver_name": teammate_driver_name,
+                "shared_races": shared_races,
+                "finish_ahead_rate": format_float(
+                    pct(stats["finish_ahead_count"], shared_races)
+                ),
+                "points": format_float(points),
+                "teammate_points": format_float(teammate_points),
+                "points_share": format_float(pct(points, points + teammate_points)),
+                "avg_finish_position": format_float(
+                    stats["finish_position_sum"] / shared_races
+                ),
+                "teammate_avg_finish_position": format_float(
+                    stats["teammate_finish_position_sum"] / shared_races
+                ),
+            }
+        )
+
+    return sorted(
+        output_rows,
+        key=lambda row: (
+            to_int(row["season"], 0),
+            row["constructor_name"],
+            -to_float(row["points_share"], 0.0),
+        ),
+    )
+
+
+def build_circuit_volatility_index(rows):
+    grouped = defaultdict(list)
+    for row in rows:
+        grouped[row["circuit_id"]].append(row)
+
+    output_rows = []
+    for circuit_id, group in grouped.items():
+        races = {(row["season"], row["round"]) for row in group}
+        valid_rows = [
+            row
+            for row in group
+            if to_int(row["grid"], 0) > 0 and to_int(row["finish_position"]) is not None
+        ]
+        if len(races) < 3 or len(valid_rows) < 20:
+            continue
+
+        changes = [
+            to_int(row["grid"]) - to_int(row["finish_position"])
+            for row in valid_rows
+        ]
+        winner_rows = [row for row in valid_rows if to_int(row["finish_position"]) == 1]
+        non_front_row_winners = sum(1 for row in winner_rows if to_int(row["grid"], 99) > 3)
+        large_gain_rate = pct(sum(1 for change in changes if change >= 5), len(changes))
+        large_loss_rate = pct(sum(1 for change in changes if change <= -5), len(changes))
+        volatility_index = (
+            0.4 * (large_gain_rate or 0.0)
+            + 0.3 * (large_loss_rate or 0.0)
+            + 0.3 * pct(non_front_row_winners, len(winner_rows) or 1)
+        )
+
+        output_rows.append(
+            {
+                "circuit_id": circuit_id,
+                "circuit_name": group[-1]["circuit_name"],
+                "country": group[-1]["circuit_country"],
+                "race_count": len(races),
+                "avg_abs_position_change": format_float(
+                    average([abs(change) for change in changes])
+                ),
+                "large_gain_rate": format_float(large_gain_rate),
+                "large_loss_rate": format_float(large_loss_rate),
+                "non_front_row_winner_rate": format_float(
+                    pct(non_front_row_winners, len(winner_rows))
+                ),
+                "volatility_index": format_float(volatility_index),
+            }
+        )
+
+    return sorted(
+        output_rows,
+        key=lambda row: to_float(row["volatility_index"], 0.0),
+        reverse=True,
+    )
+
+
 def build_2026_outputs(rows, schedule_rows):
     current_rows = [row for row in rows if row["season"] == "2026"]
 
@@ -771,26 +994,36 @@ def build_2026_outputs(rows, schedule_rows):
 def main():
     rows = read_csv(FEATURES_PATH)
     schedule_rows = read_csv(SCHEDULE_2026_PATH)
+    analysis_rows = [row for row in rows if to_int(row["season"], 0) <= 2025]
 
-    overview, overview_by_year = build_dataset_overview(rows)
-    grid_summary, by_grid, by_qualifying = build_grid_finish_analysis(rows)
-    feature_correlation_summary = build_feature_correlation_summary(rows)
-    driver_summary = build_driver_summary(rows)
-    driver_points_by_year = build_driver_points_by_year(rows)
-    constructor_summary = build_constructor_summary(rows)
-    constructor_points_by_year = build_constructor_points_by_year(rows)
+    overview, overview_by_year = build_dataset_overview(analysis_rows)
+    grid_summary, by_grid, by_qualifying = build_grid_finish_analysis(analysis_rows)
+    feature_correlation_summary = build_feature_correlation_summary(analysis_rows)
+    driver_summary = build_driver_summary(analysis_rows)
+    driver_points_by_year = build_driver_points_by_year(analysis_rows)
+    constructor_summary = build_constructor_summary(analysis_rows)
+    constructor_points_by_year = build_constructor_points_by_year(analysis_rows)
     constructor_competitiveness_by_year = build_constructor_competitiveness_by_year(
         constructor_points_by_year
     )
-    pre_race_strength_bins = build_pre_race_strength_bins(rows)
-    circuit_summary = build_circuit_summary(rows)
-    circuit_grid_importance_score = build_circuit_grid_importance_score(rows)
+    pre_race_strength_bins = build_pre_race_strength_bins(analysis_rows)
+    circuit_summary = build_circuit_summary(analysis_rows)
+    circuit_grid_importance_score = build_circuit_grid_importance_score(analysis_rows)
     driver_position_gain_summary = build_position_gain_summary(
-        rows, "driver_id", "driver_name"
+        analysis_rows, "driver_id", "driver_name"
     )
     constructor_position_gain_summary = build_position_gain_summary(
-        rows, "constructor_id", "constructor_name"
+        analysis_rows, "constructor_id", "constructor_name"
     )
+    reliability_by_year = build_reliability_by_year(analysis_rows)
+    driver_reliability_summary = build_reliability_summary(
+        analysis_rows, "driver_id", "driver_name"
+    )
+    constructor_reliability_summary = build_reliability_summary(
+        analysis_rows, "constructor_id", "constructor_name"
+    )
+    teammate_comparison = build_teammate_comparison(analysis_rows)
+    circuit_volatility_index = build_circuit_volatility_index(analysis_rows)
     (
         current_driver_standings,
         current_constructor_standings,
@@ -872,6 +1105,31 @@ def main():
             constructor_position_gain_summary,
         ),
         (
+            "reliability_by_year.csv",
+            ["season", "records", "classified_rate", "incident_rate", "mechanical_or_other_rate"],
+            reliability_by_year,
+        ),
+        (
+            "driver_reliability_summary.csv",
+            ["driver_id", "driver_name", "records", "classified_rate", "incident_rate", "mechanical_or_other_rate", "avg_points"],
+            driver_reliability_summary,
+        ),
+        (
+            "constructor_reliability_summary.csv",
+            ["constructor_id", "constructor_name", "records", "classified_rate", "incident_rate", "mechanical_or_other_rate", "avg_points"],
+            constructor_reliability_summary,
+        ),
+        (
+            "teammate_comparison.csv",
+            ["season", "constructor_id", "constructor_name", "driver_id", "driver_name", "teammate_driver_id", "teammate_driver_name", "shared_races", "finish_ahead_rate", "points", "teammate_points", "points_share", "avg_finish_position", "teammate_avg_finish_position"],
+            teammate_comparison,
+        ),
+        (
+            "circuit_volatility_index.csv",
+            ["circuit_id", "circuit_name", "country", "race_count", "avg_abs_position_change", "large_gain_rate", "large_loss_rate", "non_front_row_winner_rate", "volatility_index"],
+            circuit_volatility_index,
+        ),
+        (
             "current_2026_driver_standings.csv",
             ["rank", "driver_id", "driver_name", "points", "podiums", "top10s"],
             current_driver_standings,
@@ -902,7 +1160,9 @@ def main():
         "input_2026_schedule": str(SCHEDULE_2026_PATH.relative_to(BASE_DIR)),
         "output_dir": str(ANALYSIS_DIR.relative_to(BASE_DIR)),
         "output_files": [filename for filename, _, _ in outputs],
-        "record_count": len(rows),
+        "analysis_season_range": "2019-2025",
+        "analysis_record_count": len(analysis_rows),
+        "all_available_record_count": len(rows),
         "current_2026_completed_races": len({row["round"] for row in completed_2026_results}),
         "current_2026_remaining_races": len(remaining_2026_schedule),
     }
