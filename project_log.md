@@ -165,6 +165,42 @@ grid_is_zero
 - `missing_qualifying` 标记排位名次缺失；
 - `grid_is_zero` 标记特殊发车位或维修区起步等情况。
 
+### 6.1 `build_f1_extended_features.py`
+
+为解决机器学习样本量偏少的问题，新增扩展特征构建脚本。该脚本将 SQLite 历史数据中较完整的 2003-2017 年样本，与 Jolpica-F1 现代数据 2019-2026 合并，生成扩展训练表。
+
+选择 2003 作为历史起点的原因：
+
+- SQLite 中 1994-2002 年虽然有部分排位数据，但缺失较多；
+- 从 2003 年开始，正赛结果和排位结果覆盖更稳定；
+- 2003-2017 相比 1950-2002 更接近现代 F1 数据结构，适合与 2019-2026 合并；
+- 2018 年 SQLite 中只有赛程、没有正赛结果和排位结果，因此暂不加入。
+
+该脚本读取：
+
+```text
+formula-1-race-data-sqlite/Formula1.sqlite
+data/processed/f1_model_dataset.csv
+```
+
+输出：
+
+```text
+data/processed/f1_model_dataset_extended.csv
+data/processed/f1_features_extended.csv
+data/processed/extended_feature_summary.json
+```
+
+扩展后样本量：
+
+```text
+历史样本 2003-2017：5970 条
+现代样本 2019-2026：3126 条
+合计：9096 条
+```
+
+后续机器学习脚本会优先读取 `f1_features_extended.csv`。如果该文件不存在，则回退到原始的 `f1_features.csv`。
+
 ### 7. `analyze_f1_basic_stats.py`
 
 为完成基础数据分析功能，新增了该统计分析脚本。
@@ -414,6 +450,66 @@ outputs/figures/podium_rolling_backtest_summary.png
 ```
 
 需要注意：当前还没有对 2026 未完成比赛做最终预测，因为未来比赛的真实排位名次和发车位置尚不可知。当前脚本只对 2026 已完成比赛输出模型概率，用于检查模型对当前赛季已有结果的拟合情况。
+
+### 12. `train_f1_podium_deep_model.py`
+
+为补充深度学习对比实验，新增 MLP 神经网络脚本。
+
+该脚本继续读取：
+
+```text
+data/processed/f1_features.csv
+```
+
+并复用 `train_f1_podium_model.py` 中的赛道历史特征、排位后特征模式和赛前特征模式。
+
+模型结构：
+
+```text
+输入层
+Dense 64 + ReLU
+Dense 32 + ReLU
+Sigmoid 二分类输出
+```
+
+由于当前环境中的 `MLPClassifier` 不支持 `sample_weight`，脚本对少数类“领奖台样本”进行过采样，以缓解类别不平衡问题。
+
+输出文件包括：
+
+```text
+data/modeling/deep_podium_model_metrics.csv
+data/modeling/deep_podium_predictions_2025.csv
+data/modeling/deep_podium_top3_predictions_2025.csv
+data/modeling/deep_podium_training_history_post_qualifying.csv
+data/modeling/deep_podium_training_history_pre_race.csv
+data/modeling/deep_podium_model_summary.json
+```
+
+同时生成训练曲线：
+
+```text
+outputs/figures/deep_podium_training_curve.png
+```
+
+实验结果：
+
+```text
+MLP 排位后模型：F1 = 0.6667, ROC-AUC = 0.9096
+MLP 赛前模型：F1 = 0.5333, ROC-AUC = 0.8645
+```
+
+结果说明，在加入 2003-2017 历史样本后，MLP 神经网络仍可以完成有效预测，但整体效果低于概率校准随机森林。这一结论可以写入报告：深度学习模型并非在所有场景下都优于传统机器学习模型，尤其是在结构化表格特征较强、不同年代存在规则差异的任务中，集成树模型更稳定。
+
+关于是否使用更早年份数据：
+
+本地 SQLite 数据库中存在 1950-2017 年正赛结果约 23777 条，以及 1994-2017 年排位结果约 7516 条。经过检查后，当前选择 2003-2017 作为历史扩展区间。更早年份理论上可以继续扩大训练样本，但直接合并存在几个问题：
+
+- 1950-1993 年缺少排位表，无法完整构造排位名次特征；
+- 不同年代积分规则、比赛数量、车队数量和赛制差异较大；
+- 当前 2019-2025 特征表使用 Jolpica-F1 字段结构，历史 SQLite 数据需要单独转换为同样的“每场比赛每位车手一行”结构；
+- 赛前积分、近期状态和赛道历史特征必须按时间顺序重新计算，不能直接拼接原始结果。
+
+因此当前阶段先合并 2003-2017 这段较完整的历史数据。后续若继续提升深度学习效果，可以进一步研究 1994-2002 的缺失排位补全策略，但不建议直接从 1950 年开始合并。
 
 ## Jolpica-F1 数据下载结果
 
@@ -1134,7 +1230,7 @@ data/modeling/
 本阶段完成的是“是否登上领奖台”的二分类模型。为了避免未来信息泄露，模型采用时间顺序回测：
 
 ```text
-训练集：2019-2024，共 2559 条记录，其中领奖台样本 384 条
+训练集：2003-2024，共 8529 条记录，其中领奖台样本 1221 条
 测试集：2025，共 479 条记录，其中领奖台样本 72 条
 ```
 
@@ -1142,23 +1238,23 @@ data/modeling/
 
 ```text
 2025 单年回测，排位后模型：
-Logistic Regression: F1 = 0.6705, ROC-AUC = 0.9163
-Random Forest: F1 = 0.7417, ROC-AUC = 0.9498
-Extra Trees: F1 = 0.7108, ROC-AUC = 0.9384
-Calibrated Random Forest: F1 = 0.7442, ROC-AUC = 0.9500
-HistGradientBoosting: F1 = 0.7119, ROC-AUC = 0.9432
+Logistic Regression: F1 = 0.7273, ROC-AUC = 0.9317
+Random Forest: F1 = 0.7381, ROC-AUC = 0.9444
+Extra Trees: F1 = 0.6839, ROC-AUC = 0.9315
+Calibrated Random Forest: F1 = 0.7394, ROC-AUC = 0.9460
+HistGradientBoosting: F1 = 0.7355, ROC-AUC = 0.9473
 
 2025 单年回测，赛前模型：
-Logistic Regression: F1 = 0.6047, ROC-AUC = 0.8727
-Random Forest: F1 = 0.6163, ROC-AUC = 0.9074
-Extra Trees: F1 = 0.6199, ROC-AUC = 0.9054
-Calibrated Random Forest: F1 = 0.6310, ROC-AUC = 0.9060
-HistGradientBoosting: F1 = 0.5882, ROC-AUC = 0.8901
+Logistic Regression: F1 = 0.6270, ROC-AUC = 0.9040
+Random Forest: F1 = 0.6467, ROC-AUC = 0.9033
+Extra Trees: F1 = 0.6256, ROC-AUC = 0.8993
+Calibrated Random Forest: F1 = 0.6322, ROC-AUC = 0.9042
+HistGradientBoosting: F1 = 0.6207, ROC-AUC = 0.8996
 ```
 
 因此当前 2025 单年最佳模型为“排位后特征 + 概率校准随机森林”。这说明排位名次和发车位置仍然是领奖台预测中最强的信息，但不使用排位和发车位的赛前模型也能提供可用的早期预测结果。
 
-滚动回测平均结果显示，排位后随机森林模型在 2022-2025 的平均 F1 为 0.6975，平均 ROC-AUC 为 0.9382；赛前概率校准随机森林平均 F1 为 0.6137，平均 ROC-AUC 为 0.8950。该结果可用于报告中说明：排位后预测精度更高，赛前预测更适合用于尚未排位的未来比赛。
+滚动回测平均结果显示，排位后概率校准随机森林在 2022-2025 的平均 F1 为 0.7005，平均 ROC-AUC 为 0.9373；赛前随机森林平均 F1 为 0.6154，平均 ROC-AUC 为 0.8950。该结果可用于报告中说明：排位后预测精度更高，赛前预测更适合用于尚未排位的未来比赛。
 
 主要输出文件：
 
@@ -1196,6 +1292,15 @@ constructor_last3_podium_count
 ```
 
 这与 F1 场景相符：发车位置、排位表现、车队近期实力和车手赛前状态是领奖台概率的重要影响因素。
+
+深度学习对比实验结果：
+
+```text
+MLP 排位后模型：F1 = 0.6667，ROC-AUC = 0.9096
+MLP 赛前模型：F1 = 0.5333，ROC-AUC = 0.8645
+```
+
+与概率校准随机森林相比，MLP 效果较弱。虽然扩展历史数据后训练样本增加到 8529 条，但 F1 仍未超过树模型，说明该任务更适合结构化表格模型。在本项目中，MLP 更适合作为深度学习对比实验，而不是最终主模型。
 
 ## 后续预测方案
 
@@ -1470,11 +1575,13 @@ python download_jolpica_f1_data.py
 python validate_jolpica_f1_data.py
 python build_f1_model_dataset.py
 python build_f1_features.py
+python build_f1_extended_features.py
 python analyze_f1_basic_stats.py
 python analyze_f1_historical_sqlite.py
 python visualize_f1_analysis.py
 python animate_f1_points.py
 python train_f1_podium_model.py
+python train_f1_podium_deep_model.py
 ```
 
 如果基础 Kaggle 数据集已经存在，可以跳过第一步。

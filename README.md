@@ -32,11 +32,13 @@ For report figures, the visualizations intentionally exclude 2026 data. The 2026
 |-- validate_jolpica_f1_data.py
 |-- build_f1_model_dataset.py
 |-- build_f1_features.py
+|-- build_f1_extended_features.py
 |-- analyze_f1_basic_stats.py
 |-- analyze_f1_historical_sqlite.py
 |-- visualize_f1_analysis.py
 |-- animate_f1_points.py
 |-- train_f1_podium_model.py
+|-- train_f1_podium_deep_model.py
 |-- project_log.md
 |-- requirements.txt
 |-- data/
@@ -97,11 +99,13 @@ python download_jolpica_f1_data.py
 python validate_jolpica_f1_data.py
 python build_f1_model_dataset.py
 python build_f1_features.py
+python build_f1_extended_features.py
 python analyze_f1_basic_stats.py
 python analyze_f1_historical_sqlite.py
 python visualize_f1_analysis.py
 python animate_f1_points.py
 python train_f1_podium_model.py
+python train_f1_podium_deep_model.py
 ```
 
 If the Kaggle datasets or raw Jolpica-F1 data already exist locally, the download steps can be skipped.
@@ -113,6 +117,8 @@ Processed datasets:
 ```text
 data/processed/f1_model_dataset.csv
 data/processed/f1_features.csv
+data/processed/f1_model_dataset_extended.csv
+data/processed/f1_features_extended.csv
 data/processed/f1_2026_schedule.csv
 ```
 
@@ -166,11 +172,13 @@ Machine learning includes:
 - Podium classification target
 - Time-based backtest with 2019-2024 training and 2025 testing
 - Rolling backtest from 2022 to 2025
+- Extended training features combining SQLite 2003-2017 with Jolpica-F1 2019-2026
 - Two feature modes: post-qualifying prediction and pre-race prediction without grid/qualifying fields
 - Circuit historical features built from previous races only
 - Logistic regression, random forest, extra trees, and histogram gradient boosting comparison
 - Calibrated random forest for probability calibration
 - Confusion matrix, feature importance, and race-level top-3 podium candidate evaluation
+- MLP neural-network comparison with training-loss curve
 
 Historical analysis includes:
 

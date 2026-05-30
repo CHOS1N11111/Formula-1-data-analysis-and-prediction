@@ -331,3 +331,11 @@ Use in report: model comparison.
 Shows average F1 scores across expanding-window rolling backtests from 2022 to 2025. It checks whether model performance is stable across multiple test seasons rather than only one season.
 
 Use in report: robustness evaluation.
+
+#### [`figures/deep_podium_training_curve.png`](figures/deep_podium_training_curve.png)
+
+![Deep Podium Training Curve](figures/deep_podium_training_curve.png)
+
+Shows the training loss curves for the MLP neural-network podium model under post-qualifying and pre-race feature modes. It is used to compare a lightweight deep-learning baseline with tree-based machine learning models.
+
+Use in report: deep-learning comparison experiment.

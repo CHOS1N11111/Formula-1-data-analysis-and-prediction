@@ -32,11 +32,13 @@
 |-- validate_jolpica_f1_data.py
 |-- build_f1_model_dataset.py
 |-- build_f1_features.py
+|-- build_f1_extended_features.py
 |-- analyze_f1_basic_stats.py
 |-- analyze_f1_historical_sqlite.py
 |-- visualize_f1_analysis.py
 |-- animate_f1_points.py
 |-- train_f1_podium_model.py
+|-- train_f1_podium_deep_model.py
 |-- project_log.md
 |-- README.md
 |-- README_zh.md
@@ -92,11 +94,13 @@ python download_jolpica_f1_data.py
 python validate_jolpica_f1_data.py
 python build_f1_model_dataset.py
 python build_f1_features.py
+python build_f1_extended_features.py
 python analyze_f1_basic_stats.py
 python analyze_f1_historical_sqlite.py
 python visualize_f1_analysis.py
 python animate_f1_points.py
 python train_f1_podium_model.py
+python train_f1_podium_deep_model.py
 ```
 
 如果本地已经存在 Kaggle 数据集或 Jolpica-F1 原始数据，可以跳过对应下载步骤。
@@ -108,6 +112,8 @@ python train_f1_podium_model.py
 ```text
 data/processed/f1_model_dataset.csv
 data/processed/f1_features.csv
+data/processed/f1_model_dataset_extended.csv
+data/processed/f1_features_extended.csv
 data/processed/f1_2026_schedule.csv
 ```
 
@@ -168,11 +174,13 @@ outputs/OUTPUTS_DESCRIPTION.md
 - 以“是否登上领奖台”为分类目标；
 - 使用 2019-2024 训练、2025 测试的时间顺序回测；
 - 使用 2022-2025 滚动年份回测；
+- 使用 SQLite 2003-2017 与 Jolpica-F1 2019-2026 构造扩展训练特征；
 - 区分“排位后预测”和“不使用排位/发车位的赛前预测”两种特征模式；
 - 构造只使用历史比赛的赛道历史特征；
 - 对比逻辑回归、随机森林、极端随机树和直方图梯度提升模型；
 - 加入概率校准随机森林；
 - 输出混淆矩阵、特征重要性和逐站 Top 3 领奖台候选命中情况。
+- 补充 MLP 神经网络对比实验和训练损失曲线。
 
 历史背景分析包括：
 

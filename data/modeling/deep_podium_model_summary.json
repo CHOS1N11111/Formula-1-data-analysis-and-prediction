@@ -1,0 +1,28 @@
+{
+  "built_at": "2026-05-30T05:29:08.124811+00:00",
+  "input_features": "data\\processed\\f1_features_extended.csv",
+  "target": "is_podium",
+  "model": "MLPClassifier",
+  "hidden_layers": [
+    64,
+    32
+  ],
+  "feature_modes": [
+    "post_qualifying",
+    "pre_race"
+  ],
+  "best_feature_mode": "post_qualifying",
+  "best_f1": "0.666667",
+  "best_roc_auc": "0.909603",
+  "outputs": [
+    "deep_podium_model_metrics.csv",
+    "deep_podium_predictions_2025.csv",
+    "deep_podium_top3_predictions_2025.csv",
+    "deep_podium_training_history_post_qualifying.csv",
+    "deep_podium_training_history_pre_race.csv"
+  ],
+  "figures": [
+    "outputs\\figures\\deep_podium_training_curve.png"
+  ],
+  "note": "The neural network uses oversampled podium records because the available sklearn MLPClassifier does not support sample_weight in this environment."
+}

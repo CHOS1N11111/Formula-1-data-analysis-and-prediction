@@ -1,9 +1,9 @@
 {
-  "built_at": "2026-05-30T03:59:15.434704+00:00",
-  "input_features": "data\\processed\\f1_features.csv",
+  "built_at": "2026-05-30T05:28:00.602591+00:00",
+  "input_features": "data\\processed\\f1_features_extended.csv",
   "output_dir": "data\\modeling",
   "target": "is_podium",
-  "train_seasons": "2019-2024",
+  "train_seasons": "2003-2024",
   "test_season": 2025,
   "feature_modes": [
     "post_qualifying",

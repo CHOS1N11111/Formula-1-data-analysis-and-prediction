@@ -29,11 +29,13 @@ from sklearn.preprocessing import StandardScaler
 
 BASE_DIR = Path(__file__).resolve().parent
 FEATURES_PATH = BASE_DIR / "data" / "processed" / "f1_features.csv"
+EXTENDED_FEATURES_PATH = BASE_DIR / "data" / "processed" / "f1_features_extended.csv"
 MODEL_DIR = BASE_DIR / "data" / "modeling"
 FIGURE_DIR = BASE_DIR / "outputs" / "figures"
 SUMMARY_PATH = MODEL_DIR / "podium_model_summary.json"
 
 TARGET_FIELD = "is_podium"
+TRAIN_START_SEASON = 2003
 TRAIN_END_SEASON = 2024
 TEST_SEASON = 2025
 
@@ -242,11 +244,11 @@ def split_rows(rows):
     train_rows = [
         row
         for row in rows
-        if 2019 <= to_int(row["season"]) <= TRAIN_END_SEASON
+        if TRAIN_START_SEASON <= to_int(row["season"]) <= TRAIN_END_SEASON
     ]
     test_rows = [row for row in rows if to_int(row["season"]) == TEST_SEASON]
     final_train_rows = [
-        row for row in rows if 2019 <= to_int(row["season"]) <= TEST_SEASON
+        row for row in rows if TRAIN_START_SEASON <= to_int(row["season"]) <= TEST_SEASON
     ]
     completed_2026_rows = [row for row in rows if to_int(row["season"]) == 2026]
     return train_rows, test_rows, final_train_rows, completed_2026_rows
@@ -746,7 +748,7 @@ def build_rolling_backtest_rows(rows, feature_modes):
     output_rows = []
     for test_year in range(2022, 2026):
         train_rows = [
-            row for row in rows if 2019 <= to_int(row["season"]) < test_year
+            row for row in rows if TRAIN_START_SEASON <= to_int(row["season"]) < test_year
         ]
         test_rows = [row for row in rows if to_int(row["season"]) == test_year]
         for feature_mode in feature_modes:
@@ -754,7 +756,7 @@ def build_rolling_backtest_rows(rows, feature_modes):
                 train_rows,
                 test_rows,
                 feature_mode,
-                2019,
+                TRAIN_START_SEASON,
                 test_year - 1,
                 test_year,
             )
@@ -793,8 +795,15 @@ def build_mode_summary_rows(rows):
     return sorted(output_rows, key=lambda row: to_float(row["avg_f1"]), reverse=True)
 
 
+def get_training_features_path():
+    if EXTENDED_FEATURES_PATH.exists():
+        return EXTENDED_FEATURES_PATH
+    return FEATURES_PATH
+
+
 def main():
-    rows = add_circuit_history_features(read_csv(FEATURES_PATH))
+    training_features_path = get_training_features_path()
+    rows = add_circuit_history_features(read_csv(training_features_path))
     train_rows, test_rows, final_train_rows, completed_2026_rows = split_rows(rows)
     feature_modes = ["post_qualifying", "pre_race"]
     model_metrics = []
@@ -806,7 +815,7 @@ def main():
             train_rows,
             test_rows,
             feature_mode,
-            2019,
+            TRAIN_START_SEASON,
             TRAIN_END_SEASON,
             TEST_SEASON,
         )
@@ -914,10 +923,10 @@ def main():
 
     summary = {
         "built_at": datetime.now(timezone.utc).isoformat(),
-        "input_features": str(FEATURES_PATH.relative_to(BASE_DIR)),
+        "input_features": str(training_features_path.relative_to(BASE_DIR)),
         "output_dir": str(MODEL_DIR.relative_to(BASE_DIR)),
         "target": TARGET_FIELD,
-        "train_seasons": f"2019-{TRAIN_END_SEASON}",
+        "train_seasons": f"{TRAIN_START_SEASON}-{TRAIN_END_SEASON}",
         "test_season": TEST_SEASON,
         "feature_modes": feature_modes,
         "best_feature_mode": best_feature_mode,
