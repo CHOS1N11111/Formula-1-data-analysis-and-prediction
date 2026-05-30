@@ -165,7 +165,11 @@ Machine learning includes:
 
 - Podium classification target
 - Time-based backtest with 2019-2024 training and 2025 testing
+- Rolling backtest from 2022 to 2025
+- Two feature modes: post-qualifying prediction and pre-race prediction without grid/qualifying fields
+- Circuit historical features built from previous races only
 - Logistic regression, random forest, extra trees, and histogram gradient boosting comparison
+- Calibrated random forest for probability calibration
 - Confusion matrix, feature importance, and race-level top-3 podium candidate evaluation
 
 Historical analysis includes:

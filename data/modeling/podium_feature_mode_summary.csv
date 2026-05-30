@@ -1,0 +1,11 @@
+﻿feature_mode,model,test_years,avg_f1,avg_roc_auc,avg_race_top3_precision,avg_correct_podium_drivers_per_race
+post_qualifying,random_forest,"2022,2023,2024,2025",0.697546,0.938236,0.658144,1.974432
+post_qualifying,calibrated_random_forest,"2022,2023,2024,2025",0.695873,0.939214,0.658460,1.975379
+post_qualifying,extra_trees,"2022,2023,2024,2025",0.674205,0.928289,0.621843,1.865530
+post_qualifying,hist_gradient_boosting,"2022,2023,2024,2025",0.666078,0.924829,0.636363,1.909091
+post_qualifying,logistic_regression,"2022,2023,2024,2025",0.644238,0.913909,0.589962,1.769887
+pre_race,calibrated_random_forest,"2022,2023,2024,2025",0.613660,0.894995,0.542298,1.626894
+pre_race,random_forest,"2022,2023,2024,2025",0.607213,0.896048,0.553030,1.659091
+pre_race,extra_trees,"2022,2023,2024,2025",0.605262,0.895039,0.535354,1.606061
+pre_race,hist_gradient_boosting,"2022,2023,2024,2025",0.581100,0.878245,0.521465,1.564394
+pre_race,logistic_regression,"2022,2023,2024,2025",0.563371,0.873871,0.505366,1.516098

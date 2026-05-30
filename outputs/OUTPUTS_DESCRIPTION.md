@@ -315,3 +315,19 @@ Use in report: machine learning model evaluation.
 Shows the strongest logistic-regression feature effects for podium prediction. Positive coefficients increase podium probability, while negative coefficients reduce it.
 
 Use in report: model interpretation and feature analysis.
+
+#### [`figures/podium_model_comparison_2025.png`](figures/podium_model_comparison_2025.png)
+
+![Podium Model Comparison](figures/podium_model_comparison_2025.png)
+
+Compares 2025 F1 scores across post-qualifying and pre-race model settings. It shows how much predictive power is gained after qualifying and grid information is available.
+
+Use in report: model comparison.
+
+#### [`figures/podium_rolling_backtest_summary.png`](figures/podium_rolling_backtest_summary.png)
+
+![Podium Rolling Backtest Summary](figures/podium_rolling_backtest_summary.png)
+
+Shows average F1 scores across expanding-window rolling backtests from 2022 to 2025. It checks whether model performance is stable across multiple test seasons rather than only one season.
+
+Use in report: robustness evaluation.

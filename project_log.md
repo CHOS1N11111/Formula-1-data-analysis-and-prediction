@@ -344,14 +344,23 @@ is_podium
 
 使用的主要特征包括：
 
-- 发车位置；
-- 排位名次；
+- 发车位置和排位名次（仅用于排位后预测模式）；
 - 车手赛前积分和赛前排名；
 - 车队赛前积分和赛前排名；
 - 车手近 3 场平均积分、平均完赛名次和领奖台次数；
 - 车队近 3 场平均积分和领奖台次数；
+- 赛道历史杆位夺冠率、前三发车领奖台率、平均名次变化和大幅提升率；
 - 历史参赛次数；
 - 车手、车队和赛道类别特征。
+
+脚本同时构造两种预测场景：
+
+```text
+post_qualifying：排位后预测，使用 grid 和 qualifying_position；
+pre_race：赛前预测，不使用 grid 和 qualifying_position，用于还没有排位结果的比赛。
+```
+
+赛道历史特征只使用该场比赛之前已经发生的同赛道历史结果，不使用当前比赛或未来比赛信息。
 
 回测方式：
 
@@ -362,17 +371,31 @@ is_podium
 
 这样可以模拟真实预测场景，即只能使用过去赛季数据预测未来赛季，避免随机切分带来的未来信息泄露。
 
+同时新增滚动回测：
+
+```text
+训练 2019-2021，测试 2022
+训练 2019-2022，测试 2023
+训练 2019-2023，测试 2024
+训练 2019-2024，测试 2025
+```
+
+滚动回测用于检验模型不是只在 2025 单一年份有效，而是在多个未来赛季上具有相对稳定的预测能力。
+
 模型对比：
 
 - 逻辑回归：作为可解释基线模型；
 - 随机森林：作为非线性集成模型，捕捉特征之间的复杂关系；
 - 极端随机树：作为随机森林的对照集成模型，观察树模型稳定性；
+- 概率校准随机森林：对随机森林输出概率进行校准，使概率解释更稳定；
 - 直方图梯度提升：作为提升树模型，进一步比较非线性模型效果。
 
 输出文件包括：
 
 ```text
 data/modeling/podium_model_metrics.csv
+data/modeling/podium_rolling_backtest_metrics.csv
+data/modeling/podium_feature_mode_summary.csv
 data/modeling/podium_predictions_2025.csv
 data/modeling/podium_top3_predictions_2025.csv
 data/modeling/podium_feature_importance.csv
@@ -386,6 +409,8 @@ data/modeling/podium_model_summary.json
 ```text
 outputs/figures/podium_model_confusion_matrix_2025.png
 outputs/figures/podium_model_feature_importance_2025.png
+outputs/figures/podium_model_comparison_2025.png
+outputs/figures/podium_rolling_backtest_summary.png
 ```
 
 需要注意：当前还没有对 2026 未完成比赛做最终预测，因为未来比赛的真实排位名次和发车位置尚不可知。当前脚本只对 2026 已完成比赛输出模型概率，用于检查模型对当前赛季已有结果的拟合情况。
@@ -1116,20 +1141,31 @@ data/modeling/
 模型对比结果：
 
 ```text
-| 模型 | F1 | ROC-AUC | 逐站 Top 3 命中率 | 平均每站命中真实领奖台车手数 |
-| --- | ---: | ---: | ---: | ---: |
-| Logistic Regression | 0.6826 | 0.9193 | 0.6528 | 1.9583 |
-| Random Forest | 0.7375 | 0.9482 | 0.7222 | 2.1667 |
-| Extra Trees | 0.7052 | 0.9370 | 0.6806 | 2.0417 |
-| HistGradientBoosting | 0.6950 | 0.9338 | 0.6528 | 1.9583 |
+2025 单年回测，排位后模型：
+Logistic Regression: F1 = 0.6705, ROC-AUC = 0.9163
+Random Forest: F1 = 0.7417, ROC-AUC = 0.9498
+Extra Trees: F1 = 0.7108, ROC-AUC = 0.9384
+Calibrated Random Forest: F1 = 0.7442, ROC-AUC = 0.9500
+HistGradientBoosting: F1 = 0.7119, ROC-AUC = 0.9432
+
+2025 单年回测，赛前模型：
+Logistic Regression: F1 = 0.6047, ROC-AUC = 0.8727
+Random Forest: F1 = 0.6163, ROC-AUC = 0.9074
+Extra Trees: F1 = 0.6199, ROC-AUC = 0.9054
+Calibrated Random Forest: F1 = 0.6310, ROC-AUC = 0.9060
+HistGradientBoosting: F1 = 0.5882, ROC-AUC = 0.8901
 ```
 
-因此当前选择随机森林作为第一版最佳模型。模型结果说明，基于赛前积分、近期状态、排位和发车位置等特征，可以较好地区分领奖台候选车手。
+因此当前 2025 单年最佳模型为“排位后特征 + 概率校准随机森林”。这说明排位名次和发车位置仍然是领奖台预测中最强的信息，但不使用排位和发车位的赛前模型也能提供可用的早期预测结果。
+
+滚动回测平均结果显示，排位后随机森林模型在 2022-2025 的平均 F1 为 0.6975，平均 ROC-AUC 为 0.9382；赛前概率校准随机森林平均 F1 为 0.6137，平均 ROC-AUC 为 0.8950。该结果可用于报告中说明：排位后预测精度更高，赛前预测更适合用于尚未排位的未来比赛。
 
 主要输出文件：
 
 ```text
 data/modeling/podium_model_metrics.csv
+data/modeling/podium_rolling_backtest_metrics.csv
+data/modeling/podium_feature_mode_summary.csv
 data/modeling/podium_predictions_2025.csv
 data/modeling/podium_top3_predictions_2025.csv
 data/modeling/podium_feature_importance.csv
@@ -1143,6 +1179,8 @@ data/modeling/podium_model_summary.json
 ```text
 outputs/figures/podium_model_confusion_matrix_2025.png
 outputs/figures/podium_model_feature_importance_2025.png
+outputs/figures/podium_model_comparison_2025.png
+outputs/figures/podium_rolling_backtest_summary.png
 ```
 
 随机森林特征重要性最高的变量包括：

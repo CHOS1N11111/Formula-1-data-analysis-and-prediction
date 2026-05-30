@@ -1,13 +1,22 @@
 {
-  "built_at": "2026-05-29T06:25:18.123663+00:00",
+  "built_at": "2026-05-30T03:59:15.434704+00:00",
   "input_features": "data\\processed\\f1_features.csv",
   "output_dir": "data\\modeling",
   "target": "is_podium",
   "train_seasons": "2019-2024",
   "test_season": 2025,
-  "best_model": "random_forest",
+  "feature_modes": [
+    "post_qualifying",
+    "pre_race"
+  ],
+  "best_feature_mode": "post_qualifying",
+  "best_model": "calibrated_random_forest",
   "best_model_metric": "f1",
   "model_metrics_file": "podium_model_metrics.csv",
+  "rolling_backtest_files": [
+    "podium_rolling_backtest_metrics.csv",
+    "podium_feature_mode_summary.csv"
+  ],
   "prediction_files": [
     "podium_predictions_2025.csv",
     "podium_top3_predictions_2025.csv",
@@ -19,7 +28,9 @@
   ],
   "figures": [
     "outputs\\figures\\podium_model_confusion_matrix_2025.png",
-    "outputs\\figures\\podium_model_feature_importance_2025.png"
+    "outputs\\figures\\podium_model_feature_importance_2025.png",
+    "outputs\\figures\\podium_model_comparison_2025.png",
+    "outputs\\figures\\podium_rolling_backtest_summary.png"
   ],
-  "note": "2026 future races are not predicted yet because future qualifying/grid positions are unknown in the current feature table."
+  "note": "The post_qualifying model uses grid and qualifying position. The pre_race model excludes those fields for earlier forecasts before qualifying."
 }

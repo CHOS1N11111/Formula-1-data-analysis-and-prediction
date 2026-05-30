@@ -14,6 +14,7 @@ from sklearn.ensemble import (
 )
 from sklearn.feature_extraction import DictVectorizer
 from sklearn.linear_model import LogisticRegression
+from sklearn.calibration import CalibratedClassifierCV
 from sklearn.metrics import (
     accuracy_score,
     confusion_matrix,
@@ -54,6 +55,24 @@ NUMERIC_FEATURES = [
     "constructor_has_history",
     "missing_qualifying",
     "grid_is_zero",
+]
+
+CIRCUIT_HISTORY_FEATURES = [
+    "circuit_history_race_count",
+    "circuit_history_pole_win_rate",
+    "circuit_history_front3_podium_rate",
+    "circuit_history_avg_position_change",
+    "circuit_history_avg_abs_position_change",
+    "circuit_history_large_gain_rate",
+    "circuit_history_non_front_row_winner_rate",
+]
+
+POST_QUALIFYING_NUMERIC_FEATURES = NUMERIC_FEATURES + CIRCUIT_HISTORY_FEATURES
+
+PRE_RACE_NUMERIC_FEATURES = [
+    field
+    for field in POST_QUALIFYING_NUMERIC_FEATURES
+    if field not in {"grid", "qualifying_position", "missing_qualifying", "grid_is_zero"}
 ]
 
 CATEGORICAL_FEATURES = [
@@ -104,9 +123,115 @@ def format_float(value, digits=6):
     return f"{value:.{digits}f}"
 
 
-def build_feature_dict(row):
+def safe_rate(numerator, denominator):
+    if denominator == 0:
+        return 0.0
+    return numerator / denominator
+
+
+def default_circuit_stats():
+    return {
+        "race_count": 0,
+        "pole_starts": 0,
+        "pole_wins": 0,
+        "front3_starts": 0,
+        "front3_podiums": 0,
+        "position_change_sum": 0.0,
+        "abs_position_change_sum": 0.0,
+        "valid_grid_records": 0,
+        "large_gain_count": 0,
+        "winner_count": 0,
+        "non_front_row_winner_count": 0,
+    }
+
+
+def circuit_feature_values(stats):
+    return {
+        "circuit_history_race_count": stats["race_count"],
+        "circuit_history_pole_win_rate": safe_rate(
+            stats["pole_wins"], stats["pole_starts"]
+        ),
+        "circuit_history_front3_podium_rate": safe_rate(
+            stats["front3_podiums"], stats["front3_starts"]
+        ),
+        "circuit_history_avg_position_change": safe_rate(
+            stats["position_change_sum"], stats["valid_grid_records"]
+        ),
+        "circuit_history_avg_abs_position_change": safe_rate(
+            stats["abs_position_change_sum"], stats["valid_grid_records"]
+        ),
+        "circuit_history_large_gain_rate": safe_rate(
+            stats["large_gain_count"], stats["valid_grid_records"]
+        ),
+        "circuit_history_non_front_row_winner_rate": safe_rate(
+            stats["non_front_row_winner_count"], stats["winner_count"]
+        ),
+    }
+
+
+def add_circuit_history_features(rows):
+    circuit_stats = {}
+    race_groups = {}
+    for row in rows:
+        race_key = (to_int(row["season"]), to_int(row["round"]))
+        race_groups.setdefault(race_key, []).append(row)
+
+    output_rows = []
+    for race_key in sorted(race_groups):
+        race_rows = race_groups[race_key]
+        circuit_id = race_rows[0]["circuit_id"]
+        stats = circuit_stats.setdefault(circuit_id, default_circuit_stats())
+        feature_values = circuit_feature_values(stats)
+
+        for row in race_rows:
+            enriched = dict(row)
+            for field, value in feature_values.items():
+                enriched[field] = value
+            output_rows.append(enriched)
+
+        valid_grid_rows = [
+            row
+            for row in race_rows
+            if to_int(row["grid"], 0) > 0 and to_int(row["finish_position"], 0) > 0
+        ]
+        if not valid_grid_rows:
+            continue
+
+        stats["race_count"] += 1
+        for row in valid_grid_rows:
+            grid = to_int(row["grid"])
+            finish = to_int(row["finish_position"])
+            change = grid - finish
+            stats["valid_grid_records"] += 1
+            stats["position_change_sum"] += change
+            stats["abs_position_change_sum"] += abs(change)
+            if change >= 5:
+                stats["large_gain_count"] += 1
+            if grid == 1:
+                stats["pole_starts"] += 1
+                if finish == 1:
+                    stats["pole_wins"] += 1
+            if 1 <= grid <= 3:
+                stats["front3_starts"] += 1
+                if finish <= 3:
+                    stats["front3_podiums"] += 1
+            if finish == 1:
+                stats["winner_count"] += 1
+                if grid > 3:
+                    stats["non_front_row_winner_count"] += 1
+
+    return output_rows
+
+
+def numeric_fields_for_mode(feature_mode):
+    if feature_mode == "pre_race":
+        return PRE_RACE_NUMERIC_FEATURES
+    return POST_QUALIFYING_NUMERIC_FEATURES
+
+
+def build_feature_dict(row, feature_mode):
     feature_row = {}
-    for field in NUMERIC_FEATURES:
+    for field in numeric_fields_for_mode(feature_mode):
         feature_row[field] = to_float(row.get(field), 0.0)
     for field in CATEGORICAL_FEATURES:
         feature_row[field] = row.get(field, "unknown") or "unknown"
@@ -127,13 +252,29 @@ def split_rows(rows):
     return train_rows, test_rows, final_train_rows, completed_2026_rows
 
 
-def build_xy(rows):
-    x_values = [build_feature_dict(row) for row in rows]
+def build_xy(rows, feature_mode):
+    x_values = [build_feature_dict(row, feature_mode) for row in rows]
     y_values = [to_int(row[TARGET_FIELD]) for row in rows]
     return x_values, y_values
 
 
 def build_models():
+    calibrated_base_model = Pipeline(
+        steps=[
+            ("vectorizer", DictVectorizer(sparse=False)),
+            (
+                "model",
+                RandomForestClassifier(
+                    n_estimators=250,
+                    max_depth=8,
+                    min_samples_leaf=5,
+                    class_weight="balanced",
+                    random_state=42,
+                    n_jobs=1,
+                ),
+            ),
+        ]
+    )
     return {
         "logistic_regression": Pipeline(
             steps=[
@@ -160,6 +301,7 @@ def build_models():
                         min_samples_leaf=5,
                         class_weight="balanced",
                         random_state=42,
+                        n_jobs=1,
                     ),
                 ),
             ]
@@ -175,9 +317,15 @@ def build_models():
                         min_samples_leaf=5,
                         class_weight="balanced",
                         random_state=42,
+                        n_jobs=1,
                     ),
                 ),
             ]
+        ),
+        "calibrated_random_forest": CalibratedClassifierCV(
+            estimator=calibrated_base_model,
+            method="sigmoid",
+            cv=3,
         ),
         "hist_gradient_boosting": Pipeline(
             steps=[
@@ -299,12 +447,16 @@ def build_prediction_rows(rows, probabilities, threshold):
 
 
 def get_feature_names(model):
+    if not hasattr(model, "named_steps"):
+        return []
     vectorizer = model.named_steps["vectorizer"]
     return vectorizer.get_feature_names_out()
 
 
 def get_feature_importance_rows(model_name, model, top_n=40):
     feature_names = get_feature_names(model)
+    if len(feature_names) == 0 or not hasattr(model, "named_steps"):
+        return []
     estimator = model.named_steps["model"]
 
     if model_name in {"random_forest", "extra_trees"}:
@@ -378,12 +530,177 @@ def save_feature_importance_figure(rows):
     return output_path
 
 
-def main():
-    rows = read_csv(FEATURES_PATH)
-    train_rows, test_rows, final_train_rows, completed_2026_rows = split_rows(rows)
-    train_x, train_y = build_xy(train_rows)
-    test_x, test_y = build_xy(test_rows)
+def save_model_comparison_figure(rows):
+    labels = [f"{row['feature_mode']}\n{row['model']}" for row in rows]
+    values = [to_float(row["f1"]) for row in rows]
+    colors = [
+        "#2563EB" if row["feature_mode"] == "post_qualifying" else "#059669"
+        for row in rows
+    ]
 
+    fig, ax = plt.subplots(figsize=(11, 5.8))
+    bars = ax.bar(range(len(rows)), values, color=colors)
+    ax.set_xticks(range(len(rows)), labels=labels, rotation=35, ha="right")
+    ax.set_ylabel("F1 score")
+    ax.set_title("Podium Model Comparison, 2025 Backtest")
+    ax.set_ylim(0, max(values) * 1.18)
+    for bar, value in zip(bars, values):
+        ax.text(
+            bar.get_x() + bar.get_width() / 2,
+            bar.get_height() + 0.01,
+            f"{value:.3f}",
+            ha="center",
+            va="bottom",
+            fontsize=8,
+        )
+    fig.tight_layout()
+    output_path = FIGURE_DIR / "podium_model_comparison_2025.png"
+    output_path.parent.mkdir(parents=True, exist_ok=True)
+    fig.savefig(output_path, dpi=180)
+    plt.close(fig)
+    return output_path
+
+
+def save_rolling_summary_figure(rows):
+    labels = [f"{row['feature_mode']}\n{row['model']}" for row in rows]
+    values = [to_float(row["avg_f1"]) for row in rows]
+    colors = [
+        "#2563EB" if row["feature_mode"] == "post_qualifying" else "#059669"
+        for row in rows
+    ]
+
+    fig, ax = plt.subplots(figsize=(11, 5.8))
+    bars = ax.bar(range(len(rows)), values, color=colors)
+    ax.set_xticks(range(len(rows)), labels=labels, rotation=35, ha="right")
+    ax.set_ylabel("Average F1 score")
+    ax.set_title("Rolling Backtest Average F1, 2022-2025")
+    ax.set_ylim(0, max(values) * 1.18)
+    for bar, value in zip(bars, values):
+        ax.text(
+            bar.get_x() + bar.get_width() / 2,
+            bar.get_height() + 0.01,
+            f"{value:.3f}",
+            ha="center",
+            va="bottom",
+            fontsize=8,
+        )
+    fig.tight_layout()
+    output_path = FIGURE_DIR / "podium_rolling_backtest_summary.png"
+    output_path.parent.mkdir(parents=True, exist_ok=True)
+    fig.savefig(output_path, dpi=180)
+    plt.close(fig)
+    return output_path
+
+
+METRIC_FIELDNAMES = [
+    "feature_mode",
+    "model",
+    "train_seasons",
+    "test_season",
+    "train_records",
+    "test_records",
+    "positive_train_records",
+    "positive_test_records",
+    "best_threshold",
+    "accuracy",
+    "precision",
+    "recall",
+    "f1",
+    "roc_auc",
+    "accuracy_at_0_5",
+    "precision_at_0_5",
+    "recall_at_0_5",
+    "f1_at_0_5",
+    "race_top3_precision",
+    "avg_correct_podium_drivers_per_race",
+    "true_negative",
+    "false_positive",
+    "false_negative",
+    "true_positive",
+]
+
+
+PREDICTION_FIELDNAMES = [
+    "season",
+    "round",
+    "race_name",
+    "race_date",
+    "driver_id",
+    "driver_name",
+    "constructor_id",
+    "constructor_name",
+    "grid",
+    "qualifying_position",
+    "podium_probability",
+    "predicted_is_podium",
+    "actual_is_podium",
+    "actual_finish_position",
+    "points",
+]
+
+
+TOP3_FIELDNAMES = [
+    "season",
+    "round",
+    "race_name",
+    "predicted_rank",
+    "driver_id",
+    "driver_name",
+    "constructor_name",
+    "podium_probability",
+    "actual_is_podium",
+    "actual_finish_position",
+]
+
+
+def metric_row(
+    feature_mode,
+    model_name,
+    train_start,
+    train_end,
+    test_year,
+    train_rows,
+    test_rows,
+    train_y,
+    test_y,
+    threshold,
+    threshold_metrics,
+    fixed_metrics,
+    race_top3,
+):
+    return {
+        "feature_mode": feature_mode,
+        "model": model_name,
+        "train_seasons": f"{train_start}-{train_end}",
+        "test_season": test_year,
+        "train_records": len(train_rows),
+        "test_records": len(test_rows),
+        "positive_train_records": sum(train_y),
+        "positive_test_records": sum(test_y),
+        "best_threshold": format_float(threshold),
+        "accuracy": format_float(threshold_metrics["accuracy"]),
+        "precision": format_float(threshold_metrics["precision"]),
+        "recall": format_float(threshold_metrics["recall"]),
+        "f1": format_float(threshold_metrics["f1"]),
+        "roc_auc": format_float(threshold_metrics["roc_auc"]),
+        "accuracy_at_0_5": format_float(fixed_metrics["accuracy"]),
+        "precision_at_0_5": format_float(fixed_metrics["precision"]),
+        "recall_at_0_5": format_float(fixed_metrics["recall"]),
+        "f1_at_0_5": format_float(fixed_metrics["f1"]),
+        "race_top3_precision": format_float(race_top3["top3_precision"]),
+        "avg_correct_podium_drivers_per_race": format_float(
+            race_top3["avg_correct_podium_drivers_per_race"]
+        ),
+        "true_negative": threshold_metrics["true_negative"],
+        "false_positive": threshold_metrics["false_positive"],
+        "false_negative": threshold_metrics["false_negative"],
+        "true_positive": threshold_metrics["true_positive"],
+    }
+
+
+def fit_and_evaluate_models(train_rows, test_rows, feature_mode, train_start, train_end, test_year):
+    train_x, train_y = build_xy(train_rows, feature_mode)
+    test_x, test_y = build_xy(test_rows, feature_mode)
     models = build_models()
     model_metrics = []
     fitted_models = {}
@@ -397,33 +714,21 @@ def main():
         race_top3 = evaluate_race_top3(test_rows, probabilities)
 
         model_metrics.append(
-            {
-                "model": model_name,
-                "train_seasons": f"2019-{TRAIN_END_SEASON}",
-                "test_season": TEST_SEASON,
-                "train_records": len(train_rows),
-                "test_records": len(test_rows),
-                "positive_train_records": sum(train_y),
-                "positive_test_records": sum(test_y),
-                "best_threshold": format_float(threshold),
-                "accuracy": format_float(threshold_metrics["accuracy"]),
-                "precision": format_float(threshold_metrics["precision"]),
-                "recall": format_float(threshold_metrics["recall"]),
-                "f1": format_float(threshold_metrics["f1"]),
-                "roc_auc": format_float(threshold_metrics["roc_auc"]),
-                "accuracy_at_0_5": format_float(fixed_metrics["accuracy"]),
-                "precision_at_0_5": format_float(fixed_metrics["precision"]),
-                "recall_at_0_5": format_float(fixed_metrics["recall"]),
-                "f1_at_0_5": format_float(fixed_metrics["f1"]),
-                "race_top3_precision": format_float(race_top3["top3_precision"]),
-                "avg_correct_podium_drivers_per_race": format_float(
-                    race_top3["avg_correct_podium_drivers_per_race"]
-                ),
-                "true_negative": threshold_metrics["true_negative"],
-                "false_positive": threshold_metrics["false_positive"],
-                "false_negative": threshold_metrics["false_negative"],
-                "true_positive": threshold_metrics["true_positive"],
-            }
+            metric_row(
+                feature_mode,
+                model_name,
+                train_start,
+                train_end,
+                test_year,
+                train_rows,
+                test_rows,
+                train_y,
+                test_y,
+                threshold,
+                threshold_metrics,
+                fixed_metrics,
+                race_top3,
+            )
         )
         fitted_models[model_name] = {
             "model": model,
@@ -433,7 +738,86 @@ def main():
             "race_top3": race_top3,
         }
 
-    best_model_name = max(model_metrics, key=lambda row: to_float(row["f1"]))["model"]
+    best_row = max(model_metrics, key=lambda row: to_float(row["f1"]))
+    return model_metrics, fitted_models, best_row
+
+
+def build_rolling_backtest_rows(rows, feature_modes):
+    output_rows = []
+    for test_year in range(2022, 2026):
+        train_rows = [
+            row for row in rows if 2019 <= to_int(row["season"]) < test_year
+        ]
+        test_rows = [row for row in rows if to_int(row["season"]) == test_year]
+        for feature_mode in feature_modes:
+            model_metrics, _, _ = fit_and_evaluate_models(
+                train_rows,
+                test_rows,
+                feature_mode,
+                2019,
+                test_year - 1,
+                test_year,
+            )
+            output_rows.extend(model_metrics)
+    return output_rows
+
+
+def build_mode_summary_rows(rows):
+    grouped = {}
+    for row in rows:
+        grouped.setdefault((row["feature_mode"], row["model"]), []).append(row)
+
+    output_rows = []
+    for (feature_mode, model_name), group in sorted(grouped.items()):
+        output_rows.append(
+            {
+                "feature_mode": feature_mode,
+                "model": model_name,
+                "test_years": ",".join(str(row["test_season"]) for row in group),
+                "avg_f1": format_float(
+                    sum(to_float(row["f1"]) for row in group) / len(group)
+                ),
+                "avg_roc_auc": format_float(
+                    sum(to_float(row["roc_auc"]) for row in group) / len(group)
+                ),
+                "avg_race_top3_precision": format_float(
+                    sum(to_float(row["race_top3_precision"]) for row in group)
+                    / len(group)
+                ),
+                "avg_correct_podium_drivers_per_race": format_float(
+                    sum(to_float(row["avg_correct_podium_drivers_per_race"]) for row in group)
+                    / len(group)
+                ),
+            }
+        )
+    return sorted(output_rows, key=lambda row: to_float(row["avg_f1"]), reverse=True)
+
+
+def main():
+    rows = add_circuit_history_features(read_csv(FEATURES_PATH))
+    train_rows, test_rows, final_train_rows, completed_2026_rows = split_rows(rows)
+    feature_modes = ["post_qualifying", "pre_race"]
+    model_metrics = []
+    fitted_by_mode = {}
+    best_rows = []
+
+    for feature_mode in feature_modes:
+        mode_metrics, fitted_models, best_row = fit_and_evaluate_models(
+            train_rows,
+            test_rows,
+            feature_mode,
+            2019,
+            TRAIN_END_SEASON,
+            TEST_SEASON,
+        )
+        model_metrics.extend(mode_metrics)
+        fitted_by_mode[feature_mode] = fitted_models
+        best_rows.append(best_row)
+
+    overall_best_row = max(best_rows, key=lambda row: to_float(row["f1"]))
+    best_feature_mode = overall_best_row["feature_mode"]
+    best_model_name = overall_best_row["model"]
+    fitted_models = fitted_by_mode[best_feature_mode]
     best_model_info = fitted_models[best_model_name]
     best_model = best_model_info["model"]
     best_probabilities = best_model_info["probabilities"]
@@ -444,6 +828,11 @@ def main():
         best_model_name,
         best_model,
     )
+    if not feature_importance_rows:
+        feature_importance_rows = get_feature_importance_rows(
+            "random_forest",
+            fitted_models["random_forest"]["model"],
+        )
     if best_model_name != "logistic_regression":
         logistic_importance_rows = get_feature_importance_rows(
             "logistic_regression",
@@ -453,9 +842,9 @@ def main():
         logistic_importance_rows = feature_importance_rows
 
     final_model = build_models()[best_model_name]
-    final_x, final_y = build_xy(final_train_rows)
+    final_x, final_y = build_xy(final_train_rows, best_feature_mode)
     final_model.fit(final_x, final_y)
-    completed_2026_x, _ = build_xy(completed_2026_rows)
+    completed_2026_x, _ = build_xy(completed_2026_rows, best_feature_mode)
     completed_2026_probabilities = final_model.predict_proba(completed_2026_x)[:, 1]
     completed_2026_predictions = build_prediction_rows(
         completed_2026_rows,
@@ -464,70 +853,40 @@ def main():
     )
 
     MODEL_DIR.mkdir(parents=True, exist_ok=True)
+    rolling_backtest_rows = build_rolling_backtest_rows(rows, feature_modes)
+    rolling_summary_rows = build_mode_summary_rows(rolling_backtest_rows)
+
     write_csv(
         MODEL_DIR / "podium_model_metrics.csv",
-        [
-            "model",
-            "train_seasons",
-            "test_season",
-            "train_records",
-            "test_records",
-            "positive_train_records",
-            "positive_test_records",
-            "best_threshold",
-            "accuracy",
-            "precision",
-            "recall",
-            "f1",
-            "roc_auc",
-            "accuracy_at_0_5",
-            "precision_at_0_5",
-            "recall_at_0_5",
-            "f1_at_0_5",
-            "race_top3_precision",
-            "avg_correct_podium_drivers_per_race",
-            "true_negative",
-            "false_positive",
-            "false_negative",
-            "true_positive",
-        ],
+        METRIC_FIELDNAMES,
         model_metrics,
     )
     write_csv(
-        MODEL_DIR / "podium_predictions_2025.csv",
+        MODEL_DIR / "podium_rolling_backtest_metrics.csv",
+        METRIC_FIELDNAMES,
+        rolling_backtest_rows,
+    )
+    write_csv(
+        MODEL_DIR / "podium_feature_mode_summary.csv",
         [
-            "season",
-            "round",
-            "race_name",
-            "race_date",
-            "driver_id",
-            "driver_name",
-            "constructor_id",
-            "constructor_name",
-            "grid",
-            "qualifying_position",
-            "podium_probability",
-            "predicted_is_podium",
-            "actual_is_podium",
-            "actual_finish_position",
-            "points",
+            "feature_mode",
+            "model",
+            "test_years",
+            "avg_f1",
+            "avg_roc_auc",
+            "avg_race_top3_precision",
+            "avg_correct_podium_drivers_per_race",
         ],
+        rolling_summary_rows,
+    )
+    write_csv(
+        MODEL_DIR / "podium_predictions_2025.csv",
+        PREDICTION_FIELDNAMES,
         prediction_rows,
     )
     write_csv(
         MODEL_DIR / "podium_top3_predictions_2025.csv",
-        [
-            "season",
-            "round",
-            "race_name",
-            "predicted_rank",
-            "driver_id",
-            "driver_name",
-            "constructor_name",
-            "podium_probability",
-            "actual_is_podium",
-            "actual_finish_position",
-        ],
+        TOP3_FIELDNAMES,
         best_model_info["race_top3"]["rows"],
     )
     write_csv(
@@ -542,23 +901,7 @@ def main():
     )
     write_csv(
         MODEL_DIR / "podium_completed_2026_probabilities.csv",
-        [
-            "season",
-            "round",
-            "race_name",
-            "race_date",
-            "driver_id",
-            "driver_name",
-            "constructor_id",
-            "constructor_name",
-            "grid",
-            "qualifying_position",
-            "podium_probability",
-            "predicted_is_podium",
-            "actual_is_podium",
-            "actual_finish_position",
-            "points",
-        ],
+        PREDICTION_FIELDNAMES,
         completed_2026_predictions,
     )
 
@@ -566,6 +909,8 @@ def main():
         best_model_info["threshold_metrics"]
     )
     feature_importance_path = save_feature_importance_figure(logistic_importance_rows)
+    comparison_path = save_model_comparison_figure(model_metrics)
+    rolling_summary_path = save_rolling_summary_figure(rolling_summary_rows)
 
     summary = {
         "built_at": datetime.now(timezone.utc).isoformat(),
@@ -574,9 +919,15 @@ def main():
         "target": TARGET_FIELD,
         "train_seasons": f"2019-{TRAIN_END_SEASON}",
         "test_season": TEST_SEASON,
+        "feature_modes": feature_modes,
+        "best_feature_mode": best_feature_mode,
         "best_model": best_model_name,
         "best_model_metric": "f1",
         "model_metrics_file": "podium_model_metrics.csv",
+        "rolling_backtest_files": [
+            "podium_rolling_backtest_metrics.csv",
+            "podium_feature_mode_summary.csv",
+        ],
         "prediction_files": [
             "podium_predictions_2025.csv",
             "podium_top3_predictions_2025.csv",
@@ -589,12 +940,15 @@ def main():
         "figures": [
             str(confusion_matrix_path.relative_to(BASE_DIR)),
             str(feature_importance_path.relative_to(BASE_DIR)),
+            str(comparison_path.relative_to(BASE_DIR)),
+            str(rolling_summary_path.relative_to(BASE_DIR)),
         ],
-        "note": "2026 future races are not predicted yet because future qualifying/grid positions are unknown in the current feature table.",
+        "note": "The post_qualifying model uses grid and qualifying position. The pre_race model excludes those fields for earlier forecasts before qualifying.",
     }
     write_json(SUMMARY_PATH, summary)
 
     print(f"Model outputs saved to: {MODEL_DIR}")
+    print(f"Best feature mode: {best_feature_mode}")
     print(f"Best model: {best_model_name}")
     print(f"Summary saved to: {SUMMARY_PATH}")
 
