@@ -1,3 +1,5 @@
+"""Generate modern F1 statistical analysis CSV files from engineered features."""
+
 import csv
 import json
 import math
@@ -128,6 +130,7 @@ def sort_rows(rows, key, reverse=True):
 
 
 def build_dataset_overview(rows):
+    """Summarize row counts, seasons, races, drivers, teams, and circuits."""
     years = sorted({to_int(row["season"]) for row in rows})
     overview = [
         {"metric": "record_count", "value": len(rows)},
@@ -161,6 +164,7 @@ def build_dataset_overview(rows):
 
 
 def build_grid_finish_analysis(rows):
+    """Measure how grid and qualifying positions relate to race outcomes."""
     finish_positions = [to_float(row["finish_position"]) for row in rows]
     grid_positions = [to_float(row["grid"]) for row in rows if to_int(row["grid"], 0) > 0]
     grid_finish_positions = [

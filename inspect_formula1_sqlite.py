@@ -1,3 +1,5 @@
+"""Inspect the local Formula1.sqlite database tables, columns, and sample rows."""
+
 import sqlite3
 import sys
 from pathlib import Path
@@ -7,6 +9,7 @@ DB_PATH = Path(__file__).resolve().parent / "formula-1-race-data-sqlite" / "Form
 
 
 def print_rows(cursor, table_name, limit=10):
+    """Print a small sample of rows from one SQLite table."""
     cursor.execute(f'SELECT * FROM "{table_name}" LIMIT {limit}')
     rows = cursor.fetchall()
     columns = [description[0] for description in cursor.description]

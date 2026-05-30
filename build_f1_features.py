@@ -1,3 +1,5 @@
+"""Create leakage-safe pre-race features for each driver-race record."""
+
 import csv
 import json
 from collections import defaultdict, deque
@@ -105,6 +107,7 @@ def group_by_race(rows):
 
 
 def build_features(rows):
+    """Add standings, recent-form, and data-quality features in race order."""
     rows_by_race = group_by_race(rows)
     enriched_rows = []
 

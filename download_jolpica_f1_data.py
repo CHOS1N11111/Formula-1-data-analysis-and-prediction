@@ -1,3 +1,5 @@
+"""Download paginated Jolpica-F1 JSON data for modern F1 seasons."""
+
 import json
 import time
 from datetime import datetime, timezone

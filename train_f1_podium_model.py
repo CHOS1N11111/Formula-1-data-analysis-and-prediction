@@ -1,3 +1,5 @@
+"""Train and evaluate traditional ML models for F1 podium prediction."""
+
 import csv
 import json
 from datetime import datetime, timezone
@@ -172,6 +174,7 @@ def circuit_feature_values(stats):
 
 
 def add_circuit_history_features(rows):
+    """Add circuit history metrics using only races before the current race."""
     circuit_stats = {}
     race_groups = {}
     for row in rows:
@@ -261,6 +264,7 @@ def build_xy(rows, feature_mode):
 
 
 def build_models():
+    """Create all traditional ML models used in the podium comparison."""
     calibrated_base_model = Pipeline(
         steps=[
             ("vectorizer", DictVectorizer(sparse=False)),
@@ -701,6 +705,7 @@ def metric_row(
 
 
 def fit_and_evaluate_models(train_rows, test_rows, feature_mode, train_start, train_end, test_year):
+    """Train all models for one feature mode and evaluate them on one season."""
     train_x, train_y = build_xy(train_rows, feature_mode)
     test_x, test_y = build_xy(test_rows, feature_mode)
     models = build_models()

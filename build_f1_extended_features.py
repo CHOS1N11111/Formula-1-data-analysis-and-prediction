@@ -1,3 +1,5 @@
+"""Build an extended 2003-2026 feature table by merging SQLite and Jolpica data."""
+
 import csv
 import json
 import sqlite3
@@ -76,6 +78,7 @@ def clean_text(value):
 
 
 def fetch_historical_rows():
+    """Extract 2003-2017 SQLite rows with both race results and qualifying data."""
     if not DB_PATH.exists():
         raise FileNotFoundError(f"SQLite database not found: {DB_PATH}")
 
@@ -135,6 +138,7 @@ def fetch_historical_rows():
 
 
 def build_extended_dataset():
+    """Combine historical SQLite rows with modern Jolpica model rows."""
     historical_rows = fetch_historical_rows()
     modern_rows = read_csv(MODERN_DATASET_PATH)
     selected_modern_rows = [

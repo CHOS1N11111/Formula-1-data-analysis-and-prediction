@@ -1,3 +1,5 @@
+"""Generate static report figures from processed F1 analysis tables."""
+
 import csv
 import json
 from datetime import datetime
@@ -66,6 +68,7 @@ def write_json(path, data):
 
 
 def clear_old_figures():
+    """Remove generated report PNG files while preserving model figures."""
     FIGURE_DIR.mkdir(parents=True, exist_ok=True)
     for path in FIGURE_DIR.glob("*.png"):
         if path.name.startswith("podium_model_"):

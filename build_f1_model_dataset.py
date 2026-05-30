@@ -1,3 +1,5 @@
+"""Build the modern driver-race modeling table from Jolpica-F1 raw JSON."""
+
 import csv
 import json
 from collections import defaultdict
@@ -57,6 +59,7 @@ SCHEDULE_FIELDS = [
 
 
 def load_endpoint(year, endpoint):
+    """Load one Jolpica-F1 endpoint file for a season."""
     path = RAW_DIR / str(year) / f"{endpoint}.json"
     if not path.exists():
         raise FileNotFoundError(f"Missing source file: {path}")

@@ -1,3 +1,5 @@
+"""Generate historical background analysis CSV files from Formula1.sqlite."""
+
 import csv
 import json
 import math
@@ -59,6 +61,7 @@ def fetch_all(cursor, query):
 
 
 def build_overview(cursor):
+    """Summarize historical database coverage and entity counts."""
     rows = []
 
     cursor.execute("SELECT MIN(year), MAX(year), COUNT(*) FROM races")

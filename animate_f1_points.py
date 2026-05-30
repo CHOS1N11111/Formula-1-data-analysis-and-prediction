@@ -1,3 +1,5 @@
+"""Generate animated F1 driver and constructor points progression videos."""
+
 import csv
 import json
 import sqlite3

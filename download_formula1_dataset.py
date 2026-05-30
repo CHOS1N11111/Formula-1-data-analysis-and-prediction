@@ -1,3 +1,5 @@
+"""Download Kaggle Formula 1 datasets used as local raw data sources."""
+
 import kagglehub
 import shutil
 from pathlib import Path
@@ -11,10 +13,12 @@ DATASETS = [
 
 
 def directory_has_files(path):
+    """Return True when a downloaded dataset directory contains real files."""
     return path.exists() and any(item.is_file() for item in path.rglob("*"))
 
 
 def download_dataset(dataset):
+    """Download one Kaggle dataset and copy it into the project directory."""
     cache_path = Path(kagglehub.dataset_download(dataset))
 
     if not directory_has_files(cache_path):

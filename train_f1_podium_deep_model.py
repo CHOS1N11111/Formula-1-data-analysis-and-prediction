@@ -1,3 +1,5 @@
+"""Train and evaluate an MLP neural-network baseline for podium prediction."""
+
 import csv
 import json
 import math
@@ -45,6 +47,7 @@ FEATURE_MODES = ["post_qualifying", "pre_race"]
 
 
 def balance_training_rows(rows):
+    """Oversample podium rows to reduce class imbalance for the MLP model."""
     positive_rows = [row for row in rows if to_int(row[TARGET_FIELD]) == 1]
     negative_rows = [row for row in rows if to_int(row[TARGET_FIELD]) == 0]
     if not positive_rows:
@@ -62,6 +65,7 @@ def balance_training_rows(rows):
 
 
 def build_mlp_model():
+    """Create the two-hidden-layer neural-network pipeline."""
     return Pipeline(
         steps=[
             ("vectorizer", DictVectorizer(sparse=False)),

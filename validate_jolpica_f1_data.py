@@ -1,3 +1,5 @@
+"""Validate downloaded Jolpica-F1 JSON files against API-declared totals."""
+
 import json
 from pathlib import Path
 
@@ -18,6 +20,7 @@ ENDPOINT_COLLECTIONS = {
 
 
 def load_json(path):
+    """Load one saved Jolpica-F1 JSON file."""
     with path.open("r", encoding="utf-8") as file:
         return json.load(file)
 
