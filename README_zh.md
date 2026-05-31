@@ -46,7 +46,8 @@
 |-- data/
 |   |-- processed/
 |   |-- modeling/
-|   `-- analysis/
+|   |-- analysis/
+|   `-- DATA_DESCRIPTION.md
 `-- outputs/
     |-- figures/
     |-- videos/
@@ -101,6 +102,7 @@ python visualize_f1_analysis.py
 python animate_f1_points.py
 python train_f1_podium_model.py
 python train_f1_podium_deep_model.py
+python visualize_f1_model_results.py
 ```
 
 如果本地已经存在 Kaggle 数据集或 Jolpica-F1 原始数据，可以跳过对应下载步骤。
@@ -181,6 +183,7 @@ outputs/OUTPUTS_DESCRIPTION.md
 - 加入概率校准随机森林；
 - 输出混淆矩阵、特征重要性和逐站 Top 3 领奖台候选命中情况。
 - 补充 MLP 神经网络对比实验和训练损失曲线。
+- 补充传统 ML 与 MLP 深度学习结果对比图。
 
 历史背景分析包括：
 

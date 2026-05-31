@@ -44,7 +44,8 @@ For report figures, the visualizations intentionally exclude 2026 data. The 2026
 |-- data/
 |   |-- processed/
 |   |-- modeling/
-|   `-- analysis/
+|   |-- analysis/
+|   `-- DATA_DESCRIPTION.md
 `-- outputs/
     |-- figures/
     `-- videos/
@@ -106,6 +107,7 @@ python visualize_f1_analysis.py
 python animate_f1_points.py
 python train_f1_podium_model.py
 python train_f1_podium_deep_model.py
+python visualize_f1_model_results.py
 ```
 
 If the Kaggle datasets or raw Jolpica-F1 data already exist locally, the download steps can be skipped.
@@ -179,6 +181,7 @@ Machine learning includes:
 - Calibrated random forest for probability calibration
 - Confusion matrix, feature importance, and race-level top-3 podium candidate evaluation
 - MLP neural-network comparison with training-loss curve
+- Combined ML/DL result visualizations
 
 Historical analysis includes:
 

@@ -1,0 +1,15 @@
+{
+  "built_at": "2026-05-31T04:21:58.710471+00:00",
+  "source_files": [
+    "data\\modeling\\podium_model_metrics.csv",
+    "data\\modeling\\deep_podium_model_metrics.csv",
+    "data\\modeling\\podium_feature_mode_summary.csv"
+  ],
+  "figures": [
+    "outputs\\figures\\podium_ml_dl_f1_comparison.png",
+    "outputs\\figures\\podium_ml_dl_roc_auc_comparison.png",
+    "outputs\\figures\\podium_ml_dl_top3_precision.png",
+    "outputs\\figures\\podium_best_ml_vs_dl_models.png",
+    "outputs\\figures\\podium_ml_2025_vs_rolling_f1.png"
+  ]
+}

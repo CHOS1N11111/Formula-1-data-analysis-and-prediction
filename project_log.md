@@ -1302,6 +1302,20 @@ MLP 赛前模型：F1 = 0.5333，ROC-AUC = 0.8645
 
 与概率校准随机森林相比，MLP 效果较弱。虽然扩展历史数据后训练样本增加到 8529 条，但 F1 仍未超过树模型，说明该任务更适合结构化表格模型。在本项目中，MLP 更适合作为深度学习对比实验，而不是最终主模型。
 
+为方便报告和 PPT 展示，新增 `visualize_f1_model_results.py`，将传统机器学习和 MLP 深度学习结果统一可视化。
+
+生成图表：
+
+```text
+outputs/figures/podium_ml_dl_f1_comparison.png
+outputs/figures/podium_ml_dl_roc_auc_comparison.png
+outputs/figures/podium_ml_dl_top3_precision.png
+outputs/figures/podium_best_ml_vs_dl_models.png
+outputs/figures/podium_ml_2025_vs_rolling_f1.png
+```
+
+这些图表分别展示 F1 对比、ROC-AUC 对比、逐站 Top 3 命中率对比、最佳 ML/DL 模型对比，以及 2025 单年回测与滚动回测平均表现对比。
+
 ## 后续预测方案
 
 ### 1. 预测目标
@@ -1582,6 +1596,7 @@ python visualize_f1_analysis.py
 python animate_f1_points.py
 python train_f1_podium_model.py
 python train_f1_podium_deep_model.py
+python visualize_f1_model_results.py
 ```
 
 如果基础 Kaggle 数据集已经存在，可以跳过第一步。
