@@ -1,4 +1,6 @@
-"""Build an extended 2003-2026 feature table by merging SQLite and Jolpica data."""
+"""Build an extended 2003-2026 feature table by merging SQLite and Jolpica data.
+
+The script extracts historical rows from Formula1.sqlite, combines them with modern Jolpica rows, and reuses the leakage-safe feature builder so ML and DL models can train on a larger and more consistent sample."""
 
 import csv
 import json
@@ -50,11 +52,14 @@ BASE_FIELDS = [
 
 
 def read_csv(path):
+    """Read a CSV file as a list of dictionaries."""
     with path.open("r", encoding="utf-8-sig", newline="") as file:
         return list(csv.DictReader(file))
 
 
+
 def write_csv(path, fieldnames, rows):
+    """Write dictionaries to a CSV file with the requested column order."""
     path.parent.mkdir(parents=True, exist_ok=True)
     with path.open("w", encoding="utf-8-sig", newline="") as file:
         writer = csv.DictWriter(file, fieldnames=fieldnames, extrasaction="ignore")
@@ -63,12 +68,14 @@ def write_csv(path, fieldnames, rows):
 
 
 def write_json(path, data):
+    """Write structured metadata to a UTF-8 JSON file."""
     path.parent.mkdir(parents=True, exist_ok=True)
     with path.open("w", encoding="utf-8") as file:
         json.dump(data, file, ensure_ascii=False, indent=2)
 
 
 def clean_text(value):
+    """Normalize database text values and remove placeholder tokens."""
     if value is None:
         return ""
     value = str(value).replace("\x00", "").strip()
@@ -78,7 +85,7 @@ def clean_text(value):
 
 
 def fetch_historical_rows():
-    """Extract 2003-2017 SQLite rows with both race results and qualifying data."""
+    """Extract historical driver-race rows with usable qualifying data."""
     if not DB_PATH.exists():
         raise FileNotFoundError(f"SQLite database not found: {DB_PATH}")
 
@@ -138,7 +145,7 @@ def fetch_historical_rows():
 
 
 def build_extended_dataset():
-    """Combine historical SQLite rows with modern Jolpica model rows."""
+    """Merge historical SQLite rows with modern Jolpica rows."""
     historical_rows = fetch_historical_rows()
     modern_rows = read_csv(MODERN_DATASET_PATH)
     selected_modern_rows = [
@@ -157,6 +164,7 @@ def build_extended_dataset():
 
 
 def count_by_year(rows):
+    """Count rows for each season in a dataset."""
     counts = {}
     for row in rows:
         counts[row["season"]] = counts.get(row["season"], 0) + 1
@@ -164,8 +172,10 @@ def count_by_year(rows):
 
 
 def main():
+    """Run the script end-to-end and write all configured outputs."""
     historical_rows, modern_rows, all_rows = build_extended_dataset()
     enriched_rows, feature_summary = build_features([dict(row) for row in all_rows])
+
 
     write_csv(EXTENDED_DATASET_PATH, BASE_FIELDS, all_rows)
     write_csv(EXTENDED_FEATURES_PATH, BASE_FIELDS + FEATURE_FIELDS, enriched_rows)

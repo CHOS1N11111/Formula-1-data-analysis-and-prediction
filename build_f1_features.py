@@ -1,4 +1,6 @@
-"""Create leakage-safe pre-race features for each driver-race record."""
+"""Create leakage-safe pre-race features for each driver-race record.
+
+For every race, the script computes standings, recent form, podium counts, and data-quality flags using only information available before that race. These features are the base input for later statistical analysis and prediction models."""
 
 import csv
 import json
@@ -35,12 +37,14 @@ FEATURE_FIELDS = [
 
 
 def read_rows(path):
+    """Read a CSV file and return both rows and original field names."""
     with path.open("r", encoding="utf-8-sig", newline="") as file:
         reader = csv.DictReader(file)
         return list(reader), reader.fieldnames
 
 
 def write_rows(path, fieldnames, rows):
+    """Write CSV rows while preserving the supplied field order."""
     path.parent.mkdir(parents=True, exist_ok=True)
     with path.open("w", encoding="utf-8-sig", newline="") as file:
         writer = csv.DictWriter(file, fieldnames=fieldnames)
@@ -49,12 +53,14 @@ def write_rows(path, fieldnames, rows):
 
 
 def write_json(path, data):
+    """Write structured metadata to a UTF-8 JSON file."""
     path.parent.mkdir(parents=True, exist_ok=True)
     with path.open("w", encoding="utf-8") as file:
         json.dump(data, file, ensure_ascii=False, indent=2)
 
 
 def to_int(value, default=0):
+    """Convert a value to int and return the default for missing or invalid values."""
     try:
         if value == "":
             return default
@@ -64,6 +70,7 @@ def to_int(value, default=0):
 
 
 def to_float(value, default=0.0):
+    """Convert a value to float and return the default for missing or invalid values."""
     try:
         if value == "":
             return default
@@ -73,17 +80,20 @@ def to_float(value, default=0.0):
 
 
 def format_float(value):
+    """Format numeric output consistently for CSV reporting."""
     return f"{value:.4f}"
 
 
+
 def average(values, default=0.0):
+    """Return the average of valid values, or a default when no values are available."""
     if not values:
         return default
     return sum(values) / len(values)
 
 
 def rank_descending(score_by_id):
-    """Return competition ranks for higher scores."""
+    """Assign competition ranks where higher scores are better."""
     sorted_items = sorted(score_by_id.items(), key=lambda item: (-item[1], item[0]))
     ranks = {}
     previous_score = None
@@ -99,6 +109,7 @@ def rank_descending(score_by_id):
 
 
 def group_by_race(rows):
+    """Group driver-race rows by season and round."""
     races = defaultdict(list)
     for row in rows:
         key = (to_int(row["season"]), to_int(row["round"]))
@@ -107,7 +118,7 @@ def group_by_race(rows):
 
 
 def build_features(rows):
-    """Add standings, recent-form, and data-quality features in race order."""
+    """Compute standings and recent-form features without future leakage."""
     rows_by_race = group_by_race(rows)
     enriched_rows = []
 
@@ -230,6 +241,7 @@ def build_features(rows):
 
 
 def main():
+    """Run the script end-to-end and write all configured outputs."""
     rows, base_fields = read_rows(INPUT_PATH)
     enriched_rows, summary = build_features(rows)
     fieldnames = list(base_fields) + FEATURE_FIELDS

@@ -1,4 +1,6 @@
-"""Build the modern driver-race modeling table from Jolpica-F1 raw JSON."""
+"""Build the modern driver-race modeling table from Jolpica-F1 raw JSON.
+
+The script parses downloaded API files, joins race result and qualifying information, derives basic target labels such as podium and top-10 finish, and writes processed CSV tables for modeling and the 2026 schedule."""
 
 import csv
 import json
@@ -59,7 +61,7 @@ SCHEDULE_FIELDS = [
 
 
 def load_endpoint(year, endpoint):
-    """Load one Jolpica-F1 endpoint file for a season."""
+    """Load one saved Jolpica-F1 endpoint file for a season."""
     path = RAW_DIR / str(year) / f"{endpoint}.json"
     if not path.exists():
         raise FileNotFoundError(f"Missing source file: {path}")
@@ -69,6 +71,7 @@ def load_endpoint(year, endpoint):
 
 
 def iter_races(data):
+    """Yield race objects from all pages in a Jolpica endpoint file."""
     for page in data.get("pages", []):
         race_table = page.get("MRData", {}).get("RaceTable", {})
         for race in race_table.get("Races", []):
@@ -76,6 +79,7 @@ def iter_races(data):
 
 
 def to_int(value):
+    """Convert a value to int and return the default for missing or invalid values."""
     try:
         return int(value)
     except (TypeError, ValueError):
@@ -83,6 +87,7 @@ def to_int(value):
 
 
 def to_float(value):
+    """Convert a value to float and return the default for missing or invalid values."""
     try:
         return float(value)
     except (TypeError, ValueError):
@@ -90,20 +95,24 @@ def to_float(value):
 
 
 def bool_to_int(value):
+    """Convert Boolean labels to 1/0 values suitable for CSV output."""
     if value is None:
         return ""
     return 1 if value else 0
 
 
 def get_driver_name(driver):
+    """Build a display name from Jolpica driver name fields."""
     given_name = driver.get("givenName", "")
     family_name = driver.get("familyName", "")
     return f"{given_name} {family_name}".strip()
 
 
 def get_race_base_fields(race):
+    """Extract race and circuit fields shared by result and schedule rows."""
     circuit = race.get("Circuit", {})
     location = circuit.get("Location", {})
+
 
     return {
         "season": to_int(race.get("season")),
@@ -119,7 +128,7 @@ def get_race_base_fields(race):
 
 
 def build_qualifying_lookup(year):
-    """Map (season, round, driver_id) to qualifying position."""
+    """Map each driver-race key to its qualifying position."""
     lookup = {}
     data = load_endpoint(year, "qualifying")
 
@@ -137,6 +146,7 @@ def build_qualifying_lookup(year):
 
 
 def build_model_rows():
+    """Create one processed row per driver-race result from Jolpica data."""
     rows = []
     rows_by_year = defaultdict(int)
     completed_rounds_by_year = defaultdict(set)
@@ -189,6 +199,7 @@ def build_model_rows():
 
 
 def build_2026_schedule(completed_rounds_by_year):
+    """Create the 2026 race schedule and mark rounds with completed results."""
     rows = []
     data = load_endpoint(2026, "races")
     completed_rounds = completed_rounds_by_year.get(2026, set())
@@ -202,6 +213,7 @@ def build_2026_schedule(completed_rounds_by_year):
 
 
 def write_csv(path, fieldnames, rows):
+    """Write dictionaries to a CSV file with the requested column order."""
     path.parent.mkdir(parents=True, exist_ok=True)
     with path.open("w", encoding="utf-8-sig", newline="") as file:
         writer = csv.DictWriter(file, fieldnames=fieldnames)
@@ -210,14 +222,17 @@ def write_csv(path, fieldnames, rows):
 
 
 def write_json(path, data):
+    """Write structured metadata to a UTF-8 JSON file."""
     path.parent.mkdir(parents=True, exist_ok=True)
     with path.open("w", encoding="utf-8") as file:
         json.dump(data, file, ensure_ascii=False, indent=2)
 
 
 def main():
+    """Run the script end-to-end and write all configured outputs."""
     model_rows, rows_by_year, completed_rounds_by_year = build_model_rows()
     schedule_2026_rows = build_2026_schedule(completed_rounds_by_year)
+
 
     write_csv(MODEL_DATASET_PATH, MODEL_FIELDS, model_rows)
     write_csv(SCHEDULE_2026_PATH, SCHEDULE_FIELDS, schedule_2026_rows)

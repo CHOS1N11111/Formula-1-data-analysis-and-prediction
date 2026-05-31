@@ -1,4 +1,6 @@
-"""Inspect the local Formula1.sqlite database tables, columns, and sample rows."""
+"""Inspect the local Formula1.sqlite database structure and sample records.
+
+This utility prints table names, row counts, column names, and a small set of sample rows. It is mainly used during project setup to understand the historical Kaggle SQLite schema before writing extraction queries."""
 
 import sqlite3
 import sys
@@ -9,7 +11,7 @@ DB_PATH = Path(__file__).resolve().parent / "formula-1-race-data-sqlite" / "Form
 
 
 def print_rows(cursor, table_name, limit=10):
-    """Print a small sample of rows from one SQLite table."""
+    """Print a small table sample for manual SQLite inspection."""
     cursor.execute(f'SELECT * FROM "{table_name}" LIMIT {limit}')
     rows = cursor.fetchall()
     columns = [description[0] for description in cursor.description]
@@ -22,8 +24,10 @@ def print_rows(cursor, table_name, limit=10):
 
 
 def main():
+    """Run the script end-to-end and write all configured outputs."""
     if hasattr(sys.stdout, "reconfigure"):
         sys.stdout.reconfigure(encoding="utf-8")
+
 
     if not DB_PATH.exists():
         raise FileNotFoundError(f"Database file not found: {DB_PATH}")

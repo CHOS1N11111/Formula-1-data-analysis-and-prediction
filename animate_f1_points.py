@@ -1,4 +1,6 @@
-"""Generate animated F1 driver and constructor points progression videos."""
+"""Generate animated Formula 1 driver and constructor points progression videos.
+
+The script builds race-by-race standings frames and exports MP4 bar-chart animations for modern driver points and 1950-2025 constructor points. It also writes a manifest describing video sources, ranges, and frame counts."""
 
 import csv
 import json
@@ -64,17 +66,21 @@ DEFAULT_COLORS = [
 
 
 def read_csv(path):
+    """Read a CSV file as a list of dictionaries."""
     with path.open("r", encoding="utf-8-sig", newline="") as file:
         return list(csv.DictReader(file))
 
 
+
 def write_json(path, data):
+    """Write structured metadata to a UTF-8 JSON file."""
     path.parent.mkdir(parents=True, exist_ok=True)
     with path.open("w", encoding="utf-8") as file:
         json.dump(data, file, ensure_ascii=False, indent=2)
 
 
 def to_int(value, default=0):
+    """Convert a value to int and return the default for missing or invalid values."""
     try:
         if value == "":
             return default
@@ -84,6 +90,7 @@ def to_int(value, default=0):
 
 
 def to_float(value, default=0.0):
+    """Convert a value to float and return the default for missing or invalid values."""
     try:
         if value == "":
             return default
@@ -93,6 +100,7 @@ def to_float(value, default=0.0):
 
 
 def load_modern_history_rows():
+    """Load 2019-2025 processed rows for modern animation frames."""
     rows = read_csv(FEATURES_PATH)
     return [
         row
@@ -102,8 +110,10 @@ def load_modern_history_rows():
 
 
 def load_sqlite_constructor_rows():
+    """Load 1950-2017 constructor race points from SQLite."""
     if not SQLITE_PATH.exists():
         raise FileNotFoundError(f"Database file not found: {SQLITE_PATH}")
+
 
     conn = sqlite3.connect(SQLITE_PATH)
     cursor = conn.cursor()
@@ -139,6 +149,7 @@ def load_sqlite_constructor_rows():
 
 
 def iter_jolpica_races(year, endpoint):
+    """Yield races from one Jolpica raw endpoint file."""
     path = JOLPICA_RAW_DIR / str(year) / f"{endpoint}.json"
     if not path.exists():
         raise FileNotFoundError(f"Missing Jolpica source file: {path}")
@@ -153,6 +164,7 @@ def iter_jolpica_races(year, endpoint):
 
 
 def load_jolpica_constructor_rows(year):
+    """Load constructor race points from Jolpica result files."""
     rows = []
     for race in iter_jolpica_races(year, "results"):
         for result in race.get("Results", []):
@@ -171,8 +183,10 @@ def load_jolpica_constructor_rows(year):
 
 
 def load_full_constructor_rows():
+    """Combine SQLite, 2018 Jolpica, and modern rows for constructor videos."""
     rows = load_sqlite_constructor_rows()
     rows.extend(load_jolpica_constructor_rows(2018))
+
 
     modern_rows = load_modern_history_rows()
     for row in modern_rows:
@@ -197,6 +211,7 @@ def load_full_constructor_rows():
 
 
 def group_races(rows):
+    """Group point rows into chronological race frames."""
     grouped = defaultdict(list)
     for row in rows:
         key = (
@@ -210,6 +225,7 @@ def group_races(rows):
 
 
 def build_points_frames(rows, entity_type, reset_each_season=True):
+    """Build one standings snapshot after each race."""
     """Build one standings snapshot after each race.
 
     entity_type is either "constructor" or "driver". Standings reset each season,
@@ -253,10 +269,13 @@ def build_points_frames(rows, entity_type, reset_each_season=True):
 
 
 def color_for_name(name, index):
+    """Return a stable chart color for a team or driver label."""
     return TEAM_COLORS.get(name, DEFAULT_COLORS[index % len(DEFAULT_COLORS)])
 
 
+
 def draw_frame(ax, frame, title, top_n):
+    """Draw one animation frame on the provided matplotlib axes."""
     ax.clear()
     standings = frame["standings"][:top_n]
     standings = list(reversed(standings))
@@ -302,11 +321,13 @@ def draw_frame(ax, frame, title, top_n):
 
 
 def save_animation(frames, output_path, title, top_n):
+    """Render and save an MP4 animation from standings frames."""
     fig, ax = plt.subplots(figsize=(11, 7.4))
     fig.patch.set_facecolor("white")
     fig.subplots_adjust(top=0.80, left=0.19, right=0.96, bottom=0.11)
 
     def update(frame_index):
+        """Build or render the update project output."""
         draw_frame(ax, frames[frame_index], title, top_n)
 
     animation = FuncAnimation(
@@ -323,6 +344,7 @@ def save_animation(frames, output_path, title, top_n):
 
 
 def main():
+    """Run the script end-to-end and write all configured outputs."""
     VIDEO_DIR.mkdir(parents=True, exist_ok=True)
     for path in VIDEO_DIR.glob("*.mp4"):
         path.unlink()

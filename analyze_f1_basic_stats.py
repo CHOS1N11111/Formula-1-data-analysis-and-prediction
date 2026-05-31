@@ -1,4 +1,6 @@
-"""Generate modern F1 statistical analysis CSV files from engineered features."""
+"""Generate modern Formula 1 statistical analysis tables from engineered features.
+
+The analysis covers 2019-2025 for report-ready statistics, including grid importance, driver and constructor performance, circuit behavior, reliability, teammate comparisons, and current 2026 reference tables."""
 
 import csv
 import json
@@ -16,11 +18,14 @@ SUMMARY_PATH = ANALYSIS_DIR / "analysis_summary.json"
 
 
 def read_csv(path):
+    """Read a CSV file as a list of dictionaries."""
     with path.open("r", encoding="utf-8-sig", newline="") as file:
         return list(csv.DictReader(file))
 
 
+
 def write_csv(path, fieldnames, rows):
+    """Write dictionaries to a CSV file with the requested column order."""
     path.parent.mkdir(parents=True, exist_ok=True)
     with path.open("w", encoding="utf-8-sig", newline="") as file:
         writer = csv.DictWriter(file, fieldnames=fieldnames, extrasaction="ignore")
@@ -29,12 +34,14 @@ def write_csv(path, fieldnames, rows):
 
 
 def write_json(path, data):
+    """Write structured metadata to a UTF-8 JSON file."""
     path.parent.mkdir(parents=True, exist_ok=True)
     with path.open("w", encoding="utf-8") as file:
         json.dump(data, file, ensure_ascii=False, indent=2)
 
 
 def to_int(value, default=None):
+    """Convert a value to int and return the default for missing or invalid values."""
     try:
         if value == "":
             return default
@@ -44,6 +51,7 @@ def to_int(value, default=None):
 
 
 def to_float(value, default=None):
+    """Convert a value to float and return the default for missing or invalid values."""
     try:
         if value == "":
             return default
@@ -53,6 +61,7 @@ def to_float(value, default=None):
 
 
 def format_float(value, digits=4):
+    """Format numeric output consistently for CSV reporting."""
     if value is None:
         return ""
     if isinstance(value, float) and math.isnan(value):
@@ -61,6 +70,7 @@ def format_float(value, digits=4):
 
 
 def average(values):
+    """Return the average of valid values, or a default when no values are available."""
     clean_values = [value for value in values if value is not None]
     if not clean_values:
         return None
@@ -68,6 +78,7 @@ def average(values):
 
 
 def pearson_correlation(x_values, y_values):
+    """Compute Pearson correlation while ignoring missing value pairs."""
     pairs = [
         (x, y)
         for x, y in zip(x_values, y_values)
@@ -90,6 +101,7 @@ def pearson_correlation(x_values, y_values):
 
 
 def spearman_correlation(x_values, y_values):
+    """Compute Spearman rank correlation using ranked numeric values."""
     pairs = [
         (x, y)
         for x, y in zip(x_values, y_values)
@@ -104,6 +116,7 @@ def spearman_correlation(x_values, y_values):
 
 
 def rank_values(values):
+    """Assign average ranks while preserving ties."""
     sorted_values = sorted((value, index) for index, value in enumerate(values))
     ranks = [0.0] * len(values)
     position = 0
@@ -120,17 +133,20 @@ def rank_values(values):
 
 
 def pct(numerator, denominator):
+    """Return a safe ratio, using None when the denominator is zero."""
     if denominator == 0:
         return None
     return numerator / denominator
 
 
 def sort_rows(rows, key, reverse=True):
+    """Sort rows by a numeric field for ranked report outputs."""
     return sorted(rows, key=lambda row: to_float(row[key], 0.0), reverse=reverse)
 
 
+
 def build_dataset_overview(rows):
-    """Summarize row counts, seasons, races, drivers, teams, and circuits."""
+    """Create high-level dataset coverage summaries."""
     years = sorted({to_int(row["season"]) for row in rows})
     overview = [
         {"metric": "record_count", "value": len(rows)},
@@ -280,6 +296,7 @@ def build_grid_finish_analysis(rows):
 
 
 def build_feature_correlation_summary(rows):
+    """Compute correlations between engineered features and target outcomes."""
     fields = [
         "grid",
         "qualifying_position",
@@ -326,6 +343,7 @@ def build_feature_correlation_summary(rows):
 
 
 def build_driver_summary(rows):
+    """Aggregate driver-level starts, points, wins, podiums, and averages."""
     grouped = defaultdict(list)
     for row in rows:
         grouped[row["driver_id"]].append(row)
@@ -363,6 +381,7 @@ def build_driver_summary(rows):
 
 
 def build_driver_points_by_year(rows):
+    """Aggregate driver performance for each season."""
     grouped = defaultdict(list)
     for row in rows:
         grouped[(row["season"], row["driver_id"])].append(row)
@@ -396,6 +415,7 @@ def build_driver_points_by_year(rows):
 
 
 def build_constructor_summary(rows):
+    """Aggregate constructor-level starts, points, wins, podiums, and averages."""
     grouped = defaultdict(list)
     for row in rows:
         grouped[row["constructor_id"]].append(row)
@@ -432,6 +452,7 @@ def build_constructor_summary(rows):
 
 
 def build_constructor_points_by_year(rows):
+    """Aggregate constructor performance for each season."""
     grouped = defaultdict(list)
     for row in rows:
         grouped[(row["season"], row["constructor_id"])].append(row)
@@ -462,6 +483,7 @@ def build_constructor_points_by_year(rows):
 
 
 def build_constructor_competitiveness_by_year(constructor_points_by_year):
+    """Measure yearly constructor point concentration and competitive balance."""
     grouped = defaultdict(list)
     for row in constructor_points_by_year:
         grouped[row["season"]].append(row)
@@ -499,6 +521,7 @@ def build_constructor_competitiveness_by_year(constructor_points_by_year):
 
 
 def assign_rank_bin(rank):
+    """Map a pre-race rank into a readable strength bin."""
     rank = to_int(rank)
     if rank is None:
         return "unknown"
@@ -512,6 +535,7 @@ def assign_rank_bin(rank):
 
 
 def assign_points_bin(value):
+    """Map average points into a readable strength bin."""
     value = to_float(value)
     if value is None:
         return "unknown"
@@ -527,6 +551,7 @@ def assign_points_bin(value):
 
 
 def summarize_bin(rows, variable, bin_name, bin_value):
+    """Summarize podium, top-10, finish, and points outcomes for one bin."""
     return {
         "variable": variable,
         "bin": bin_name,
@@ -540,6 +565,7 @@ def summarize_bin(rows, variable, bin_name, bin_value):
 
 
 def build_pre_race_strength_bins(rows):
+    """Analyze outcome rates across pre-race strength groups."""
     configs = [
         ("driver_pre_race_rank", lambda row: assign_rank_bin(row["driver_pre_race_rank"]), {"1-3": 1, "4-6": 2, "7-10": 3, "11+": 4}),
         ("constructor_pre_race_rank", lambda row: assign_rank_bin(row["constructor_pre_race_rank"]), {"1-3": 1, "4-6": 2, "7-10": 3, "11+": 4}),
@@ -566,6 +592,7 @@ def build_pre_race_strength_bins(rows):
 
 
 def build_circuit_summary(rows):
+    """Aggregate circuit-level position-change and podium statistics."""
     grouped = defaultdict(list)
     for row in rows:
         grouped[row["circuit_id"]].append(row)
@@ -604,6 +631,7 @@ def build_circuit_summary(rows):
 
 
 def build_circuit_grid_importance_score(rows):
+    """Create a circuit score describing how important starting position is."""
     grouped = defaultdict(list)
     for row in rows:
         grouped[row["circuit_id"]].append(row)
@@ -669,6 +697,7 @@ def build_circuit_grid_importance_score(rows):
 
 
 def build_position_gain_summary(rows, group_key, name_key, min_records=20):
+    """Rank drivers or constructors by race position gains and losses."""
     grouped = defaultdict(list)
     for row in rows:
         grid = to_int(row["grid"])
@@ -709,6 +738,7 @@ def build_position_gain_summary(rows, group_key, name_key, min_records=20):
 
 
 def classify_status(status):
+    """Group race status strings into reliability categories."""
     normalized = (status or "").strip().lower()
     if normalized == "finished" or "lap" in normalized:
         return "classified"
@@ -718,6 +748,7 @@ def classify_status(status):
 
 
 def build_reliability_by_year(rows):
+    """Summarize classified, incident, and other status rates by season."""
     grouped = defaultdict(list)
     for row in rows:
         grouped[row["season"]].append(row)
@@ -740,6 +771,7 @@ def build_reliability_by_year(rows):
 
 
 def build_reliability_summary(rows, group_key, name_key, min_records=20):
+    """Summarize reliability categories for drivers or constructors."""
     grouped = defaultdict(list)
     for row in rows:
         grouped[row[group_key]].append(row)
@@ -775,6 +807,7 @@ def build_reliability_summary(rows, group_key, name_key, min_records=20):
 
 
 def build_teammate_comparison(rows, min_shared_races=8):
+    """Compare teammates within shared races in the same constructor and season."""
     grouped = defaultdict(list)
     for row in rows:
         grouped[(row["season"], row["constructor_id"], row["round"])].append(row)
@@ -877,6 +910,7 @@ def build_teammate_comparison(rows, min_shared_races=8):
 
 
 def build_circuit_volatility_index(rows):
+    """Score circuits by position-change volatility and non-front-row wins."""
     grouped = defaultdict(list)
     for row in rows:
         grouped[row["circuit_id"]].append(row)
@@ -932,6 +966,7 @@ def build_circuit_volatility_index(rows):
 
 
 def build_2026_outputs(rows, schedule_rows):
+    """Build current-season standings, completed results, and remaining schedule tables."""
     current_rows = [row for row in rows if row["season"] == "2026"]
 
     driver_points = defaultdict(float)
@@ -996,6 +1031,7 @@ def build_2026_outputs(rows, schedule_rows):
 
 
 def main():
+    """Run the script end-to-end and write all configured outputs."""
     rows = read_csv(FEATURES_PATH)
     schedule_rows = read_csv(SCHEDULE_2026_PATH)
     analysis_rows = [row for row in rows if to_int(row["season"], 0) <= 2025]

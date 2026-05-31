@@ -1,4 +1,6 @@
-"""Train and evaluate ML, boosting, stacking, and ranking models for F1 podium prediction."""
+"""Train and evaluate traditional ML, boosting, stacking, and ranking models for F1 podium prediction.
+
+This script loads engineered features, adds circuit-history signals, trains baseline and advanced classifiers, evaluates 2025 backtests, writes prediction tables, produces model figures, and exports ranking metrics for race-level podium candidate ordering."""
 
 import csv
 import importlib.util
@@ -90,11 +92,14 @@ CATEGORICAL_FEATURES = [
 
 
 def read_csv(path):
+    """Read a CSV file as a list of dictionaries."""
     with path.open("r", encoding="utf-8-sig", newline="") as file:
         return list(csv.DictReader(file))
 
 
+
 def write_csv(path, fieldnames, rows):
+    """Write dictionaries to a CSV file with the requested column order."""
     path.parent.mkdir(parents=True, exist_ok=True)
     with path.open("w", encoding="utf-8-sig", newline="") as file:
         writer = csv.DictWriter(file, fieldnames=fieldnames, extrasaction="ignore")
@@ -103,12 +108,14 @@ def write_csv(path, fieldnames, rows):
 
 
 def write_json(path, data):
+    """Write structured metadata to a UTF-8 JSON file."""
     path.parent.mkdir(parents=True, exist_ok=True)
     with path.open("w", encoding="utf-8") as file:
         json.dump(data, file, ensure_ascii=False, indent=2)
 
 
 def to_int(value, default=0):
+    """Convert a value to int and return the default for missing or invalid values."""
     try:
         if value == "":
             return default
@@ -118,6 +125,7 @@ def to_int(value, default=0):
 
 
 def to_float(value, default=0.0):
+    """Convert a value to float and return the default for missing or invalid values."""
     try:
         if value == "":
             return default
@@ -127,16 +135,20 @@ def to_float(value, default=0.0):
 
 
 def format_float(value, digits=6):
+    """Format numeric output consistently for CSV reporting."""
     return f"{value:.{digits}f}"
 
 
+
 def safe_rate(numerator, denominator):
+    """Return a protected division result for rate calculations."""
     if denominator == 0:
         return 0.0
     return numerator / denominator
 
 
 def default_circuit_stats():
+    """Create the initial state used for circuit-history feature aggregation."""
     return {
         "race_count": 0,
         "pole_starts": 0,
@@ -153,6 +165,7 @@ def default_circuit_stats():
 
 
 def circuit_feature_values(stats):
+    """Convert accumulated circuit history into model feature values."""
     return {
         "circuit_history_race_count": stats["race_count"],
         "circuit_history_pole_win_rate": safe_rate(
@@ -232,12 +245,14 @@ def add_circuit_history_features(rows):
 
 
 def numeric_fields_for_mode(feature_mode):
+    """Select numeric features for pre-race or post-qualifying prediction mode."""
     if feature_mode == "pre_race":
         return PRE_RACE_NUMERIC_FEATURES
     return POST_QUALIFYING_NUMERIC_FEATURES
 
 
 def build_feature_dict(row, feature_mode):
+    """Convert one CSV row into the feature dictionary consumed by sklearn pipelines."""
     feature_row = {}
     for field in numeric_fields_for_mode(feature_mode):
         feature_row[field] = to_float(row.get(field), 0.0)
@@ -247,6 +262,7 @@ def build_feature_dict(row, feature_mode):
 
 
 def split_rows(rows):
+    """Split rows into training, 2025 test, final training, and completed 2026 subsets."""
     train_rows = [
         row
         for row in rows
@@ -261,6 +277,7 @@ def split_rows(rows):
 
 
 def build_xy(rows, feature_mode):
+    """Build feature dictionaries and target labels for model training or testing."""
     x_values = [build_feature_dict(row, feature_mode) for row in rows]
     y_values = [to_int(row[TARGET_FIELD]) for row in rows]
     return x_values, y_values
@@ -356,6 +373,7 @@ def build_models():
 
 
 def evaluate_binary(y_true, probabilities, threshold):
+    """Evaluate binary podium predictions at a specific probability threshold."""
     predictions = [1 if probability >= threshold else 0 for probability in probabilities]
     matrix = confusion_matrix(y_true, predictions, labels=[0, 1])
     tn, fp, fn, tp = matrix.ravel()
@@ -374,6 +392,7 @@ def evaluate_binary(y_true, probabilities, threshold):
 
 
 def find_best_threshold(y_true, probabilities):
+    """Search for the probability threshold with the best F1 score."""
     best_threshold = 0.5
     best_f1 = -1.0
     for step in range(5, 96):
@@ -386,6 +405,7 @@ def find_best_threshold(y_true, probabilities):
 
 
 def evaluate_race_top3(test_rows, probabilities):
+    """Evaluate whether the top three predicted drivers match actual podium finishers."""
     grouped = {}
     for row, probability in zip(test_rows, probabilities):
         grouped.setdefault((row["season"], row["round"]), []).append((row, probability))
@@ -424,6 +444,7 @@ def evaluate_race_top3(test_rows, probabilities):
 
 
 def build_prediction_rows(rows, probabilities, threshold):
+    """Create a report-ready prediction table with probabilities and actual outcomes."""
     output_rows = []
     for row, probability in zip(rows, probabilities):
         output_rows.append(
@@ -456,6 +477,7 @@ def build_prediction_rows(rows, probabilities, threshold):
 
 
 def get_feature_names(model):
+    """Return feature names from a fitted sklearn pipeline vectorizer."""
     if not hasattr(model, "named_steps"):
         return []
     vectorizer = model.named_steps["vectorizer"]
@@ -463,6 +485,7 @@ def get_feature_names(model):
 
 
 def get_feature_importance_rows(model_name, model, top_n=40):
+    """Extract comparable feature-importance or coefficient rows from supported models."""
     feature_names = get_feature_names(model)
     if len(feature_names) == 0 or not hasattr(model, "named_steps"):
         return []
@@ -499,6 +522,7 @@ def get_feature_importance_rows(model_name, model, top_n=40):
 
 
 def save_confusion_matrix_figure(metrics):
+    """Save the confusion matrix figure for the selected 2025 podium model."""
     matrix = [
         [metrics["true_negative"], metrics["false_positive"]],
         [metrics["false_negative"], metrics["true_positive"]],
@@ -521,6 +545,7 @@ def save_confusion_matrix_figure(metrics):
 
 
 def save_feature_importance_figure(rows):
+    """Save a feature-effect bar chart for model interpretation."""
     top_rows = rows[:15]
     labels = [row["feature"] for row in reversed(top_rows)]
     values = [to_float(row["importance"]) for row in reversed(top_rows)]
@@ -540,6 +565,7 @@ def save_feature_importance_figure(rows):
 
 
 def save_model_comparison_figure(rows):
+    """Save the 2025 model F1 comparison chart."""
     labels = [f"{row['feature_mode']}\n{row['model']}" for row in rows]
     values = [to_float(row["f1"]) for row in rows]
     colors = [
@@ -571,6 +597,7 @@ def save_model_comparison_figure(rows):
 
 
 def save_rolling_summary_figure(rows):
+    """Save the expanding-window rolling backtest summary chart."""
     labels = [f"{row['feature_mode']}\n{row['model']}" for row in rows]
     values = [to_float(row["avg_f1"]) for row in rows]
     colors = [
@@ -602,12 +629,12 @@ def save_rolling_summary_figure(rows):
 
 
 def package_available(package_name):
-    """Return True when an optional advanced model package is installed."""
+    """Check whether an optional modeling package is installed."""
     return importlib.util.find_spec(package_name) is not None
 
 
 def build_catboost_model():
-    """Create a CatBoost model for the advanced model comparison."""
+    """Create a CatBoost classifier configured for podium prediction."""
     from catboost import CatBoostClassifier
 
     return Pipeline(
@@ -631,7 +658,7 @@ def build_catboost_model():
 
 
 def build_lightgbm_model():
-    """Create a LightGBM model for the advanced model comparison."""
+    """Create a LightGBM classifier configured for podium prediction."""
     from lightgbm import LGBMClassifier
 
     return Pipeline(
@@ -653,7 +680,7 @@ def build_lightgbm_model():
 
 
 def build_xgboost_model():
-    """Create an XGBoost model for the advanced model comparison."""
+    """Create an XGBoost classifier configured for podium prediction."""
     from xgboost import XGBClassifier
 
     return Pipeline(
@@ -676,7 +703,7 @@ def build_xgboost_model():
 
 
 def build_stacking_model():
-    """Create a stacking ensemble from diverse sklearn base models."""
+    """Create a stacking ensemble from available advanced base models."""
     base_estimators = [
         (
             "logistic",
@@ -763,7 +790,7 @@ def build_stacking_model():
 
 
 def build_advanced_models():
-    """Build optional boosting models plus the sklearn stacking ensemble."""
+    """Build optional boosting models and a stacking ensemble when dependencies exist."""
     models = {}
     unavailable = []
     if package_available("catboost"):
@@ -783,7 +810,7 @@ def build_advanced_models():
 
 
 def average_precision_at_k(labels, k=3):
-    """Compute average precision for the first k ranked race entries."""
+    """Compute average precision for the top-k ranked race predictions."""
     hits = 0
     precision_sum = 0.0
     for index, label in enumerate(labels[:k], start=1):
@@ -794,7 +821,7 @@ def average_precision_at_k(labels, k=3):
 
 
 def dcg_at_k(labels, k=3):
-    """Compute discounted cumulative gain for binary podium labels."""
+    """Compute discounted cumulative gain for the top-k ranked race predictions."""
     score = 0.0
     for index, label in enumerate(labels[:k], start=1):
         if label:
@@ -803,7 +830,7 @@ def dcg_at_k(labels, k=3):
 
 
 def race_ranking_metrics(rows, probabilities, model_name):
-    """Evaluate one model as a race-level podium ranking system."""
+    """Compute MAP@3, NDCG@3, and exact podium-set rates by race."""
     grouped = {}
     for row, probability in zip(rows, probabilities):
         grouped.setdefault((row["season"], row["round"], row["race_name"]), []).append(
@@ -859,7 +886,7 @@ def race_ranking_metrics(rows, probabilities, model_name):
 
 
 def advanced_metric_row(model_name, train_rows, test_rows, y_train, y_test, threshold, metrics, race_top3):
-    """Format advanced-model classification metrics for CSV output."""
+    """Format one advanced model evaluation row for CSV output."""
     return {
         "model": model_name,
         "feature_mode": "post_qualifying",
@@ -887,7 +914,7 @@ def advanced_metric_row(model_name, train_rows, test_rows, y_train, y_test, thre
 
 
 def train_and_evaluate_advanced_model(model_name, model, train_rows, test_rows):
-    """Train one advanced model and return classification and ranking outputs."""
+    """Fit one advanced model and return classification plus ranking outputs."""
     feature_mode = "post_qualifying"
     x_train, y_train = build_xy(train_rows, feature_mode)
     x_test, y_test = build_xy(test_rows, feature_mode)
@@ -1138,6 +1165,7 @@ def metric_row(
     fixed_metrics,
     race_top3,
 ):
+    """Format one model evaluation row for CSV output."""
     return {
         "feature_mode": feature_mode,
         "model": model_name,
@@ -1214,6 +1242,7 @@ def fit_and_evaluate_models(train_rows, test_rows, feature_mode, train_start, tr
 
 
 def build_rolling_backtest_rows(rows, feature_modes):
+    """Run expanding-window backtests across multiple seasons."""
     output_rows = []
     for test_year in range(2022, 2026):
         train_rows = [
@@ -1234,6 +1263,7 @@ def build_rolling_backtest_rows(rows, feature_modes):
 
 
 def build_mode_summary_rows(rows):
+    """Average rolling-backtest metrics by feature mode and model."""
     grouped = {}
     for row in rows:
         grouped.setdefault((row["feature_mode"], row["model"]), []).append(row)
@@ -1265,12 +1295,14 @@ def build_mode_summary_rows(rows):
 
 
 def get_training_features_path():
+    """Prefer the extended feature table when it exists."""
     if EXTENDED_FEATURES_PATH.exists():
         return EXTENDED_FEATURES_PATH
     return FEATURES_PATH
 
 
 def main():
+    """Run the script end-to-end and write all configured outputs."""
     training_features_path = get_training_features_path()
     rows = add_circuit_history_features(read_csv(training_features_path))
     train_rows, test_rows, final_train_rows, completed_2026_rows = split_rows(rows)

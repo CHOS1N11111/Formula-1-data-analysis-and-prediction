@@ -1,4 +1,6 @@
-"""Generate comparison figures for all podium prediction model families."""
+"""Generate comparison figures for all Formula 1 podium prediction model families.
+
+The script combines traditional ML, advanced boosting/stacking, and deep-learning metric files, then creates unified F1, ROC-AUC, Top3 Precision, heatmap, best-family, rolling-backtest, and ranking visualizations."""
 
 import csv
 import json
@@ -30,17 +32,21 @@ FAMILY_COLORS = {
 
 
 def read_csv(path):
+    """Read a CSV file as a list of dictionaries."""
     with path.open("r", encoding="utf-8-sig", newline="") as file:
         return list(csv.DictReader(file))
 
 
+
 def write_json(path, data):
+    """Write structured metadata to a UTF-8 JSON file."""
     path.parent.mkdir(parents=True, exist_ok=True)
     with path.open("w", encoding="utf-8") as file:
         json.dump(data, file, ensure_ascii=False, indent=2)
 
 
 def to_float(value, default=0.0):
+    """Convert a value to float and return the default for missing or invalid values."""
     try:
         if value == "":
             return default
@@ -50,6 +56,7 @@ def to_float(value, default=0.0):
 
 
 def model_label(row):
+    """Build a compact chart label that includes model family and feature mode."""
     family_prefix = {
         "Traditional ML": "ML",
         "Advanced ML": "Boost",
@@ -59,6 +66,7 @@ def model_label(row):
 
 
 def combined_metric_rows():
+    """Combine model metric rows from traditional ML, advanced ML, and DL outputs."""
     rows = []
     for row in read_csv(ML_METRICS_PATH):
         enriched = dict(row)
@@ -77,6 +85,7 @@ def combined_metric_rows():
 
 
 def save_grouped_metric_chart(rows, metric, title, filename, ylabel):
+    """Save one grouped bar chart for a selected metric across all models."""
     sorted_rows = sorted(
         rows,
         key=lambda row: (
@@ -112,11 +121,14 @@ def save_grouped_metric_chart(rows, metric, title, filename, ylabel):
 
 
 def family_sort_key(model_family):
+    """Return a stable ordering for model families in charts."""
     order = {"Traditional ML": 0, "Advanced ML": 1, "Deep Learning": 2}
     return order.get(model_family, 99)
 
 
+
 def save_best_model_chart(rows):
+    """Save the best-per-family model comparison chart."""
     best_by_family_mode = {}
     for row in rows:
         key = (row["model_family"], row["feature_mode"])
@@ -174,7 +186,7 @@ def save_best_model_chart(rows):
 
 
 def save_all_model_heatmap(rows):
-    """Save a compact heatmap so all model families can be compared across metrics."""
+    """Save a compact heatmap comparing all model families across metrics."""
     metric_fields = [
         ("accuracy", "Accuracy"),
         ("precision", "Precision"),
@@ -222,7 +234,7 @@ def save_all_model_heatmap(rows):
 
 
 def save_advanced_ranking_chart():
-    """Save ranking-oriented metrics for the boosting and stacking models."""
+    """Save ranking-oriented metrics for boosting and stacking models."""
     if not RANKING_METRICS_PATH.exists():
         return None
     rows = sorted(
@@ -268,6 +280,7 @@ def save_advanced_ranking_chart():
 
 
 def save_rolling_vs_2025_chart(rows):
+    """Compare 2025 F1 scores with rolling-backtest averages."""
     rolling_rows = read_csv(ROLLING_SUMMARY_PATH)
     rolling_lookup = {
         (row["feature_mode"], row["model"]): row for row in rolling_rows
@@ -317,6 +330,7 @@ def save_rolling_vs_2025_chart(rows):
 
 
 def main():
+    """Run the script end-to-end and write all configured outputs."""
     FIGURE_DIR.mkdir(parents=True, exist_ok=True)
     rows = combined_metric_rows()
     figures = [

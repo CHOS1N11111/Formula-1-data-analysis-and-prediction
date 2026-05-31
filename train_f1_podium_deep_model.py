@@ -1,4 +1,6 @@
-"""Train and evaluate an MLP neural-network baseline for podium prediction."""
+"""Train and evaluate an MLP neural-network baseline for F1 podium prediction.
+
+The script balances the training data, builds post-qualifying and pre-race feature sets, trains neural-network classifiers, records training curves, and writes comparable DL metrics and prediction tables for the 2025 backtest."""
 
 import csv
 import json
@@ -47,7 +49,7 @@ FEATURE_MODES = ["post_qualifying", "pre_race"]
 
 
 def balance_training_rows(rows):
-    """Oversample podium rows to reduce class imbalance for the MLP model."""
+    """Downsample the majority class to create a balanced training set."""
     positive_rows = [row for row in rows if to_int(row[TARGET_FIELD]) == 1]
     negative_rows = [row for row in rows if to_int(row[TARGET_FIELD]) == 0]
     if not positive_rows:
@@ -65,7 +67,7 @@ def balance_training_rows(rows):
 
 
 def build_mlp_model():
-    """Create the two-hidden-layer neural-network pipeline."""
+    """Build or render the build mlp model project output."""
     return Pipeline(
         steps=[
             ("vectorizer", DictVectorizer(sparse=False)),
@@ -91,6 +93,7 @@ def build_mlp_model():
 
 
 def metric_row(feature_mode, train_rows, test_rows, train_y, test_y, threshold, metrics, fixed_metrics, race_top3):
+    """Format one model evaluation row for CSV output."""
     return {
         "feature_mode": feature_mode,
         "model": "mlp_neural_network",
@@ -123,6 +126,7 @@ def metric_row(feature_mode, train_rows, test_rows, train_y, test_y, threshold, 
 
 
 def train_and_evaluate(train_rows, test_rows, feature_mode):
+    """Train one MLP feature mode and return metrics, predictions, and training history."""
     balanced_train_rows = balance_training_rows(train_rows)
     train_x, train_y = build_xy(balanced_train_rows, feature_mode)
     original_train_y = [to_int(row[TARGET_FIELD]) for row in train_rows]
@@ -159,6 +163,7 @@ def train_and_evaluate(train_rows, test_rows, feature_mode):
 
 
 def write_training_history(path, result):
+    """Write MLP loss and validation-score history to CSV."""
     rows = []
     validation_scores = result["validation_scores"]
     for epoch, loss in enumerate(result["loss_curve"], start=1):
@@ -180,6 +185,7 @@ def write_training_history(path, result):
 
 
 def save_training_curve(results):
+    """Save the MLP training-curve comparison figure."""
     fig, ax = plt.subplots(figsize=(9, 5.5))
     for result in results:
         ax.plot(
@@ -201,6 +207,7 @@ def save_training_curve(results):
 
 
 def main():
+    """Run the script end-to-end and write all configured outputs."""
     training_features_path = get_training_features_path()
     rows = add_circuit_history_features(read_csv(training_features_path))
     train_rows, test_rows, _, _ = split_rows(rows)

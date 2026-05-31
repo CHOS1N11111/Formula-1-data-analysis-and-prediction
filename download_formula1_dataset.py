@@ -1,4 +1,6 @@
-"""Download Kaggle Formula 1 datasets used as local raw data sources."""
+"""Download external Kaggle Formula 1 datasets used as raw local sources.
+
+This script retrieves the SQLite historical database and auxiliary Kaggle datasets, copies them from the Kaggle cache into the project workspace, and checks that each target directory contains real files before downstream processing starts."""
 
 import kagglehub
 import shutil
@@ -13,12 +15,12 @@ DATASETS = [
 
 
 def directory_has_files(path):
-    """Return True when a downloaded dataset directory contains real files."""
+    """Check whether a dataset directory contains downloaded files."""
     return path.exists() and any(item.is_file() for item in path.rglob("*"))
 
 
 def download_dataset(dataset):
-    """Download one Kaggle dataset and copy it into the project directory."""
+    """Download one Kaggle dataset and copy it into the project workspace."""
     cache_path = Path(kagglehub.dataset_download(dataset))
 
     if not directory_has_files(cache_path):
@@ -36,8 +38,10 @@ def download_dataset(dataset):
 
 
 def main():
+    """Run the script end-to-end and write all configured outputs."""
     for dataset in DATASETS:
         download_dataset(dataset)
+
 
 
 if __name__ == "__main__":

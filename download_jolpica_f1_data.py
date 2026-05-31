@@ -1,4 +1,6 @@
-"""Download paginated Jolpica-F1 JSON data for modern F1 seasons."""
+"""Download paginated Jolpica-F1 JSON data for modern Formula 1 seasons.
+
+The script collects races, results, qualifying sessions, standings, drivers, and constructors for 2019-2026. Raw API responses are stored unchanged under data/raw/jolpica so later scripts can validate, parse, and rebuild processed datasets reproducibly."""
 
 import json
 import time
@@ -31,7 +33,7 @@ REQUEST_SLEEP_SECONDS = 0.25
 
 
 def fetch_json(url, timeout=30):
-    """Fetch one JSON document from the Jolpica-F1 API."""
+    """Request one JSON page from the Jolpica-F1 API with clear error messages."""
     try:
         with urlopen(url, timeout=timeout) as response:
             return json.loads(response.read().decode("utf-8"))
@@ -42,26 +44,28 @@ def fetch_json(url, timeout=30):
 
 
 def get_total_count(data):
-    """Read the total row count reported by the Ergast-compatible response."""
+    """Extract the API-declared total number of records from a response."""
     race_table = data.get("MRData", {})
     total = race_table.get("total", 0)
     return int(total)
 
 
 def get_returned_limit(data):
-    """Read the page size actually returned by the API."""
+    """Extract the API page limit used for pagination."""
     race_table = data.get("MRData", {})
     limit = race_table.get("limit", PAGE_LIMIT)
     return int(limit)
 
 
 def build_url(year, endpoint, offset):
+    """Build one paginated Jolpica-F1 endpoint URL."""
     query = urlencode({"limit": PAGE_LIMIT, "offset": offset})
     return f"{BASE_URL}/{year}/{endpoint}.json?{query}"
 
 
+
 def download_endpoint(year, endpoint):
-    """Download all pages for one year and one endpoint."""
+    """Download every page for one season and endpoint."""
     all_pages = []
     offset = 0
     total = None
@@ -93,12 +97,14 @@ def download_endpoint(year, endpoint):
 
 
 def save_json(data, path):
+    """Save one JSON object to disk using UTF-8 encoding."""
     path.parent.mkdir(parents=True, exist_ok=True)
     with path.open("w", encoding="utf-8") as file:
         json.dump(data, file, ensure_ascii=False, indent=2)
 
 
 def main():
+    """Run the script end-to-end and write all configured outputs."""
     OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
 
     summary = []

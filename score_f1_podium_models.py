@@ -1,4 +1,6 @@
-"""Compute one composite score for every F1 podium prediction model."""
+"""Compute a single composite score for every Formula 1 podium prediction model.
+
+The script reads traditional ML, advanced ML, and DL evaluation files, applies a weighted 0-100 scoring formula based on common metrics, writes a ranked score table, and saves a final model-selection chart."""
 
 import csv
 import json
@@ -43,6 +45,7 @@ RANKING_SCORE_WEIGHTS = {
 
 
 def read_csv(path):
+    """Read a CSV file as a list of dictionaries."""
     if not path.exists():
         return []
     with path.open("r", encoding="utf-8-sig", newline="") as file:
@@ -50,6 +53,7 @@ def read_csv(path):
 
 
 def write_csv(path, fieldnames, rows):
+    """Write dictionaries to a CSV file with the requested column order."""
     path.parent.mkdir(parents=True, exist_ok=True)
     with path.open("w", encoding="utf-8-sig", newline="") as file:
         writer = csv.DictWriter(file, fieldnames=fieldnames, extrasaction="ignore")
@@ -58,12 +62,14 @@ def write_csv(path, fieldnames, rows):
 
 
 def write_json(path, data):
+    """Write structured metadata to a UTF-8 JSON file."""
     path.parent.mkdir(parents=True, exist_ok=True)
     with path.open("w", encoding="utf-8") as file:
         json.dump(data, file, ensure_ascii=False, indent=2)
 
 
 def to_float(value, default=0.0):
+    """Convert a value to float and return the default for missing or invalid values."""
     try:
         if value == "":
             return default
@@ -73,11 +79,13 @@ def to_float(value, default=0.0):
 
 
 def format_float(value, digits=6):
+    """Format numeric output consistently for CSV reporting."""
     return f"{value:.{digits}f}"
 
 
+
 def load_model_rows():
-    """Load all available model metrics and attach a model-family label."""
+    """Load all available model metric rows and attach model-family labels."""
     rows = []
     for row in read_csv(ML_METRICS_PATH):
         enriched = dict(row)
@@ -95,7 +103,7 @@ def load_model_rows():
 
 
 def load_ranking_scores():
-    """Build optional race-ranking scores for models that have ranking outputs."""
+    """Load optional race-ranking scores for advanced models."""
     ranking_scores = {}
     for row in read_csv(RANKING_METRICS_PATH):
         score = sum(
@@ -113,7 +121,7 @@ def load_ranking_scores():
 
 
 def composite_score(row):
-    """Calculate a 0-100 score from metrics shared by all model families."""
+    """Calculate a 0-100 score using metrics shared by all model families."""
     return 100 * sum(
         to_float(row[field]) * weight
         for field, weight in COMMON_SCORE_WEIGHTS.items()
@@ -121,6 +129,7 @@ def composite_score(row):
 
 
 def score_rows(rows, ranking_scores):
+    """Rank all models by the composite score and attach optional ranking diagnostics."""
     output_rows = []
     for row in rows:
         ranking = ranking_scores.get(row["model"], {})
@@ -167,7 +176,7 @@ def score_rows(rows, ranking_scores):
 
 
 def save_score_figure(rows):
-    """Save a horizontal ranking chart for the composite model scores."""
+    """Save a horizontal chart of composite model scores."""
     top_rows = list(reversed(rows))
     labels = [
         f"{row['rank']}. {row['model_family']} | {row['feature_mode']} | {row['model']}"
@@ -203,6 +212,7 @@ def save_score_figure(rows):
 
 
 def main():
+    """Run the script end-to-end and write all configured outputs."""
     rows = load_model_rows()
     if not rows:
         raise FileNotFoundError("No model metric files were found in data/modeling.")

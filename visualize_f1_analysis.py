@@ -1,4 +1,6 @@
-"""Generate static report figures from processed F1 analysis tables."""
+"""Create static visualizations for Formula 1 exploratory data analysis.
+
+The script reads analysis CSV outputs and produces report-ready figures covering modern trends, historical context, grid importance, circuit characteristics, constructor competitiveness, reliability, and feature relationships. Figures intentionally exclude 2026 unless explicitly labeled as current-season context elsewhere."""
 
 import csv
 import json
@@ -49,11 +51,14 @@ TEAM_COLORS = {
 
 
 def read_csv(path):
+    """Read a CSV file as a list of dictionaries."""
     with path.open("r", encoding="utf-8-sig", newline="") as file:
         return list(csv.DictReader(file))
 
 
+
 def write_csv(path, fieldnames, rows):
+    """Write dictionaries to a CSV file with the requested column order."""
     path.parent.mkdir(parents=True, exist_ok=True)
     with path.open("w", encoding="utf-8-sig", newline="") as file:
         writer = csv.DictWriter(file, fieldnames=fieldnames)
@@ -62,13 +67,14 @@ def write_csv(path, fieldnames, rows):
 
 
 def write_json(path, data):
+    """Write structured metadata to a UTF-8 JSON file."""
     path.parent.mkdir(parents=True, exist_ok=True)
     with path.open("w", encoding="utf-8") as file:
         json.dump(data, file, ensure_ascii=False, indent=2)
 
 
 def clear_old_figures():
-    """Remove generated report PNG files while preserving model figures."""
+    """Build or render the clear old figures project output."""
     FIGURE_DIR.mkdir(parents=True, exist_ok=True)
     for path in FIGURE_DIR.glob("*.png"):
         if path.name.startswith("podium_model_"):
@@ -77,6 +83,7 @@ def clear_old_figures():
 
 
 def to_float(value, default=0.0):
+    """Convert a value to float and return the default for missing or invalid values."""
     try:
         if value == "":
             return default
@@ -86,6 +93,7 @@ def to_float(value, default=0.0):
 
 
 def to_int(value, default=0):
+    """Convert a value to int and return the default for missing or invalid values."""
     try:
         if value == "":
             return default
@@ -95,6 +103,7 @@ def to_int(value, default=0):
 
 
 def average(values):
+    """Return the average of valid values, or a default when no values are available."""
     clean_values = [value for value in values if value is not None]
     if not clean_values:
         return None
@@ -102,12 +111,14 @@ def average(values):
 
 
 def pct(numerator, denominator):
+    """Return a safe ratio, using None when the denominator is zero."""
     if denominator == 0:
         return None
     return numerator / denominator
 
 
 def pearson_correlation(pairs):
+    """Compute Pearson correlation while ignoring missing value pairs."""
     pairs = [(x, y) for x, y in pairs if x is not None and y is not None]
     if len(pairs) < 2:
         return None
@@ -126,6 +137,7 @@ def pearson_correlation(pairs):
 
 
 def load_modern_history_rows():
+    """Load 2019-2025 processed rows for modern animation frames."""
     return [
         row
         for row in read_csv(FEATURES_PATH)
@@ -134,6 +146,7 @@ def load_modern_history_rows():
 
 
 def build_grid_position_summary(rows):
+    """Build or render the build grid position summary project output."""
     summary_rows = []
     grids = sorted({to_int(row["grid"]) for row in rows if to_int(row["grid"]) > 0})
     for grid in grids:
@@ -152,6 +165,7 @@ def build_grid_position_summary(rows):
 
 
 def build_qualifying_position_summary(rows):
+    """Build or render the build qualifying position summary project output."""
     summary_rows = []
     positions = sorted(
         {
@@ -176,6 +190,7 @@ def build_qualifying_position_summary(rows):
 
 
 def build_grid_finish_metrics(rows):
+    """Build or render the build grid finish metrics project output."""
     valid_grid_rows = [row for row in rows if to_int(row["grid"]) > 0]
     valid_quali_rows = [row for row in rows if row["qualifying_position"] != ""]
     pole_rows = [row for row in valid_grid_rows if to_int(row["grid"]) == 1]
@@ -207,6 +222,7 @@ def build_grid_finish_metrics(rows):
 
 
 def build_driver_summary_rows(rows):
+    """Build or render the build driver summary rows project output."""
     grouped = {}
     for row in rows:
         grouped.setdefault(row["driver_id"], []).append(row)
@@ -224,6 +240,7 @@ def build_driver_summary_rows(rows):
 
 
 def build_constructor_summary_rows(rows):
+    """Build or render the build constructor summary rows project output."""
     grouped = {}
     for row in rows:
         grouped.setdefault(row["constructor_id"], []).append(row)
@@ -241,6 +258,7 @@ def build_constructor_summary_rows(rows):
 
 
 def build_circuit_summary_rows(rows):
+    """Build or render the build circuit summary rows project output."""
     grouped = {}
     for row in rows:
         grouped.setdefault(row["circuit_id"], []).append(row)
@@ -266,6 +284,7 @@ def build_circuit_summary_rows(rows):
 
 
 def build_constructor_podium_rows(rows):
+    """Build or render the build constructor podium rows project output."""
     grouped = {}
     for row in rows:
         grouped.setdefault(row["constructor_id"], []).append(row)
@@ -285,6 +304,7 @@ def build_constructor_podium_rows(rows):
 
 
 def build_driver_podium_rows(rows):
+    """Build or render the build driver podium rows project output."""
     grouped = {}
     for row in rows:
         grouped.setdefault(row["driver_id"], []).append(row)
@@ -304,6 +324,7 @@ def build_driver_podium_rows(rows):
 
 
 def build_status_by_year(rows):
+    """Build or render the build status by year project output."""
     grouped = {}
     for row in rows:
         grouped.setdefault(row["season"], []).append(row)
@@ -326,6 +347,7 @@ def build_status_by_year(rows):
 
 
 def build_circuit_position_change_rows(rows):
+    """Build or render the build circuit position change rows project output."""
     grouped = {}
     for row in rows:
         grouped.setdefault(row["circuit_id"], []).append(row)
@@ -352,6 +374,7 @@ def build_circuit_position_change_rows(rows):
 
 
 def build_circuit_grid_importance_rows(rows):
+    """Build or render the build circuit grid importance rows project output."""
     grouped = {}
     for row in rows:
         grouped.setdefault(row["circuit_id"], []).append(row)
@@ -395,6 +418,7 @@ def build_circuit_grid_importance_rows(rows):
 
 
 def build_driver_consistency_rows(rows):
+    """Build or render the build driver consistency rows project output."""
     grouped = {}
     for row in rows:
         grouped.setdefault(row["driver_id"], []).append(row)
@@ -422,6 +446,7 @@ def build_driver_consistency_rows(rows):
 
 
 def build_constructor_efficiency_rows(rows):
+    """Build or render the build constructor efficiency rows project output."""
     grouped = {}
     for row in rows:
         grouped.setdefault(row["constructor_id"], []).append(row)
@@ -445,6 +470,7 @@ def build_constructor_efficiency_rows(rows):
 
 
 def build_feature_correlation_matrix(rows):
+    """Build or render the build feature correlation matrix project output."""
     features = [
         "grid",
         "qualifying_position",
@@ -477,6 +503,7 @@ def build_feature_correlation_matrix(rows):
 
 
 def build_position_gain_summary(rows, group_key, name_key, min_records=20):
+    """Rank drivers or constructors by race position gains and losses."""
     grouped = {}
     for row in rows:
         if to_int(row["grid"]) <= 0:
@@ -507,6 +534,7 @@ def build_position_gain_summary(rows, group_key, name_key, min_records=20):
 
 
 def setup_figure(width=10, height=6):
+    """Create a matplotlib figure with shared project styling."""
     plt.rcParams.update(
         {
             "font.size": 10,
@@ -527,6 +555,7 @@ def setup_figure(width=10, height=6):
 
 
 def save_current_figure(filename):
+    """Save the current figure and close it to release memory."""
     FIGURE_DIR.mkdir(parents=True, exist_ok=True)
     path = FIGURE_DIR / filename
     plt.tight_layout()
@@ -536,6 +565,7 @@ def save_current_figure(filename):
 
 
 def add_bar_labels(ax, bars, value_format="{:.0f}", padding=3):
+    """Annotate horizontal bars with numeric labels."""
     for bar in bars:
         width = bar.get_width()
         ax.text(
@@ -550,6 +580,7 @@ def add_bar_labels(ax, bars, value_format="{:.0f}", padding=3):
 
 
 def add_vertical_bar_labels(ax, bars, value_format="{:.0f}", padding=2):
+    """Annotate vertical bars with numeric labels."""
     for bar in bars:
         height = bar.get_height()
         ax.text(
@@ -564,6 +595,7 @@ def add_vertical_bar_labels(ax, bars, value_format="{:.0f}", padding=2):
 
 
 def add_manifest(manifest, filename, title, source, description):
+    """Append metadata for a generated figure to the manifest list."""
     manifest.append(
         {
             "filename": filename,
@@ -575,6 +607,7 @@ def add_manifest(manifest, filename, title, source, description):
 
 
 def plot_yearly_records(manifest):
+    """Build or render the plot yearly records project output."""
     rows = [
         row
         for row in read_csv(ANALYSIS_DIR / "dataset_overview_by_year.csv")
@@ -609,6 +642,7 @@ def plot_yearly_records(manifest):
 
 
 def plot_grid_rates(manifest, modern_rows):
+    """Build or render the plot grid rates project output."""
     rows = build_grid_position_summary(modern_rows)
     rows = [row for row in rows if 1 <= to_int(row["grid"]) <= 22]
     grids = [to_int(row["grid"]) for row in rows]
@@ -639,6 +673,7 @@ def plot_grid_rates(manifest, modern_rows):
 
 
 def plot_qualifying_rates(manifest, modern_rows):
+    """Build or render the plot qualifying rates project output."""
     rows = build_qualifying_position_summary(modern_rows)
     rows = [row for row in rows if 1 <= to_int(row["qualifying_position"]) <= 22]
     positions = [to_int(row["qualifying_position"]) for row in rows]
@@ -674,6 +709,7 @@ def plot_qualifying_rates(manifest, modern_rows):
 
 
 def plot_modern_vs_historical_grid(manifest, modern_rows):
+    """Build or render the plot modern vs historical grid project output."""
     modern = build_grid_finish_metrics(modern_rows)
     historical = {
         row["metric"].replace("_1950_2017", ""): to_float(row["value"])
@@ -713,6 +749,7 @@ def plot_modern_vs_historical_grid(manifest, modern_rows):
 
 
 def plot_top_driver_points(manifest, modern_rows):
+    """Build or render the plot top driver points project output."""
     rows = build_driver_summary_rows(modern_rows)[:10]
     rows = list(reversed(rows))
     labels = [row["driver_name"] for row in rows]
@@ -736,6 +773,7 @@ def plot_top_driver_points(manifest, modern_rows):
 
 
 def plot_constructor_points(manifest, modern_rows):
+    """Build or render the plot constructor points project output."""
     rows = build_constructor_summary_rows(modern_rows)[:10]
     rows = list(reversed(rows))
     labels = [row["constructor_name"] for row in rows]
@@ -760,6 +798,7 @@ def plot_constructor_points(manifest, modern_rows):
 
 
 def select_top_entities_by_total(rows, entity_key, value_key, top_n):
+    """Build or render the select top entities by total project output."""
     totals = {}
     names = {}
     for row in rows:
@@ -771,6 +810,7 @@ def select_top_entities_by_total(rows, entity_key, value_key, top_n):
 
 
 def plot_driver_points_trend(manifest):
+    """Build or render the plot driver points trend project output."""
     rows = [
         row
         for row in read_csv(ANALYSIS_DIR / "driver_points_by_year.csv")
@@ -803,6 +843,7 @@ def plot_driver_points_trend(manifest):
 
 
 def plot_constructor_points_trend(manifest):
+    """Build or render the plot constructor points trend project output."""
     rows = [
         row
         for row in read_csv(ANALYSIS_DIR / "constructor_points_by_year.csv")
@@ -835,6 +876,7 @@ def plot_constructor_points_trend(manifest):
 
 
 def plot_historical_races_by_year(manifest):
+    """Build or render the plot historical races by year project output."""
     rows = read_csv(ANALYSIS_DIR / "races_by_year_historical.csv")
     years = [to_int(row["year"]) for row in rows]
     counts = [to_int(row["race_count"]) for row in rows]
@@ -859,6 +901,7 @@ def plot_historical_races_by_year(manifest):
 
 
 def plot_historical_driver_wins(manifest):
+    """Build or render the plot historical driver wins project output."""
     rows = read_csv(ANALYSIS_DIR / "driver_wins_historical.csv")[:10]
     rows = list(reversed(rows))
     labels = [row["driver_name"] for row in rows]
@@ -882,6 +925,7 @@ def plot_historical_driver_wins(manifest):
 
 
 def plot_historical_constructor_wins(manifest):
+    """Build or render the plot historical constructor wins project output."""
     rows = read_csv(ANALYSIS_DIR / "constructor_wins_historical.csv")[:10]
     rows = list(reversed(rows))
     labels = [row["constructor_name"] for row in rows]
@@ -905,6 +949,7 @@ def plot_historical_constructor_wins(manifest):
 
 
 def plot_circuit_pole_win_rate(manifest, modern_rows):
+    """Build or render the plot circuit pole win rate project output."""
     rows = build_circuit_summary_rows(modern_rows)
     rows = [row for row in rows if to_int(row["race_count"]) >= 3 and row["pole_win_rate"] is not None]
     rows = sorted(rows, key=lambda row: to_float(row["pole_win_rate"]), reverse=True)[:12]
@@ -931,6 +976,7 @@ def plot_circuit_pole_win_rate(manifest, modern_rows):
 
 
 def plot_driver_points_heatmap(manifest):
+    """Build or render the plot driver points heatmap project output."""
     rows = [
         row
         for row in read_csv(ANALYSIS_DIR / "driver_points_by_year.csv")
@@ -966,6 +1012,7 @@ def plot_driver_points_heatmap(manifest):
 
 
 def plot_constructor_points_share(manifest):
+    """Build or render the plot constructor points share project output."""
     rows = [
         row
         for row in read_csv(ANALYSIS_DIR / "constructor_points_by_year.csv")
@@ -1003,6 +1050,7 @@ def plot_constructor_points_share(manifest):
 
 
 def plot_constructor_podiums(manifest, modern_rows):
+    """Build or render the plot constructor podiums project output."""
     rows = build_constructor_podium_rows(modern_rows)[:10]
     rows = list(reversed(rows))
     labels = [row["constructor_name"] for row in rows]
@@ -1030,6 +1078,7 @@ def plot_constructor_podiums(manifest, modern_rows):
 
 
 def plot_driver_podiums(manifest, modern_rows):
+    """Build or render the plot driver podiums project output."""
     rows = build_driver_podium_rows(modern_rows)[:12]
     rows = list(reversed(rows))
     labels = [row["driver_name"] for row in rows]
@@ -1056,6 +1105,7 @@ def plot_driver_podiums(manifest, modern_rows):
 
 
 def plot_status_by_year(manifest, modern_rows):
+    """Build or render the plot status by year project output."""
     rows = build_status_by_year(modern_rows)
     years = [row["season"] for row in rows]
     finished = [row["finished_rate"] * 100 for row in rows]
@@ -1090,6 +1140,7 @@ def plot_status_by_year(manifest, modern_rows):
 
 
 def plot_circuit_position_change(manifest, modern_rows):
+    """Build or render the plot circuit position change project output."""
     rows = build_circuit_position_change_rows(modern_rows)
     selected = rows[:6] + rows[-6:]
     selected = sorted(selected, key=lambda row: row["avg_position_change"])
@@ -1135,6 +1186,7 @@ def plot_circuit_position_change(manifest, modern_rows):
 
 
 def plot_qualifying_finish_heatmap(manifest, modern_rows):
+    """Build or render the plot qualifying finish heatmap project output."""
     max_position = 20
     matrix = [[0 for _ in range(max_position)] for _ in range(max_position)]
     for row in modern_rows:
@@ -1170,6 +1222,7 @@ def plot_qualifying_finish_heatmap(manifest, modern_rows):
 
 
 def plot_constructor_rank_bump_chart(manifest):
+    """Build or render the plot constructor rank bump chart project output."""
     rows = [
         row
         for row in read_csv(ANALYSIS_DIR / "constructor_points_by_year.csv")
@@ -1230,6 +1283,7 @@ def plot_constructor_rank_bump_chart(manifest):
 
 
 def plot_circuit_grid_importance_bubble(manifest, modern_rows):
+    """Build or render the plot circuit grid importance bubble project output."""
     rows = build_circuit_grid_importance_rows(modern_rows)
     x_values = [row["pole_win_rate"] * 100 for row in rows]
     y_values = [row["avg_abs_position_change"] for row in rows]
@@ -1281,6 +1335,7 @@ def plot_circuit_grid_importance_bubble(manifest, modern_rows):
 
 
 def plot_driver_consistency_scatter(manifest, modern_rows):
+    """Build or render the plot driver consistency scatter project output."""
     rows = build_driver_consistency_rows(modern_rows)
     rows = sorted(rows, key=lambda row: row["avg_points"], reverse=True)[:18]
     x_values = [row["avg_finish_position"] for row in rows]
@@ -1328,6 +1383,7 @@ def plot_driver_consistency_scatter(manifest, modern_rows):
 
 
 def plot_constructor_efficiency_scatter(manifest, modern_rows):
+    """Build or render the plot constructor efficiency scatter project output."""
     rows = build_constructor_efficiency_rows(modern_rows)
     x_values = [row["avg_grid"] for row in rows]
     y_values = [row["avg_finish_position"] for row in rows]
@@ -1376,6 +1432,7 @@ def plot_constructor_efficiency_scatter(manifest, modern_rows):
 
 
 def plot_position_change_distribution(manifest, modern_rows):
+    """Build or render the plot position change distribution project output."""
     changes = [
         to_int(row["grid"]) - to_int(row["finish_position"])
         for row in modern_rows
@@ -1410,6 +1467,7 @@ def plot_position_change_distribution(manifest, modern_rows):
 
 
 def plot_feature_correlation_heatmap(manifest, modern_rows):
+    """Build or render the plot feature correlation heatmap project output."""
     features, targets, matrix = build_feature_correlation_matrix(modern_rows)
     labels = {
         "grid": "Grid",
@@ -1462,6 +1520,7 @@ def plot_feature_correlation_heatmap(manifest, modern_rows):
 
 
 def plot_constructor_competitiveness(manifest):
+    """Build or render the plot constructor competitiveness project output."""
     rows = [
         row
         for row in read_csv(ANALYSIS_DIR / "constructor_competitiveness_by_year.csv")
@@ -1494,6 +1553,7 @@ def plot_constructor_competitiveness(manifest):
 
 
 def plot_constructor_hhi(manifest):
+    """Build or render the plot constructor hhi project output."""
     rows = [
         row
         for row in read_csv(ANALYSIS_DIR / "constructor_competitiveness_by_year.csv")
@@ -1534,6 +1594,7 @@ def plot_constructor_hhi(manifest):
 
 
 def plot_pre_race_strength_bins(manifest):
+    """Build or render the plot pre race strength bins project output."""
     rows = [
         row
         for row in read_csv(ANALYSIS_DIR / "pre_race_strength_bins.csv")
@@ -1582,6 +1643,7 @@ def plot_pre_race_strength_bins(manifest):
 
 
 def plot_circuit_grid_importance_score(manifest):
+    """Build or render the plot circuit grid importance score project output."""
     rows = read_csv(ANALYSIS_DIR / "circuit_grid_importance_score.csv")[:12]
     rows = list(reversed(rows))
     labels = [row["circuit_name"] for row in rows]
@@ -1606,6 +1668,7 @@ def plot_circuit_grid_importance_score(manifest):
 
 
 def plot_position_gain_leaders(manifest, modern_rows):
+    """Build or render the plot position gain leaders project output."""
     driver_rows = build_position_gain_summary(modern_rows, "driver_id", "driver_name")[:12]
     constructor_rows = build_position_gain_summary(
         modern_rows, "constructor_id", "constructor_name"
@@ -1652,6 +1715,7 @@ def plot_position_gain_leaders(manifest, modern_rows):
 
 
 def main():
+    """Run the script end-to-end and write all configured outputs."""
     clear_old_figures()
     manifest = []
     modern_rows = load_modern_history_rows()

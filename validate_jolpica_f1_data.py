@@ -1,4 +1,6 @@
-"""Validate downloaded Jolpica-F1 JSON files against API-declared totals."""
+"""Validate downloaded Jolpica-F1 JSON files against API-declared totals.
+
+This script counts the actual records saved in every year-endpoint file and compares them with the total field reported by the API. It fails fast when a file is missing or an endpoint was only partially downloaded."""
 
 import json
 from pathlib import Path
@@ -20,14 +22,16 @@ ENDPOINT_COLLECTIONS = {
 
 
 def load_json(path):
-    """Load one saved Jolpica-F1 JSON file."""
+    """Load a saved JSON file from disk."""
     with path.open("r", encoding="utf-8") as file:
         return json.load(file)
 
 
 def count_records_in_page(page, endpoint):
+    """Count endpoint-specific records in one API response page."""
     mr_data = page["MRData"]
     keys = ENDPOINT_COLLECTIONS[endpoint]
+
 
     if endpoint in {"results", "qualifying"}:
         table = mr_data[keys[0]]
@@ -44,6 +48,7 @@ def count_records_in_page(page, endpoint):
 
 
 def validate_file(year, endpoint):
+    """Validate one downloaded year-endpoint file against its declared total."""
     path = DATA_DIR / str(year) / f"{endpoint}.json"
     if not path.exists():
         return {
@@ -72,6 +77,7 @@ def validate_file(year, endpoint):
 
 
 def main():
+    """Run the script end-to-end and write all configured outputs."""
     has_problem = False
 
     for year in YEARS:

@@ -1,4 +1,6 @@
-"""Generate historical background analysis CSV files from Formula1.sqlite."""
+"""Generate historical background analysis tables from Formula1.sqlite.
+
+This script provides lightweight long-run context from the historical database, including race coverage, all-time winners, constructor wins, and grid-position outcome patterns. Output filenames include the _historical suffix."""
 
 import csv
 import json
@@ -15,6 +17,7 @@ SUMMARY_PATH = ANALYSIS_DIR / "analysis_historical_summary.json"
 
 
 def write_csv(path, fieldnames, rows):
+    """Write dictionaries to a CSV file with the requested column order."""
     path.parent.mkdir(parents=True, exist_ok=True)
     with path.open("w", encoding="utf-8-sig", newline="") as file:
         writer = csv.DictWriter(file, fieldnames=fieldnames)
@@ -23,12 +26,14 @@ def write_csv(path, fieldnames, rows):
 
 
 def write_json(path, data):
+    """Write structured metadata to a UTF-8 JSON file."""
     path.parent.mkdir(parents=True, exist_ok=True)
     with path.open("w", encoding="utf-8") as file:
         json.dump(data, file, ensure_ascii=False, indent=2)
 
 
 def format_float(value, digits=4):
+    """Format numeric output consistently for CSV reporting."""
     if value is None:
         return ""
     if isinstance(value, float) and math.isnan(value):
@@ -37,6 +42,7 @@ def format_float(value, digits=4):
 
 
 def pearson_correlation(pairs):
+    """Compute Pearson correlation while ignoring missing value pairs."""
     pairs = [(x, y) for x, y in pairs if x is not None and y is not None]
     if len(pairs) < 2:
         return None
@@ -55,6 +61,7 @@ def pearson_correlation(pairs):
 
 
 def fetch_all(cursor, query):
+    """Execute a SQL query and return rows as dictionaries."""
     cursor.execute(query)
     columns = [description[0] for description in cursor.description]
     return [dict(zip(columns, row)) for row in cursor.fetchall()]
@@ -119,6 +126,7 @@ def build_overview(cursor):
 
 
 def build_races_by_year(cursor):
+    """Count historical races by season."""
     return fetch_all(
         cursor,
         """
@@ -133,6 +141,7 @@ def build_races_by_year(cursor):
 
 
 def build_driver_wins(cursor):
+    """Return the leading historical race winners."""
     return fetch_all(
         cursor,
         """
@@ -155,6 +164,7 @@ def build_driver_wins(cursor):
 
 
 def build_constructor_wins(cursor):
+    """Return the leading historical constructor winners."""
     return fetch_all(
         cursor,
         """
@@ -177,6 +187,7 @@ def build_constructor_wins(cursor):
 
 
 def build_grid_historical_summary(cursor):
+    """Summarize long-run grid-to-finish relationships."""
     rows = fetch_all(
         cursor,
         """
@@ -224,6 +235,7 @@ def build_grid_historical_summary(cursor):
 
 
 def build_grid_by_position(cursor):
+    """Aggregate historical outcome rates for each starting grid slot."""
     rows = fetch_all(
         cursor,
         """
@@ -252,8 +264,10 @@ def build_grid_by_position(cursor):
 
 
 def main():
+    """Run the script end-to-end and write all configured outputs."""
     if not DB_PATH.exists():
         raise FileNotFoundError(f"Database file not found: {DB_PATH}")
+
 
     conn = sqlite3.connect(DB_PATH)
     cursor = conn.cursor()
