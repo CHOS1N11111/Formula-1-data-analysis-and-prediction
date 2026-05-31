@@ -184,6 +184,7 @@ outputs/OUTPUTS_DESCRIPTION.md
 - 输出混淆矩阵、特征重要性和逐站 Top 3 领奖台候选命中情况。
 - 补充 MLP 神经网络对比实验和训练损失曲线。
 - 补充传统 ML 与 MLP 深度学习结果对比图。
+- 补充 CatBoost、LightGBM、XGBoost 高级提升树、Stacking 融合模型和比赛级排序指标。
 
 历史背景分析包括：
 

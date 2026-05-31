@@ -340,37 +340,45 @@ Shows the training loss curves for the MLP neural-network podium model under pos
 
 Use in report: deep-learning comparison experiment.
 
-#### [`figures/podium_ml_dl_f1_comparison.png`](figures/podium_ml_dl_f1_comparison.png)
+#### [`figures/podium_all_models_f1_comparison.png`](figures/podium_all_models_f1_comparison.png)
 
-![ML and DL F1 Comparison](figures/podium_ml_dl_f1_comparison.png)
+![All Models F1 Comparison](figures/podium_all_models_f1_comparison.png)
 
-Compares F1 scores for all traditional machine learning models and the MLP neural-network model across post-qualifying and pre-race feature modes.
+Compares F1 scores for traditional machine learning, advanced boosting/stacking models, and the MLP neural-network model. It shows the overall balance between precision and recall for podium prediction.
 
 Use in report: model performance comparison.
 
-#### [`figures/podium_ml_dl_roc_auc_comparison.png`](figures/podium_ml_dl_roc_auc_comparison.png)
+#### [`figures/podium_all_models_roc_auc_comparison.png`](figures/podium_all_models_roc_auc_comparison.png)
 
-![ML and DL ROC-AUC Comparison](figures/podium_ml_dl_roc_auc_comparison.png)
+![All Models ROC-AUC Comparison](figures/podium_all_models_roc_auc_comparison.png)
 
-Compares ROC-AUC scores for traditional ML and MLP models, showing how well each model separates likely podium drivers from non-podium drivers.
+Compares ROC-AUC scores for all model families, showing how well each model separates likely podium drivers from non-podium drivers.
 
 Use in report: model discrimination ability.
 
-#### [`figures/podium_ml_dl_top3_precision.png`](figures/podium_ml_dl_top3_precision.png)
+#### [`figures/podium_all_models_top3_precision.png`](figures/podium_all_models_top3_precision.png)
 
-![ML and DL Top 3 Precision](figures/podium_ml_dl_top3_precision.png)
+![All Models Top 3 Precision](figures/podium_all_models_top3_precision.png)
 
-Compares race-level Top 3 precision, which measures how many of each model's three predicted podium candidates actually finished on the podium.
+Compares race-level Top 3 precision across all model families, which measures how many of each model's three predicted podium candidates actually finished on the podium.
 
 Use in report: race-level prediction evaluation.
 
-#### [`figures/podium_best_ml_vs_dl_models.png`](figures/podium_best_ml_vs_dl_models.png)
+#### [`figures/podium_best_models_by_family.png`](figures/podium_best_models_by_family.png)
 
-![Best ML vs DL Models](figures/podium_best_ml_vs_dl_models.png)
+![Best Models by Family](figures/podium_best_models_by_family.png)
 
-Compares the best traditional ML and MLP models for each feature mode using F1 and ROC-AUC. It provides a compact summary of the strongest models.
+Compares the best model from each family and feature mode using F1 and ROC-AUC. It provides a compact summary of the strongest traditional ML, advanced ML, and deep-learning results.
 
 Use in report: final model comparison.
+
+#### [`figures/podium_all_model_metric_heatmap.png`](figures/podium_all_model_metric_heatmap.png)
+
+![All Model Metric Heatmap](figures/podium_all_model_metric_heatmap.png)
+
+Displays accuracy, precision, recall, F1, ROC-AUC, and race-level Top 3 precision for every trained model in one heatmap. This is the most complete single figure for comparing all model effects.
+
+Use in report: comprehensive model evaluation.
 
 #### [`figures/podium_ml_2025_vs_rolling_f1.png`](figures/podium_ml_2025_vs_rolling_f1.png)
 
@@ -379,3 +387,35 @@ Use in report: final model comparison.
 Compares each traditional ML model's 2025 F1 score with its 2022-2025 rolling average F1 score, showing whether the model is stable across seasons.
 
 Use in report: robustness and generalization evaluation.
+
+#### [`figures/advanced_podium_model_comparison.png`](figures/advanced_podium_model_comparison.png)
+
+![Advanced Podium Model Comparison](figures/advanced_podium_model_comparison.png)
+
+Compares advanced podium models such as CatBoost, LightGBM, XGBoost, and the stacking ensemble using 2025 F1 score.
+
+Use in report: advanced model comparison.
+
+#### [`figures/podium_ranking_metrics_2025.png`](figures/podium_ranking_metrics_2025.png)
+
+![Podium Ranking Metrics](figures/podium_ranking_metrics_2025.png)
+
+Shows race-level ranking metrics such as NDCG@3 and MAP@3. These metrics evaluate whether a model ranks true podium drivers near the top within each race.
+
+Use in report: race-level ranking evaluation.
+
+#### [`figures/podium_advanced_ranking_metrics_all.png`](figures/podium_advanced_ranking_metrics_all.png)
+
+![Advanced Ranking Metrics All](figures/podium_advanced_ranking_metrics_all.png)
+
+Compares Top3 Precision, MAP@3, NDCG@3, and exact podium-set hit rate for CatBoost, LightGBM, XGBoost, and the stacking ensemble. It focuses on whether the model can rank podium candidates correctly within each race.
+
+Use in report: advanced ranking model evaluation.
+
+#### [`figures/podium_model_composite_score.png`](figures/podium_model_composite_score.png)
+
+![Podium Model Composite Score](figures/podium_model_composite_score.png)
+
+Ranks all traditional ML, advanced ML, and deep-learning podium models using one weighted 0-100 composite score. The score uses common metrics across all model families: F1, ROC-AUC, race-level Top3 Precision, Precision, and Recall.
+
+Use in report: final model selection and overall model evaluation.

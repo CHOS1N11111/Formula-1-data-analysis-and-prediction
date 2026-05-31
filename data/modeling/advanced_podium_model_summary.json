@@ -1,0 +1,29 @@
+{
+  "built_at": "2026-05-31T05:50:09.702077+00:00",
+  "input_features": "data\\processed\\f1_features_extended.csv",
+  "feature_mode": "post_qualifying",
+  "optional_boosting_models_requested": [
+    "catboost",
+    "lightgbm",
+    "xgboost"
+  ],
+  "unavailable_packages": [],
+  "trained_models": [
+    "catboost",
+    "lightgbm",
+    "xgboost",
+    "stacking_ensemble"
+  ],
+  "best_model": "xgboost",
+  "best_f1": "0.758621",
+  "outputs": [
+    "advanced_podium_model_metrics.csv",
+    "advanced_podium_predictions_2025.csv",
+    "race_ranking_metrics.csv",
+    "race_ranking_metrics_by_race.csv"
+  ],
+  "figures": [
+    "outputs\\figures\\advanced_podium_model_comparison.png",
+    "outputs\\figures\\podium_ranking_metrics_2025.png"
+  ]
+}

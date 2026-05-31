@@ -182,6 +182,7 @@ Machine learning includes:
 - Confusion matrix, feature importance, and race-level top-3 podium candidate evaluation
 - MLP neural-network comparison with training-loss curve
 - Combined ML/DL result visualizations
+- CatBoost, LightGBM, XGBoost, stacking ensemble, and race-level ranking metrics
 
 Historical analysis includes:
 

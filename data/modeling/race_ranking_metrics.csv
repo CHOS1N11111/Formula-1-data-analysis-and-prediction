@@ -1,0 +1,5 @@
+﻿model,race_count,mean_top3_precision,mean_map_at_3,mean_ndcg_at_3,exact_podium_set_rate
+catboost,24,0.750000,0.678241,0.769089,0.333333
+lightgbm,24,0.736111,0.685185,0.767457,0.291667
+xgboost,24,0.736111,0.652778,0.742783,0.291667
+stacking_ensemble,24,0.708333,0.664352,0.750000,0.291667

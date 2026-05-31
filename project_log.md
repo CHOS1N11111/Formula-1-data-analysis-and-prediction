@@ -1316,6 +1316,100 @@ outputs/figures/podium_ml_2025_vs_rolling_f1.png
 
 这些图表分别展示 F1 对比、ROC-AUC 对比、逐站 Top 3 命中率对比、最佳 ML/DL 模型对比，以及 2025 单年回测与滚动回测平均表现对比。
 
+进一步将高级模型和比赛级排序评价合并到 `train_f1_podium_model.py` 中，统一完成传统机器学习、Boosting、Stacking 和排序指标输出。
+
+包含内容：
+
+```text
+CatBoost 高级梯度提升树
+Stacking 融合模型
+Race-level ranking evaluation
+```
+
+其中 CatBoost 需要额外依赖：
+
+```powershell
+pip install catboost
+```
+
+当前本地环境已安装并运行 CatBoost、LightGBM 和 XGBoost。脚本会自动检测可用的高级模型包，并将可用模型加入训练。
+
+重新运行后，高级模型已包含：
+
+```text
+CatBoost
+LightGBM
+XGBoost
+Stacking Ensemble
+```
+
+当前高级模型中，XGBoost 在 2025 回测中表现最好。
+
+高级模型输出：
+
+```text
+data/modeling/advanced_podium_model_metrics.csv
+data/modeling/advanced_podium_predictions_2025.csv
+data/modeling/race_ranking_metrics.csv
+data/modeling/race_ranking_metrics_by_race.csv
+data/modeling/advanced_podium_model_summary.json
+```
+
+高级模型图表：
+
+```text
+outputs/figures/advanced_podium_model_comparison.png
+outputs/figures/podium_ranking_metrics_2025.png
+```
+
+随后更新 `visualize_f1_model_results.py`，将传统机器学习、高级 Boosting/Stacking 模型和 MLP 深度学习模型统一纳入可视化展示。
+
+新增统一模型效果图：
+
+```text
+outputs/figures/podium_all_models_f1_comparison.png
+outputs/figures/podium_all_models_roc_auc_comparison.png
+outputs/figures/podium_all_models_top3_precision.png
+outputs/figures/podium_best_models_by_family.png
+outputs/figures/podium_all_model_metric_heatmap.png
+outputs/figures/podium_advanced_ranking_metrics_all.png
+```
+
+其中，`podium_all_model_metric_heatmap.png` 汇总展示 Accuracy、Precision、Recall、F1、ROC-AUC 和 Top3 Precision，适合作为报告中“模型综合效果比较”的核心图。
+
+新增 `score_f1_podium_models.py`，用于给所有领奖台预测模型计算统一综合分。综合分为 0-100 分，使用所有模型共有的指标，避免高级模型因额外拥有 MAP@3、NDCG@3 而获得不公平优势。
+
+评分权重：
+
+```text
+F1: 35%
+ROC-AUC: 25%
+Top3 Precision: 20%
+Precision: 10%
+Recall: 10%
+```
+
+输出文件：
+
+```text
+data/modeling/podium_model_composite_scores.csv
+data/modeling/podium_model_composite_score_summary.json
+outputs/figures/podium_model_composite_score.png
+```
+
+当前综合评分第一名为 CatBoost，说明高级梯度提升树模型在二分类准确性和逐站领奖台候选排序之间取得了较好的平衡。
+
+排序指标包括：
+
+```text
+Top-3 Precision
+MAP@3
+NDCG@3
+Exact podium set hit rate
+```
+
+这些指标比普通二分类指标更贴合 F1 场景，因为每场比赛本质上是对车手进行排序，并从中选出最可能登上领奖台的前三名。
+
 ## 后续预测方案
 
 ### 1. 预测目标

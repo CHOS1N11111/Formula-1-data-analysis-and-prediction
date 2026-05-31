@@ -1,0 +1,23 @@
+{
+  "built_at": "2026-05-31T06:11:23.519794+00:00",
+  "score_formula": {
+    "f1": 0.35,
+    "roc_auc": 0.25,
+    "race_top3_precision": 0.2,
+    "precision": 0.1,
+    "recall": 0.1
+  },
+  "score_explanation": "Composite score = weighted common metrics * 100. Ranking metrics are reported separately because only advanced models have MAP@3 and NDCG@3.",
+  "model_count": 16,
+  "best_model": {
+    "rank": 1,
+    "model_family": "Advanced ML",
+    "feature_mode": "post_qualifying",
+    "model": "catboost",
+    "composite_score_100": "80.214400"
+  },
+  "outputs": [
+    "data\\modeling\\podium_model_composite_scores.csv",
+    "outputs\\figures\\podium_model_composite_score.png"
+  ]
+}

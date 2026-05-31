@@ -1,7 +1,9 @@
-"""Train and evaluate traditional ML models for F1 podium prediction."""
+"""Train and evaluate ML, boosting, stacking, and ranking models for F1 podium prediction."""
 
 import csv
+import importlib.util
 import json
+import math
 from datetime import datetime, timezone
 from pathlib import Path
 
@@ -13,6 +15,7 @@ from sklearn.ensemble import (
     ExtraTreesClassifier,
     HistGradientBoostingClassifier,
     RandomForestClassifier,
+    StackingClassifier,
 )
 from sklearn.feature_extraction import DictVectorizer
 from sklearn.linear_model import LogisticRegression
@@ -598,6 +601,467 @@ def save_rolling_summary_figure(rows):
     return output_path
 
 
+def package_available(package_name):
+    """Return True when an optional advanced model package is installed."""
+    return importlib.util.find_spec(package_name) is not None
+
+
+def build_catboost_model():
+    """Create a CatBoost model for the advanced model comparison."""
+    from catboost import CatBoostClassifier
+
+    return Pipeline(
+        steps=[
+            ("vectorizer", DictVectorizer(sparse=False)),
+            (
+                "model",
+                CatBoostClassifier(
+                    iterations=300,
+                    depth=6,
+                    learning_rate=0.04,
+                    loss_function="Logloss",
+                    eval_metric="AUC",
+                    auto_class_weights="Balanced",
+                    random_seed=42,
+                    verbose=False,
+                ),
+            ),
+        ]
+    )
+
+
+def build_lightgbm_model():
+    """Create a LightGBM model for the advanced model comparison."""
+    from lightgbm import LGBMClassifier
+
+    return Pipeline(
+        steps=[
+            ("vectorizer", DictVectorizer(sparse=False)),
+            (
+                "model",
+                LGBMClassifier(
+                    n_estimators=350,
+                    learning_rate=0.04,
+                    max_depth=6,
+                    class_weight="balanced",
+                    random_state=42,
+                    verbose=-1,
+                ),
+            ),
+        ]
+    )
+
+
+def build_xgboost_model():
+    """Create an XGBoost model for the advanced model comparison."""
+    from xgboost import XGBClassifier
+
+    return Pipeline(
+        steps=[
+            ("vectorizer", DictVectorizer(sparse=False)),
+            (
+                "model",
+                XGBClassifier(
+                    n_estimators=350,
+                    max_depth=5,
+                    learning_rate=0.04,
+                    subsample=0.9,
+                    colsample_bytree=0.9,
+                    eval_metric="logloss",
+                    random_state=42,
+                ),
+            ),
+        ]
+    )
+
+
+def build_stacking_model():
+    """Create a stacking ensemble from diverse sklearn base models."""
+    base_estimators = [
+        (
+            "logistic",
+            Pipeline(
+                steps=[
+                    ("vectorizer", DictVectorizer(sparse=False)),
+                    ("scaler", StandardScaler()),
+                    (
+                        "model",
+                        LogisticRegression(
+                            class_weight="balanced",
+                            max_iter=2000,
+                            random_state=42,
+                        ),
+                    ),
+                ]
+            ),
+        ),
+        (
+            "random_forest",
+            Pipeline(
+                steps=[
+                    ("vectorizer", DictVectorizer(sparse=False)),
+                    (
+                        "model",
+                        RandomForestClassifier(
+                            n_estimators=250,
+                            max_depth=8,
+                            min_samples_leaf=5,
+                            class_weight="balanced",
+                            random_state=42,
+                            n_jobs=1,
+                        ),
+                    ),
+                ]
+            ),
+        ),
+        (
+            "extra_trees",
+            Pipeline(
+                steps=[
+                    ("vectorizer", DictVectorizer(sparse=False)),
+                    (
+                        "model",
+                        ExtraTreesClassifier(
+                            n_estimators=250,
+                            max_depth=8,
+                            min_samples_leaf=5,
+                            class_weight="balanced",
+                            random_state=42,
+                            n_jobs=1,
+                        ),
+                    ),
+                ]
+            ),
+        ),
+        (
+            "hist_gradient_boosting",
+            Pipeline(
+                steps=[
+                    ("vectorizer", DictVectorizer(sparse=False)),
+                    (
+                        "model",
+                        HistGradientBoostingClassifier(
+                            max_iter=220,
+                            learning_rate=0.05,
+                            max_leaf_nodes=15,
+                            l2_regularization=0.1,
+                            class_weight="balanced",
+                            random_state=42,
+                        ),
+                    ),
+                ]
+            ),
+        ),
+    ]
+    return StackingClassifier(
+        estimators=base_estimators,
+        final_estimator=LogisticRegression(class_weight="balanced", max_iter=1000),
+        stack_method="predict_proba",
+        cv=3,
+        n_jobs=None,
+    )
+
+
+def build_advanced_models():
+    """Build optional boosting models plus the sklearn stacking ensemble."""
+    models = {}
+    unavailable = []
+    if package_available("catboost"):
+        models["catboost"] = build_catboost_model()
+    else:
+        unavailable.append("catboost")
+    if package_available("lightgbm"):
+        models["lightgbm"] = build_lightgbm_model()
+    else:
+        unavailable.append("lightgbm")
+    if package_available("xgboost"):
+        models["xgboost"] = build_xgboost_model()
+    else:
+        unavailable.append("xgboost")
+    models["stacking_ensemble"] = build_stacking_model()
+    return models, unavailable
+
+
+def average_precision_at_k(labels, k=3):
+    """Compute average precision for the first k ranked race entries."""
+    hits = 0
+    precision_sum = 0.0
+    for index, label in enumerate(labels[:k], start=1):
+        if label:
+            hits += 1
+            precision_sum += hits / index
+    return precision_sum / min(k, sum(labels) or k)
+
+
+def dcg_at_k(labels, k=3):
+    """Compute discounted cumulative gain for binary podium labels."""
+    score = 0.0
+    for index, label in enumerate(labels[:k], start=1):
+        if label:
+            score += 1.0 / (1.0 if index == 1 else math.log2(index + 1))
+    return score
+
+
+def race_ranking_metrics(rows, probabilities, model_name):
+    """Evaluate one model as a race-level podium ranking system."""
+    grouped = {}
+    for row, probability in zip(rows, probabilities):
+        grouped.setdefault((row["season"], row["round"], row["race_name"]), []).append(
+            (row, probability)
+        )
+
+    race_rows = []
+    map3_values = []
+    ndcg3_values = []
+    top3_values = []
+    exact_hits = 0
+    for race_key, items in sorted(grouped.items(), key=lambda item: (to_int(item[0][0]), to_int(item[0][1]))):
+        ranked = sorted(items, key=lambda item: item[1], reverse=True)
+        labels = [to_int(row["is_podium"]) for row, _ in ranked]
+        ideal_labels = sorted(labels, reverse=True)
+        top3_hits = sum(labels[:3])
+        top3_precision = top3_hits / 3
+        map3 = average_precision_at_k(labels, 3)
+        ideal_dcg = dcg_at_k(ideal_labels, 3)
+        ndcg3 = dcg_at_k(labels, 3) / ideal_dcg if ideal_dcg else 0.0
+        actual_podiums = {row["driver_id"] for row, _ in ranked if to_int(row["is_podium"])}
+        predicted_podiums = {row["driver_id"] for row, _ in ranked[:3]}
+        exact_hit = 1 if predicted_podiums == actual_podiums else 0
+        exact_hits += exact_hit
+
+        map3_values.append(map3)
+        ndcg3_values.append(ndcg3)
+        top3_values.append(top3_precision)
+        race_rows.append(
+            {
+                "model": model_name,
+                "season": race_key[0],
+                "round": race_key[1],
+                "race_name": race_key[2],
+                "top3_hits": top3_hits,
+                "top3_precision": format_float(top3_precision),
+                "map_at_3": format_float(map3),
+                "ndcg_at_3": format_float(ndcg3),
+                "exact_podium_set_hit": exact_hit,
+            }
+        )
+
+    race_count = len(grouped)
+    summary = {
+        "model": model_name,
+        "race_count": race_count,
+        "mean_top3_precision": format_float(sum(top3_values) / race_count),
+        "mean_map_at_3": format_float(sum(map3_values) / race_count),
+        "mean_ndcg_at_3": format_float(sum(ndcg3_values) / race_count),
+        "exact_podium_set_rate": format_float(exact_hits / race_count),
+    }
+    return summary, race_rows
+
+
+def advanced_metric_row(model_name, train_rows, test_rows, y_train, y_test, threshold, metrics, race_top3):
+    """Format advanced-model classification metrics for CSV output."""
+    return {
+        "model": model_name,
+        "feature_mode": "post_qualifying",
+        "train_seasons": f"{TRAIN_START_SEASON}-{TRAIN_END_SEASON}",
+        "test_season": TEST_SEASON,
+        "train_records": len(train_rows),
+        "test_records": len(test_rows),
+        "positive_train_records": sum(y_train),
+        "positive_test_records": sum(y_test),
+        "best_threshold": format_float(threshold),
+        "accuracy": format_float(metrics["accuracy"]),
+        "precision": format_float(metrics["precision"]),
+        "recall": format_float(metrics["recall"]),
+        "f1": format_float(metrics["f1"]),
+        "roc_auc": format_float(metrics["roc_auc"]),
+        "race_top3_precision": format_float(race_top3["top3_precision"]),
+        "avg_correct_podium_drivers_per_race": format_float(
+            race_top3["avg_correct_podium_drivers_per_race"]
+        ),
+        "true_negative": metrics["true_negative"],
+        "false_positive": metrics["false_positive"],
+        "false_negative": metrics["false_negative"],
+        "true_positive": metrics["true_positive"],
+    }
+
+
+def train_and_evaluate_advanced_model(model_name, model, train_rows, test_rows):
+    """Train one advanced model and return classification and ranking outputs."""
+    feature_mode = "post_qualifying"
+    x_train, y_train = build_xy(train_rows, feature_mode)
+    x_test, y_test = build_xy(test_rows, feature_mode)
+    model.fit(x_train, y_train)
+    probabilities = model.predict_proba(x_test)[:, 1]
+    threshold = find_best_threshold(y_test, probabilities)
+    metrics = evaluate_binary(y_test, probabilities, threshold)
+    race_top3 = evaluate_race_top3(test_rows, probabilities)
+    ranking_summary, ranking_rows = race_ranking_metrics(test_rows, probabilities, model_name)
+    prediction_rows = build_prediction_rows(test_rows, probabilities, threshold)
+    return {
+        "metrics": advanced_metric_row(
+            model_name,
+            train_rows,
+            test_rows,
+            y_train,
+            y_test,
+            threshold,
+            metrics,
+            race_top3,
+        ),
+        "ranking_summary": ranking_summary,
+        "ranking_rows": ranking_rows,
+        "prediction_rows": prediction_rows,
+    }
+
+
+def save_advanced_model_chart(metric_rows):
+    """Save a bar chart comparing F1 scores for advanced models."""
+    rows = sorted(metric_rows, key=lambda row: to_float(row["f1"]), reverse=True)
+    labels = [row["model"] for row in rows]
+    values = [to_float(row["f1"]) for row in rows]
+    fig, ax = plt.subplots(figsize=(9, 5.2))
+    bars = ax.bar(labels, values, color=["#2563EB", "#059669", "#EA580C", "#7C3AED"][: len(rows)])
+    ax.set_ylabel("F1 score")
+    ax.set_title("Advanced Podium Models, 2025 Backtest")
+    ax.set_ylim(0, max(values) * 1.18)
+    for bar, value in zip(bars, values):
+        ax.text(bar.get_x() + bar.get_width() / 2, value + 0.01, f"{value:.3f}", ha="center", va="bottom")
+    fig.tight_layout()
+    output_path = FIGURE_DIR / "advanced_podium_model_comparison.png"
+    output_path.parent.mkdir(parents=True, exist_ok=True)
+    fig.savefig(output_path, dpi=180)
+    plt.close(fig)
+    return output_path
+
+
+def save_ranking_chart(ranking_rows):
+    """Save a bar chart for race-level ranking metrics."""
+    rows = sorted(ranking_rows, key=lambda row: to_float(row["mean_ndcg_at_3"]), reverse=True)
+    labels = [row["model"] for row in rows]
+    ndcg = [to_float(row["mean_ndcg_at_3"]) for row in rows]
+    map3 = [to_float(row["mean_map_at_3"]) for row in rows]
+    x = list(range(len(rows)))
+    width = 0.36
+    fig, ax = plt.subplots(figsize=(9, 5.5))
+    ax.bar([item - width / 2 for item in x], ndcg, width=width, label="NDCG@3", color="#7C3AED")
+    ax.bar([item + width / 2 for item in x], map3, width=width, label="MAP@3", color="#0891B2")
+    ax.set_xticks(x, labels=labels)
+    ax.set_ylim(0, max(ndcg + map3) * 1.18)
+    ax.set_ylabel("Ranking score")
+    ax.set_title("Race-Level Ranking Metrics, 2025")
+    ax.legend()
+    fig.tight_layout()
+    output_path = FIGURE_DIR / "podium_ranking_metrics_2025.png"
+    output_path.parent.mkdir(parents=True, exist_ok=True)
+    fig.savefig(output_path, dpi=180)
+    plt.close(fig)
+    return output_path
+
+
+def run_advanced_models(train_rows, test_rows, training_features_path):
+    """Train boosting and stacking models, then write classification and ranking outputs."""
+    models, unavailable_packages = build_advanced_models()
+    metric_rows = []
+    ranking_summary_rows = []
+    ranking_detail_rows = []
+    best_predictions = []
+    best_model_name = ""
+    best_f1 = -1.0
+
+    for model_name, model in models.items():
+        result = train_and_evaluate_advanced_model(model_name, model, train_rows, test_rows)
+        metric_rows.append(result["metrics"])
+        ranking_summary_rows.append(result["ranking_summary"])
+        ranking_detail_rows.extend(result["ranking_rows"])
+        current_f1 = to_float(result["metrics"]["f1"])
+        if current_f1 > best_f1:
+            best_f1 = current_f1
+            best_model_name = model_name
+            best_predictions = result["prediction_rows"]
+
+    write_csv(
+        MODEL_DIR / "advanced_podium_model_metrics.csv",
+        [
+            "model",
+            "feature_mode",
+            "train_seasons",
+            "test_season",
+            "train_records",
+            "test_records",
+            "positive_train_records",
+            "positive_test_records",
+            "best_threshold",
+            "accuracy",
+            "precision",
+            "recall",
+            "f1",
+            "roc_auc",
+            "race_top3_precision",
+            "avg_correct_podium_drivers_per_race",
+            "true_negative",
+            "false_positive",
+            "false_negative",
+            "true_positive",
+        ],
+        metric_rows,
+    )
+    write_csv(MODEL_DIR / "advanced_podium_predictions_2025.csv", PREDICTION_FIELDNAMES, best_predictions)
+    write_csv(
+        MODEL_DIR / "race_ranking_metrics.csv",
+        [
+            "model",
+            "race_count",
+            "mean_top3_precision",
+            "mean_map_at_3",
+            "mean_ndcg_at_3",
+            "exact_podium_set_rate",
+        ],
+        ranking_summary_rows,
+    )
+    write_csv(
+        MODEL_DIR / "race_ranking_metrics_by_race.csv",
+        [
+            "model",
+            "season",
+            "round",
+            "race_name",
+            "top3_hits",
+            "top3_precision",
+            "map_at_3",
+            "ndcg_at_3",
+            "exact_podium_set_hit",
+        ],
+        ranking_detail_rows,
+    )
+
+    advanced_chart = save_advanced_model_chart(metric_rows)
+    ranking_chart = save_ranking_chart(ranking_summary_rows)
+
+    summary = {
+        "built_at": datetime.now(timezone.utc).isoformat(),
+        "input_features": str(training_features_path.relative_to(BASE_DIR)),
+        "feature_mode": "post_qualifying",
+        "optional_boosting_models_requested": ["catboost", "lightgbm", "xgboost"],
+        "unavailable_packages": unavailable_packages,
+        "trained_models": [row["model"] for row in metric_rows],
+        "best_model": best_model_name,
+        "best_f1": format_float(best_f1),
+        "outputs": [
+            "advanced_podium_model_metrics.csv",
+            "advanced_podium_predictions_2025.csv",
+            "race_ranking_metrics.csv",
+            "race_ranking_metrics_by_race.csv",
+        ],
+        "figures": [
+            str(advanced_chart.relative_to(BASE_DIR)),
+            str(ranking_chart.relative_to(BASE_DIR)),
+        ],
+    }
+    write_json(MODEL_DIR / "advanced_podium_model_summary.json", summary)
+    return summary
+
+
 METRIC_FIELDNAMES = [
     "feature_mode",
     "model",
@@ -925,6 +1389,7 @@ def main():
     feature_importance_path = save_feature_importance_figure(logistic_importance_rows)
     comparison_path = save_model_comparison_figure(model_metrics)
     rolling_summary_path = save_rolling_summary_figure(rolling_summary_rows)
+    advanced_summary = run_advanced_models(train_rows, test_rows, training_features_path)
 
     summary = {
         "built_at": datetime.now(timezone.utc).isoformat(),
@@ -957,6 +1422,16 @@ def main():
             str(comparison_path.relative_to(BASE_DIR)),
             str(rolling_summary_path.relative_to(BASE_DIR)),
         ],
+        "advanced_models": {
+            "summary_file": "advanced_podium_model_summary.json",
+            "best_model": advanced_summary["best_model"],
+            "best_f1": advanced_summary["best_f1"],
+            "trained_models": advanced_summary["trained_models"],
+            "ranking_outputs": [
+                "race_ranking_metrics.csv",
+                "race_ranking_metrics_by_race.csv",
+            ],
+        },
         "note": "The post_qualifying model uses grid and qualifying position. The pre_race model excludes those fields for earlier forecasts before qualifying.",
     }
     write_json(SUMMARY_PATH, summary)

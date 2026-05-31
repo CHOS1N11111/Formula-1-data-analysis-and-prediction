@@ -19,3 +19,6 @@ data/raw/
 formula-1-race-data-sqlite/
 formula-1-fantasy-2021/
 formula1-data-1950-2022/
+
+# Model training logs
+catboost_info/

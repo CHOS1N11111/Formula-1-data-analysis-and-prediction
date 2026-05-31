@@ -14,6 +14,9 @@ matplotlib
 
 # Train and evaluate podium prediction models
 scikit-learn
+catboost
+lightgbm
+xgboost
 
 # System dependency, not installed by pip:
 # ffmpeg is required by animate_f1_points.py to export MP4 videos.

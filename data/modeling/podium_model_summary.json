@@ -1,5 +1,5 @@
 {
-  "built_at": "2026-05-30T05:28:00.602591+00:00",
+  "built_at": "2026-05-31T05:50:09.706481+00:00",
   "input_features": "data\\processed\\f1_features_extended.csv",
   "output_dir": "data\\modeling",
   "target": "is_podium",
@@ -32,5 +32,20 @@
     "outputs\\figures\\podium_model_comparison_2025.png",
     "outputs\\figures\\podium_rolling_backtest_summary.png"
   ],
+  "advanced_models": {
+    "summary_file": "advanced_podium_model_summary.json",
+    "best_model": "xgboost",
+    "best_f1": "0.758621",
+    "trained_models": [
+      "catboost",
+      "lightgbm",
+      "xgboost",
+      "stacking_ensemble"
+    ],
+    "ranking_outputs": [
+      "race_ranking_metrics.csv",
+      "race_ranking_metrics_by_race.csv"
+    ]
+  },
   "note": "The post_qualifying model uses grid and qualifying position. The pre_race model excludes those fields for earlier forecasts before qualifying."
 }
