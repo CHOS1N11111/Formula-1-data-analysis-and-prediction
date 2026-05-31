@@ -336,7 +336,7 @@ Use in report: robustness evaluation.
 
 ![Deep Podium Training Curve](figures/deep_podium_training_curve.png)
 
-Shows the training loss curves for the MLP neural-network podium model under post-qualifying and pre-race feature modes. It is used to compare a lightweight deep-learning baseline with tree-based machine learning models.
+Shows the training loss curves for the upgraded MLP and TabNet podium models under post-qualifying and pre-race feature modes. It is used to compare deeper neural-network models with tree-based machine learning models.
 
 Use in report: deep-learning comparison experiment.
 
@@ -344,7 +344,7 @@ Use in report: deep-learning comparison experiment.
 
 ![All Models F1 Comparison](figures/podium_all_models_f1_comparison.png)
 
-Compares F1 scores for traditional machine learning, advanced boosting/stacking models, and the MLP neural-network model. It shows the overall balance between precision and recall for podium prediction.
+Compares F1 scores for traditional machine learning, advanced boosting/stacking models, upgraded MLP, and TabNet. It shows the overall balance between precision and recall for podium prediction.
 
 Use in report: model performance comparison.
 

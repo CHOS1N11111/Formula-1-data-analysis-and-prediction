@@ -1,28 +1,72 @@
 {
-  "built_at": "2026-05-30T05:29:08.124811+00:00",
+  "built_at": "2026-05-31T10:05:31.329150+00:00",
   "input_features": "data\\processed\\f1_features_extended.csv",
   "target": "is_podium",
-  "model": "MLPClassifier",
-  "hidden_layers": [
-    64,
-    32
+  "models": [
+    "tabnet_neural_network",
+    "upgraded_mlp_neural_network"
   ],
+  "trained_runs": [
+    {
+      "model": "upgraded_mlp_neural_network",
+      "feature_mode": "post_qualifying",
+      "f1": "0.632258",
+      "roc_auc": "0.913118"
+    },
+    {
+      "model": "upgraded_mlp_neural_network",
+      "feature_mode": "pre_race",
+      "f1": "0.483221",
+      "roc_auc": "0.869369"
+    },
+    {
+      "model": "tabnet_neural_network",
+      "feature_mode": "post_qualifying",
+      "f1": "0.763158",
+      "roc_auc": "0.947703"
+    },
+    {
+      "model": "tabnet_neural_network",
+      "feature_mode": "pre_race",
+      "f1": "0.649351",
+      "roc_auc": "0.907948"
+    }
+  ],
+  "unavailable_models": [],
+  "upgraded_mlp": {
+    "estimator": "sklearn.neural_network.MLPClassifier",
+    "hidden_layers": [
+      160,
+      96,
+      48
+    ],
+    "activation": "relu",
+    "early_stopping": true,
+    "learning_rate": "adaptive"
+  },
+  "tabnet": {
+    "estimator": "pytorch_tabnet.tab_model.TabNetClassifier",
+    "status": "trained"
+  },
   "feature_modes": [
     "post_qualifying",
     "pre_race"
   ],
   "best_feature_mode": "post_qualifying",
-  "best_f1": "0.666667",
-  "best_roc_auc": "0.909603",
+  "best_model": "tabnet_neural_network",
+  "best_f1": "0.763158",
+  "best_roc_auc": "0.947703",
   "outputs": [
     "deep_podium_model_metrics.csv",
     "deep_podium_predictions_2025.csv",
     "deep_podium_top3_predictions_2025.csv",
-    "deep_podium_training_history_post_qualifying.csv",
-    "deep_podium_training_history_pre_race.csv"
+    "deep_podium_training_history_upgraded_mlp_neural_network_post_qualifying.csv",
+    "deep_podium_training_history_upgraded_mlp_neural_network_pre_race.csv",
+    "deep_podium_training_history_tabnet_neural_network_post_qualifying.csv",
+    "deep_podium_training_history_tabnet_neural_network_pre_race.csv"
   ],
   "figures": [
     "outputs\\figures\\deep_podium_training_curve.png"
   ],
-  "note": "The neural network uses oversampled podium records because the available sklearn MLPClassifier does not support sample_weight in this environment."
+  "note": "Deep models use oversampled podium records to reduce class imbalance. TabNet is optional and runs when pytorch-tabnet is installed."
 }

@@ -500,6 +500,33 @@ MLP 赛前模型：F1 = 0.5333, ROC-AUC = 0.8645
 
 结果说明，在加入 2003-2017 历史样本后，MLP 神经网络仍可以完成有效预测，但整体效果低于概率校准随机森林。这一结论可以写入报告：深度学习模型并非在所有场景下都优于传统机器学习模型，尤其是在结构化表格特征较强、不同年代存在规则差异的任务中，集成树模型更稳定。
 
+后续进一步升级深度学习部分：
+
+1. 将原有 MLP 升级为更深的三层结构，隐藏层为 160、96、48，并使用 adaptive learning rate、early stopping 和更长训练轮数。
+2. 新增 TabNet 表格深度学习模型，使用 `pytorch-tabnet` 实现，适合结构化表格数据，并通过 attention-like sequential feature selection 进行建模。
+3. 深度学习输出不再只代表基础 MLP，而是同时比较 upgraded MLP 与 TabNet。
+
+更新后的深度学习结果：
+
+```text
+Upgraded MLP post-qualifying: F1 = 0.6323, ROC-AUC = 0.9131
+Upgraded MLP pre-race: F1 = 0.4832, ROC-AUC = 0.8694
+TabNet post-qualifying: F1 = 0.7632, ROC-AUC = 0.9477
+TabNet pre-race: F1 = 0.6494, ROC-AUC = 0.9079
+```
+
+TabNet 在 2025 回测中成为当前深度学习部分最优模型，并且在综合模型评分中超过原有树模型结果，说明更适合表格数据的深度学习结构能够提升该任务的预测效果。
+
+新增/更新输出文件：
+
+```text
+data/modeling/deep_podium_training_history_upgraded_mlp_neural_network_post_qualifying.csv
+data/modeling/deep_podium_training_history_upgraded_mlp_neural_network_pre_race.csv
+data/modeling/deep_podium_training_history_tabnet_neural_network_post_qualifying.csv
+data/modeling/deep_podium_training_history_tabnet_neural_network_pre_race.csv
+outputs/figures/deep_podium_training_curve.png
+```
+
 关于是否使用更早年份数据：
 
 本地 SQLite 数据库中存在 1950-2017 年正赛结果约 23777 条，以及 1994-2017 年排位结果约 7516 条。经过检查后，当前选择 2003-2017 作为历史扩展区间。更早年份理论上可以继续扩大训练样本，但直接合并存在几个问题：
@@ -1300,9 +1327,9 @@ MLP 排位后模型：F1 = 0.6667，ROC-AUC = 0.9096
 MLP 赛前模型：F1 = 0.5333，ROC-AUC = 0.8645
 ```
 
-与概率校准随机森林相比，MLP 效果较弱。虽然扩展历史数据后训练样本增加到 8529 条，但 F1 仍未超过树模型，说明该任务更适合结构化表格模型。在本项目中，MLP 更适合作为深度学习对比实验，而不是最终主模型。
+后续升级后，基础 MLP 结论被进一步细化：普通 MLP 仍弱于树模型，但 TabNet 在 2025 回测中明显提升，说明“针对表格数据设计的深度学习结构”比普通全连接网络更适合本项目。
 
-为方便报告和 PPT 展示，新增 `visualize_f1_model_results.py`，将传统机器学习和 MLP 深度学习结果统一可视化。
+为方便报告和 PPT 展示，新增 `visualize_f1_model_results.py`，将传统机器学习、高级机器学习和深度学习结果统一可视化。
 
 生成图表：
 
@@ -1362,7 +1389,7 @@ outputs/figures/advanced_podium_model_comparison.png
 outputs/figures/podium_ranking_metrics_2025.png
 ```
 
-随后更新 `visualize_f1_model_results.py`，将传统机器学习、高级 Boosting/Stacking 模型和 MLP 深度学习模型统一纳入可视化展示。
+随后更新 `visualize_f1_model_results.py`，将传统机器学习、高级 Boosting/Stacking 模型和升级版 MLP、TabNet 深度学习模型统一纳入可视化展示。
 
 新增统一模型效果图：
 

@@ -235,12 +235,14 @@ python train_f1_podium_deep_model.py
 
 ### Deep learning outputs
 
-- `deep_podium_model_metrics.csv`: MLP neural-network evaluation metrics.
-- `deep_podium_predictions_2025.csv`: MLP predicted podium probabilities for 2025.
-- `deep_podium_top3_predictions_2025.csv`: MLP top 3 predicted podium candidates per 2025 race.
-- `deep_podium_training_history_post_qualifying.csv`: MLP training loss and validation score for post-qualifying features.
-- `deep_podium_training_history_pre_race.csv`: MLP training loss and validation score for pre-race features.
-- `deep_podium_model_summary.json`: metadata summary for the MLP model pipeline.
+- `deep_podium_model_metrics.csv`: upgraded MLP and TabNet neural-network evaluation metrics.
+- `deep_podium_predictions_2025.csv`: predicted podium probabilities for 2025 from the best deep-learning model.
+- `deep_podium_top3_predictions_2025.csv`: top 3 predicted podium candidates per 2025 race from the best deep-learning model.
+- `deep_podium_training_history_upgraded_mlp_neural_network_post_qualifying.csv`: upgraded MLP training loss and validation score for post-qualifying features.
+- `deep_podium_training_history_upgraded_mlp_neural_network_pre_race.csv`: upgraded MLP training loss and validation score for pre-race features.
+- `deep_podium_training_history_tabnet_neural_network_post_qualifying.csv`: TabNet training loss and validation AUC for post-qualifying features.
+- `deep_podium_training_history_tabnet_neural_network_pre_race.csv`: TabNet training loss and validation AUC for pre-race features.
+- `deep_podium_model_summary.json`: metadata summary for the deep-learning model pipeline.
 
 ### Advanced model outputs
 
