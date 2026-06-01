@@ -39,6 +39,7 @@
 |-- animate_f1_points.py
 |-- train_f1_podium_model.py
 |-- train_f1_podium_deep_model.py
+|-- train_f1_points_model.py
 |-- project_log.md
 |-- README.md
 |-- README_zh.md
@@ -102,6 +103,7 @@ python visualize_f1_analysis.py
 python animate_f1_points.py
 python train_f1_podium_model.py
 python train_f1_podium_deep_model.py
+python train_f1_points_model.py
 python visualize_f1_model_results.py
 ```
 
@@ -185,6 +187,7 @@ outputs/OUTPUTS_DESCRIPTION.md
 - 补充升级版 MLP 与 TabNet 深度学习对比实验和训练损失曲线。
 - 补充传统 ML、高级 ML 与深度学习结果对比图。
 - 补充 CatBoost、LightGBM、XGBoost 高级提升树、Stacking 融合模型和比赛级排序指标。
+- 补充 Top 10 积分区预测和单站积分回归预测，为 2026 赛季冠军模拟提供输入。
 
 历史背景分析包括：
 

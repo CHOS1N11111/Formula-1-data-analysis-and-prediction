@@ -1,0 +1,37 @@
+{
+  "built_at": "2026-06-01T02:28:30.599077+00:00",
+  "input_features": "data\\processed\\f1_features_extended.csv",
+  "train_seasons": "2003-2024",
+  "test_season": 2025,
+  "feature_modes": [
+    "post_qualifying",
+    "pre_race"
+  ],
+  "top10_target": "is_top10",
+  "points_target": "points",
+  "best_top10_model": {
+    "feature_mode": "post_qualifying",
+    "model": "random_forest",
+    "f1": "0.755187",
+    "roc_auc": "0.836349"
+  },
+  "best_points_model": {
+    "feature_mode": "post_qualifying",
+    "model": "random_forest_regressor",
+    "mae": "2.864715",
+    "rmse": "4.279099",
+    "r2": "0.644463"
+  },
+  "outputs": [
+    "top10_model_metrics.csv",
+    "points_model_metrics.csv",
+    "points_predictions_2025.csv",
+    "points_completed_2026_predictions.csv"
+  ],
+  "figures": [
+    "outputs\\figures\\top10_model_comparison_2025.png",
+    "outputs\\figures\\points_model_comparison_2025.png",
+    "outputs\\figures\\points_actual_vs_predicted_2025.png"
+  ],
+  "note": "These models estimate Top 10 probability and expected race points. They are intended as the next input layer for 2026 season-level driver and constructor championship simulation."
+}

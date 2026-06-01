@@ -1,0 +1,7 @@
+﻿feature_mode,model,train_seasons,test_season,train_records,test_records,positive_train_records,positive_test_records,accuracy,precision,recall,f1,roc_auc
+post_qualifying,logistic_regression,2003-2024,2025,8529,479,4064,240,0.728601,0.727273,0.733333,0.730290,0.827545
+post_qualifying,random_forest,2003-2024,2025,8529,479,4064,240,0.753653,0.752066,0.758333,0.755187,0.836349
+post_qualifying,hist_gradient_boosting,2003-2024,2025,8529,479,4064,240,0.745303,0.736000,0.766667,0.751020,0.838285
+pre_race,logistic_regression,2003-2024,2025,8529,479,4064,240,0.691023,0.696581,0.679167,0.687764,0.764679
+pre_race,random_forest,2003-2024,2025,8529,479,4064,240,0.688935,0.687243,0.695833,0.691511,0.771391
+pre_race,hist_gradient_boosting,2003-2024,2025,8529,479,4064,240,0.688935,0.687243,0.695833,0.691511,0.762762

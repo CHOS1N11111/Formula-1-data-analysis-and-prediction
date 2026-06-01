@@ -419,3 +419,27 @@ Use in report: advanced ranking model evaluation.
 Ranks all traditional ML, advanced ML, and deep-learning podium models using one weighted 0-100 composite score. The score uses common metrics across all model families: F1, ROC-AUC, race-level Top3 Precision, Precision, and Recall.
 
 Use in report: final model selection and overall model evaluation.
+
+#### [`figures/top10_model_comparison_2025.png`](figures/top10_model_comparison_2025.png)
+
+![Top 10 Model Comparison](figures/top10_model_comparison_2025.png)
+
+Compares 2025 F1 scores for Top 10 classification models. This extends the project from podium-only prediction to points-zone prediction.
+
+Use in report: championship-simulation preparation.
+
+#### [`figures/points_model_comparison_2025.png`](figures/points_model_comparison_2025.png)
+
+![Points Model Comparison](figures/points_model_comparison_2025.png)
+
+Compares mean absolute error for race-points regression models. Lower values indicate better predicted single-race points, which are needed for season-level standings simulation.
+
+Use in report: expected-points model evaluation.
+
+#### [`figures/points_actual_vs_predicted_2025.png`](figures/points_actual_vs_predicted_2025.png)
+
+![Actual vs Predicted Points](figures/points_actual_vs_predicted_2025.png)
+
+Shows actual race points versus predicted race points for the selected 2025 model. The diagonal line indicates perfect prediction.
+
+Use in report: regression model diagnostic.

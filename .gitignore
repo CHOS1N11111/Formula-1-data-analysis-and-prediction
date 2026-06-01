@@ -14,6 +14,9 @@ Thumbs.db
 .vscode/
 .idea/
 
+# Local development notes
+project_log.md
+
 # Raw/downloaded datasets
 data/raw/
 formula-1-race-data-sqlite/

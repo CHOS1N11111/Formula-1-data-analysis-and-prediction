@@ -39,6 +39,7 @@ For report figures, the visualizations intentionally exclude 2026 data. The 2026
 |-- animate_f1_points.py
 |-- train_f1_podium_model.py
 |-- train_f1_podium_deep_model.py
+|-- train_f1_points_model.py
 |-- project_log.md
 |-- requirements.txt
 |-- data/
@@ -107,6 +108,7 @@ python visualize_f1_analysis.py
 python animate_f1_points.py
 python train_f1_podium_model.py
 python train_f1_podium_deep_model.py
+python train_f1_points_model.py
 python visualize_f1_model_results.py
 ```
 
@@ -183,6 +185,7 @@ Machine learning includes:
 - Upgraded MLP and TabNet deep-learning comparison with training-loss curve
 - Combined ML/DL result visualizations
 - CatBoost, LightGBM, XGBoost, stacking ensemble, and race-level ranking metrics
+- Top 10 and race-points prediction as the bridge toward 2026 championship simulation
 
 Historical analysis includes:
 
