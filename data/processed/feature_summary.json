@@ -1,5 +1,5 @@
 {
-  "built_at": "2026-05-26T13:22:11.813547+00:00",
+  "built_at": "2026-06-01T11:01:07.509700+00:00",
   "input": "data\\processed\\f1_model_dataset.csv",
   "output": "data\\processed\\f1_features.csv",
   "rows_total": 3126,
@@ -14,6 +14,8 @@
     "2026": 88
   },
   "rolling_window": 3,
+  "points_feature_rule": "current_f1_grand_prix_points_from_finish_position",
+  "points_feature_note": "Raw points are preserved for data analysis. Modeling features use current-rule race points and ignore Sprint and fastest-lap bonus points.",
   "feature_fields": [
     "driver_pre_race_points",
     "driver_pre_race_rank",

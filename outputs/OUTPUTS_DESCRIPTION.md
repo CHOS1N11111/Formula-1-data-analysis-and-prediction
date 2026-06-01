@@ -440,7 +440,7 @@ Use in report: expected-points model evaluation.
 
 ![Actual vs Predicted Points](figures/points_actual_vs_predicted_2025.png)
 
-Shows actual race points versus predicted race points for the selected 2025 model. The diagonal line indicates perfect prediction.
+Shows actual current-rule race points versus predicted race points for the selected 2025 model. The diagonal line indicates perfect prediction.
 
 Use in report: regression model diagnostic.
 
@@ -456,7 +456,7 @@ Use in report: race-level Top 10 evaluation.
 
 ![Points Error by Points Bin](figures/points_error_by_points_bin_2025.png)
 
-Shows points-regression MAE grouped by actual points bins. It reveals whether the model performs differently for non-scoring drivers, low scorers, and high scorers.
+Shows points-regression MAE grouped by actual current-rule points bins. It reveals whether the model performs differently for non-scoring drivers, low scorers, and high scorers.
 
 Use in report: regression error diagnosis.
 
@@ -488,7 +488,7 @@ Use in report: race-level prediction-quality diagnosis.
 
 ![Top 10 and Points Rolling Backtest](figures/top10_points_rolling_backtest.png)
 
-Shows rolling backtest performance from 2022 to 2025 for the main Top 10 and race-points models. It checks whether the 2025 model result is stable across multiple test seasons.
+Shows rolling backtest performance from 2022 to 2025 for compact, efficient Top 10 and race-points model choices. The Top 10 rolling model is LightGBM for runtime stability, while the final single-season Top 10 best model can still be TabNet.
 
 Use in report: model robustness and temporal validation.
 

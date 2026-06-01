@@ -1,5 +1,5 @@
 {
-  "built_at": "2026-05-31T05:50:09.706481+00:00",
+  "built_at": "2026-06-01T11:10:50.932772+00:00",
   "input_features": "data\\processed\\f1_features_extended.csv",
   "output_dir": "data\\modeling",
   "target": "is_podium",
@@ -10,7 +10,7 @@
     "pre_race"
   ],
   "best_feature_mode": "post_qualifying",
-  "best_model": "calibrated_random_forest",
+  "best_model": "hist_gradient_boosting",
   "best_model_metric": "f1",
   "model_metrics_file": "podium_model_metrics.csv",
   "rolling_backtest_files": [
@@ -34,8 +34,8 @@
   ],
   "advanced_models": {
     "summary_file": "advanced_podium_model_summary.json",
-    "best_model": "xgboost",
-    "best_f1": "0.758621",
+    "best_model": "catboost",
+    "best_f1": "0.769231",
     "trained_models": [
       "catboost",
       "lightgbm",

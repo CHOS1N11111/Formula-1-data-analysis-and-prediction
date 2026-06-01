@@ -1,5 +1,5 @@
 {
-  "built_at": "2026-06-01T06:48:37.223159+00:00",
+  "built_at": "2026-06-01T13:29:50.530471+00:00",
   "input_features": "data\\processed\\f1_features_extended.csv",
   "train_seasons": "2003-2024",
   "test_season": 2025,
@@ -18,42 +18,42 @@
   ],
   "best_top10_model": {
     "feature_mode": "post_qualifying",
-    "model": "lightgbm_classifier",
-    "f1": "0.767010",
-    "roc_auc": "0.843846",
+    "model": "tabnet_classifier",
+    "f1": "0.769231",
+    "roc_auc": "0.839557",
     "race_level": {
       "race_count": 24,
-      "mean_precision_at_10": "0.754167",
-      "mean_recall_at_10": "0.754167",
-      "mean_points_capture_rate": "0.905115",
-      "exact_top10_set_rate": "0.000000"
+      "mean_precision_at_10": "0.758333",
+      "mean_recall_at_10": "0.758333",
+      "mean_points_capture_rate": "0.898515",
+      "exact_top10_set_rate": "0.041667"
     },
     "calibration": {
-      "brier_score": "0.160859",
-      "expected_calibration_error": "0.062228"
+      "brier_score": "0.164130",
+      "expected_calibration_error": "0.055725"
     }
   },
   "best_points_model": {
     "feature_mode": "post_qualifying",
     "model": "catboost_regressor",
-    "mae": "2.808622",
-    "rmse": "4.089592",
-    "r2": "0.675257",
+    "mae": "2.822070",
+    "rmse": "4.114288",
+    "r2": "0.671323",
     "primary_points_output": "rule_mapped_points",
     "rule_mapped_points_summary": [
       {
         "metric": "mae",
-        "continuous_points": "2.808622",
-        "rule_mapped_points": "2.434238"
+        "continuous_points": "2.822070",
+        "rule_mapped_points": "2.546973"
       },
       {
         "metric": "rmse",
-        "continuous_points": "4.089592",
-        "rule_mapped_points": "4.335126"
+        "continuous_points": "4.114288",
+        "rule_mapped_points": "4.428037"
       },
       {
         "metric": "total_predicted_points",
-        "continuous_points": "2463.578396",
+        "continuous_points": "2446.899927",
         "rule_mapped_points": "2424.000000"
       },
       {

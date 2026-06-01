@@ -1,5 +1,5 @@
 {
-  "built_at": "2026-05-31T10:05:31.329150+00:00",
+  "built_at": "2026-06-01T11:14:37.163787+00:00",
   "input_features": "data\\processed\\f1_features_extended.csv",
   "target": "is_podium",
   "models": [
@@ -10,26 +10,26 @@
     {
       "model": "upgraded_mlp_neural_network",
       "feature_mode": "post_qualifying",
-      "f1": "0.632258",
-      "roc_auc": "0.913118"
+      "f1": "0.666667",
+      "roc_auc": "0.919294"
     },
     {
       "model": "upgraded_mlp_neural_network",
       "feature_mode": "pre_race",
-      "f1": "0.483221",
-      "roc_auc": "0.869369"
+      "f1": "0.482759",
+      "roc_auc": "0.847495"
     },
     {
       "model": "tabnet_neural_network",
       "feature_mode": "post_qualifying",
-      "f1": "0.763158",
-      "roc_auc": "0.947703"
+      "f1": "0.726115",
+      "roc_auc": "0.933541"
     },
     {
       "model": "tabnet_neural_network",
       "feature_mode": "pre_race",
-      "f1": "0.649351",
-      "roc_auc": "0.907948"
+      "f1": "0.618785",
+      "roc_auc": "0.892711"
     }
   ],
   "unavailable_models": [],
@@ -54,8 +54,8 @@
   ],
   "best_feature_mode": "post_qualifying",
   "best_model": "tabnet_neural_network",
-  "best_f1": "0.763158",
-  "best_roc_auc": "0.947703",
+  "best_f1": "0.726115",
+  "best_roc_auc": "0.933541",
   "outputs": [
     "deep_podium_model_metrics.csv",
     "deep_podium_predictions_2025.csv",

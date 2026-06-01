@@ -1,5 +1,5 @@
 {
-  "built_at": "2026-05-31T05:50:09.702077+00:00",
+  "built_at": "2026-06-01T11:10:50.928650+00:00",
   "input_features": "data\\processed\\f1_features_extended.csv",
   "feature_mode": "post_qualifying",
   "optional_boosting_models_requested": [
@@ -14,8 +14,8 @@
     "xgboost",
     "stacking_ensemble"
   ],
-  "best_model": "xgboost",
-  "best_f1": "0.758621",
+  "best_model": "catboost",
+  "best_f1": "0.769231",
   "outputs": [
     "advanced_podium_model_metrics.csv",
     "advanced_podium_predictions_2025.csv",

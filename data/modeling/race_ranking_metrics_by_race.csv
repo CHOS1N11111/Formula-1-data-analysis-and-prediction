@@ -4,80 +4,80 @@ catboost,2025,2,Chinese Grand Prix,3,1.000000,1.000000,1.000000,1
 catboost,2025,3,Japanese Grand Prix,3,1.000000,1.000000,1.000000,1
 catboost,2025,4,Bahrain Grand Prix,3,1.000000,1.000000,1.000000,1
 catboost,2025,5,Saudi Arabian Grand Prix,2,0.666667,0.666667,0.765361,0
-catboost,2025,6,Miami Grand Prix,2,0.666667,0.555556,0.703918,0
+catboost,2025,6,Miami Grand Prix,2,0.666667,0.388889,0.530721,0
 catboost,2025,7,Emilia Romagna Grand Prix,2,0.666667,0.555556,0.703918,0
 catboost,2025,8,Monaco Grand Prix,3,1.000000,1.000000,1.000000,1
 catboost,2025,9,Spanish Grand Prix,2,0.666667,0.666667,0.765361,0
 catboost,2025,10,Canadian Grand Prix,2,0.666667,0.388889,0.530721,0
 catboost,2025,11,Austrian Grand Prix,3,1.000000,1.000000,1.000000,1
-catboost,2025,12,British Grand Prix,2,0.666667,0.555556,0.703918,0
+catboost,2025,12,British Grand Prix,2,0.666667,0.666667,0.765361,0
 catboost,2025,13,Belgian Grand Prix,3,1.000000,1.000000,1.000000,1
 catboost,2025,14,Hungarian Grand Prix,2,0.666667,0.555556,0.703918,0
 catboost,2025,15,Dutch Grand Prix,2,0.666667,0.555556,0.703918,0
 catboost,2025,16,Italian Grand Prix,3,1.000000,1.000000,1.000000,1
 catboost,2025,17,Azerbaijan Grand Prix,2,0.666667,0.555556,0.703918,0
-catboost,2025,18,Singapore Grand Prix,2,0.666667,0.555556,0.703918,0
+catboost,2025,18,Singapore Grand Prix,2,0.666667,0.666667,0.765361,0
 catboost,2025,19,United States Grand Prix,2,0.666667,0.666667,0.765361,0
 catboost,2025,20,Mexico City Grand Prix,2,0.666667,0.555556,0.703918,0
 catboost,2025,21,São Paulo Grand Prix,1,0.333333,0.333333,0.469279,0
-catboost,2025,22,Las Vegas Grand Prix,1,0.333333,0.166667,0.296082,0
-catboost,2025,23,Qatar Grand Prix,2,0.666667,0.388889,0.530721,0
+catboost,2025,22,Las Vegas Grand Prix,2,0.666667,0.388889,0.530721,0
+catboost,2025,23,Qatar Grand Prix,2,0.666667,0.555556,0.703918,0
 catboost,2025,24,Abu Dhabi Grand Prix,3,1.000000,1.000000,1.000000,1
 lightgbm,2025,1,Australian Grand Prix,2,0.666667,0.666667,0.765361,0
-lightgbm,2025,2,Chinese Grand Prix,3,1.000000,1.000000,1.000000,1
+lightgbm,2025,2,Chinese Grand Prix,2,0.666667,0.666667,0.765361,0
 lightgbm,2025,3,Japanese Grand Prix,3,1.000000,1.000000,1.000000,1
-lightgbm,2025,4,Bahrain Grand Prix,2,0.666667,0.555556,0.703918,0
+lightgbm,2025,4,Bahrain Grand Prix,3,1.000000,1.000000,1.000000,1
 lightgbm,2025,5,Saudi Arabian Grand Prix,2,0.666667,0.666667,0.765361,0
-lightgbm,2025,6,Miami Grand Prix,2,0.666667,0.666667,0.765361,0
+lightgbm,2025,6,Miami Grand Prix,2,0.666667,0.555556,0.703918,0
 lightgbm,2025,7,Emilia Romagna Grand Prix,2,0.666667,0.666667,0.765361,0
-lightgbm,2025,8,Monaco Grand Prix,3,1.000000,1.000000,1.000000,1
+lightgbm,2025,8,Monaco Grand Prix,2,0.666667,0.666667,0.765361,0
 lightgbm,2025,9,Spanish Grand Prix,2,0.666667,0.666667,0.765361,0
 lightgbm,2025,10,Canadian Grand Prix,2,0.666667,0.666667,0.765361,0
 lightgbm,2025,11,Austrian Grand Prix,3,1.000000,1.000000,1.000000,1
-lightgbm,2025,12,British Grand Prix,2,0.666667,0.666667,0.765361,0
-lightgbm,2025,13,Belgian Grand Prix,3,1.000000,1.000000,1.000000,1
+lightgbm,2025,12,British Grand Prix,2,0.666667,0.555556,0.703918,0
+lightgbm,2025,13,Belgian Grand Prix,2,0.666667,0.666667,0.765361,0
 lightgbm,2025,14,Hungarian Grand Prix,2,0.666667,0.666667,0.765361,0
 lightgbm,2025,15,Dutch Grand Prix,1,0.333333,0.166667,0.296082,0
 lightgbm,2025,16,Italian Grand Prix,3,1.000000,1.000000,1.000000,1
-lightgbm,2025,17,Azerbaijan Grand Prix,1,0.333333,0.166667,0.296082,0
-lightgbm,2025,18,Singapore Grand Prix,2,0.666667,0.388889,0.530721,0
+lightgbm,2025,17,Azerbaijan Grand Prix,1,0.333333,0.333333,0.469279,0
+lightgbm,2025,18,Singapore Grand Prix,2,0.666667,0.666667,0.765361,0
 lightgbm,2025,19,United States Grand Prix,2,0.666667,0.666667,0.765361,0
 lightgbm,2025,20,Mexico City Grand Prix,2,0.666667,0.666667,0.765361,0
-lightgbm,2025,21,São Paulo Grand Prix,2,0.666667,0.555556,0.703918,0
+lightgbm,2025,21,São Paulo Grand Prix,1,0.333333,0.166667,0.296082,0
 lightgbm,2025,22,Las Vegas Grand Prix,2,0.666667,0.388889,0.530721,0
-lightgbm,2025,23,Qatar Grand Prix,2,0.666667,0.555556,0.703918,0
+lightgbm,2025,23,Qatar Grand Prix,1,0.333333,0.333333,0.469279,0
 lightgbm,2025,24,Abu Dhabi Grand Prix,3,1.000000,1.000000,1.000000,1
 xgboost,2025,1,Australian Grand Prix,2,0.666667,0.666667,0.765361,0
-xgboost,2025,2,Chinese Grand Prix,2,0.666667,0.666667,0.765361,0
+xgboost,2025,2,Chinese Grand Prix,2,0.666667,0.555556,0.703918,0
 xgboost,2025,3,Japanese Grand Prix,3,1.000000,1.000000,1.000000,1
-xgboost,2025,4,Bahrain Grand Prix,2,0.666667,0.666667,0.765361,0
+xgboost,2025,4,Bahrain Grand Prix,3,1.000000,1.000000,1.000000,1
 xgboost,2025,5,Saudi Arabian Grand Prix,2,0.666667,0.666667,0.765361,0
 xgboost,2025,6,Miami Grand Prix,2,0.666667,0.555556,0.703918,0
-xgboost,2025,7,Emilia Romagna Grand Prix,3,1.000000,1.000000,1.000000,1
+xgboost,2025,7,Emilia Romagna Grand Prix,2,0.666667,0.666667,0.765361,0
 xgboost,2025,8,Monaco Grand Prix,3,1.000000,1.000000,1.000000,1
-xgboost,2025,9,Spanish Grand Prix,2,0.666667,0.555556,0.703918,0
+xgboost,2025,9,Spanish Grand Prix,2,0.666667,0.666667,0.765361,0
 xgboost,2025,10,Canadian Grand Prix,2,0.666667,0.666667,0.765361,0
 xgboost,2025,11,Austrian Grand Prix,3,1.000000,1.000000,1.000000,1
-xgboost,2025,12,British Grand Prix,2,0.666667,0.388889,0.530721,0
+xgboost,2025,12,British Grand Prix,2,0.666667,0.555556,0.703918,0
 xgboost,2025,13,Belgian Grand Prix,3,1.000000,1.000000,1.000000,1
 xgboost,2025,14,Hungarian Grand Prix,2,0.666667,0.388889,0.530721,0
 xgboost,2025,15,Dutch Grand Prix,1,0.333333,0.166667,0.296082,0
 xgboost,2025,16,Italian Grand Prix,3,1.000000,1.000000,1.000000,1
-xgboost,2025,17,Azerbaijan Grand Prix,1,0.333333,0.333333,0.469279,0
-xgboost,2025,18,Singapore Grand Prix,2,0.666667,0.388889,0.530721,0
+xgboost,2025,17,Azerbaijan Grand Prix,2,0.666667,0.555556,0.703918,0
+xgboost,2025,18,Singapore Grand Prix,2,0.666667,0.666667,0.765361,0
 xgboost,2025,19,United States Grand Prix,2,0.666667,0.666667,0.765361,0
 xgboost,2025,20,Mexico City Grand Prix,2,0.666667,0.555556,0.703918,0
 xgboost,2025,21,São Paulo Grand Prix,2,0.666667,0.388889,0.530721,0
-xgboost,2025,22,Las Vegas Grand Prix,2,0.666667,0.388889,0.530721,0
-xgboost,2025,23,Qatar Grand Prix,2,0.666667,0.555556,0.703918,0
+xgboost,2025,22,Las Vegas Grand Prix,1,0.333333,0.166667,0.296082,0
+xgboost,2025,23,Qatar Grand Prix,1,0.333333,0.333333,0.469279,0
 xgboost,2025,24,Abu Dhabi Grand Prix,3,1.000000,1.000000,1.000000,1
 stacking_ensemble,2025,1,Australian Grand Prix,2,0.666667,0.666667,0.765361,0
 stacking_ensemble,2025,2,Chinese Grand Prix,2,0.666667,0.555556,0.703918,0
 stacking_ensemble,2025,3,Japanese Grand Prix,3,1.000000,1.000000,1.000000,1
 stacking_ensemble,2025,4,Bahrain Grand Prix,3,1.000000,1.000000,1.000000,1
 stacking_ensemble,2025,5,Saudi Arabian Grand Prix,2,0.666667,0.666667,0.765361,0
-stacking_ensemble,2025,6,Miami Grand Prix,2,0.666667,0.555556,0.703918,0
-stacking_ensemble,2025,7,Emilia Romagna Grand Prix,3,1.000000,1.000000,1.000000,1
+stacking_ensemble,2025,6,Miami Grand Prix,2,0.666667,0.666667,0.765361,0
+stacking_ensemble,2025,7,Emilia Romagna Grand Prix,2,0.666667,0.666667,0.765361,0
 stacking_ensemble,2025,8,Monaco Grand Prix,2,0.666667,0.666667,0.765361,0
 stacking_ensemble,2025,9,Spanish Grand Prix,2,0.666667,0.666667,0.765361,0
 stacking_ensemble,2025,10,Canadian Grand Prix,1,0.333333,0.166667,0.296082,0
@@ -85,7 +85,7 @@ stacking_ensemble,2025,11,Austrian Grand Prix,3,1.000000,1.000000,1.000000,1
 stacking_ensemble,2025,12,British Grand Prix,2,0.666667,0.666667,0.765361,0
 stacking_ensemble,2025,13,Belgian Grand Prix,3,1.000000,1.000000,1.000000,1
 stacking_ensemble,2025,14,Hungarian Grand Prix,2,0.666667,0.666667,0.765361,0
-stacking_ensemble,2025,15,Dutch Grand Prix,2,0.666667,0.388889,0.530721,0
+stacking_ensemble,2025,15,Dutch Grand Prix,2,0.666667,0.555556,0.703918,0
 stacking_ensemble,2025,16,Italian Grand Prix,3,1.000000,1.000000,1.000000,1
 stacking_ensemble,2025,17,Azerbaijan Grand Prix,1,0.333333,0.333333,0.469279,0
 stacking_ensemble,2025,18,Singapore Grand Prix,2,0.666667,0.555556,0.703918,0
@@ -93,5 +93,5 @@ stacking_ensemble,2025,19,United States Grand Prix,2,0.666667,0.666667,0.765361,
 stacking_ensemble,2025,20,Mexico City Grand Prix,2,0.666667,0.666667,0.765361,0
 stacking_ensemble,2025,21,São Paulo Grand Prix,1,0.333333,0.333333,0.469279,0
 stacking_ensemble,2025,22,Las Vegas Grand Prix,1,0.333333,0.166667,0.296082,0
-stacking_ensemble,2025,23,Qatar Grand Prix,2,0.666667,0.555556,0.703918,0
+stacking_ensemble,2025,23,Qatar Grand Prix,2,0.666667,0.388889,0.530721,0
 stacking_ensemble,2025,24,Abu Dhabi Grand Prix,3,1.000000,1.000000,1.000000,1

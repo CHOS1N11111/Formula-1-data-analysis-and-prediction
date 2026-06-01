@@ -16,6 +16,7 @@ SUMMARY_PATH = BASE_DIR / "data" / "processed" / "feature_summary.json"
 
 ROLLING_WINDOW = 3
 DEFAULT_AVG_FINISH_POSITION = 20.0
+CURRENT_F1_POINTS_TABLE = [25, 18, 15, 12, 10, 8, 6, 4, 2, 1]
 
 FEATURE_FIELDS = [
     "driver_pre_race_points",
@@ -82,6 +83,19 @@ def to_float(value, default=0.0):
 def format_float(value):
     """Format numeric output consistently for CSV reporting."""
     return f"{value:.4f}"
+
+
+def current_rule_points(row):
+    """Return modeling-stage points from finish position using current F1 rules.
+
+    Raw race points are preserved in processed/analysis data. Predictive features
+    use this normalized value so older scoring systems and fastest-lap bonuses do
+    not leak inconsistent point scales into model training.
+    """
+    finish_position = to_int(row.get("finish_position", "0"))
+    if 1 <= finish_position <= len(CURRENT_F1_POINTS_TABLE):
+        return float(CURRENT_F1_POINTS_TABLE[finish_position - 1])
+    return 0.0
 
 
 
@@ -192,7 +206,7 @@ def build_features(rows):
             enriched_rows.append(row)
             rows_by_year[season] += 1
 
-            points = to_float(row["points"])
+            points = current_rule_points(row)
             is_podium = to_int(row["is_podium"])
             race_constructor_points[constructor_id] += points
             race_constructor_has_podium[constructor_id] = max(
@@ -203,10 +217,11 @@ def build_features(rows):
             driver_id = row["driver_id"]
             constructor_id = row["constructor_id"]
 
-            driver_points_by_season[(season, driver_id)] += to_float(row["points"])
+            points = current_rule_points(row)
+            driver_points_by_season[(season, driver_id)] += points
             driver_history[driver_id].append(
                 {
-                    "points": to_float(row["points"]),
+                    "points": points,
                     "finish_position": to_float(
                         row["finish_position"], DEFAULT_AVG_FINISH_POSITION
                     ),
@@ -232,6 +247,8 @@ def build_features(rows):
         "rows_total": len(enriched_rows),
         "rows_by_year": dict(sorted(rows_by_year.items())),
         "rolling_window": ROLLING_WINDOW,
+        "points_feature_rule": "current_f1_grand_prix_points_from_finish_position",
+        "points_feature_note": "Raw points are preserved for data analysis. Modeling features use current-rule race points and ignore Sprint and fastest-lap bonus points.",
         "feature_fields": FEATURE_FIELDS,
         "missing_qualifying_rows": missing_qualifying_count,
         "grid_zero_rows": grid_zero_count,

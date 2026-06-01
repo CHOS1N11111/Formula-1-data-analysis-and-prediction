@@ -626,24 +626,6 @@ def build_points_models():
     return models
 
 
-def build_top10_rolling_models():
-    """Create a compact Top 10 model set for rolling backtests."""
-    return {
-        name: model
-        for name, model in build_top10_models().items()
-        if name == "lightgbm_classifier"
-    }
-
-
-def build_points_rolling_models():
-    """Create a compact points model set for rolling backtests."""
-    return {
-        name: model
-        for name, model in build_points_models().items()
-        if name == "catboost_regressor"
-    }
-
-
 def build_points_correction_models():
     """Create experimental points models for high-score underestimation checks."""
     base_models = build_points_models()
@@ -663,6 +645,24 @@ def build_points_correction_models():
             inverse_func=lambda values: np.square(values),
         )
     return models
+
+
+def build_top10_rolling_models():
+    """Create a compact Top 10 model set for efficient rolling backtests."""
+    return {
+        name: model
+        for name, model in build_top10_models().items()
+        if name == "lightgbm_classifier"
+    }
+
+
+def build_points_rolling_models():
+    """Create a compact points model set for efficient rolling backtests."""
+    return {
+        name: model
+        for name, model in build_points_models().items()
+        if name == "catboost_regressor"
+    }
 
 
 def build_x(rows, feature_mode):
@@ -1143,7 +1143,7 @@ def build_points_race_level_error_rows(prediction_rows, mapped_rows):
 
 
 def build_rolling_backtest_rows(rows):
-    """Backtest best Top 10 and points model families across multiple seasons."""
+    """Backtest compact, efficient Top 10 and points model choices across seasons."""
     output_rows = []
     for test_season in [2022, 2023, 2024, 2025]:
         train_rows = [
@@ -1240,6 +1240,13 @@ def build_points_correction_rows(train_rows, test_rows, feature_mode):
 
 def build_model_task_summary_rows(best_top10_row, best_points_row, points_summary):
     """Build a compact table of the best model for each prediction task."""
+    podium_summary_path = MODEL_DIR / "podium_model_composite_score_summary.json"
+    podium_summary = {}
+    if podium_summary_path.exists():
+        with podium_summary_path.open("r", encoding="utf-8") as file:
+            podium_summary = json.load(file)
+    podium_best = podium_summary.get("best_model", {})
+
     rule_mapped_mae = ""
     for row in points_summary:
         if row["metric"] == "mae":
@@ -1249,11 +1256,11 @@ def build_model_task_summary_rows(best_top10_row, best_points_row, points_summar
         {
             "task": "podium",
             "target": "is_podium",
-            "best_model": "tabnet_neural_network",
-            "best_feature_mode": "post_qualifying",
-            "key_metric": "F1",
-            "value": "0.763158",
-            "source_file": "deep_podium_model_summary.json",
+            "best_model": podium_best.get("model", ""),
+            "best_feature_mode": podium_best.get("feature_mode", ""),
+            "key_metric": "composite_score_100",
+            "value": podium_best.get("composite_score_100", ""),
+            "source_file": "podium_model_composite_score_summary.json",
         },
         {
             "task": "top10",
@@ -1312,6 +1319,55 @@ def get_feature_importance_rows(target, feature_mode, model_name, model, top_n=3
     return sorted(rows, key=lambda row: to_float(row["abs_importance"]), reverse=True)[
         :top_n
     ]
+
+
+def get_permutation_importance_rows(
+    target, feature_mode, model_name, model, rows, y_true, scorer, top_n=30
+):
+    """Estimate feature importance by measuring score loss after feature shuffling."""
+    base_x = build_x(rows, feature_mode)
+    base_score = scorer(model, base_x, y_true)
+    feature_names = sorted(base_x[0].keys()) if base_x else []
+    output_rows = []
+
+    for feature in feature_names:
+        permuted_x = [dict(item) for item in base_x]
+        values = [item.get(feature) for item in permuted_x]
+        if len(set(values)) <= 1:
+            continue
+        shifted_values = values[1:] + values[:1]
+        for item, value in zip(permuted_x, shifted_values):
+            item[feature] = value
+        permuted_score = scorer(model, permuted_x, y_true)
+        importance = base_score - permuted_score
+        output_rows.append(
+            {
+                "target": target,
+                "feature_mode": feature_mode,
+                "model": model_name,
+                "feature": feature,
+                "importance_type": "permutation_score_drop",
+                "importance": format_float(importance),
+                "abs_importance": format_float(abs(importance)),
+            }
+        )
+
+    return sorted(output_rows, key=lambda row: to_float(row["abs_importance"]), reverse=True)[
+        :top_n
+    ]
+
+
+def top10_f1_scorer(model, x_rows, y_true):
+    """Score a fitted Top 10 model by F1 after 0.5 probability thresholding."""
+    probabilities = model.predict_proba(x_rows)[:, 1]
+    predictions = [1 if probability >= 0.5 else 0 for probability in probabilities]
+    return f1_score(y_true, predictions, zero_division=0)
+
+
+def points_negative_mae_scorer(model, x_rows, y_true):
+    """Score a fitted points model by negative MAE so larger is better."""
+    predictions = [clamp_points(value) for value in model.predict(x_rows)]
+    return -mean_absolute_error(y_true, predictions)
 
 
 def save_top10_chart(rows):
@@ -1677,12 +1733,32 @@ def main():
         best_top10_row["model"],
         best_top10_info["model"],
     )
+    if not top10_feature_importance_rows:
+        top10_feature_importance_rows = get_permutation_importance_rows(
+            "top10",
+            best_top10_row["feature_mode"],
+            best_top10_row["model"],
+            best_top10_info["model"],
+            test_rows,
+            build_binary_y(test_rows, TOP10_TARGET),
+            top10_f1_scorer,
+        )
     points_feature_importance_rows = get_feature_importance_rows(
         "points",
         best_points_row["feature_mode"],
         best_points_row["model"],
         best_points_info["model"],
     )
+    if not points_feature_importance_rows:
+        points_feature_importance_rows = get_permutation_importance_rows(
+            "points",
+            best_points_row["feature_mode"],
+            best_points_row["model"],
+            best_points_info["model"],
+            test_rows,
+            build_points_y(test_rows),
+            points_negative_mae_scorer,
+        )
 
     final_top10_model = build_top10_models()[best_top10_row["model"]]
     final_points_model = build_points_models()[best_points_row["model"]]

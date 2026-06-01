@@ -1,5 +1,5 @@
 {
-  "built_at": "2026-05-31T10:05:42.273915+00:00",
+  "built_at": "2026-06-01T11:28:08.844925+00:00",
   "score_formula": {
     "f1": 0.35,
     "roc_auc": 0.25,
@@ -11,10 +11,10 @@
   "model_count": 18,
   "best_model": {
     "rank": 1,
-    "model_family": "Deep Learning",
+    "model_family": "Advanced ML",
     "feature_mode": "post_qualifying",
-    "model": "tabnet_neural_network",
-    "composite_score_100": "81.264225"
+    "model": "catboost",
+    "composite_score_100": "81.430630"
   },
   "outputs": [
     "data\\modeling\\podium_model_composite_scores.csv",

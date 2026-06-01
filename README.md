@@ -40,7 +40,6 @@ For report figures, the visualizations intentionally exclude 2026 data. The 2026
 |-- train_f1_podium_model.py
 |-- train_f1_podium_deep_model.py
 |-- train_f1_points_model.py
-|-- project_log.md
 |-- requirements.txt
 |-- data/
 |   |-- processed/
@@ -72,7 +71,7 @@ The project uses:
 - Jolpica-F1 Ergast-compatible API
 - Processed 2019-2026 modern Formula 1 race data
 
-Main source references are documented in `project_log.md`.
+Source references and generated outputs are documented in the project report, `data/DATA_DESCRIPTION.md`, and `outputs/OUTPUTS_DESCRIPTION.md`.
 
 ## Setup
 
@@ -108,6 +107,7 @@ python visualize_f1_analysis.py
 python animate_f1_points.py
 python train_f1_podium_model.py
 python train_f1_podium_deep_model.py
+python score_f1_podium_models.py
 python train_f1_points_model.py
 python visualize_f1_model_results.py
 ```
@@ -195,6 +195,7 @@ Points-modeling rule scope:
 - Sprint points are outside this project scope.
 - Each race is treated as a normal full-points Grand Prix with ten scoring positions.
 - Final standings and championship-simulation outputs should use `rule_mapped_points` as the primary points result. Continuous `predicted_points` is retained as an auxiliary expected-value signal.
+- Raw `points` remain available for historical analysis and visualization. Modeling-stage point features such as pre-race points and recent average points are recalculated from finish position with the current scoring table.
 
 Historical analysis includes:
 

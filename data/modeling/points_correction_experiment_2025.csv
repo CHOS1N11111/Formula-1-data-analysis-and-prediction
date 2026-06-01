@@ -1,4 +1,4 @@
 ﻿feature_mode,model,correction,mae,rmse,r2,mean_actual_points,mean_predicted_points,total_actual_points,total_predicted_points
-post_qualifying,catboost_regressor,baseline_catboost,2.808622,4.089592,0.675257,5.060543,5.143170,2424.000000,2463.578403
-post_qualifying,catboost_regressor,weighted_high_points_catboost,2.777097,4.092987,0.674718,5.060543,5.768146,2424.000000,2762.942162
-post_qualifying,catboost_regressor,sqrt_target_catboost,2.817799,4.422585,0.620220,5.060543,3.765699,2424.000000,1803.769959
+post_qualifying,catboost_regressor,baseline_catboost,2.822070,4.114288,0.671323,5.060543,5.108351,2424.000000,2446.899925
+post_qualifying,catboost_regressor,weighted_high_points_catboost,2.774999,4.098518,0.673838,5.060543,5.745950,2424.000000,2752.310040
+post_qualifying,catboost_regressor,sqrt_target_catboost,2.823909,4.462762,0.613288,5.060543,3.708636,2424.000000,1776.436698

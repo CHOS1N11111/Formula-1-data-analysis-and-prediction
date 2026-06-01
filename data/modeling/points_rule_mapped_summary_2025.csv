@@ -1,5 +1,5 @@
 ﻿metric,continuous_points,rule_mapped_points
-mae,2.808622,2.434238
-rmse,4.089592,4.335126
-total_predicted_points,2463.578396,2424.000000
+mae,2.822070,2.546973
+rmse,4.114288,4.428037
+total_predicted_points,2446.899927,2424.000000
 total_actual_points,2424.000000,2424.000000
