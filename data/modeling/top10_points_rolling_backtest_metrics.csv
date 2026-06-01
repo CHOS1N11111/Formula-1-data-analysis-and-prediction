@@ -1,0 +1,17 @@
+﻿task,feature_mode,model,train_seasons,test_season,records,primary_metric,primary_value,secondary_metric,secondary_value
+top10,post_qualifying,lightgbm_classifier,2003-2021,2022,440,f1,0.797386,roc_auc,0.833079
+points,post_qualifying,catboost_regressor,2003-2021,2022,440,mae,3.051713,rmse,4.606271
+top10,pre_race,lightgbm_classifier,2003-2021,2022,440,f1,0.753880,roc_auc,0.798006
+points,pre_race,catboost_regressor,2003-2021,2022,440,mae,3.493136,rmse,4.985373
+top10,post_qualifying,lightgbm_classifier,2003-2022,2023,440,f1,0.793177,roc_auc,0.845062
+points,post_qualifying,catboost_regressor,2003-2022,2023,440,mae,2.904475,rmse,4.258098
+top10,pre_race,lightgbm_classifier,2003-2022,2023,440,f1,0.790598,roc_auc,0.835527
+points,pre_race,catboost_regressor,2003-2022,2023,440,mae,3.415914,rmse,4.869814
+top10,post_qualifying,lightgbm_classifier,2003-2023,2024,479,f1,0.847870,roc_auc,0.909327
+points,post_qualifying,catboost_regressor,2003-2023,2024,479,mae,2.608126,rmse,4.165933
+top10,pre_race,lightgbm_classifier,2003-2023,2024,479,f1,0.796715,roc_auc,0.858464
+points,pre_race,catboost_regressor,2003-2023,2024,479,mae,3.267851,rmse,4.911887
+top10,post_qualifying,lightgbm_classifier,2003-2024,2025,479,f1,0.767010,roc_auc,0.843846
+points,post_qualifying,catboost_regressor,2003-2024,2025,479,mae,2.808622,rmse,4.089592
+top10,pre_race,lightgbm_classifier,2003-2024,2025,479,f1,0.687500,roc_auc,0.767678
+points,pre_race,catboost_regressor,2003-2024,2025,479,mae,3.739965,rmse,5.170622

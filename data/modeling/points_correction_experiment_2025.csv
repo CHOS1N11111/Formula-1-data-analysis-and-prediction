@@ -1,0 +1,4 @@
+﻿feature_mode,model,correction,mae,rmse,r2,mean_actual_points,mean_predicted_points,total_actual_points,total_predicted_points
+post_qualifying,catboost_regressor,baseline_catboost,2.808622,4.089592,0.675257,5.060543,5.143170,2424.000000,2463.578403
+post_qualifying,catboost_regressor,weighted_high_points_catboost,2.777097,4.092987,0.674718,5.060543,5.768146,2424.000000,2762.942162
+post_qualifying,catboost_regressor,sqrt_target_catboost,2.817799,4.422585,0.620220,5.060543,3.765699,2424.000000,1803.769959

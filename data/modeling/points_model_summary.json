@@ -1,5 +1,5 @@
 {
-  "built_at": "2026-06-01T06:13:25.809502+00:00",
+  "built_at": "2026-06-01T06:48:37.223159+00:00",
   "input_features": "data\\processed\\f1_features_extended.csv",
   "train_seasons": "2003-2024",
   "test_season": 2025,
@@ -73,6 +73,10 @@
     "top10_calibration_metrics_2025.csv",
     "points_rule_mapped_predictions_2025.csv",
     "points_rule_mapped_summary_2025.csv",
+    "points_race_level_error_2025.csv",
+    "top10_points_rolling_backtest_metrics.csv",
+    "points_correction_experiment_2025.csv",
+    "model_task_summary.csv",
     "top10_feature_importance.csv",
     "points_feature_importance.csv"
   ],
@@ -84,6 +88,9 @@
     "outputs\\figures\\points_error_by_points_bin_2025.png",
     "outputs\\figures\\top10_calibration_curve_2025.png",
     "outputs\\figures\\points_rule_mapped_comparison_2025.png",
+    "outputs\\figures\\points_race_level_error_2025.png",
+    "outputs\\figures\\top10_points_rolling_backtest.png",
+    "outputs\\figures\\points_correction_experiment_2025.png",
     "outputs\\figures\\top10_feature_importance.png",
     "outputs\\figures\\points_feature_importance.png"
   ],

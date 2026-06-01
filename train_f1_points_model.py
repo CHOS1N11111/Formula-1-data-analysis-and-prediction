@@ -38,6 +38,7 @@ from sklearn.metrics import (
     roc_auc_score,
 )
 from sklearn.pipeline import Pipeline
+from sklearn.compose import TransformedTargetRegressor
 from sklearn.preprocessing import StandardScaler
 
 from train_f1_podium_model import (
@@ -181,6 +182,56 @@ FEATURE_IMPORTANCE_FIELDS = [
     "importance_type",
     "importance",
     "abs_importance",
+]
+
+ROLLING_BACKTEST_FIELDS = [
+    "task",
+    "feature_mode",
+    "model",
+    "train_seasons",
+    "test_season",
+    "records",
+    "primary_metric",
+    "primary_value",
+    "secondary_metric",
+    "secondary_value",
+]
+
+POINTS_RACE_LEVEL_FIELDS = [
+    "season",
+    "round",
+    "race_name",
+    "records",
+    "continuous_mae",
+    "rule_mapped_mae",
+    "continuous_total_predicted_points",
+    "rule_mapped_total_predicted_points",
+    "actual_total_points",
+    "top10_hits",
+    "top10_precision",
+]
+
+POINTS_CORRECTION_FIELDS = [
+    "feature_mode",
+    "model",
+    "correction",
+    "mae",
+    "rmse",
+    "r2",
+    "mean_actual_points",
+    "mean_predicted_points",
+    "total_actual_points",
+    "total_predicted_points",
+]
+
+MODEL_TASK_SUMMARY_FIELDS = [
+    "task",
+    "target",
+    "best_model",
+    "best_feature_mode",
+    "key_metric",
+    "value",
+    "source_file",
 ]
 
 
@@ -572,6 +623,45 @@ def build_points_models():
     )
     if package_available("pytorch_tabnet"):
         models["tabnet_regressor"] = TabNetRegressorPipeline()
+    return models
+
+
+def build_top10_rolling_models():
+    """Create a compact Top 10 model set for rolling backtests."""
+    return {
+        name: model
+        for name, model in build_top10_models().items()
+        if name == "lightgbm_classifier"
+    }
+
+
+def build_points_rolling_models():
+    """Create a compact points model set for rolling backtests."""
+    return {
+        name: model
+        for name, model in build_points_models().items()
+        if name == "catboost_regressor"
+    }
+
+
+def build_points_correction_models():
+    """Create experimental points models for high-score underestimation checks."""
+    base_models = build_points_models()
+    models = {}
+    if "catboost_regressor" in base_models:
+        models["baseline_catboost"] = base_models["catboost_regressor"]
+        weighted_model = build_points_models()["catboost_regressor"]
+        if hasattr(weighted_model, "named_steps"):
+            estimator = weighted_model.named_steps.get("model")
+            if estimator is not None and hasattr(estimator, "set_params"):
+                estimator.set_params(loss_function="RMSE")
+        models["weighted_high_points_catboost"] = weighted_model
+        sqrt_model = build_points_models()["catboost_regressor"]
+        models["sqrt_target_catboost"] = TransformedTargetRegressor(
+            regressor=sqrt_model,
+            func=np.sqrt,
+            inverse_func=lambda values: np.square(values),
+        )
     return models
 
 
@@ -974,8 +1064,8 @@ def build_rule_mapped_points_rows(prediction_rows):
 
 def summarize_rule_mapped_points(prediction_rows, mapped_rows):
     """Compare continuous predicted points with rule-mapped F1 points."""
-    actual = [to_float(row["actual_points"]) for row in prediction_rows]
-    continuous = [to_float(row["predicted_points"]) for row in prediction_rows]
+    actual = [to_float(row["actual_points"]) for row in mapped_rows]
+    continuous = [to_float(row["predicted_points"]) for row in mapped_rows]
     mapped = [to_float(row["rule_mapped_points"]) for row in mapped_rows]
     return [
         {
@@ -1001,6 +1091,187 @@ def summarize_rule_mapped_points(prediction_rows, mapped_rows):
             "metric": "total_actual_points",
             "continuous_points": format_float(sum(actual)),
             "rule_mapped_points": format_float(sum(actual)),
+        },
+    ]
+
+
+def build_points_race_level_error_rows(prediction_rows, mapped_rows):
+    """Summarize continuous and rule-mapped point errors for each race."""
+    prediction_groups = {}
+    for row in prediction_rows:
+        key = (row["season"], row["round"], row["race_name"])
+        prediction_groups.setdefault(key, []).append(row)
+
+    mapped_groups = {}
+    for row in mapped_rows:
+        key = (row["season"], row["round"], row["race_name"])
+        mapped_groups.setdefault(key, []).append(row)
+
+    output_rows = []
+    for key, rows in sorted(
+        mapped_groups.items(), key=lambda item: (to_int(item[0][0]), to_int(item[0][1]))
+    ):
+        actual = [to_float(row["actual_points"]) for row in rows]
+        continuous = [to_float(row["predicted_points"]) for row in rows]
+        mapped = [to_float(row["rule_mapped_points"]) for row in rows]
+        race_predictions = prediction_groups.get(key, [])
+        predicted_top10 = sorted(
+            race_predictions,
+            key=lambda row: to_float(row["top10_probability"]),
+            reverse=True,
+        )[:10]
+        actual_top10_ids = {
+            row["driver_id"] for row in race_predictions if to_int(row["actual_is_top10"]) == 1
+        }
+        top10_hits = len({row["driver_id"] for row in predicted_top10} & actual_top10_ids)
+        output_rows.append(
+            {
+                "season": key[0],
+                "round": key[1],
+                "race_name": key[2],
+                "records": len(rows),
+                "continuous_mae": format_float(mean_absolute_error(actual, continuous)),
+                "rule_mapped_mae": format_float(mean_absolute_error(actual, mapped)),
+                "continuous_total_predicted_points": format_float(sum(continuous)),
+                "rule_mapped_total_predicted_points": format_float(sum(mapped)),
+                "actual_total_points": format_float(sum(actual)),
+                "top10_hits": top10_hits,
+                "top10_precision": format_float(top10_hits / 10),
+            }
+        )
+    return output_rows
+
+
+def build_rolling_backtest_rows(rows):
+    """Backtest best Top 10 and points model families across multiple seasons."""
+    output_rows = []
+    for test_season in [2022, 2023, 2024, 2025]:
+        train_rows = [
+            row
+            for row in rows
+            if TRAIN_START_SEASON <= to_int(row["season"]) < test_season
+        ]
+        test_rows = [row for row in rows if to_int(row["season"]) == test_season]
+        if not train_rows or not test_rows:
+            continue
+
+        for feature_mode in FEATURE_MODES:
+            train_x = build_x(train_rows, feature_mode)
+            test_x = build_x(test_rows, feature_mode)
+            top10_train_y = build_binary_y(train_rows, TOP10_TARGET)
+            top10_test_y = build_binary_y(test_rows, TOP10_TARGET)
+            for model_name, model in build_top10_rolling_models().items():
+                model.fit(train_x, top10_train_y)
+                probabilities = model.predict_proba(test_x)[:, 1]
+                metrics = evaluate_top10(top10_test_y, probabilities)
+                output_rows.append(
+                    {
+                        "task": "top10",
+                        "feature_mode": feature_mode,
+                        "model": model_name,
+                        "train_seasons": f"{TRAIN_START_SEASON}-{test_season - 1}",
+                        "test_season": test_season,
+                        "records": len(test_rows),
+                        "primary_metric": "f1",
+                        "primary_value": format_float(metrics["f1"]),
+                        "secondary_metric": "roc_auc",
+                        "secondary_value": format_float(metrics["roc_auc"]),
+                    }
+                )
+
+            points_train_y = build_points_y(train_rows)
+            points_test_y = build_points_y(test_rows)
+            for model_name, model in build_points_rolling_models().items():
+                model.fit(train_x, points_train_y)
+                predictions = [clamp_points(value) for value in model.predict(test_x)]
+                metrics = evaluate_points(points_test_y, predictions)
+                output_rows.append(
+                    {
+                        "task": "points",
+                        "feature_mode": feature_mode,
+                        "model": model_name,
+                        "train_seasons": f"{TRAIN_START_SEASON}-{test_season - 1}",
+                        "test_season": test_season,
+                        "records": len(test_rows),
+                        "primary_metric": "mae",
+                        "primary_value": format_float(metrics["mae"]),
+                        "secondary_metric": "rmse",
+                        "secondary_value": format_float(metrics["rmse"]),
+                    }
+                )
+    return output_rows
+
+
+def build_points_correction_rows(train_rows, test_rows, feature_mode):
+    """Compare baseline and simple target/weight corrections for points prediction."""
+    train_x = build_x(train_rows, feature_mode)
+    test_x = build_x(test_rows, feature_mode)
+    train_y = build_points_y(train_rows)
+    test_y = build_points_y(test_rows)
+    rows = []
+    for correction, model in build_points_correction_models().items():
+        if correction == "weighted_high_points_catboost" and hasattr(model, "fit"):
+            weights = [2.5 if value >= 16 else 1.0 for value in train_y]
+            try:
+                model.fit(train_x, train_y, model__sample_weight=weights)
+            except TypeError:
+                model.fit(train_x, train_y)
+        else:
+            model.fit(train_x, train_y)
+        predictions = [clamp_points(value) for value in model.predict(test_x)]
+        metrics = evaluate_points(test_y, predictions)
+        row = {
+            "feature_mode": feature_mode,
+            "model": "catboost_regressor",
+            "correction": correction,
+        }
+        row.update({field: format_float(metrics[field]) for field in [
+            "mae",
+            "rmse",
+            "r2",
+            "mean_actual_points",
+            "mean_predicted_points",
+            "total_actual_points",
+            "total_predicted_points",
+        ]})
+        rows.append(row)
+    return rows
+
+
+def build_model_task_summary_rows(best_top10_row, best_points_row, points_summary):
+    """Build a compact table of the best model for each prediction task."""
+    rule_mapped_mae = ""
+    for row in points_summary:
+        if row["metric"] == "mae":
+            rule_mapped_mae = row["rule_mapped_points"]
+            break
+    return [
+        {
+            "task": "podium",
+            "target": "is_podium",
+            "best_model": "tabnet_neural_network",
+            "best_feature_mode": "post_qualifying",
+            "key_metric": "F1",
+            "value": "0.763158",
+            "source_file": "deep_podium_model_summary.json",
+        },
+        {
+            "task": "top10",
+            "target": TOP10_TARGET,
+            "best_model": best_top10_row["model"],
+            "best_feature_mode": best_top10_row["feature_mode"],
+            "key_metric": "F1",
+            "value": best_top10_row["f1"],
+            "source_file": "points_model_summary.json",
+        },
+        {
+            "task": "points",
+            "target": POINTS_TARGET,
+            "best_model": best_points_row["model"],
+            "best_feature_mode": best_points_row["feature_mode"],
+            "key_metric": "rule_mapped_MAE",
+            "value": rule_mapped_mae,
+            "source_file": "points_model_summary.json",
         },
     ]
 
@@ -1173,6 +1444,111 @@ def save_rule_mapped_points_chart(summary_rows):
     return output_path
 
 
+def save_rolling_backtest_chart(rows):
+    """Save rolling-backtest trends for Top 10 F1 and points MAE."""
+    top10_rows = [
+        row for row in rows if row["task"] == "top10" and row["feature_mode"] == "post_qualifying"
+    ]
+    points_rows = [
+        row for row in rows if row["task"] == "points" and row["feature_mode"] == "post_qualifying"
+    ]
+    seasons = [to_int(row["test_season"]) for row in top10_rows]
+
+    fig, axes = plt.subplots(1, 2, figsize=(11.5, 4.8))
+    axes[0].plot(
+        seasons,
+        [to_float(row["primary_value"]) for row in top10_rows],
+        marker="o",
+        color="#2563EB",
+    )
+    axes[0].set_title("Top 10 Rolling Backtest")
+    axes[0].set_xlabel("Test season")
+    axes[0].set_ylabel("F1 score")
+    axes[0].set_ylim(0, 1)
+    axes[0].grid(True, color="#E5E7EB", linewidth=0.8)
+
+    axes[1].plot(
+        [to_int(row["test_season"]) for row in points_rows],
+        [to_float(row["primary_value"]) for row in points_rows],
+        marker="o",
+        color="#EA580C",
+    )
+    axes[1].set_title("Points Rolling Backtest")
+    axes[1].set_xlabel("Test season")
+    axes[1].set_ylabel("MAE")
+    axes[1].grid(True, color="#E5E7EB", linewidth=0.8)
+
+    fig.suptitle("Top 10 and Points Rolling Backtest, 2022-2025")
+    fig.tight_layout()
+    output_path = FIGURE_DIR / "top10_points_rolling_backtest.png"
+    output_path.parent.mkdir(parents=True, exist_ok=True)
+    fig.savefig(output_path, dpi=180)
+    plt.close(fig)
+    return output_path
+
+
+def save_points_race_level_error_chart(rows):
+    """Save race-level points prediction error for the 2025 test season."""
+    labels = [f"R{row['round']}" for row in rows]
+    continuous = [to_float(row["continuous_mae"]) for row in rows]
+    mapped = [to_float(row["rule_mapped_mae"]) for row in rows]
+    x_values = list(range(len(rows)))
+    width = 0.36
+
+    fig, ax = plt.subplots(figsize=(12, 5.8))
+    ax.bar(
+        [value - width / 2 for value in x_values],
+        continuous,
+        width=width,
+        label="Continuous MAE",
+        color="#2563EB",
+    )
+    ax.bar(
+        [value + width / 2 for value in x_values],
+        mapped,
+        width=width,
+        label="Rule-mapped MAE",
+        color="#EA580C",
+    )
+    ax.set_xticks(x_values, labels=labels, rotation=45)
+    ax.set_ylabel("MAE")
+    ax.set_title("Race-Level Points Prediction Error, 2025")
+    ax.legend()
+    fig.tight_layout()
+    output_path = FIGURE_DIR / "points_race_level_error_2025.png"
+    output_path.parent.mkdir(parents=True, exist_ok=True)
+    fig.savefig(output_path, dpi=180)
+    plt.close(fig)
+    return output_path
+
+
+def save_points_correction_chart(rows):
+    """Save a comparison of experimental high-score correction strategies."""
+    sorted_rows = sorted(rows, key=lambda row: to_float(row["mae"]))
+    labels = [row["correction"].replace("_", "\n") for row in sorted_rows]
+    values = [to_float(row["mae"]) for row in sorted_rows]
+
+    fig, ax = plt.subplots(figsize=(7.8, 5.3))
+    bars = ax.bar(labels, values, color=["#059669", "#2563EB", "#EA580C"][: len(rows)])
+    ax.set_ylabel("MAE")
+    ax.set_title("Points Model Correction Experiments, 2025")
+    for bar, value in zip(bars, values):
+        ax.text(
+            bar.get_x() + bar.get_width() / 2,
+            value + 0.03,
+            f"{value:.3f}",
+            ha="center",
+            va="bottom",
+            fontsize=9,
+        )
+    fig.tight_layout()
+    output_path = FIGURE_DIR / "points_correction_experiment_2025.png"
+    output_path.parent.mkdir(parents=True, exist_ok=True)
+    fig.savefig(output_path, dpi=180)
+    plt.close(fig)
+    return output_path
+
+
 def save_feature_importance_chart(rows, filename, title):
     """Save a feature-importance chart for a selected model."""
     top_rows = rows[:15]
@@ -1285,6 +1661,16 @@ def main():
     rule_mapped_points_summary = summarize_rule_mapped_points(
         prediction_rows, rule_mapped_points_rows
     )
+    points_race_level_error_rows = build_points_race_level_error_rows(
+        prediction_rows, rule_mapped_points_rows
+    )
+    rolling_backtest_rows = build_rolling_backtest_rows(rows)
+    points_correction_rows = build_points_correction_rows(
+        train_rows, test_rows, best_points_row["feature_mode"]
+    )
+    model_task_summary_rows = build_model_task_summary_rows(
+        best_top10_row, best_points_row, rule_mapped_points_summary
+    )
     top10_feature_importance_rows = get_feature_importance_rows(
         "top10",
         best_top10_row["feature_mode"],
@@ -1356,6 +1742,26 @@ def main():
         rule_mapped_points_summary,
     )
     write_csv(
+        MODEL_DIR / "points_race_level_error_2025.csv",
+        POINTS_RACE_LEVEL_FIELDS,
+        points_race_level_error_rows,
+    )
+    write_csv(
+        MODEL_DIR / "top10_points_rolling_backtest_metrics.csv",
+        ROLLING_BACKTEST_FIELDS,
+        rolling_backtest_rows,
+    )
+    write_csv(
+        MODEL_DIR / "points_correction_experiment_2025.csv",
+        POINTS_CORRECTION_FIELDS,
+        points_correction_rows,
+    )
+    write_csv(
+        MODEL_DIR / "model_task_summary.csv",
+        MODEL_TASK_SUMMARY_FIELDS,
+        model_task_summary_rows,
+    )
+    write_csv(
         MODEL_DIR / "top10_feature_importance.csv",
         FEATURE_IMPORTANCE_FIELDS,
         top10_feature_importance_rows,
@@ -1375,6 +1781,11 @@ def main():
     rule_mapped_points_chart = save_rule_mapped_points_chart(
         rule_mapped_points_summary
     )
+    points_race_level_error_chart = save_points_race_level_error_chart(
+        points_race_level_error_rows
+    )
+    rolling_backtest_chart = save_rolling_backtest_chart(rolling_backtest_rows)
+    points_correction_chart = save_points_correction_chart(points_correction_rows)
     top10_feature_importance_chart = save_feature_importance_chart(
         top10_feature_importance_rows,
         "top10_feature_importance.png",
@@ -1428,6 +1839,10 @@ def main():
             "top10_calibration_metrics_2025.csv",
             "points_rule_mapped_predictions_2025.csv",
             "points_rule_mapped_summary_2025.csv",
+            "points_race_level_error_2025.csv",
+            "top10_points_rolling_backtest_metrics.csv",
+            "points_correction_experiment_2025.csv",
+            "model_task_summary.csv",
             "top10_feature_importance.csv",
             "points_feature_importance.csv",
         ],
@@ -1439,6 +1854,9 @@ def main():
             str(points_error_bin_chart.relative_to(BASE_DIR)),
             str(top10_calibration_chart.relative_to(BASE_DIR)),
             str(rule_mapped_points_chart.relative_to(BASE_DIR)),
+            str(points_race_level_error_chart.relative_to(BASE_DIR)),
+            str(rolling_backtest_chart.relative_to(BASE_DIR)),
+            str(points_correction_chart.relative_to(BASE_DIR)),
             str(top10_feature_importance_chart.relative_to(BASE_DIR)),
             str(points_feature_importance_chart.relative_to(BASE_DIR)),
         ],

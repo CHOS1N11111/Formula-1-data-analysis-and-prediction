@@ -242,6 +242,10 @@ python train_f1_points_model.py
 - `top10_calibration_metrics_2025.csv`: calibration bins for Top 10 probabilities, comparing predicted probability with actual Top 10 rate.
 - `points_rule_mapped_predictions_2025.csv`: race-level points predictions after mapping ranked drivers to the official F1 points table.
 - `points_rule_mapped_summary_2025.csv`: MAE, RMSE, and total-points comparison between continuous regression points and rule-mapped race points.
+- `points_race_level_error_2025.csv`: race-by-race points prediction errors and Top 10 hits for the 2025 test season.
+- `top10_points_rolling_backtest_metrics.csv`: rolling backtest metrics for Top 10 and points models from 2022 to 2025.
+- `points_correction_experiment_2025.csv`: experimental points-model correction results for high-score underestimation.
+- `model_task_summary.csv`: compact best-model summary across podium, Top 10, and race-points tasks.
 - `top10_feature_importance.csv`: feature importance for the best Top 10 model.
 - `points_feature_importance.csv`: feature importance for the best race-points model.
 - `points_model_summary.json`: metadata summary for Top 10 and race-points prediction models.

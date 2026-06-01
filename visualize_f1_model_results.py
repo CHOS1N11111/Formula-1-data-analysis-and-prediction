@@ -341,6 +341,9 @@ def existing_points_model_figures():
         FIGURE_DIR / "points_error_by_points_bin_2025.png",
         FIGURE_DIR / "top10_calibration_curve_2025.png",
         FIGURE_DIR / "points_rule_mapped_comparison_2025.png",
+        FIGURE_DIR / "points_race_level_error_2025.png",
+        FIGURE_DIR / "top10_points_rolling_backtest.png",
+        FIGURE_DIR / "points_correction_experiment_2025.png",
         FIGURE_DIR / "top10_feature_importance.png",
         FIGURE_DIR / "points_feature_importance.png",
     ]

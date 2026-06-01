@@ -1,0 +1,4 @@
+﻿task,target,best_model,best_feature_mode,key_metric,value,source_file
+podium,is_podium,tabnet_neural_network,post_qualifying,F1,0.763158,deep_podium_model_summary.json
+top10,is_top10,lightgbm_classifier,post_qualifying,F1,0.767010,points_model_summary.json
+points,current_rule_points,catboost_regressor,post_qualifying,rule_mapped_MAE,2.434238,points_model_summary.json

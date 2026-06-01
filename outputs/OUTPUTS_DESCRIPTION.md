@@ -476,6 +476,30 @@ Compares continuous predicted race points with points mapped through the officia
 
 Use in report: F1 points-rule post-processing and championship-simulation preparation.
 
+#### [`figures/points_race_level_error_2025.png`](figures/points_race_level_error_2025.png)
+
+![Race-Level Points Error](figures/points_race_level_error_2025.png)
+
+Shows continuous and rule-mapped points MAE for each 2025 race. It identifies which races are easier or harder for the points model to predict.
+
+Use in report: race-level prediction-quality diagnosis.
+
+#### [`figures/top10_points_rolling_backtest.png`](figures/top10_points_rolling_backtest.png)
+
+![Top 10 and Points Rolling Backtest](figures/top10_points_rolling_backtest.png)
+
+Shows rolling backtest performance from 2022 to 2025 for the main Top 10 and race-points models. It checks whether the 2025 model result is stable across multiple test seasons.
+
+Use in report: model robustness and temporal validation.
+
+#### [`figures/points_correction_experiment_2025.png`](figures/points_correction_experiment_2025.png)
+
+![Points Correction Experiment](figures/points_correction_experiment_2025.png)
+
+Compares the baseline CatBoost points model with simple correction experiments for high-score underestimation, including high-points sample weighting and square-root target transformation.
+
+Use in report: model-improvement experiment and limitation discussion.
+
 #### [`figures/top10_feature_importance.png`](figures/top10_feature_importance.png)
 
 ![Top 10 Feature Importance](figures/top10_feature_importance.png)
