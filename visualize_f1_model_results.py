@@ -337,6 +337,12 @@ def existing_points_model_figures():
         FIGURE_DIR / "top10_model_comparison_2025.png",
         FIGURE_DIR / "points_model_comparison_2025.png",
         FIGURE_DIR / "points_actual_vs_predicted_2025.png",
+        FIGURE_DIR / "top10_race_level_precision_2025.png",
+        FIGURE_DIR / "points_error_by_points_bin_2025.png",
+        FIGURE_DIR / "top10_calibration_curve_2025.png",
+        FIGURE_DIR / "points_rule_mapped_comparison_2025.png",
+        FIGURE_DIR / "top10_feature_importance.png",
+        FIGURE_DIR / "points_feature_importance.png",
     ]
     return [path for path in candidates if path.exists()]
 

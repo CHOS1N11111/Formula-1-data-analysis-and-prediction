@@ -443,3 +443,51 @@ Use in report: expected-points model evaluation.
 Shows actual race points versus predicted race points for the selected 2025 model. The diagonal line indicates perfect prediction.
 
 Use in report: regression model diagnostic.
+
+#### [`figures/top10_race_level_precision_2025.png`](figures/top10_race_level_precision_2025.png)
+
+![Top 10 Race-Level Precision](figures/top10_race_level_precision_2025.png)
+
+Shows Precision@10 for each 2025 race after selecting the ten drivers with the highest predicted Top 10 probabilities. This evaluates the model in a race-level way rather than only as independent binary rows.
+
+Use in report: race-level Top 10 evaluation.
+
+#### [`figures/points_error_by_points_bin_2025.png`](figures/points_error_by_points_bin_2025.png)
+
+![Points Error by Points Bin](figures/points_error_by_points_bin_2025.png)
+
+Shows points-regression MAE grouped by actual points bins. It reveals whether the model performs differently for non-scoring drivers, low scorers, and high scorers.
+
+Use in report: regression error diagnosis.
+
+#### [`figures/top10_calibration_curve_2025.png`](figures/top10_calibration_curve_2025.png)
+
+![Top 10 Calibration Curve](figures/top10_calibration_curve_2025.png)
+
+Compares predicted Top 10 probabilities with actual Top 10 rates in probability bins. It checks whether a predicted probability such as 0.8 behaves like an 80% event in real 2025 race data.
+
+Use in report: probability calibration and model reliability diagnosis.
+
+#### [`figures/points_rule_mapped_comparison_2025.png`](figures/points_rule_mapped_comparison_2025.png)
+
+![Rule-Mapped Points Comparison](figures/points_rule_mapped_comparison_2025.png)
+
+Compares continuous predicted race points with points mapped through the official F1 race-points table. This shows whether converting model rankings into real F1 scoring rules improves season-simulation realism.
+
+Use in report: F1 points-rule post-processing and championship-simulation preparation.
+
+#### [`figures/top10_feature_importance.png`](figures/top10_feature_importance.png)
+
+![Top 10 Feature Importance](figures/top10_feature_importance.png)
+
+Shows the most important features used by the best Top 10 model. It helps explain which factors drive points-zone predictions.
+
+Use in report: Top 10 model interpretation.
+
+#### [`figures/points_feature_importance.png`](figures/points_feature_importance.png)
+
+![Points Feature Importance](figures/points_feature_importance.png)
+
+Shows the most important features used by the best race-points model. It helps explain which factors affect predicted single-race points.
+
+Use in report: points model interpretation.

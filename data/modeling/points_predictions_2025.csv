@@ -1,480 +1,480 @@
 ﻿season,round,race_name,race_date,driver_id,driver_name,constructor_id,constructor_name,grid,qualifying_position,top10_probability,predicted_is_top10,predicted_points,actual_is_top10,actual_points,actual_finish_position
-2025,1,Australian Grand Prix,2025-03-16,norris,Lando Norris,mclaren,McLaren,1,1,0.897734,1,16.552720,1,25.0,1
-2025,1,Australian Grand Prix,2025-03-16,russell,George Russell,mercedes,Mercedes,4,4,0.911974,1,13.507735,1,15.0,3
-2025,1,Australian Grand Prix,2025-03-16,max_verstappen,Max Verstappen,red_bull,Red Bull,3,3,0.917501,1,13.094932,1,18.0,2
-2025,1,Australian Grand Prix,2025-03-16,piastri,Oscar Piastri,mclaren,McLaren,2,2,0.892404,1,12.712844,1,2.0,9
-2025,1,Australian Grand Prix,2025-03-16,leclerc,Charles Leclerc,ferrari,Ferrari,7,7,0.843724,1,9.067435,1,4.0,8
-2025,1,Australian Grand Prix,2025-03-16,hamilton,Lewis Hamilton,ferrari,Ferrari,8,8,0.797592,1,7.163806,1,1.0,10
-2025,1,Australian Grand Prix,2025-03-16,tsunoda,Yuki Tsunoda,rb,RB F1 Team,5,5,0.729769,1,5.152030,0,0.0,12
-2025,1,Australian Grand Prix,2025-03-16,albon,Alexander Albon,williams,Williams,6,6,0.586362,1,3.935163,1,10.0,5
-2025,1,Australian Grand Prix,2025-03-16,sainz,Carlos Sainz,williams,Williams,10,10,0.638361,1,3.659321,0,0.0,18
-2025,1,Australian Grand Prix,2025-03-16,antonelli,Andrea Kimi Antonelli,mercedes,Mercedes,16,16,0.297291,0,3.564015,1,12.0,4
-2025,1,Australian Grand Prix,2025-03-16,gasly,Pierre Gasly,alpine,Alpine F1 Team,9,9,0.634363,1,2.664518,0,0.0,11
-2025,1,Australian Grand Prix,2025-03-16,lawson,Liam Lawson,red_bull,Red Bull,18,18,0.190250,0,2.217700,0,0.0,15
-2025,1,Australian Grand Prix,2025-03-16,alonso,Fernando Alonso,aston_martin,Aston Martin,12,12,0.468885,0,1.889387,0,0.0,17
-2025,1,Australian Grand Prix,2025-03-16,hadjar,Isack Hadjar,rb,RB F1 Team,11,11,0.456908,0,1.370517,0,0.0,20
-2025,1,Australian Grand Prix,2025-03-16,ocon,Esteban Ocon,haas,Haas F1 Team,19,19,0.170663,0,1.110714,0,0.0,13
-2025,1,Australian Grand Prix,2025-03-16,hulkenberg,Nico Hülkenberg,sauber,Sauber,17,17,0.144130,0,0.958355,1,6.0,7
-2025,1,Australian Grand Prix,2025-03-16,bearman,Oliver Bearman,haas,Haas F1 Team,20,20,0.124211,0,0.945309,0,0.0,14
-2025,1,Australian Grand Prix,2025-03-16,stroll,Lance Stroll,aston_martin,Aston Martin,13,13,0.333090,0,0.894745,1,8.0,6
-2025,1,Australian Grand Prix,2025-03-16,doohan,Jack Doohan,alpine,Alpine F1 Team,14,14,0.345388,0,0.867648,0,0.0,19
-2025,1,Australian Grand Prix,2025-03-16,bortoleto,Gabriel Bortoleto,sauber,Sauber,15,15,0.260615,0,0.572745,0,0.0,16
-2025,2,Chinese Grand Prix,2025-03-23,russell,George Russell,mercedes,Mercedes,2,2,0.866265,1,14.888134,1,15.0,3
-2025,2,Chinese Grand Prix,2025-03-23,piastri,Oscar Piastri,mclaren,McLaren,1,1,0.866296,1,14.295245,1,25.0,1
-2025,2,Chinese Grand Prix,2025-03-23,norris,Lando Norris,mclaren,McLaren,3,3,0.907940,1,13.743714,1,18.0,2
-2025,2,Chinese Grand Prix,2025-03-23,max_verstappen,Max Verstappen,red_bull,Red Bull,4,4,0.887359,1,12.922601,1,12.0,4
-2025,2,Chinese Grand Prix,2025-03-23,leclerc,Charles Leclerc,ferrari,Ferrari,6,6,0.785325,1,8.166375,0,0.0,18
-2025,2,Chinese Grand Prix,2025-03-23,hamilton,Lewis Hamilton,ferrari,Ferrari,5,5,0.843879,1,7.899983,0,0.0,19
-2025,2,Chinese Grand Prix,2025-03-23,antonelli,Andrea Kimi Antonelli,mercedes,Mercedes,8,8,0.800680,1,6.932444,1,8.0,6
-2025,2,Chinese Grand Prix,2025-03-23,hadjar,Isack Hadjar,rb,RB F1 Team,7,7,0.468738,0,2.891322,0,0.0,11
-2025,2,Chinese Grand Prix,2025-03-23,albon,Alexander Albon,williams,Williams,10,10,0.655584,1,2.460975,1,6.0,7
-2025,2,Chinese Grand Prix,2025-03-23,lawson,Liam Lawson,red_bull,Red Bull,20,20,0.228817,0,2.445663,0,0.0,12
-2025,2,Chinese Grand Prix,2025-03-23,sainz,Carlos Sainz,williams,Williams,15,15,0.380765,0,2.412475,1,1.0,10
-2025,2,Chinese Grand Prix,2025-03-23,tsunoda,Yuki Tsunoda,rb,RB F1 Team,9,9,0.484600,0,1.782914,0,0.0,16
-2025,2,Chinese Grand Prix,2025-03-23,hulkenberg,Nico Hülkenberg,sauber,Sauber,12,12,0.517561,1,1.514539,0,0.0,15
-2025,2,Chinese Grand Prix,2025-03-23,alonso,Fernando Alonso,aston_martin,Aston Martin,13,13,0.386380,0,1.376855,0,0.0,17
-2025,2,Chinese Grand Prix,2025-03-23,ocon,Esteban Ocon,haas,Haas F1 Team,11,11,0.333113,0,1.156549,1,10.0,5
-2025,2,Chinese Grand Prix,2025-03-23,stroll,Lance Stroll,aston_martin,Aston Martin,14,14,0.354596,0,1.111566,1,2.0,9
-2025,2,Chinese Grand Prix,2025-03-23,gasly,Pierre Gasly,alpine,Alpine F1 Team,16,16,0.205156,0,0.802444,0,0.0,20
-2025,2,Chinese Grand Prix,2025-03-23,doohan,Jack Doohan,alpine,Alpine F1 Team,18,18,0.103516,0,0.406977,0,0.0,13
-2025,2,Chinese Grand Prix,2025-03-23,bortoleto,Gabriel Bortoleto,sauber,Sauber,19,19,0.176544,0,0.350350,0,0.0,14
-2025,2,Chinese Grand Prix,2025-03-23,bearman,Oliver Bearman,haas,Haas F1 Team,17,17,0.120711,0,0.334463,1,4.0,8
-2025,3,Japanese Grand Prix,2025-04-06,norris,Lando Norris,mclaren,McLaren,2,2,0.943915,1,17.499324,1,18.0,2
-2025,3,Japanese Grand Prix,2025-04-06,max_verstappen,Max Verstappen,red_bull,Red Bull,1,1,0.859310,1,15.121240,1,25.0,1
-2025,3,Japanese Grand Prix,2025-04-06,piastri,Oscar Piastri,mclaren,McLaren,3,3,0.858042,1,12.642589,1,15.0,3
-2025,3,Japanese Grand Prix,2025-04-06,russell,George Russell,mercedes,Mercedes,5,5,0.861878,1,11.081930,1,10.0,5
-2025,3,Japanese Grand Prix,2025-04-06,antonelli,Andrea Kimi Antonelli,mercedes,Mercedes,6,6,0.816906,1,8.680303,1,8.0,6
-2025,3,Japanese Grand Prix,2025-04-06,leclerc,Charles Leclerc,ferrari,Ferrari,4,4,0.837316,1,8.006015,1,12.0,4
-2025,3,Japanese Grand Prix,2025-04-06,hamilton,Lewis Hamilton,ferrari,Ferrari,8,8,0.795083,1,4.111731,1,6.0,7
-2025,3,Japanese Grand Prix,2025-04-06,albon,Alexander Albon,williams,Williams,9,9,0.669201,1,3.065788,1,2.0,9
-2025,3,Japanese Grand Prix,2025-04-06,hadjar,Isack Hadjar,rb,RB F1 Team,7,7,0.501939,1,2.977022,1,4.0,8
-2025,3,Japanese Grand Prix,2025-04-06,bearman,Oliver Bearman,haas,Haas F1 Team,10,10,0.447486,0,2.188422,1,1.0,10
-2025,3,Japanese Grand Prix,2025-04-06,tsunoda,Yuki Tsunoda,red_bull,Red Bull,14,15,0.320430,0,1.772753,0,0.0,12
-2025,3,Japanese Grand Prix,2025-04-06,sainz,Carlos Sainz,williams,Williams,15,12,0.491936,0,1.704052,0,0.0,14
-2025,3,Japanese Grand Prix,2025-04-06,gasly,Pierre Gasly,alpine,Alpine F1 Team,11,11,0.311590,0,1.363148,0,0.0,13
-2025,3,Japanese Grand Prix,2025-04-06,alonso,Fernando Alonso,aston_martin,Aston Martin,12,13,0.345468,0,1.217939,0,0.0,11
-2025,3,Japanese Grand Prix,2025-04-06,ocon,Esteban Ocon,haas,Haas F1 Team,18,18,0.249293,0,1.192449,0,0.0,18
-2025,3,Japanese Grand Prix,2025-04-06,stroll,Lance Stroll,aston_martin,Aston Martin,20,20,0.265668,0,0.941270,0,0.0,20
-2025,3,Japanese Grand Prix,2025-04-06,hulkenberg,Nico Hülkenberg,sauber,Sauber,16,16,0.194574,0,0.701361,0,0.0,16
-2025,3,Japanese Grand Prix,2025-04-06,lawson,Liam Lawson,rb,RB F1 Team,13,14,0.136357,0,0.434591,0,0.0,17
-2025,3,Japanese Grand Prix,2025-04-06,bortoleto,Gabriel Bortoleto,sauber,Sauber,17,17,0.124122,0,0.296378,0,0.0,19
-2025,3,Japanese Grand Prix,2025-04-06,doohan,Jack Doohan,alpine,Alpine F1 Team,19,19,0.063128,0,0.225016,0,0.0,15
-2025,4,Bahrain Grand Prix,2025-04-13,piastri,Oscar Piastri,mclaren,McLaren,1,1,0.820054,1,16.759793,1,25.0,1
-2025,4,Bahrain Grand Prix,2025-04-13,russell,George Russell,mercedes,Mercedes,3,2,0.871561,1,14.321416,1,18.0,2
-2025,4,Bahrain Grand Prix,2025-04-13,antonelli,Andrea Kimi Antonelli,mercedes,Mercedes,5,4,0.895131,1,11.228774,0,0.0,11
-2025,4,Bahrain Grand Prix,2025-04-13,norris,Lando Norris,mclaren,McLaren,6,6,0.875520,1,10.871566,1,15.0,3
-2025,4,Bahrain Grand Prix,2025-04-13,leclerc,Charles Leclerc,ferrari,Ferrari,2,3,0.906354,1,9.797827,1,12.0,4
-2025,4,Bahrain Grand Prix,2025-04-13,max_verstappen,Max Verstappen,red_bull,Red Bull,7,7,0.867062,1,9.579089,1,8.0,6
-2025,4,Bahrain Grand Prix,2025-04-13,gasly,Pierre Gasly,alpine,Alpine F1 Team,4,5,0.636179,1,5.092419,1,6.0,7
-2025,4,Bahrain Grand Prix,2025-04-13,tsunoda,Yuki Tsunoda,red_bull,Red Bull,10,10,0.563269,1,3.963054,1,2.0,9
-2025,4,Bahrain Grand Prix,2025-04-13,hamilton,Lewis Hamilton,ferrari,Ferrari,9,9,0.770926,1,3.954772,1,10.0,5
-2025,4,Bahrain Grand Prix,2025-04-13,sainz,Carlos Sainz,williams,Williams,8,8,0.514751,1,2.985463,0,0.0,19
-2025,4,Bahrain Grand Prix,2025-04-13,albon,Alexander Albon,williams,Williams,15,15,0.341524,0,1.255543,0,0.0,12
-2025,4,Bahrain Grand Prix,2025-04-13,ocon,Esteban Ocon,haas,Haas F1 Team,14,14,0.170687,0,1.110088,1,4.0,8
-2025,4,Bahrain Grand Prix,2025-04-13,doohan,Jack Doohan,alpine,Alpine F1 Team,11,11,0.229920,0,1.041850,0,0.0,14
-2025,4,Bahrain Grand Prix,2025-04-13,hadjar,Isack Hadjar,rb,RB F1 Team,12,12,0.195015,0,1.038069,0,0.0,13
-2025,4,Bahrain Grand Prix,2025-04-13,stroll,Lance Stroll,aston_martin,Aston Martin,19,19,0.111141,0,0.882392,0,0.0,17
-2025,4,Bahrain Grand Prix,2025-04-13,alonso,Fernando Alonso,aston_martin,Aston Martin,13,13,0.220650,0,0.842881,0,0.0,15
-2025,4,Bahrain Grand Prix,2025-04-13,bearman,Oliver Bearman,haas,Haas F1 Team,20,20,0.097177,0,0.680356,1,1.0,10
-2025,4,Bahrain Grand Prix,2025-04-13,hulkenberg,Nico Hülkenberg,sauber,Sauber,16,16,0.175402,0,0.483407,0,0.0,20
-2025,4,Bahrain Grand Prix,2025-04-13,lawson,Liam Lawson,rb,RB F1 Team,17,17,0.063154,0,0.237140,0,0.0,16
-2025,4,Bahrain Grand Prix,2025-04-13,bortoleto,Gabriel Bortoleto,sauber,Sauber,18,18,0.077181,0,0.231842,0,0.0,18
-2025,5,Saudi Arabian Grand Prix,2025-04-20,piastri,Oscar Piastri,mclaren,McLaren,2,2,0.958861,1,17.493036,1,25.0,1
-2025,5,Saudi Arabian Grand Prix,2025-04-20,max_verstappen,Max Verstappen,red_bull,Red Bull,1,1,0.900547,1,15.881780,1,18.0,2
-2025,5,Saudi Arabian Grand Prix,2025-04-20,russell,George Russell,mercedes,Mercedes,3,3,0.873294,1,12.942635,1,10.0,5
-2025,5,Saudi Arabian Grand Prix,2025-04-20,norris,Lando Norris,mclaren,McLaren,10,10,0.937879,1,9.283162,1,12.0,4
-2025,5,Saudi Arabian Grand Prix,2025-04-20,leclerc,Charles Leclerc,ferrari,Ferrari,4,4,0.870547,1,8.877201,1,15.0,3
-2025,5,Saudi Arabian Grand Prix,2025-04-20,antonelli,Andrea Kimi Antonelli,mercedes,Mercedes,5,5,0.830818,1,8.259935,1,8.0,6
-2025,5,Saudi Arabian Grand Prix,2025-04-20,hamilton,Lewis Hamilton,ferrari,Ferrari,7,7,0.860530,1,4.859351,1,6.0,7
-2025,5,Saudi Arabian Grand Prix,2025-04-20,tsunoda,Yuki Tsunoda,red_bull,Red Bull,8,8,0.666697,1,3.993661,0,0.0,19
-2025,5,Saudi Arabian Grand Prix,2025-04-20,sainz,Carlos Sainz,williams,Williams,6,6,0.615173,1,2.854342,1,4.0,8
-2025,5,Saudi Arabian Grand Prix,2025-04-20,albon,Alexander Albon,williams,Williams,11,11,0.560896,1,1.464423,1,2.0,9
-2025,5,Saudi Arabian Grand Prix,2025-04-20,gasly,Pierre Gasly,alpine,Alpine F1 Team,9,9,0.612669,1,1.448192,0,0.0,20
-2025,5,Saudi Arabian Grand Prix,2025-04-20,ocon,Esteban Ocon,haas,Haas F1 Team,19,19,0.447025,0,1.073125,0,0.0,14
-2025,5,Saudi Arabian Grand Prix,2025-04-20,bearman,Oliver Bearman,haas,Haas F1 Team,15,15,0.271064,0,0.798091,0,0.0,13
-2025,5,Saudi Arabian Grand Prix,2025-04-20,alonso,Fernando Alonso,aston_martin,Aston Martin,13,13,0.288507,0,0.640749,0,0.0,11
-2025,5,Saudi Arabian Grand Prix,2025-04-20,lawson,Liam Lawson,rb,RB F1 Team,12,12,0.236118,0,0.600613,0,0.0,12
-2025,5,Saudi Arabian Grand Prix,2025-04-20,hadjar,Isack Hadjar,rb,RB F1 Team,14,14,0.231989,0,0.373718,1,1.0,10
-2025,5,Saudi Arabian Grand Prix,2025-04-20,stroll,Lance Stroll,aston_martin,Aston Martin,16,16,0.163276,0,0.214015,0,0.0,16
-2025,5,Saudi Arabian Grand Prix,2025-04-20,doohan,Jack Doohan,alpine,Alpine F1 Team,17,17,0.099915,0,0.189954,0,0.0,17
-2025,5,Saudi Arabian Grand Prix,2025-04-20,hulkenberg,Nico Hülkenberg,sauber,Sauber,18,18,0.074969,0,0.092595,0,0.0,15
-2025,5,Saudi Arabian Grand Prix,2025-04-20,bortoleto,Gabriel Bortoleto,sauber,Sauber,20,20,0.077658,0,0.028611,0,0.0,18
-2025,6,Miami Grand Prix,2025-05-04,max_verstappen,Max Verstappen,red_bull,Red Bull,1,1,0.897367,1,17.013212,1,12.0,4
-2025,6,Miami Grand Prix,2025-05-04,norris,Lando Norris,mclaren,McLaren,2,2,0.964884,1,15.465414,1,18.0,2
-2025,6,Miami Grand Prix,2025-05-04,piastri,Oscar Piastri,mclaren,McLaren,4,4,0.961699,1,15.046938,1,25.0,1
-2025,6,Miami Grand Prix,2025-05-04,russell,George Russell,mercedes,Mercedes,5,5,0.819719,1,9.779464,1,15.0,3
-2025,6,Miami Grand Prix,2025-05-04,antonelli,Andrea Kimi Antonelli,mercedes,Mercedes,3,3,0.873170,1,9.418412,1,8.0,6
-2025,6,Miami Grand Prix,2025-05-04,leclerc,Charles Leclerc,ferrari,Ferrari,8,8,0.811947,1,6.878445,1,6.0,7
-2025,6,Miami Grand Prix,2025-05-04,hamilton,Lewis Hamilton,ferrari,Ferrari,12,12,0.811967,1,4.391475,1,4.0,8
-2025,6,Miami Grand Prix,2025-05-04,tsunoda,Yuki Tsunoda,red_bull,Red Bull,10,10,0.636279,1,3.930500,1,1.0,10
-2025,6,Miami Grand Prix,2025-05-04,sainz,Carlos Sainz,williams,Williams,6,6,0.570157,1,3.012255,1,2.0,9
-2025,6,Miami Grand Prix,2025-05-04,albon,Alexander Albon,williams,Williams,7,7,0.638424,1,2.441825,1,10.0,5
-2025,6,Miami Grand Prix,2025-05-04,ocon,Esteban Ocon,haas,Haas F1 Team,9,9,0.722918,1,1.523218,0,0.0,12
-2025,6,Miami Grand Prix,2025-05-04,hadjar,Isack Hadjar,rb,RB F1 Team,11,11,0.470558,0,0.985733,0,0.0,11
-2025,6,Miami Grand Prix,2025-05-04,alonso,Fernando Alonso,aston_martin,Aston Martin,17,17,0.281960,0,0.447435,0,0.0,15
-2025,6,Miami Grand Prix,2025-05-04,bearman,Oliver Bearman,haas,Haas F1 Team,19,20,0.331543,0,0.329926,0,0.0,19
-2025,6,Miami Grand Prix,2025-05-04,gasly,Pierre Gasly,alpine,Alpine F1 Team,20,18,0.239984,0,0.310069,0,0.0,13
-2025,6,Miami Grand Prix,2025-05-04,doohan,Jack Doohan,alpine,Alpine F1 Team,14,14,0.151159,0,0.234015,0,0.0,20
-2025,6,Miami Grand Prix,2025-05-04,bortoleto,Gabriel Bortoleto,sauber,Sauber,13,13,0.200174,0,0.207983,0,0.0,18
-2025,6,Miami Grand Prix,2025-05-04,hulkenberg,Nico Hülkenberg,sauber,Sauber,16,16,0.106988,0,0.104257,0,0.0,14
-2025,6,Miami Grand Prix,2025-05-04,lawson,Liam Lawson,rb,RB F1 Team,15,15,0.162511,0,0.101666,0,0.0,17
-2025,6,Miami Grand Prix,2025-05-04,stroll,Lance Stroll,aston_martin,Aston Martin,18,19,0.129997,0,0.074309,0,0.0,16
-2025,7,Emilia Romagna Grand Prix,2025-05-18,piastri,Oscar Piastri,mclaren,McLaren,1,1,0.964787,1,19.784787,1,15.0,3
-2025,7,Emilia Romagna Grand Prix,2025-05-18,max_verstappen,Max Verstappen,red_bull,Red Bull,2,2,0.875854,1,13.382043,1,25.0,1
-2025,7,Emilia Romagna Grand Prix,2025-05-18,russell,George Russell,mercedes,Mercedes,3,3,0.882668,1,13.307104,1,6.0,7
-2025,7,Emilia Romagna Grand Prix,2025-05-18,norris,Lando Norris,mclaren,McLaren,4,4,0.956390,1,12.868439,1,18.0,2
-2025,7,Emilia Romagna Grand Prix,2025-05-18,leclerc,Charles Leclerc,ferrari,Ferrari,11,11,0.717889,1,5.059601,1,8.0,6
-2025,7,Emilia Romagna Grand Prix,2025-05-18,sainz,Carlos Sainz,williams,Williams,6,6,0.680074,1,4.313083,1,4.0,8
-2025,7,Emilia Romagna Grand Prix,2025-05-18,hamilton,Lewis Hamilton,ferrari,Ferrari,12,12,0.784703,1,4.226265,1,12.0,4
-2025,7,Emilia Romagna Grand Prix,2025-05-18,alonso,Fernando Alonso,aston_martin,Aston Martin,5,5,0.670966,1,4.147277,0,0.0,11
-2025,7,Emilia Romagna Grand Prix,2025-05-18,antonelli,Andrea Kimi Antonelli,mercedes,Mercedes,13,13,0.641597,1,4.100856,0,0.0,19
-2025,7,Emilia Romagna Grand Prix,2025-05-18,albon,Alexander Albon,williams,Williams,7,7,0.712342,1,4.026414,1,10.0,5
-2025,7,Emilia Romagna Grand Prix,2025-05-18,tsunoda,Yuki Tsunoda,red_bull,Red Bull,20,20,0.257432,0,2.180537,1,1.0,10
-2025,7,Emilia Romagna Grand Prix,2025-05-18,stroll,Lance Stroll,aston_martin,Aston Martin,8,8,0.544115,1,1.868498,0,0.0,15
-2025,7,Emilia Romagna Grand Prix,2025-05-18,gasly,Pierre Gasly,alpine,Alpine F1 Team,10,10,0.565476,1,1.620076,0,0.0,13
-2025,7,Emilia Romagna Grand Prix,2025-05-18,hadjar,Isack Hadjar,rb,RB F1 Team,9,9,0.514959,1,1.473473,1,2.0,9
-2025,7,Emilia Romagna Grand Prix,2025-05-18,ocon,Esteban Ocon,haas,Haas F1 Team,18,18,0.208887,0,0.577142,0,0.0,20
-2025,7,Emilia Romagna Grand Prix,2025-05-18,bearman,Oliver Bearman,haas,Haas F1 Team,19,19,0.251224,0,0.449599,0,0.0,17
-2025,7,Emilia Romagna Grand Prix,2025-05-18,bortoleto,Gabriel Bortoleto,sauber,Sauber,14,14,0.105245,0,0.286130,0,0.0,18
-2025,7,Emilia Romagna Grand Prix,2025-05-18,colapinto,Franco Colapinto,alpine,Alpine F1 Team,16,15,0.136225,0,0.242324,0,0.0,16
-2025,7,Emilia Romagna Grand Prix,2025-05-18,hulkenberg,Nico Hülkenberg,sauber,Sauber,17,17,0.084284,0,0.232129,0,0.0,12
-2025,7,Emilia Romagna Grand Prix,2025-05-18,lawson,Liam Lawson,rb,RB F1 Team,15,16,0.068373,0,0.204934,0,0.0,14
-2025,8,Monaco Grand Prix,2025-05-25,norris,Lando Norris,mclaren,McLaren,1,1,0.890707,1,17.520910,1,25.0,1
-2025,8,Monaco Grand Prix,2025-05-25,piastri,Oscar Piastri,mclaren,McLaren,3,3,0.925956,1,15.722548,1,15.0,3
-2025,8,Monaco Grand Prix,2025-05-25,leclerc,Charles Leclerc,ferrari,Ferrari,2,2,0.914590,1,12.724682,1,18.0,2
-2025,8,Monaco Grand Prix,2025-05-25,max_verstappen,Max Verstappen,red_bull,Red Bull,4,5,0.873535,1,11.926411,1,12.0,4
-2025,8,Monaco Grand Prix,2025-05-25,hamilton,Lewis Hamilton,ferrari,Ferrari,7,4,0.942529,1,9.449116,1,10.0,5
-2025,8,Monaco Grand Prix,2025-05-25,russell,George Russell,mercedes,Mercedes,14,14,0.654436,1,4.329815,0,0.0,11
-2025,8,Monaco Grand Prix,2025-05-25,hadjar,Isack Hadjar,rb,RB F1 Team,5,6,0.643348,1,4.260290,1,8.0,6
-2025,8,Monaco Grand Prix,2025-05-25,tsunoda,Yuki Tsunoda,red_bull,Red Bull,12,12,0.380878,0,3.758516,0,0.0,17
-2025,8,Monaco Grand Prix,2025-05-25,albon,Alexander Albon,williams,Williams,10,10,0.749784,1,3.630132,1,2.0,9
-2025,8,Monaco Grand Prix,2025-05-25,antonelli,Andrea Kimi Antonelli,mercedes,Mercedes,15,15,0.570850,1,3.512546,0,0.0,18
-2025,8,Monaco Grand Prix,2025-05-25,alonso,Fernando Alonso,aston_martin,Aston Martin,6,7,0.702051,1,3.381048,0,0.0,19
-2025,8,Monaco Grand Prix,2025-05-25,sainz,Carlos Sainz,williams,Williams,11,11,0.453924,0,2.793905,1,1.0,10
-2025,8,Monaco Grand Prix,2025-05-25,ocon,Esteban Ocon,haas,Haas F1 Team,8,8,0.371114,0,2.281184,1,6.0,7
-2025,8,Monaco Grand Prix,2025-05-25,lawson,Liam Lawson,rb,RB F1 Team,9,9,0.465254,0,1.701347,1,4.0,8
-2025,8,Monaco Grand Prix,2025-05-25,hulkenberg,Nico Hülkenberg,sauber,Sauber,13,13,0.209199,0,0.466726,0,0.0,16
-2025,8,Monaco Grand Prix,2025-05-25,bearman,Oliver Bearman,haas,Haas F1 Team,20,17,0.064617,0,0.229653,0,0.0,12
-2025,8,Monaco Grand Prix,2025-05-25,gasly,Pierre Gasly,alpine,Alpine F1 Team,17,18,0.053776,0,0.165160,0,0.0,20
-2025,8,Monaco Grand Prix,2025-05-25,stroll,Lance Stroll,aston_martin,Aston Martin,19,19,0.054331,0,0.113791,0,0.0,15
-2025,8,Monaco Grand Prix,2025-05-25,bortoleto,Gabriel Bortoleto,sauber,Sauber,16,16,0.056095,0,0.061363,0,0.0,14
-2025,8,Monaco Grand Prix,2025-05-25,colapinto,Franco Colapinto,alpine,Alpine F1 Team,18,20,0.042909,0,0.045764,0,0.0,13
-2025,9,Spanish Grand Prix,2025-06-01,norris,Lando Norris,mclaren,McLaren,2,2,0.959734,1,17.307064,1,18.0,2
-2025,9,Spanish Grand Prix,2025-06-01,piastri,Oscar Piastri,mclaren,McLaren,1,1,0.915822,1,17.053796,1,25.0,1
-2025,9,Spanish Grand Prix,2025-06-01,max_verstappen,Max Verstappen,red_bull,Red Bull,3,3,0.873442,1,13.892300,1,1.0,10
-2025,9,Spanish Grand Prix,2025-06-01,russell,George Russell,mercedes,Mercedes,4,4,0.876833,1,9.926688,1,12.0,4
-2025,9,Spanish Grand Prix,2025-06-01,hamilton,Lewis Hamilton,ferrari,Ferrari,5,5,0.919284,1,9.726666,1,8.0,6
-2025,9,Spanish Grand Prix,2025-06-01,leclerc,Charles Leclerc,ferrari,Ferrari,7,7,0.832195,1,7.197039,1,15.0,3
-2025,9,Spanish Grand Prix,2025-06-01,antonelli,Andrea Kimi Antonelli,mercedes,Mercedes,6,6,0.855077,1,6.604831,0,0.0,18
-2025,9,Spanish Grand Prix,2025-06-01,albon,Alexander Albon,williams,Williams,11,11,0.597393,1,3.092223,0,0.0,19
-2025,9,Spanish Grand Prix,2025-06-01,tsunoda,Yuki Tsunoda,red_bull,Red Bull,19,20,0.141284,0,2.916729,0,0.0,13
-2025,9,Spanish Grand Prix,2025-06-01,hadjar,Isack Hadjar,rb,RB F1 Team,9,9,0.608144,1,2.504180,1,6.0,7
-2025,9,Spanish Grand Prix,2025-06-01,gasly,Pierre Gasly,alpine,Alpine F1 Team,8,8,0.607481,1,2.156947,1,4.0,8
-2025,9,Spanish Grand Prix,2025-06-01,alonso,Fernando Alonso,aston_martin,Aston Martin,10,10,0.542362,1,1.612608,1,2.0,9
-2025,9,Spanish Grand Prix,2025-06-01,sainz,Carlos Sainz,williams,Williams,17,18,0.166254,0,1.417582,0,0.0,14
-2025,9,Spanish Grand Prix,2025-06-01,lawson,Liam Lawson,rb,RB F1 Team,13,13,0.208166,0,0.793003,0,0.0,11
-2025,9,Spanish Grand Prix,2025-06-01,bortoleto,Gabriel Bortoleto,sauber,Sauber,12,12,0.225700,0,0.680432,0,0.0,12
-2025,9,Spanish Grand Prix,2025-06-01,ocon,Esteban Ocon,haas,Haas F1 Team,16,17,0.165515,0,0.519170,0,0.0,16
-2025,9,Spanish Grand Prix,2025-06-01,bearman,Oliver Bearman,haas,Haas F1 Team,14,15,0.182668,0,0.412958,0,0.0,17
-2025,9,Spanish Grand Prix,2025-06-01,hulkenberg,Nico Hülkenberg,sauber,Sauber,15,16,0.132842,0,0.262646,1,10.0,5
-2025,9,Spanish Grand Prix,2025-06-01,colapinto,Franco Colapinto,alpine,Alpine F1 Team,18,19,0.040807,0,0.058738,0,0.0,15
-2025,10,Canadian Grand Prix,2025-06-15,max_verstappen,Max Verstappen,red_bull,Red Bull,2,2,0.845135,1,13.888357,1,18.0,2
-2025,10,Canadian Grand Prix,2025-06-15,piastri,Oscar Piastri,mclaren,McLaren,3,3,0.900284,1,13.459882,1,12.0,4
-2025,10,Canadian Grand Prix,2025-06-15,russell,George Russell,mercedes,Mercedes,1,1,0.880801,1,12.144314,1,25.0,1
-2025,10,Canadian Grand Prix,2025-06-15,hamilton,Lewis Hamilton,ferrari,Ferrari,5,5,0.842515,1,10.206998,1,8.0,6
-2025,10,Canadian Grand Prix,2025-06-15,norris,Lando Norris,mclaren,McLaren,7,7,0.920517,1,9.631965,0,0.0,18
-2025,10,Canadian Grand Prix,2025-06-15,antonelli,Andrea Kimi Antonelli,mercedes,Mercedes,4,4,0.903862,1,8.839121,1,15.0,3
-2025,10,Canadian Grand Prix,2025-06-15,leclerc,Charles Leclerc,ferrari,Ferrari,8,8,0.777649,1,7.522732,1,10.0,5
-2025,10,Canadian Grand Prix,2025-06-15,alonso,Fernando Alonso,aston_martin,Aston Martin,6,6,0.696795,1,3.912508,1,6.0,7
-2025,10,Canadian Grand Prix,2025-06-15,albon,Alexander Albon,williams,Williams,9,10,0.642713,1,2.754873,0,0.0,20
-2025,10,Canadian Grand Prix,2025-06-15,tsunoda,Yuki Tsunoda,red_bull,Red Bull,18,11,0.376886,0,2.432545,0,0.0,12
-2025,10,Canadian Grand Prix,2025-06-15,hadjar,Isack Hadjar,rb,RB F1 Team,12,9,0.477531,0,1.871638,0,0.0,16
-2025,10,Canadian Grand Prix,2025-06-15,hulkenberg,Nico Hülkenberg,sauber,Sauber,11,13,0.355626,0,1.441401,1,4.0,8
-2025,10,Canadian Grand Prix,2025-06-15,colapinto,Franco Colapinto,alpine,Alpine F1 Team,10,12,0.313164,0,1.242647,0,0.0,13
-2025,10,Canadian Grand Prix,2025-06-15,sainz,Carlos Sainz,williams,Williams,16,17,0.343787,0,0.930340,1,1.0,10
-2025,10,Canadian Grand Prix,2025-06-15,lawson,Liam Lawson,rb,RB F1 Team,19,19,0.156550,0,0.613804,0,0.0,19
-2025,10,Canadian Grand Prix,2025-06-15,ocon,Esteban Ocon,haas,Haas F1 Team,14,15,0.557538,1,0.591018,1,2.0,9
-2025,10,Canadian Grand Prix,2025-06-15,bearman,Oliver Bearman,haas,Haas F1 Team,13,14,0.297462,0,0.509337,0,0.0,11
-2025,10,Canadian Grand Prix,2025-06-15,gasly,Pierre Gasly,alpine,Alpine F1 Team,20,20,0.101749,0,0.381747,0,0.0,15
-2025,10,Canadian Grand Prix,2025-06-15,bortoleto,Gabriel Bortoleto,sauber,Sauber,15,16,0.228560,0,0.352708,0,0.0,14
-2025,10,Canadian Grand Prix,2025-06-15,stroll,Lance Stroll,aston_martin,Aston Martin,17,18,0.174141,0,0.215536,0,0.0,17
-2025,11,Austrian Grand Prix,2025-06-29,norris,Lando Norris,mclaren,McLaren,1,1,0.897114,1,18.407391,1,25.0,1
-2025,11,Austrian Grand Prix,2025-06-29,leclerc,Charles Leclerc,ferrari,Ferrari,2,2,0.867919,1,14.905348,1,15.0,3
-2025,11,Austrian Grand Prix,2025-06-29,piastri,Oscar Piastri,mclaren,McLaren,3,3,0.691141,1,13.419380,1,18.0,2
-2025,11,Austrian Grand Prix,2025-06-29,hamilton,Lewis Hamilton,ferrari,Ferrari,4,4,0.917582,1,11.704100,1,12.0,4
-2025,11,Austrian Grand Prix,2025-06-29,russell,George Russell,mercedes,Mercedes,5,5,0.837703,1,10.543707,1,10.0,5
-2025,11,Austrian Grand Prix,2025-06-29,max_verstappen,Max Verstappen,red_bull,Red Bull,7,7,0.844115,1,7.342087,0,0.0,18
-2025,11,Austrian Grand Prix,2025-06-29,antonelli,Andrea Kimi Antonelli,mercedes,Mercedes,9,9,0.763919,1,6.103770,0,0.0,19
-2025,11,Austrian Grand Prix,2025-06-29,lawson,Liam Lawson,rb,RB F1 Team,6,6,0.607352,1,4.419030,1,8.0,6
-2025,11,Austrian Grand Prix,2025-06-29,bortoleto,Gabriel Bortoleto,sauber,Sauber,8,8,0.476142,0,2.468101,1,4.0,8
-2025,11,Austrian Grand Prix,2025-06-29,tsunoda,Yuki Tsunoda,red_bull,Red Bull,18,18,0.201776,0,1.770300,0,0.0,16
-2025,11,Austrian Grand Prix,2025-06-29,alonso,Fernando Alonso,aston_martin,Aston Martin,11,11,0.386391,0,1.707606,1,6.0,7
-2025,11,Austrian Grand Prix,2025-06-29,gasly,Pierre Gasly,alpine,Alpine F1 Team,10,10,0.486241,0,1.685326,0,0.0,13
-2025,11,Austrian Grand Prix,2025-06-29,albon,Alexander Albon,williams,Williams,12,12,0.441152,0,1.502083,0,0.0,17
-2025,11,Austrian Grand Prix,2025-06-29,hadjar,Isack Hadjar,rb,RB F1 Team,13,13,0.299699,0,1.308227,0,0.0,12
-2025,11,Austrian Grand Prix,2025-06-29,hulkenberg,Nico Hülkenberg,sauber,Sauber,20,20,0.130933,0,0.871629,1,2.0,9
-2025,11,Austrian Grand Prix,2025-06-29,ocon,Esteban Ocon,haas,Haas F1 Team,17,17,0.174442,0,0.747170,1,1.0,10
-2025,11,Austrian Grand Prix,2025-06-29,sainz,Carlos Sainz,williams,Williams,19,19,0.199910,0,0.707718,0,0.0,20
-2025,11,Austrian Grand Prix,2025-06-29,bearman,Oliver Bearman,haas,Haas F1 Team,15,15,0.123225,0,0.457794,0,0.0,11
-2025,11,Austrian Grand Prix,2025-06-29,colapinto,Franco Colapinto,alpine,Alpine F1 Team,14,14,0.097181,0,0.367302,0,0.0,15
-2025,11,Austrian Grand Prix,2025-06-29,stroll,Lance Stroll,aston_martin,Aston Martin,16,16,0.156697,0,0.294928,0,0.0,14
-2025,12,British Grand Prix,2025-07-06,piastri,Oscar Piastri,mclaren,McLaren,2,2,0.862800,1,16.243048,1,18.0,2
-2025,12,British Grand Prix,2025-07-06,max_verstappen,Max Verstappen,red_bull,Red Bull,1,1,0.929746,1,14.622171,1,10.0,5
-2025,12,British Grand Prix,2025-07-06,norris,Lando Norris,mclaren,McLaren,3,3,0.875396,1,14.218032,1,25.0,1
-2025,12,British Grand Prix,2025-07-06,russell,George Russell,mercedes,Mercedes,4,4,0.913465,1,12.677771,1,1.0,10
-2025,12,British Grand Prix,2025-07-06,hamilton,Lewis Hamilton,ferrari,Ferrari,5,5,0.912203,1,10.309417,1,12.0,4
-2025,12,British Grand Prix,2025-07-06,leclerc,Charles Leclerc,ferrari,Ferrari,6,6,0.870971,1,9.344358,0,0.0,14
-2025,12,British Grand Prix,2025-07-06,antonelli,Andrea Kimi Antonelli,mercedes,Mercedes,10,7,0.794132,1,7.406223,0,0.0,16
-2025,12,British Grand Prix,2025-07-06,alonso,Fernando Alonso,aston_martin,Aston Martin,7,9,0.647297,1,2.955428,1,2.0,9
-2025,12,British Grand Prix,2025-07-06,tsunoda,Yuki Tsunoda,red_bull,Red Bull,11,12,0.376981,0,2.588701,0,0.0,15
-2025,12,British Grand Prix,2025-07-06,gasly,Pierre Gasly,alpine,Alpine F1 Team,8,10,0.541884,1,1.964622,1,8.0,6
-2025,12,British Grand Prix,2025-07-06,sainz,Carlos Sainz,williams,Williams,9,11,0.408029,0,1.934963,0,0.0,12
-2025,12,British Grand Prix,2025-07-06,hadjar,Isack Hadjar,rb,RB F1 Team,12,13,0.224948,0,1.138398,0,0.0,17
-2025,12,British Grand Prix,2025-07-06,bearman,Oliver Bearman,haas,Haas F1 Team,18,8,0.254648,0,1.074232,0,0.0,11
-2025,12,British Grand Prix,2025-07-06,hulkenberg,Nico Hülkenberg,sauber,Sauber,19,19,0.191054,0,1.054538,1,15.0,3
-2025,12,British Grand Prix,2025-07-06,albon,Alexander Albon,williams,Williams,13,14,0.295307,0,0.945135,1,4.0,8
-2025,12,British Grand Prix,2025-07-06,lawson,Liam Lawson,rb,RB F1 Team,15,16,0.205270,0,0.862358,0,0.0,19
-2025,12,British Grand Prix,2025-07-06,ocon,Esteban Ocon,haas,Haas F1 Team,14,15,0.258438,0,0.685148,0,0.0,13
-2025,12,British Grand Prix,2025-07-06,bortoleto,Gabriel Bortoleto,sauber,Sauber,16,17,0.199225,0,0.681482,0,0.0,18
-2025,12,British Grand Prix,2025-07-06,stroll,Lance Stroll,aston_martin,Aston Martin,17,18,0.278916,0,0.465389,1,6.0,7
-2025,12,British Grand Prix,2025-07-06,colapinto,Franco Colapinto,alpine,Alpine F1 Team,20,20,0.050326,0,0.244456,0,0.0,20
-2025,13,Belgian Grand Prix,2025-07-27,norris,Lando Norris,mclaren,McLaren,1,1,0.932854,1,19.818428,1,18.0,2
-2025,13,Belgian Grand Prix,2025-07-27,piastri,Oscar Piastri,mclaren,McLaren,2,2,0.879967,1,16.841535,1,25.0,1
-2025,13,Belgian Grand Prix,2025-07-27,leclerc,Charles Leclerc,ferrari,Ferrari,3,3,0.906418,1,12.629787,1,15.0,3
-2025,13,Belgian Grand Prix,2025-07-27,max_verstappen,Max Verstappen,red_bull,Red Bull,4,4,0.906513,1,11.703184,1,12.0,4
-2025,13,Belgian Grand Prix,2025-07-27,russell,George Russell,mercedes,Mercedes,6,6,0.849378,1,8.972454,1,10.0,5
-2025,13,Belgian Grand Prix,2025-07-27,albon,Alexander Albon,williams,Williams,5,5,0.701609,1,5.472818,1,8.0,6
-2025,13,Belgian Grand Prix,2025-07-27,tsunoda,Yuki Tsunoda,red_bull,Red Bull,7,7,0.737114,1,4.828627,0,0.0,13
-2025,13,Belgian Grand Prix,2025-07-27,hamilton,Lewis Hamilton,ferrari,Ferrari,18,16,0.629951,1,4.030527,1,6.0,7
-2025,13,Belgian Grand Prix,2025-07-27,antonelli,Andrea Kimi Antonelli,mercedes,Mercedes,19,18,0.541256,1,3.844789,0,0.0,16
-2025,13,Belgian Grand Prix,2025-07-27,hadjar,Isack Hadjar,rb,RB F1 Team,8,8,0.588349,1,2.393964,0,0.0,20
-2025,13,Belgian Grand Prix,2025-07-27,lawson,Liam Lawson,rb,RB F1 Team,9,9,0.515222,1,2.085100,1,4.0,8
-2025,13,Belgian Grand Prix,2025-07-27,bortoleto,Gabriel Bortoleto,sauber,Sauber,10,10,0.435516,0,2.035882,1,2.0,9
-2025,13,Belgian Grand Prix,2025-07-27,hulkenberg,Nico Hülkenberg,sauber,Sauber,14,14,0.266407,0,1.493376,0,0.0,12
-2025,13,Belgian Grand Prix,2025-07-27,ocon,Esteban Ocon,haas,Haas F1 Team,11,11,0.331810,0,1.264505,0,0.0,15
-2025,13,Belgian Grand Prix,2025-07-27,alonso,Fernando Alonso,aston_martin,Aston Martin,20,19,0.110982,0,1.160647,0,0.0,17
-2025,13,Belgian Grand Prix,2025-07-27,gasly,Pierre Gasly,alpine,Alpine F1 Team,13,13,0.366709,0,0.869332,1,1.0,10
-2025,13,Belgian Grand Prix,2025-07-27,bearman,Oliver Bearman,haas,Haas F1 Team,12,12,0.216634,0,0.770180,0,0.0,11
-2025,13,Belgian Grand Prix,2025-07-27,stroll,Lance Stroll,aston_martin,Aston Martin,16,20,0.093986,0,0.682473,0,0.0,14
-2025,13,Belgian Grand Prix,2025-07-27,sainz,Carlos Sainz,williams,Williams,17,15,0.209089,0,0.540488,0,0.0,18
-2025,13,Belgian Grand Prix,2025-07-27,colapinto,Franco Colapinto,alpine,Alpine F1 Team,15,17,0.069746,0,0.155051,0,0.0,19
-2025,14,Hungarian Grand Prix,2025-08-03,piastri,Oscar Piastri,mclaren,McLaren,2,2,0.943017,1,17.601978,1,18.0,2
-2025,14,Hungarian Grand Prix,2025-08-03,leclerc,Charles Leclerc,ferrari,Ferrari,1,1,0.915311,1,16.901964,1,12.0,4
-2025,14,Hungarian Grand Prix,2025-08-03,norris,Lando Norris,mclaren,McLaren,3,3,0.935985,1,16.257556,1,25.0,1
-2025,14,Hungarian Grand Prix,2025-08-03,russell,George Russell,mercedes,Mercedes,4,4,0.909914,1,9.980821,1,15.0,3
-2025,14,Hungarian Grand Prix,2025-08-03,max_verstappen,Max Verstappen,red_bull,Red Bull,8,8,0.823837,1,6.812056,1,2.0,9
-2025,14,Hungarian Grand Prix,2025-08-03,hamilton,Lewis Hamilton,ferrari,Ferrari,12,12,0.833984,1,5.791917,0,0.0,12
-2025,14,Hungarian Grand Prix,2025-08-03,alonso,Fernando Alonso,aston_martin,Aston Martin,5,5,0.724038,1,5.549069,1,10.0,5
-2025,14,Hungarian Grand Prix,2025-08-03,stroll,Lance Stroll,aston_martin,Aston Martin,6,6,0.690474,1,4.180491,1,6.0,7
-2025,14,Hungarian Grand Prix,2025-08-03,bortoleto,Gabriel Bortoleto,sauber,Sauber,7,7,0.573817,1,3.770587,1,8.0,6
-2025,14,Hungarian Grand Prix,2025-08-03,antonelli,Andrea Kimi Antonelli,mercedes,Mercedes,15,15,0.513694,1,2.817420,1,1.0,10
-2025,14,Hungarian Grand Prix,2025-08-03,lawson,Liam Lawson,rb,RB F1 Team,9,9,0.568759,1,2.415825,1,4.0,8
-2025,14,Hungarian Grand Prix,2025-08-03,tsunoda,Yuki Tsunoda,red_bull,Red Bull,20,16,0.257991,0,1.952205,0,0.0,17
-2025,14,Hungarian Grand Prix,2025-08-03,hadjar,Isack Hadjar,rb,RB F1 Team,10,10,0.536953,1,1.757885,0,0.0,11
-2025,14,Hungarian Grand Prix,2025-08-03,albon,Alexander Albon,williams,Williams,19,20,0.237974,0,1.523644,0,0.0,15
-2025,14,Hungarian Grand Prix,2025-08-03,hulkenberg,Nico Hülkenberg,sauber,Sauber,18,19,0.231469,0,1.313449,0,0.0,13
-2025,14,Hungarian Grand Prix,2025-08-03,bearman,Oliver Bearman,haas,Haas F1 Team,11,11,0.209698,0,1.013101,0,0.0,20
-2025,14,Hungarian Grand Prix,2025-08-03,sainz,Carlos Sainz,williams,Williams,13,13,0.269873,0,1.004849,0,0.0,14
-2025,14,Hungarian Grand Prix,2025-08-03,gasly,Pierre Gasly,alpine,Alpine F1 Team,16,17,0.237993,0,0.618563,0,0.0,19
-2025,14,Hungarian Grand Prix,2025-08-03,ocon,Esteban Ocon,haas,Haas F1 Team,17,18,0.166840,0,0.372935,0,0.0,16
-2025,14,Hungarian Grand Prix,2025-08-03,colapinto,Franco Colapinto,alpine,Alpine F1 Team,14,14,0.115188,0,0.336995,0,0.0,18
-2025,15,Dutch Grand Prix,2025-08-31,piastri,Oscar Piastri,mclaren,McLaren,1,1,0.970243,1,20.198704,1,25.0,1
-2025,15,Dutch Grand Prix,2025-08-31,norris,Lando Norris,mclaren,McLaren,2,2,0.975125,1,20.163062,0,0.0,18
-2025,15,Dutch Grand Prix,2025-08-31,max_verstappen,Max Verstappen,red_bull,Red Bull,3,3,0.834995,1,10.575122,1,18.0,2
-2025,15,Dutch Grand Prix,2025-08-31,leclerc,Charles Leclerc,ferrari,Ferrari,6,6,0.830320,1,8.315225,0,0.0,19
-2025,15,Dutch Grand Prix,2025-08-31,russell,George Russell,mercedes,Mercedes,5,5,0.833455,1,7.851069,1,12.0,4
-2025,15,Dutch Grand Prix,2025-08-31,hamilton,Lewis Hamilton,ferrari,Ferrari,7,7,0.860356,1,6.250618,0,0.0,20
-2025,15,Dutch Grand Prix,2025-08-31,hadjar,Isack Hadjar,rb,RB F1 Team,4,4,0.754104,1,5.045898,1,15.0,3
-2025,15,Dutch Grand Prix,2025-08-31,antonelli,Andrea Kimi Antonelli,mercedes,Mercedes,11,11,0.664801,1,3.532605,0,0.0,16
-2025,15,Dutch Grand Prix,2025-08-31,alonso,Fernando Alonso,aston_martin,Aston Martin,10,10,0.778867,1,2.930648,1,4.0,8
-2025,15,Dutch Grand Prix,2025-08-31,tsunoda,Yuki Tsunoda,red_bull,Red Bull,12,12,0.349465,0,2.552447,1,2.0,9
-2025,15,Dutch Grand Prix,2025-08-31,lawson,Liam Lawson,rb,RB F1 Team,8,8,0.565335,1,2.374778,0,0.0,12
-2025,15,Dutch Grand Prix,2025-08-31,sainz,Carlos Sainz,williams,Williams,9,9,0.471840,0,1.901186,0,0.0,13
-2025,15,Dutch Grand Prix,2025-08-31,albon,Alexander Albon,williams,Williams,15,15,0.307169,0,1.449475,1,10.0,5
-2025,15,Dutch Grand Prix,2025-08-31,bortoleto,Gabriel Bortoleto,sauber,Sauber,13,13,0.305649,0,1.297246,0,0.0,15
-2025,15,Dutch Grand Prix,2025-08-31,hulkenberg,Nico Hülkenberg,sauber,Sauber,17,17,0.330681,0,1.266401,0,0.0,14
-2025,15,Dutch Grand Prix,2025-08-31,stroll,Lance Stroll,aston_martin,Aston Martin,19,20,0.132446,0,1.215249,1,6.0,7
-2025,15,Dutch Grand Prix,2025-08-31,gasly,Pierre Gasly,alpine,Alpine F1 Team,14,14,0.224661,0,0.738888,0,0.0,17
-2025,15,Dutch Grand Prix,2025-08-31,ocon,Esteban Ocon,haas,Haas F1 Team,18,18,0.109061,0,0.281407,1,1.0,10
-2025,15,Dutch Grand Prix,2025-08-31,colapinto,Franco Colapinto,alpine,Alpine F1 Team,16,16,0.099391,0,0.161186,0,0.0,11
-2025,15,Dutch Grand Prix,2025-08-31,bearman,Oliver Bearman,haas,Haas F1 Team,20,19,0.078650,0,0.142598,1,8.0,6
-2025,16,Italian Grand Prix,2025-09-07,norris,Lando Norris,mclaren,McLaren,2,2,0.990631,1,18.079046,1,18.0,2
-2025,16,Italian Grand Prix,2025-09-07,piastri,Oscar Piastri,mclaren,McLaren,3,3,0.985602,1,17.369761,1,15.0,3
-2025,16,Italian Grand Prix,2025-09-07,max_verstappen,Max Verstappen,red_bull,Red Bull,1,1,0.882564,1,14.541893,1,25.0,1
-2025,16,Italian Grand Prix,2025-09-07,leclerc,Charles Leclerc,ferrari,Ferrari,4,4,0.910047,1,10.769604,1,12.0,4
-2025,16,Italian Grand Prix,2025-09-07,russell,George Russell,mercedes,Mercedes,5,6,0.876552,1,7.920933,1,10.0,5
-2025,16,Italian Grand Prix,2025-09-07,hamilton,Lewis Hamilton,ferrari,Ferrari,10,5,0.939042,1,7.851897,1,8.0,6
-2025,16,Italian Grand Prix,2025-09-07,antonelli,Andrea Kimi Antonelli,mercedes,Mercedes,6,7,0.787800,1,6.168114,1,2.0,9
-2025,16,Italian Grand Prix,2025-09-07,tsunoda,Yuki Tsunoda,red_bull,Red Bull,9,10,0.579375,1,3.618525,0,0.0,13
-2025,16,Italian Grand Prix,2025-09-07,alonso,Fernando Alonso,aston_martin,Aston Martin,8,9,0.647191,1,3.549626,0,0.0,19
-2025,16,Italian Grand Prix,2025-09-07,bortoleto,Gabriel Bortoleto,sauber,Sauber,7,8,0.445984,0,2.918903,1,4.0,8
-2025,16,Italian Grand Prix,2025-09-07,albon,Alexander Albon,williams,Williams,14,14,0.353875,0,2.013452,1,6.0,7
-2025,16,Italian Grand Prix,2025-09-07,bearman,Oliver Bearman,haas,Haas F1 Team,11,11,0.166117,0,1.558356,0,0.0,12
-2025,16,Italian Grand Prix,2025-09-07,stroll,Lance Stroll,aston_martin,Aston Martin,16,17,0.144796,0,1.445911,0,0.0,18
-2025,16,Italian Grand Prix,2025-09-07,hulkenberg,Nico Hülkenberg,sauber,Sauber,12,12,0.321383,0,1.427429,0,0.0,20
-2025,16,Italian Grand Prix,2025-09-07,hadjar,Isack Hadjar,rb,RB F1 Team,19,16,0.145732,0,1.388368,1,1.0,10
-2025,16,Italian Grand Prix,2025-09-07,sainz,Carlos Sainz,williams,Williams,13,13,0.258714,0,1.124249,0,0.0,11
-2025,16,Italian Grand Prix,2025-09-07,lawson,Liam Lawson,rb,RB F1 Team,18,20,0.085100,0,1.055783,0,0.0,14
-2025,16,Italian Grand Prix,2025-09-07,ocon,Esteban Ocon,haas,Haas F1 Team,15,15,0.090058,0,0.668080,0,0.0,15
-2025,16,Italian Grand Prix,2025-09-07,gasly,Pierre Gasly,alpine,Alpine F1 Team,20,19,0.099530,0,0.280045,0,0.0,16
-2025,16,Italian Grand Prix,2025-09-07,colapinto,Franco Colapinto,alpine,Alpine F1 Team,17,18,0.065720,0,0.159558,0,0.0,17
-2025,17,Azerbaijan Grand Prix,2025-09-21,max_verstappen,Max Verstappen,red_bull,Red Bull,1,1,0.874865,1,16.454963,1,25.0,1
-2025,17,Azerbaijan Grand Prix,2025-09-21,norris,Lando Norris,mclaren,McLaren,7,7,0.977005,1,12.563134,1,6.0,7
-2025,17,Azerbaijan Grand Prix,2025-09-21,piastri,Oscar Piastri,mclaren,McLaren,9,9,0.962440,1,11.287410,0,0.0,20
-2025,17,Azerbaijan Grand Prix,2025-09-21,antonelli,Andrea Kimi Antonelli,mercedes,Mercedes,4,4,0.852735,1,9.095132,1,12.0,4
-2025,17,Azerbaijan Grand Prix,2025-09-21,russell,George Russell,mercedes,Mercedes,5,5,0.771070,1,8.517166,1,18.0,2
-2025,17,Azerbaijan Grand Prix,2025-09-21,sainz,Carlos Sainz,williams,Williams,2,2,0.773176,1,6.821798,1,15.0,3
-2025,17,Azerbaijan Grand Prix,2025-09-21,tsunoda,Yuki Tsunoda,red_bull,Red Bull,6,6,0.745609,1,6.165057,1,8.0,6
-2025,17,Azerbaijan Grand Prix,2025-09-21,lawson,Liam Lawson,rb,RB F1 Team,3,3,0.752213,1,6.148726,1,10.0,5
-2025,17,Azerbaijan Grand Prix,2025-09-21,leclerc,Charles Leclerc,ferrari,Ferrari,10,10,0.857264,1,5.594382,1,2.0,9
-2025,17,Azerbaijan Grand Prix,2025-09-21,hamilton,Lewis Hamilton,ferrari,Ferrari,12,12,0.831999,1,5.199143,1,4.0,8
-2025,17,Azerbaijan Grand Prix,2025-09-21,hadjar,Isack Hadjar,rb,RB F1 Team,8,8,0.602512,1,2.991211,1,1.0,10
-2025,17,Azerbaijan Grand Prix,2025-09-21,alonso,Fernando Alonso,aston_martin,Aston Martin,11,11,0.434414,0,2.785741,0,0.0,15
-2025,17,Azerbaijan Grand Prix,2025-09-21,albon,Alexander Albon,williams,Williams,19,19,0.362052,0,1.899319,0,0.0,13
-2025,17,Azerbaijan Grand Prix,2025-09-21,stroll,Lance Stroll,aston_martin,Aston Martin,14,14,0.274696,0,1.593716,0,0.0,17
-2025,17,Azerbaijan Grand Prix,2025-09-21,bortoleto,Gabriel Bortoleto,sauber,Sauber,13,13,0.277372,0,1.141141,0,0.0,11
-2025,17,Azerbaijan Grand Prix,2025-09-21,hulkenberg,Nico Hülkenberg,sauber,Sauber,17,17,0.169520,0,0.724612,0,0.0,16
-2025,17,Azerbaijan Grand Prix,2025-09-21,bearman,Oliver Bearman,haas,Haas F1 Team,15,15,0.156342,0,0.663932,0,0.0,12
-2025,17,Azerbaijan Grand Prix,2025-09-21,ocon,Esteban Ocon,haas,Haas F1 Team,20,20,0.082670,0,0.579759,0,0.0,14
-2025,17,Azerbaijan Grand Prix,2025-09-21,gasly,Pierre Gasly,alpine,Alpine F1 Team,18,18,0.068531,0,0.196068,0,0.0,18
-2025,17,Azerbaijan Grand Prix,2025-09-21,colapinto,Franco Colapinto,alpine,Alpine F1 Team,16,16,0.077970,0,0.185578,0,0.0,19
-2025,18,Singapore Grand Prix,2025-10-05,max_verstappen,Max Verstappen,red_bull,Red Bull,2,2,0.950276,1,18.945390,1,18.0,2
-2025,18,Singapore Grand Prix,2025-10-05,russell,George Russell,mercedes,Mercedes,1,1,0.921214,1,16.293952,1,25.0,1
-2025,18,Singapore Grand Prix,2025-10-05,piastri,Oscar Piastri,mclaren,McLaren,3,3,0.980378,1,15.717942,1,12.0,4
-2025,18,Singapore Grand Prix,2025-10-05,norris,Lando Norris,mclaren,McLaren,5,5,0.979610,1,12.414679,1,15.0,3
-2025,18,Singapore Grand Prix,2025-10-05,antonelli,Andrea Kimi Antonelli,mercedes,Mercedes,4,4,0.858122,1,10.922609,1,10.0,5
-2025,18,Singapore Grand Prix,2025-10-05,hamilton,Lewis Hamilton,ferrari,Ferrari,6,6,0.893656,1,7.584474,1,4.0,8
-2025,18,Singapore Grand Prix,2025-10-05,leclerc,Charles Leclerc,ferrari,Ferrari,7,7,0.823949,1,7.044377,1,8.0,6
-2025,18,Singapore Grand Prix,2025-10-05,tsunoda,Yuki Tsunoda,red_bull,Red Bull,13,13,0.447334,0,3.812936,0,0.0,12
-2025,18,Singapore Grand Prix,2025-10-05,hadjar,Isack Hadjar,rb,RB F1 Team,8,8,0.631789,1,3.601087,0,0.0,11
-2025,18,Singapore Grand Prix,2025-10-05,alonso,Fernando Alonso,aston_martin,Aston Martin,10,10,0.569571,1,2.277286,1,6.0,7
-2025,18,Singapore Grand Prix,2025-10-05,bearman,Oliver Bearman,haas,Haas F1 Team,9,9,0.341860,0,2.184671,1,2.0,9
-2025,18,Singapore Grand Prix,2025-10-05,albon,Alexander Albon,williams,Williams,20,19,0.410170,0,2.134394,0,0.0,14
-2025,18,Singapore Grand Prix,2025-10-05,lawson,Liam Lawson,rb,RB F1 Team,12,12,0.487051,0,1.980648,0,0.0,15
-2025,18,Singapore Grand Prix,2025-10-05,sainz,Carlos Sainz,williams,Williams,18,20,0.359198,0,1.772630,1,1.0,10
-2025,18,Singapore Grand Prix,2025-10-05,hulkenberg,Nico Hülkenberg,sauber,Sauber,11,11,0.341677,0,1.427809,0,0.0,20
-2025,18,Singapore Grand Prix,2025-10-05,stroll,Lance Stroll,aston_martin,Aston Martin,15,15,0.244483,0,0.835985,0,0.0,13
-2025,18,Singapore Grand Prix,2025-10-05,ocon,Esteban Ocon,haas,Haas F1 Team,17,17,0.083209,0,0.616940,0,0.0,18
-2025,18,Singapore Grand Prix,2025-10-05,bortoleto,Gabriel Bortoleto,sauber,Sauber,14,14,0.235814,0,0.590458,0,0.0,17
-2025,18,Singapore Grand Prix,2025-10-05,gasly,Pierre Gasly,alpine,Alpine F1 Team,19,18,0.101097,0,0.226941,0,0.0,19
-2025,18,Singapore Grand Prix,2025-10-05,colapinto,Franco Colapinto,alpine,Alpine F1 Team,16,16,0.080007,0,0.169222,0,0.0,16
-2025,19,United States Grand Prix,2025-10-19,max_verstappen,Max Verstappen,red_bull,Red Bull,1,1,0.979472,1,22.304638,1,25.0,1
-2025,19,United States Grand Prix,2025-10-19,norris,Lando Norris,mclaren,McLaren,2,2,0.988978,1,17.081540,1,18.0,2
-2025,19,United States Grand Prix,2025-10-19,russell,George Russell,mercedes,Mercedes,4,4,0.897746,1,14.176220,1,8.0,6
-2025,19,United States Grand Prix,2025-10-19,piastri,Oscar Piastri,mclaren,McLaren,6,6,0.981053,1,11.863455,1,10.0,5
-2025,19,United States Grand Prix,2025-10-19,leclerc,Charles Leclerc,ferrari,Ferrari,3,3,0.874885,1,10.831839,1,15.0,3
-2025,19,United States Grand Prix,2025-10-19,hamilton,Lewis Hamilton,ferrari,Ferrari,5,5,0.879455,1,8.585942,1,12.0,4
-2025,19,United States Grand Prix,2025-10-19,antonelli,Andrea Kimi Antonelli,mercedes,Mercedes,7,7,0.824950,1,8.572656,0,0.0,13
-2025,19,United States Grand Prix,2025-10-19,tsunoda,Yuki Tsunoda,red_bull,Red Bull,13,13,0.393824,0,3.714180,1,6.0,7
-2025,19,United States Grand Prix,2025-10-19,sainz,Carlos Sainz,williams,Williams,9,9,0.517575,1,3.455723,0,0.0,20
-2025,19,United States Grand Prix,2025-10-19,bearman,Oliver Bearman,haas,Haas F1 Team,8,8,0.405087,0,2.340118,1,2.0,9
-2025,19,United States Grand Prix,2025-10-19,alonso,Fernando Alonso,aston_martin,Aston Martin,10,10,0.587446,1,2.203305,1,1.0,10
-2025,19,United States Grand Prix,2025-10-19,albon,Alexander Albon,williams,Williams,18,19,0.377586,0,1.885995,0,0.0,14
-2025,19,United States Grand Prix,2025-10-19,lawson,Liam Lawson,rb,RB F1 Team,12,12,0.509812,1,1.748186,0,0.0,11
-2025,19,United States Grand Prix,2025-10-19,hulkenberg,Nico Hülkenberg,sauber,Sauber,11,11,0.360752,0,1.409425,1,4.0,8
-2025,19,United States Grand Prix,2025-10-19,hadjar,Isack Hadjar,rb,RB F1 Team,20,20,0.248990,0,0.893000,0,0.0,16
-2025,19,United States Grand Prix,2025-10-19,stroll,Lance Stroll,aston_martin,Aston Martin,19,18,0.140317,0,0.526572,0,0.0,12
-2025,19,United States Grand Prix,2025-10-19,bortoleto,Gabriel Bortoleto,sauber,Sauber,16,16,0.198025,0,0.478795,0,0.0,18
-2025,19,United States Grand Prix,2025-10-19,ocon,Esteban Ocon,haas,Haas F1 Team,17,17,0.132830,0,0.400528,0,0.0,15
-2025,19,United States Grand Prix,2025-10-19,gasly,Pierre Gasly,alpine,Alpine F1 Team,14,14,0.148779,0,0.342641,0,0.0,19
-2025,19,United States Grand Prix,2025-10-19,colapinto,Franco Colapinto,alpine,Alpine F1 Team,15,15,0.081974,0,0.175393,0,0.0,17
-2025,20,Mexico City Grand Prix,2025-10-26,norris,Lando Norris,mclaren,McLaren,1,1,0.984420,1,18.770986,1,25.0,1
-2025,20,Mexico City Grand Prix,2025-10-26,max_verstappen,Max Verstappen,red_bull,Red Bull,5,5,0.979302,1,16.265996,1,15.0,3
-2025,20,Mexico City Grand Prix,2025-10-26,russell,George Russell,mercedes,Mercedes,4,4,0.941416,1,13.634642,1,6.0,7
-2025,20,Mexico City Grand Prix,2025-10-26,leclerc,Charles Leclerc,ferrari,Ferrari,2,2,0.876158,1,12.938369,1,18.0,2
-2025,20,Mexico City Grand Prix,2025-10-26,hamilton,Lewis Hamilton,ferrari,Ferrari,3,3,0.875886,1,10.820880,1,4.0,8
-2025,20,Mexico City Grand Prix,2025-10-26,piastri,Oscar Piastri,mclaren,McLaren,7,8,0.967220,1,10.143260,1,10.0,5
-2025,20,Mexico City Grand Prix,2025-10-26,antonelli,Andrea Kimi Antonelli,mercedes,Mercedes,6,6,0.841021,1,8.949664,1,8.0,6
-2025,20,Mexico City Grand Prix,2025-10-26,tsunoda,Yuki Tsunoda,red_bull,Red Bull,10,11,0.578693,1,4.853460,0,0.0,11
-2025,20,Mexico City Grand Prix,2025-10-26,sainz,Carlos Sainz,williams,Williams,12,7,0.678526,1,3.340288,0,0.0,17
-2025,20,Mexico City Grand Prix,2025-10-26,hadjar,Isack Hadjar,rb,RB F1 Team,8,9,0.561778,1,2.339975,0,0.0,13
-2025,20,Mexico City Grand Prix,2025-10-26,bearman,Oliver Bearman,haas,Haas F1 Team,9,10,0.391473,0,1.667423,1,12.0,4
-2025,20,Mexico City Grand Prix,2025-10-26,albon,Alexander Albon,williams,Williams,17,17,0.331941,0,1.661165,0,0.0,12
-2025,20,Mexico City Grand Prix,2025-10-26,ocon,Esteban Ocon,haas,Haas F1 Team,11,12,0.288713,0,1.284792,1,2.0,9
-2025,20,Mexico City Grand Prix,2025-10-26,alonso,Fernando Alonso,aston_martin,Aston Martin,14,14,0.298231,0,1.148833,0,0.0,18
-2025,20,Mexico City Grand Prix,2025-10-26,lawson,Liam Lawson,rb,RB F1 Team,15,15,0.251640,0,1.110276,0,0.0,20
-2025,20,Mexico City Grand Prix,2025-10-26,hulkenberg,Nico Hülkenberg,sauber,Sauber,13,13,0.372162,0,0.885573,0,0.0,19
-2025,20,Mexico City Grand Prix,2025-10-26,stroll,Lance Stroll,aston_martin,Aston Martin,19,19,0.121627,0,0.666994,0,0.0,14
-2025,20,Mexico City Grand Prix,2025-10-26,bortoleto,Gabriel Bortoleto,sauber,Sauber,16,16,0.160373,0,0.334488,1,1.0,10
-2025,20,Mexico City Grand Prix,2025-10-26,gasly,Pierre Gasly,alpine,Alpine F1 Team,18,18,0.058807,0,0.171042,0,0.0,15
-2025,20,Mexico City Grand Prix,2025-10-26,colapinto,Franco Colapinto,alpine,Alpine F1 Team,20,20,0.054305,0,0.105239,0,0.0,16
-2025,21,São Paulo Grand Prix,2025-11-09,norris,Lando Norris,mclaren,McLaren,1,1,0.953049,1,18.614306,1,25.0,1
-2025,21,São Paulo Grand Prix,2025-11-09,leclerc,Charles Leclerc,ferrari,Ferrari,3,3,0.857341,1,13.252699,0,0.0,19
-2025,21,São Paulo Grand Prix,2025-11-09,antonelli,Andrea Kimi Antonelli,mercedes,Mercedes,2,2,0.925580,1,13.195873,1,18.0,2
-2025,21,São Paulo Grand Prix,2025-11-09,piastri,Oscar Piastri,mclaren,McLaren,4,4,0.963523,1,12.840704,1,10.0,5
-2025,21,São Paulo Grand Prix,2025-11-09,max_verstappen,Max Verstappen,red_bull,Red Bull,19,16,0.919626,1,10.838641,1,15.0,3
-2025,21,São Paulo Grand Prix,2025-11-09,russell,George Russell,mercedes,Mercedes,6,6,0.948885,1,9.200506,1,12.0,4
-2025,21,São Paulo Grand Prix,2025-11-09,hadjar,Isack Hadjar,rb,RB F1 Team,5,5,0.628295,1,5.099705,1,4.0,8
-2025,21,São Paulo Grand Prix,2025-11-09,hamilton,Lewis Hamilton,ferrari,Ferrari,13,13,0.692190,1,4.402165,0,0.0,18
-2025,21,São Paulo Grand Prix,2025-11-09,bortoleto,Gabriel Bortoleto,sauber,Sauber,18,,0.359204,0,3.853849,0,0.0,20
-2025,21,São Paulo Grand Prix,2025-11-09,tsunoda,Yuki Tsunoda,red_bull,Red Bull,17,19,0.245343,0,3.493733,0,0.0,17
-2025,21,São Paulo Grand Prix,2025-11-09,lawson,Liam Lawson,rb,RB F1 Team,7,7,0.570386,1,3.371350,1,6.0,7
-2025,21,São Paulo Grand Prix,2025-11-09,bearman,Oliver Bearman,haas,Haas F1 Team,8,8,0.411963,0,3.065127,1,8.0,6
-2025,21,São Paulo Grand Prix,2025-11-09,albon,Alexander Albon,williams,Williams,12,12,0.358544,0,1.935765,0,0.0,11
-2025,21,São Paulo Grand Prix,2025-11-09,alonso,Fernando Alonso,aston_martin,Aston Martin,11,11,0.375427,0,1.911934,0,0.0,14
-2025,21,São Paulo Grand Prix,2025-11-09,hulkenberg,Nico Hülkenberg,sauber,Sauber,10,10,0.487482,0,1.789384,1,2.0,9
-2025,21,São Paulo Grand Prix,2025-11-09,gasly,Pierre Gasly,alpine,Alpine F1 Team,9,9,0.440789,0,1.734598,1,1.0,10
-2025,21,São Paulo Grand Prix,2025-11-09,sainz,Carlos Sainz,williams,Williams,15,15,0.288424,0,1.040582,0,0.0,13
-2025,21,São Paulo Grand Prix,2025-11-09,stroll,Lance Stroll,aston_martin,Aston Martin,14,14,0.272082,0,0.757461,0,0.0,16
-2025,21,São Paulo Grand Prix,2025-11-09,ocon,Esteban Ocon,haas,Haas F1 Team,20,17,0.081909,0,0.726954,0,0.0,12
-2025,21,São Paulo Grand Prix,2025-11-09,colapinto,Franco Colapinto,alpine,Alpine F1 Team,16,18,0.062282,0,0.275231,0,0.0,15
-2025,22,Las Vegas Grand Prix,2025-11-23,norris,Lando Norris,mclaren,McLaren,1,1,0.986992,1,20.094067,0,0.0,19
-2025,22,Las Vegas Grand Prix,2025-11-23,max_verstappen,Max Verstappen,red_bull,Red Bull,2,2,0.968674,1,17.030841,1,25.0,1
-2025,22,Las Vegas Grand Prix,2025-11-23,russell,George Russell,mercedes,Mercedes,4,4,0.964894,1,11.588474,1,18.0,2
-2025,22,Las Vegas Grand Prix,2025-11-23,piastri,Oscar Piastri,mclaren,McLaren,5,5,0.965589,1,11.527768,0,0.0,20
-2025,22,Las Vegas Grand Prix,2025-11-23,leclerc,Charles Leclerc,ferrari,Ferrari,9,9,0.718285,1,6.401114,1,12.0,4
-2025,22,Las Vegas Grand Prix,2025-11-23,antonelli,Andrea Kimi Antonelli,mercedes,Mercedes,17,17,0.702333,1,5.333638,1,15.0,3
-2025,22,Las Vegas Grand Prix,2025-11-23,sainz,Carlos Sainz,williams,Williams,3,3,0.711696,1,4.920030,1,10.0,5
-2025,22,Las Vegas Grand Prix,2025-11-23,hamilton,Lewis Hamilton,ferrari,Ferrari,19,20,0.706627,1,4.664805,1,4.0,8
-2025,22,Las Vegas Grand Prix,2025-11-23,tsunoda,Yuki Tsunoda,red_bull,Red Bull,20,19,0.454268,0,3.352809,0,0.0,12
-2025,22,Las Vegas Grand Prix,2025-11-23,lawson,Liam Lawson,rb,RB F1 Team,6,6,0.668572,1,3.300370,0,0.0,14
-2025,22,Las Vegas Grand Prix,2025-11-23,alonso,Fernando Alonso,aston_martin,Aston Martin,7,7,0.672109,1,2.426121,0,0.0,11
-2025,22,Las Vegas Grand Prix,2025-11-23,hadjar,Isack Hadjar,rb,RB F1 Team,8,8,0.614707,1,2.060548,1,8.0,6
-2025,22,Las Vegas Grand Prix,2025-11-23,bearman,Oliver Bearman,haas,Haas F1 Team,14,14,0.321646,0,1.663289,1,1.0,10
-2025,22,Las Vegas Grand Prix,2025-11-23,albon,Alexander Albon,williams,Williams,16,16,0.303530,0,1.369539,0,0.0,16
-2025,22,Las Vegas Grand Prix,2025-11-23,hulkenberg,Nico Hülkenberg,sauber,Sauber,11,11,0.434029,0,1.358016,1,6.0,7
-2025,22,Las Vegas Grand Prix,2025-11-23,ocon,Esteban Ocon,haas,Haas F1 Team,13,13,0.319751,0,1.083883,1,2.0,9
-2025,22,Las Vegas Grand Prix,2025-11-23,gasly,Pierre Gasly,alpine,Alpine F1 Team,10,10,0.359371,0,1.002032,0,0.0,13
-2025,22,Las Vegas Grand Prix,2025-11-23,stroll,Lance Stroll,aston_martin,Aston Martin,12,12,0.451642,0,0.925757,0,0.0,18
-2025,22,Las Vegas Grand Prix,2025-11-23,bortoleto,Gabriel Bortoleto,sauber,Sauber,18,18,0.149040,0,0.210923,0,0.0,17
-2025,22,Las Vegas Grand Prix,2025-11-23,colapinto,Franco Colapinto,alpine,Alpine F1 Team,15,15,0.086632,0,0.057262,0,0.0,15
-2025,23,Qatar Grand Prix,2025-11-30,norris,Lando Norris,mclaren,McLaren,2,2,0.972095,1,20.126906,1,12.0,4
-2025,23,Qatar Grand Prix,2025-11-30,piastri,Oscar Piastri,mclaren,McLaren,1,1,0.976679,1,18.226872,1,18.0,2
-2025,23,Qatar Grand Prix,2025-11-30,max_verstappen,Max Verstappen,red_bull,Red Bull,3,3,0.958112,1,15.153016,1,25.0,1
-2025,23,Qatar Grand Prix,2025-11-30,russell,George Russell,mercedes,Mercedes,4,4,0.960232,1,12.678528,1,8.0,6
-2025,23,Qatar Grand Prix,2025-11-30,antonelli,Andrea Kimi Antonelli,mercedes,Mercedes,5,5,0.791312,1,10.274469,1,10.0,5
-2025,23,Qatar Grand Prix,2025-11-30,leclerc,Charles Leclerc,ferrari,Ferrari,10,10,0.797236,1,5.769368,1,4.0,8
-2025,23,Qatar Grand Prix,2025-11-30,hadjar,Isack Hadjar,rb,RB F1 Team,6,6,0.657818,1,4.052460,0,0.0,18
-2025,23,Qatar Grand Prix,2025-11-30,hamilton,Lewis Hamilton,ferrari,Ferrari,17,18,0.625378,1,3.975263,0,0.0,12
-2025,23,Qatar Grand Prix,2025-11-30,sainz,Carlos Sainz,williams,Williams,7,7,0.716162,1,3.507380,1,15.0,3
-2025,23,Qatar Grand Prix,2025-11-30,tsunoda,Yuki Tsunoda,red_bull,Red Bull,15,16,0.396922,0,2.652657,1,1.0,10
-2025,23,Qatar Grand Prix,2025-11-30,alonso,Fernando Alonso,aston_martin,Aston Martin,8,8,0.615940,1,1.993499,1,6.0,7
-2025,23,Qatar Grand Prix,2025-11-30,albon,Alexander Albon,williams,Williams,14,15,0.324455,0,1.653703,0,0.0,11
-2025,23,Qatar Grand Prix,2025-11-30,bearman,Oliver Bearman,haas,Haas F1 Team,13,13,0.357202,0,1.636349,0,0.0,19
-2025,23,Qatar Grand Prix,2025-11-30,hulkenberg,Nico Hülkenberg,sauber,Sauber,11,11,0.494419,0,1.624216,0,0.0,20
-2025,23,Qatar Grand Prix,2025-11-30,lawson,Liam Lawson,rb,RB F1 Team,12,12,0.414344,0,1.519936,1,2.0,9
-2025,23,Qatar Grand Prix,2025-11-30,gasly,Pierre Gasly,alpine,Alpine F1 Team,9,9,0.569575,1,1.156331,0,0.0,16
-2025,23,Qatar Grand Prix,2025-11-30,ocon,Esteban Ocon,haas,Haas F1 Team,16,17,0.127311,0,0.972570,0,0.0,15
-2025,23,Qatar Grand Prix,2025-11-30,stroll,Lance Stroll,aston_martin,Aston Martin,18,19,0.114286,0,0.343772,0,0.0,17
-2025,23,Qatar Grand Prix,2025-11-30,bortoleto,Gabriel Bortoleto,sauber,Sauber,19,14,0.193908,0,0.315638,0,0.0,13
-2025,23,Qatar Grand Prix,2025-11-30,colapinto,Franco Colapinto,alpine,Alpine F1 Team,20,20,0.087287,0,0.073319,0,0.0,14
-2025,24,Abu Dhabi Grand Prix,2025-12-07,max_verstappen,Max Verstappen,red_bull,Red Bull,1,1,0.969583,1,22.241374,1,25.0,1
-2025,24,Abu Dhabi Grand Prix,2025-12-07,norris,Lando Norris,mclaren,McLaren,2,2,0.983234,1,18.047490,1,15.0,3
-2025,24,Abu Dhabi Grand Prix,2025-12-07,piastri,Oscar Piastri,mclaren,McLaren,3,3,0.983154,1,15.304803,1,18.0,2
-2025,24,Abu Dhabi Grand Prix,2025-12-07,russell,George Russell,mercedes,Mercedes,4,4,0.980284,1,13.945352,1,10.0,5
-2025,24,Abu Dhabi Grand Prix,2025-12-07,leclerc,Charles Leclerc,ferrari,Ferrari,5,5,0.917049,1,8.965159,1,12.0,4
-2025,24,Abu Dhabi Grand Prix,2025-12-07,antonelli,Andrea Kimi Antonelli,mercedes,Mercedes,14,14,0.689444,1,6.460546,0,0.0,15
-2025,24,Abu Dhabi Grand Prix,2025-12-07,tsunoda,Yuki Tsunoda,red_bull,Red Bull,10,10,0.454896,0,4.628899,0,0.0,14
-2025,24,Abu Dhabi Grand Prix,2025-12-07,alonso,Fernando Alonso,aston_martin,Aston Martin,6,6,0.752809,1,4.561110,1,8.0,6
-2025,24,Abu Dhabi Grand Prix,2025-12-07,hamilton,Lewis Hamilton,ferrari,Ferrari,16,16,0.611575,1,3.928188,1,4.0,8
-2025,24,Abu Dhabi Grand Prix,2025-12-07,sainz,Carlos Sainz,williams,Williams,12,12,0.559234,1,3.780043,0,0.0,13
-2025,24,Abu Dhabi Grand Prix,2025-12-07,bortoleto,Gabriel Bortoleto,sauber,Sauber,7,7,0.619311,1,3.345067,0,0.0,11
-2025,24,Abu Dhabi Grand Prix,2025-12-07,hadjar,Isack Hadjar,rb,RB F1 Team,9,9,0.570507,1,3.107343,0,0.0,17
-2025,24,Abu Dhabi Grand Prix,2025-12-07,ocon,Esteban Ocon,haas,Haas F1 Team,8,8,0.328589,0,2.820718,1,6.0,7
-2025,24,Abu Dhabi Grand Prix,2025-12-07,albon,Alexander Albon,williams,Williams,17,17,0.265324,0,2.041862,0,0.0,16
-2025,24,Abu Dhabi Grand Prix,2025-12-07,bearman,Oliver Bearman,haas,Haas F1 Team,11,11,0.265825,0,1.942429,0,0.0,12
-2025,24,Abu Dhabi Grand Prix,2025-12-07,lawson,Liam Lawson,rb,RB F1 Team,13,13,0.294301,0,1.533661,0,0.0,18
-2025,24,Abu Dhabi Grand Prix,2025-12-07,hulkenberg,Nico Hülkenberg,sauber,Sauber,18,18,0.133596,0,0.892314,1,2.0,9
-2025,24,Abu Dhabi Grand Prix,2025-12-07,stroll,Lance Stroll,aston_martin,Aston Martin,15,15,0.191837,0,0.501044,1,1.0,10
-2025,24,Abu Dhabi Grand Prix,2025-12-07,gasly,Pierre Gasly,alpine,Alpine F1 Team,19,19,0.045671,0,0.246262,0,0.0,19
-2025,24,Abu Dhabi Grand Prix,2025-12-07,colapinto,Franco Colapinto,alpine,Alpine F1 Team,20,20,0.034170,0,0.159035,0,0.0,20
+2025,1,Australian Grand Prix,2025-03-16,norris,Lando Norris,mclaren,McLaren,1,1,0.897734,1,17.853105,1,25.000000,1
+2025,1,Australian Grand Prix,2025-03-16,piastri,Oscar Piastri,mclaren,McLaren,2,2,0.892404,1,14.737661,1,2.000000,9
+2025,1,Australian Grand Prix,2025-03-16,max_verstappen,Max Verstappen,red_bull,Red Bull,3,3,0.917501,1,12.071586,1,18.000000,2
+2025,1,Australian Grand Prix,2025-03-16,russell,George Russell,mercedes,Mercedes,4,4,0.911974,1,11.537836,1,15.000000,3
+2025,1,Australian Grand Prix,2025-03-16,leclerc,Charles Leclerc,ferrari,Ferrari,7,7,0.843724,1,8.664807,1,4.000000,8
+2025,1,Australian Grand Prix,2025-03-16,tsunoda,Yuki Tsunoda,rb,RB F1 Team,5,5,0.729769,1,6.870922,0,0.000000,12
+2025,1,Australian Grand Prix,2025-03-16,hamilton,Lewis Hamilton,ferrari,Ferrari,8,8,0.797592,1,6.775927,1,1.000000,10
+2025,1,Australian Grand Prix,2025-03-16,albon,Alexander Albon,williams,Williams,6,6,0.586362,1,5.167231,1,10.000000,5
+2025,1,Australian Grand Prix,2025-03-16,sainz,Carlos Sainz,williams,Williams,10,10,0.638361,1,4.478404,0,0.000000,18
+2025,1,Australian Grand Prix,2025-03-16,gasly,Pierre Gasly,alpine,Alpine F1 Team,9,9,0.634363,1,3.624836,0,0.000000,11
+2025,1,Australian Grand Prix,2025-03-16,alonso,Fernando Alonso,aston_martin,Aston Martin,12,12,0.468885,0,3.146655,0,0.000000,17
+2025,1,Australian Grand Prix,2025-03-16,hadjar,Isack Hadjar,rb,RB F1 Team,11,11,0.456908,0,1.981380,0,0.000000,20
+2025,1,Australian Grand Prix,2025-03-16,antonelli,Andrea Kimi Antonelli,mercedes,Mercedes,16,16,0.297291,0,1.756584,1,12.000000,4
+2025,1,Australian Grand Prix,2025-03-16,ocon,Esteban Ocon,haas,Haas F1 Team,19,19,0.170663,0,1.668679,0,0.000000,13
+2025,1,Australian Grand Prix,2025-03-16,lawson,Liam Lawson,red_bull,Red Bull,18,18,0.190250,0,1.511028,0,0.000000,15
+2025,1,Australian Grand Prix,2025-03-16,bearman,Oliver Bearman,haas,Haas F1 Team,20,20,0.124211,0,1.308157,0,0.000000,14
+2025,1,Australian Grand Prix,2025-03-16,stroll,Lance Stroll,aston_martin,Aston Martin,13,13,0.333090,0,1.122714,1,8.000000,6
+2025,1,Australian Grand Prix,2025-03-16,hulkenberg,Nico Hülkenberg,sauber,Sauber,17,17,0.144130,0,1.066677,1,6.000000,7
+2025,1,Australian Grand Prix,2025-03-16,doohan,Jack Doohan,alpine,Alpine F1 Team,14,14,0.345388,0,1.047200,0,0.000000,19
+2025,1,Australian Grand Prix,2025-03-16,bortoleto,Gabriel Bortoleto,sauber,Sauber,15,15,0.260615,0,0.464910,0,0.000000,16
+2025,2,Chinese Grand Prix,2025-03-23,piastri,Oscar Piastri,mclaren,McLaren,1,1,0.866296,1,15.479681,1,25.000000,1
+2025,2,Chinese Grand Prix,2025-03-23,russell,George Russell,mercedes,Mercedes,2,2,0.866265,1,14.305794,1,15.000000,3
+2025,2,Chinese Grand Prix,2025-03-23,norris,Lando Norris,mclaren,McLaren,3,3,0.907940,1,13.875335,1,18.000000,2
+2025,2,Chinese Grand Prix,2025-03-23,max_verstappen,Max Verstappen,red_bull,Red Bull,4,4,0.887359,1,13.049625,1,12.000000,4
+2025,2,Chinese Grand Prix,2025-03-23,hamilton,Lewis Hamilton,ferrari,Ferrari,5,5,0.843879,1,7.403220,0,0.000000,19
+2025,2,Chinese Grand Prix,2025-03-23,leclerc,Charles Leclerc,ferrari,Ferrari,6,6,0.785325,1,7.229654,0,0.000000,18
+2025,2,Chinese Grand Prix,2025-03-23,antonelli,Andrea Kimi Antonelli,mercedes,Mercedes,8,8,0.800680,1,5.449160,1,8.000000,6
+2025,2,Chinese Grand Prix,2025-03-23,albon,Alexander Albon,williams,Williams,10,10,0.655584,1,3.222967,1,6.000000,7
+2025,2,Chinese Grand Prix,2025-03-23,hadjar,Isack Hadjar,rb,RB F1 Team,7,7,0.468738,0,3.117826,0,0.000000,11
+2025,2,Chinese Grand Prix,2025-03-23,lawson,Liam Lawson,red_bull,Red Bull,20,20,0.228817,0,2.256847,0,0.000000,12
+2025,2,Chinese Grand Prix,2025-03-23,sainz,Carlos Sainz,williams,Williams,15,15,0.380765,0,2.079531,1,1.000000,10
+2025,2,Chinese Grand Prix,2025-03-23,tsunoda,Yuki Tsunoda,rb,RB F1 Team,9,9,0.484600,0,1.941776,0,0.000000,16
+2025,2,Chinese Grand Prix,2025-03-23,hulkenberg,Nico Hülkenberg,sauber,Sauber,12,12,0.517561,1,1.876381,0,0.000000,15
+2025,2,Chinese Grand Prix,2025-03-23,alonso,Fernando Alonso,aston_martin,Aston Martin,13,13,0.386380,0,1.452107,0,0.000000,17
+2025,2,Chinese Grand Prix,2025-03-23,ocon,Esteban Ocon,haas,Haas F1 Team,11,11,0.333113,0,1.273206,1,10.000000,5
+2025,2,Chinese Grand Prix,2025-03-23,stroll,Lance Stroll,aston_martin,Aston Martin,14,14,0.354596,0,1.218893,1,2.000000,9
+2025,2,Chinese Grand Prix,2025-03-23,gasly,Pierre Gasly,alpine,Alpine F1 Team,16,16,0.205156,0,0.895920,0,0.000000,20
+2025,2,Chinese Grand Prix,2025-03-23,doohan,Jack Doohan,alpine,Alpine F1 Team,18,18,0.103516,0,0.422047,0,0.000000,13
+2025,2,Chinese Grand Prix,2025-03-23,bortoleto,Gabriel Bortoleto,sauber,Sauber,19,19,0.176544,0,0.373820,0,0.000000,14
+2025,2,Chinese Grand Prix,2025-03-23,bearman,Oliver Bearman,haas,Haas F1 Team,17,17,0.120711,0,0.247912,1,4.000000,8
+2025,3,Japanese Grand Prix,2025-04-06,max_verstappen,Max Verstappen,red_bull,Red Bull,1,1,0.859310,1,17.952934,1,25.000000,1
+2025,3,Japanese Grand Prix,2025-04-06,norris,Lando Norris,mclaren,McLaren,2,2,0.943915,1,17.747083,1,18.000000,2
+2025,3,Japanese Grand Prix,2025-04-06,piastri,Oscar Piastri,mclaren,McLaren,3,3,0.858042,1,12.026704,1,15.000000,3
+2025,3,Japanese Grand Prix,2025-04-06,russell,George Russell,mercedes,Mercedes,5,5,0.861878,1,11.405988,1,10.000000,5
+2025,3,Japanese Grand Prix,2025-04-06,leclerc,Charles Leclerc,ferrari,Ferrari,4,4,0.837316,1,8.172424,1,12.000000,4
+2025,3,Japanese Grand Prix,2025-04-06,antonelli,Andrea Kimi Antonelli,mercedes,Mercedes,6,6,0.816906,1,7.919487,1,8.000000,6
+2025,3,Japanese Grand Prix,2025-04-06,hamilton,Lewis Hamilton,ferrari,Ferrari,8,8,0.795083,1,4.140123,1,6.000000,7
+2025,3,Japanese Grand Prix,2025-04-06,albon,Alexander Albon,williams,Williams,9,9,0.669201,1,3.807948,1,2.000000,9
+2025,3,Japanese Grand Prix,2025-04-06,hadjar,Isack Hadjar,rb,RB F1 Team,7,7,0.501939,1,3.040700,1,4.000000,8
+2025,3,Japanese Grand Prix,2025-04-06,bearman,Oliver Bearman,haas,Haas F1 Team,10,10,0.447486,0,2.517797,1,1.000000,10
+2025,3,Japanese Grand Prix,2025-04-06,sainz,Carlos Sainz,williams,Williams,15,12,0.491936,0,2.394227,0,0.000000,14
+2025,3,Japanese Grand Prix,2025-04-06,tsunoda,Yuki Tsunoda,red_bull,Red Bull,14,15,0.320430,0,1.994562,0,0.000000,12
+2025,3,Japanese Grand Prix,2025-04-06,alonso,Fernando Alonso,aston_martin,Aston Martin,12,13,0.345468,0,1.518583,0,0.000000,11
+2025,3,Japanese Grand Prix,2025-04-06,gasly,Pierre Gasly,alpine,Alpine F1 Team,11,11,0.311590,0,1.504911,0,0.000000,13
+2025,3,Japanese Grand Prix,2025-04-06,ocon,Esteban Ocon,haas,Haas F1 Team,18,18,0.249293,0,1.205997,0,0.000000,18
+2025,3,Japanese Grand Prix,2025-04-06,stroll,Lance Stroll,aston_martin,Aston Martin,20,20,0.265668,0,1.084390,0,0.000000,20
+2025,3,Japanese Grand Prix,2025-04-06,hulkenberg,Nico Hülkenberg,sauber,Sauber,16,16,0.194574,0,0.713391,0,0.000000,16
+2025,3,Japanese Grand Prix,2025-04-06,lawson,Liam Lawson,rb,RB F1 Team,13,14,0.136357,0,0.364858,0,0.000000,17
+2025,3,Japanese Grand Prix,2025-04-06,bortoleto,Gabriel Bortoleto,sauber,Sauber,17,17,0.124122,0,0.222937,0,0.000000,19
+2025,3,Japanese Grand Prix,2025-04-06,doohan,Jack Doohan,alpine,Alpine F1 Team,19,19,0.063128,0,0.126815,0,0.000000,15
+2025,4,Bahrain Grand Prix,2025-04-13,piastri,Oscar Piastri,mclaren,McLaren,1,1,0.820054,1,16.781018,1,25.000000,1
+2025,4,Bahrain Grand Prix,2025-04-13,russell,George Russell,mercedes,Mercedes,3,2,0.871561,1,13.940784,1,18.000000,2
+2025,4,Bahrain Grand Prix,2025-04-13,norris,Lando Norris,mclaren,McLaren,6,6,0.875520,1,11.175330,1,15.000000,3
+2025,4,Bahrain Grand Prix,2025-04-13,leclerc,Charles Leclerc,ferrari,Ferrari,2,3,0.906354,1,10.422427,1,12.000000,4
+2025,4,Bahrain Grand Prix,2025-04-13,antonelli,Andrea Kimi Antonelli,mercedes,Mercedes,5,4,0.895131,1,10.265279,0,0.000000,11
+2025,4,Bahrain Grand Prix,2025-04-13,max_verstappen,Max Verstappen,red_bull,Red Bull,7,7,0.867062,1,9.240565,1,8.000000,6
+2025,4,Bahrain Grand Prix,2025-04-13,gasly,Pierre Gasly,alpine,Alpine F1 Team,4,5,0.636179,1,4.888237,1,6.000000,7
+2025,4,Bahrain Grand Prix,2025-04-13,hamilton,Lewis Hamilton,ferrari,Ferrari,9,9,0.770926,1,4.536299,1,10.000000,5
+2025,4,Bahrain Grand Prix,2025-04-13,tsunoda,Yuki Tsunoda,red_bull,Red Bull,10,10,0.563269,1,3.894853,1,2.000000,9
+2025,4,Bahrain Grand Prix,2025-04-13,sainz,Carlos Sainz,williams,Williams,8,8,0.514751,1,2.866552,0,0.000000,19
+2025,4,Bahrain Grand Prix,2025-04-13,albon,Alexander Albon,williams,Williams,15,15,0.341524,0,1.461372,0,0.000000,12
+2025,4,Bahrain Grand Prix,2025-04-13,hadjar,Isack Hadjar,rb,RB F1 Team,12,12,0.195015,0,1.266032,0,0.000000,13
+2025,4,Bahrain Grand Prix,2025-04-13,ocon,Esteban Ocon,haas,Haas F1 Team,14,14,0.170687,0,1.111884,1,4.000000,8
+2025,4,Bahrain Grand Prix,2025-04-13,doohan,Jack Doohan,alpine,Alpine F1 Team,11,11,0.229920,0,1.082237,0,0.000000,14
+2025,4,Bahrain Grand Prix,2025-04-13,alonso,Fernando Alonso,aston_martin,Aston Martin,13,13,0.220650,0,0.949346,0,0.000000,15
+2025,4,Bahrain Grand Prix,2025-04-13,stroll,Lance Stroll,aston_martin,Aston Martin,19,19,0.111141,0,0.920267,0,0.000000,17
+2025,4,Bahrain Grand Prix,2025-04-13,bearman,Oliver Bearman,haas,Haas F1 Team,20,20,0.097177,0,0.786779,1,1.000000,10
+2025,4,Bahrain Grand Prix,2025-04-13,hulkenberg,Nico Hülkenberg,sauber,Sauber,16,16,0.175402,0,0.506894,0,0.000000,20
+2025,4,Bahrain Grand Prix,2025-04-13,bortoleto,Gabriel Bortoleto,sauber,Sauber,18,18,0.077181,0,0.141402,0,0.000000,18
+2025,4,Bahrain Grand Prix,2025-04-13,lawson,Liam Lawson,rb,RB F1 Team,17,17,0.063154,0,0.137153,0,0.000000,16
+2025,5,Saudi Arabian Grand Prix,2025-04-20,piastri,Oscar Piastri,mclaren,McLaren,2,2,0.958861,1,18.526238,1,25.000000,1
+2025,5,Saudi Arabian Grand Prix,2025-04-20,max_verstappen,Max Verstappen,red_bull,Red Bull,1,1,0.900547,1,17.591268,1,18.000000,2
+2025,5,Saudi Arabian Grand Prix,2025-04-20,russell,George Russell,mercedes,Mercedes,3,3,0.873294,1,13.288251,1,10.000000,5
+2025,5,Saudi Arabian Grand Prix,2025-04-20,leclerc,Charles Leclerc,ferrari,Ferrari,4,4,0.870547,1,9.533236,1,15.000000,3
+2025,5,Saudi Arabian Grand Prix,2025-04-20,antonelli,Andrea Kimi Antonelli,mercedes,Mercedes,5,5,0.830818,1,9.414185,1,8.000000,6
+2025,5,Saudi Arabian Grand Prix,2025-04-20,norris,Lando Norris,mclaren,McLaren,10,10,0.937879,1,9.177550,1,12.000000,4
+2025,5,Saudi Arabian Grand Prix,2025-04-20,hamilton,Lewis Hamilton,ferrari,Ferrari,7,7,0.860530,1,5.646144,1,6.000000,7
+2025,5,Saudi Arabian Grand Prix,2025-04-20,tsunoda,Yuki Tsunoda,red_bull,Red Bull,8,8,0.666697,1,4.272582,0,0.000000,19
+2025,5,Saudi Arabian Grand Prix,2025-04-20,sainz,Carlos Sainz,williams,Williams,6,6,0.615173,1,4.244962,1,4.000000,8
+2025,5,Saudi Arabian Grand Prix,2025-04-20,albon,Alexander Albon,williams,Williams,11,11,0.560896,1,2.355937,1,2.000000,9
+2025,5,Saudi Arabian Grand Prix,2025-04-20,gasly,Pierre Gasly,alpine,Alpine F1 Team,9,9,0.612669,1,2.346709,0,0.000000,20
+2025,5,Saudi Arabian Grand Prix,2025-04-20,ocon,Esteban Ocon,haas,Haas F1 Team,19,19,0.447025,0,1.246199,0,0.000000,14
+2025,5,Saudi Arabian Grand Prix,2025-04-20,alonso,Fernando Alonso,aston_martin,Aston Martin,13,13,0.288507,0,1.171202,0,0.000000,11
+2025,5,Saudi Arabian Grand Prix,2025-04-20,bearman,Oliver Bearman,haas,Haas F1 Team,15,15,0.271064,0,1.163154,0,0.000000,13
+2025,5,Saudi Arabian Grand Prix,2025-04-20,lawson,Liam Lawson,rb,RB F1 Team,12,12,0.236118,0,1.028380,0,0.000000,12
+2025,5,Saudi Arabian Grand Prix,2025-04-20,hadjar,Isack Hadjar,rb,RB F1 Team,14,14,0.231989,0,0.578267,1,1.000000,10
+2025,5,Saudi Arabian Grand Prix,2025-04-20,stroll,Lance Stroll,aston_martin,Aston Martin,16,16,0.163276,0,0.522142,0,0.000000,16
+2025,5,Saudi Arabian Grand Prix,2025-04-20,hulkenberg,Nico Hülkenberg,sauber,Sauber,18,18,0.074969,0,0.265630,0,0.000000,15
+2025,5,Saudi Arabian Grand Prix,2025-04-20,doohan,Jack Doohan,alpine,Alpine F1 Team,17,17,0.099915,0,0.249136,0,0.000000,17
+2025,5,Saudi Arabian Grand Prix,2025-04-20,bortoleto,Gabriel Bortoleto,sauber,Sauber,20,20,0.077658,0,0.129524,0,0.000000,18
+2025,6,Miami Grand Prix,2025-05-04,max_verstappen,Max Verstappen,red_bull,Red Bull,1,1,0.897367,1,18.760504,1,12.000000,4
+2025,6,Miami Grand Prix,2025-05-04,norris,Lando Norris,mclaren,McLaren,2,2,0.964884,1,16.885174,1,18.000000,2
+2025,6,Miami Grand Prix,2025-05-04,piastri,Oscar Piastri,mclaren,McLaren,4,4,0.961699,1,14.798430,1,25.000000,1
+2025,6,Miami Grand Prix,2025-05-04,antonelli,Andrea Kimi Antonelli,mercedes,Mercedes,3,3,0.873170,1,10.913738,1,8.000000,6
+2025,6,Miami Grand Prix,2025-05-04,russell,George Russell,mercedes,Mercedes,5,5,0.819719,1,9.672588,1,15.000000,3
+2025,6,Miami Grand Prix,2025-05-04,leclerc,Charles Leclerc,ferrari,Ferrari,8,8,0.811947,1,6.219551,1,6.000000,7
+2025,6,Miami Grand Prix,2025-05-04,sainz,Carlos Sainz,williams,Williams,6,6,0.570157,1,4.568382,1,2.000000,9
+2025,6,Miami Grand Prix,2025-05-04,hamilton,Lewis Hamilton,ferrari,Ferrari,12,12,0.811967,1,4.096660,1,4.000000,8
+2025,6,Miami Grand Prix,2025-05-04,tsunoda,Yuki Tsunoda,red_bull,Red Bull,10,10,0.636279,1,4.073346,1,1.000000,10
+2025,6,Miami Grand Prix,2025-05-04,albon,Alexander Albon,williams,Williams,7,7,0.638424,1,3.967877,1,10.000000,5
+2025,6,Miami Grand Prix,2025-05-04,ocon,Esteban Ocon,haas,Haas F1 Team,9,9,0.722918,1,2.481814,0,0.000000,12
+2025,6,Miami Grand Prix,2025-05-04,hadjar,Isack Hadjar,rb,RB F1 Team,11,11,0.470558,0,1.689921,0,0.000000,11
+2025,6,Miami Grand Prix,2025-05-04,alonso,Fernando Alonso,aston_martin,Aston Martin,17,17,0.281960,0,0.654057,0,0.000000,15
+2025,6,Miami Grand Prix,2025-05-04,bearman,Oliver Bearman,haas,Haas F1 Team,19,20,0.331543,0,0.573216,0,0.000000,19
+2025,6,Miami Grand Prix,2025-05-04,gasly,Pierre Gasly,alpine,Alpine F1 Team,20,18,0.239984,0,0.556232,0,0.000000,13
+2025,6,Miami Grand Prix,2025-05-04,bortoleto,Gabriel Bortoleto,sauber,Sauber,13,13,0.200174,0,0.494425,0,0.000000,18
+2025,6,Miami Grand Prix,2025-05-04,stroll,Lance Stroll,aston_martin,Aston Martin,18,19,0.129997,0,0.318682,0,0.000000,16
+2025,6,Miami Grand Prix,2025-05-04,doohan,Jack Doohan,alpine,Alpine F1 Team,14,14,0.151159,0,0.318158,0,0.000000,20
+2025,6,Miami Grand Prix,2025-05-04,hulkenberg,Nico Hülkenberg,sauber,Sauber,16,16,0.106988,0,0.285923,0,0.000000,14
+2025,6,Miami Grand Prix,2025-05-04,lawson,Liam Lawson,rb,RB F1 Team,15,15,0.162511,0,0.234630,0,0.000000,17
+2025,7,Emilia Romagna Grand Prix,2025-05-18,piastri,Oscar Piastri,mclaren,McLaren,1,1,0.964787,1,19.464370,1,15.000000,3
+2025,7,Emilia Romagna Grand Prix,2025-05-18,max_verstappen,Max Verstappen,red_bull,Red Bull,2,2,0.875854,1,14.804382,1,25.000000,1
+2025,7,Emilia Romagna Grand Prix,2025-05-18,norris,Lando Norris,mclaren,McLaren,4,4,0.956390,1,13.120016,1,18.000000,2
+2025,7,Emilia Romagna Grand Prix,2025-05-18,russell,George Russell,mercedes,Mercedes,3,3,0.882668,1,12.956080,1,6.000000,7
+2025,7,Emilia Romagna Grand Prix,2025-05-18,leclerc,Charles Leclerc,ferrari,Ferrari,11,11,0.717889,1,5.026927,1,8.000000,6
+2025,7,Emilia Romagna Grand Prix,2025-05-18,sainz,Carlos Sainz,williams,Williams,6,6,0.680074,1,4.983530,1,4.000000,8
+2025,7,Emilia Romagna Grand Prix,2025-05-18,alonso,Fernando Alonso,aston_martin,Aston Martin,5,5,0.670966,1,4.936001,0,0.000000,11
+2025,7,Emilia Romagna Grand Prix,2025-05-18,albon,Alexander Albon,williams,Williams,7,7,0.712342,1,4.597063,1,10.000000,5
+2025,7,Emilia Romagna Grand Prix,2025-05-18,hamilton,Lewis Hamilton,ferrari,Ferrari,12,12,0.784703,1,4.053470,1,12.000000,4
+2025,7,Emilia Romagna Grand Prix,2025-05-18,antonelli,Andrea Kimi Antonelli,mercedes,Mercedes,13,13,0.641597,1,3.880412,0,0.000000,19
+2025,7,Emilia Romagna Grand Prix,2025-05-18,stroll,Lance Stroll,aston_martin,Aston Martin,8,8,0.544115,1,2.408053,0,0.000000,15
+2025,7,Emilia Romagna Grand Prix,2025-05-18,gasly,Pierre Gasly,alpine,Alpine F1 Team,10,10,0.565476,1,2.000269,0,0.000000,13
+2025,7,Emilia Romagna Grand Prix,2025-05-18,hadjar,Isack Hadjar,rb,RB F1 Team,9,9,0.514959,1,1.955815,1,2.000000,9
+2025,7,Emilia Romagna Grand Prix,2025-05-18,tsunoda,Yuki Tsunoda,red_bull,Red Bull,20,20,0.257432,0,1.933702,1,1.000000,10
+2025,7,Emilia Romagna Grand Prix,2025-05-18,ocon,Esteban Ocon,haas,Haas F1 Team,18,18,0.208887,0,0.715092,0,0.000000,20
+2025,7,Emilia Romagna Grand Prix,2025-05-18,bearman,Oliver Bearman,haas,Haas F1 Team,19,19,0.251224,0,0.420232,0,0.000000,17
+2025,7,Emilia Romagna Grand Prix,2025-05-18,hulkenberg,Nico Hülkenberg,sauber,Sauber,17,17,0.084284,0,0.283308,0,0.000000,12
+2025,7,Emilia Romagna Grand Prix,2025-05-18,bortoleto,Gabriel Bortoleto,sauber,Sauber,14,14,0.105245,0,0.176518,0,0.000000,18
+2025,7,Emilia Romagna Grand Prix,2025-05-18,colapinto,Franco Colapinto,alpine,Alpine F1 Team,16,15,0.136225,0,0.170787,0,0.000000,16
+2025,7,Emilia Romagna Grand Prix,2025-05-18,lawson,Liam Lawson,rb,RB F1 Team,15,16,0.068373,0,0.124932,0,0.000000,14
+2025,8,Monaco Grand Prix,2025-05-25,norris,Lando Norris,mclaren,McLaren,1,1,0.890707,1,17.588563,1,25.000000,1
+2025,8,Monaco Grand Prix,2025-05-25,piastri,Oscar Piastri,mclaren,McLaren,3,3,0.925956,1,14.914169,1,15.000000,3
+2025,8,Monaco Grand Prix,2025-05-25,leclerc,Charles Leclerc,ferrari,Ferrari,2,2,0.914590,1,13.446170,1,18.000000,2
+2025,8,Monaco Grand Prix,2025-05-25,max_verstappen,Max Verstappen,red_bull,Red Bull,4,5,0.873535,1,12.393032,1,12.000000,4
+2025,8,Monaco Grand Prix,2025-05-25,hamilton,Lewis Hamilton,ferrari,Ferrari,7,4,0.942529,1,9.016571,1,10.000000,5
+2025,8,Monaco Grand Prix,2025-05-25,russell,George Russell,mercedes,Mercedes,14,14,0.654436,1,4.288472,0,0.000000,11
+2025,8,Monaco Grand Prix,2025-05-25,hadjar,Isack Hadjar,rb,RB F1 Team,5,6,0.643348,1,4.123604,1,8.000000,6
+2025,8,Monaco Grand Prix,2025-05-25,tsunoda,Yuki Tsunoda,red_bull,Red Bull,12,12,0.380878,0,3.537442,0,0.000000,17
+2025,8,Monaco Grand Prix,2025-05-25,alonso,Fernando Alonso,aston_martin,Aston Martin,6,7,0.702051,1,3.447076,0,0.000000,19
+2025,8,Monaco Grand Prix,2025-05-25,albon,Alexander Albon,williams,Williams,10,10,0.749784,1,3.392400,1,2.000000,9
+2025,8,Monaco Grand Prix,2025-05-25,antonelli,Andrea Kimi Antonelli,mercedes,Mercedes,15,15,0.570850,1,3.030551,0,0.000000,18
+2025,8,Monaco Grand Prix,2025-05-25,sainz,Carlos Sainz,williams,Williams,11,11,0.453924,0,2.683794,1,1.000000,10
+2025,8,Monaco Grand Prix,2025-05-25,ocon,Esteban Ocon,haas,Haas F1 Team,8,8,0.371114,0,2.494019,1,6.000000,7
+2025,8,Monaco Grand Prix,2025-05-25,lawson,Liam Lawson,rb,RB F1 Team,9,9,0.465254,0,1.748364,1,4.000000,8
+2025,8,Monaco Grand Prix,2025-05-25,hulkenberg,Nico Hülkenberg,sauber,Sauber,13,13,0.209199,0,0.552922,0,0.000000,16
+2025,8,Monaco Grand Prix,2025-05-25,bearman,Oliver Bearman,haas,Haas F1 Team,20,17,0.064617,0,0.193086,0,0.000000,12
+2025,8,Monaco Grand Prix,2025-05-25,gasly,Pierre Gasly,alpine,Alpine F1 Team,17,18,0.053776,0,0.175825,0,0.000000,20
+2025,8,Monaco Grand Prix,2025-05-25,stroll,Lance Stroll,aston_martin,Aston Martin,19,19,0.054331,0,0.147131,0,0.000000,15
+2025,8,Monaco Grand Prix,2025-05-25,colapinto,Franco Colapinto,alpine,Alpine F1 Team,18,20,0.042909,0,0.000000,0,0.000000,13
+2025,8,Monaco Grand Prix,2025-05-25,bortoleto,Gabriel Bortoleto,sauber,Sauber,16,16,0.056095,0,0.000000,0,0.000000,14
+2025,9,Spanish Grand Prix,2025-06-01,norris,Lando Norris,mclaren,McLaren,2,2,0.959734,1,17.481400,1,18.000000,2
+2025,9,Spanish Grand Prix,2025-06-01,piastri,Oscar Piastri,mclaren,McLaren,1,1,0.915822,1,16.672067,1,25.000000,1
+2025,9,Spanish Grand Prix,2025-06-01,max_verstappen,Max Verstappen,red_bull,Red Bull,3,3,0.873442,1,12.830999,1,1.000000,10
+2025,9,Spanish Grand Prix,2025-06-01,russell,George Russell,mercedes,Mercedes,4,4,0.876833,1,10.989281,1,12.000000,4
+2025,9,Spanish Grand Prix,2025-06-01,hamilton,Lewis Hamilton,ferrari,Ferrari,5,5,0.919284,1,8.605090,1,8.000000,6
+2025,9,Spanish Grand Prix,2025-06-01,antonelli,Andrea Kimi Antonelli,mercedes,Mercedes,6,6,0.855077,1,7.290567,0,0.000000,18
+2025,9,Spanish Grand Prix,2025-06-01,leclerc,Charles Leclerc,ferrari,Ferrari,7,7,0.832195,1,7.076791,1,15.000000,3
+2025,9,Spanish Grand Prix,2025-06-01,albon,Alexander Albon,williams,Williams,11,11,0.597393,1,3.059555,0,0.000000,19
+2025,9,Spanish Grand Prix,2025-06-01,hadjar,Isack Hadjar,rb,RB F1 Team,9,9,0.608144,1,2.807892,1,6.000000,7
+2025,9,Spanish Grand Prix,2025-06-01,gasly,Pierre Gasly,alpine,Alpine F1 Team,8,8,0.607481,1,2.344950,1,4.000000,8
+2025,9,Spanish Grand Prix,2025-06-01,tsunoda,Yuki Tsunoda,red_bull,Red Bull,19,20,0.141284,0,2.083053,0,0.000000,13
+2025,9,Spanish Grand Prix,2025-06-01,alonso,Fernando Alonso,aston_martin,Aston Martin,10,10,0.542362,1,2.008837,1,2.000000,9
+2025,9,Spanish Grand Prix,2025-06-01,sainz,Carlos Sainz,williams,Williams,17,18,0.166254,0,1.326220,0,0.000000,14
+2025,9,Spanish Grand Prix,2025-06-01,lawson,Liam Lawson,rb,RB F1 Team,13,13,0.208166,0,0.790570,0,0.000000,11
+2025,9,Spanish Grand Prix,2025-06-01,bortoleto,Gabriel Bortoleto,sauber,Sauber,12,12,0.225700,0,0.771163,0,0.000000,12
+2025,9,Spanish Grand Prix,2025-06-01,ocon,Esteban Ocon,haas,Haas F1 Team,16,17,0.165515,0,0.616272,0,0.000000,16
+2025,9,Spanish Grand Prix,2025-06-01,bearman,Oliver Bearman,haas,Haas F1 Team,14,15,0.182668,0,0.347965,0,0.000000,17
+2025,9,Spanish Grand Prix,2025-06-01,hulkenberg,Nico Hülkenberg,sauber,Sauber,15,16,0.132842,0,0.243421,1,10.000000,5
+2025,9,Spanish Grand Prix,2025-06-01,colapinto,Franco Colapinto,alpine,Alpine F1 Team,18,19,0.040807,0,0.000000,0,0.000000,15
+2025,10,Canadian Grand Prix,2025-06-15,russell,George Russell,mercedes,Mercedes,1,1,0.880801,1,15.803196,1,25.000000,1
+2025,10,Canadian Grand Prix,2025-06-15,max_verstappen,Max Verstappen,red_bull,Red Bull,2,2,0.845135,1,13.979279,1,18.000000,2
+2025,10,Canadian Grand Prix,2025-06-15,piastri,Oscar Piastri,mclaren,McLaren,3,3,0.900284,1,13.270815,1,12.000000,4
+2025,10,Canadian Grand Prix,2025-06-15,norris,Lando Norris,mclaren,McLaren,7,7,0.920517,1,10.281406,0,0.000000,18
+2025,10,Canadian Grand Prix,2025-06-15,hamilton,Lewis Hamilton,ferrari,Ferrari,5,5,0.842515,1,9.133484,1,8.000000,6
+2025,10,Canadian Grand Prix,2025-06-15,antonelli,Andrea Kimi Antonelli,mercedes,Mercedes,4,4,0.903862,1,8.960018,1,15.000000,3
+2025,10,Canadian Grand Prix,2025-06-15,leclerc,Charles Leclerc,ferrari,Ferrari,8,8,0.777649,1,8.470191,1,10.000000,5
+2025,10,Canadian Grand Prix,2025-06-15,alonso,Fernando Alonso,aston_martin,Aston Martin,6,6,0.696795,1,4.006226,1,6.000000,7
+2025,10,Canadian Grand Prix,2025-06-15,albon,Alexander Albon,williams,Williams,9,10,0.642713,1,3.126254,0,0.000000,20
+2025,10,Canadian Grand Prix,2025-06-15,hadjar,Isack Hadjar,rb,RB F1 Team,12,9,0.477531,0,2.353087,0,0.000000,16
+2025,10,Canadian Grand Prix,2025-06-15,tsunoda,Yuki Tsunoda,red_bull,Red Bull,18,11,0.376886,0,2.225638,0,0.000000,12
+2025,10,Canadian Grand Prix,2025-06-15,hulkenberg,Nico Hülkenberg,sauber,Sauber,11,13,0.355626,0,1.721177,1,4.000000,8
+2025,10,Canadian Grand Prix,2025-06-15,colapinto,Franco Colapinto,alpine,Alpine F1 Team,10,12,0.313164,0,1.445445,0,0.000000,13
+2025,10,Canadian Grand Prix,2025-06-15,sainz,Carlos Sainz,williams,Williams,16,17,0.343787,0,1.207309,1,1.000000,10
+2025,10,Canadian Grand Prix,2025-06-15,ocon,Esteban Ocon,haas,Haas F1 Team,14,15,0.557538,1,0.776111,1,2.000000,9
+2025,10,Canadian Grand Prix,2025-06-15,lawson,Liam Lawson,rb,RB F1 Team,19,19,0.156550,0,0.605899,0,0.000000,19
+2025,10,Canadian Grand Prix,2025-06-15,bearman,Oliver Bearman,haas,Haas F1 Team,13,14,0.297462,0,0.569418,0,0.000000,11
+2025,10,Canadian Grand Prix,2025-06-15,gasly,Pierre Gasly,alpine,Alpine F1 Team,20,20,0.101749,0,0.567358,0,0.000000,15
+2025,10,Canadian Grand Prix,2025-06-15,bortoleto,Gabriel Bortoleto,sauber,Sauber,15,16,0.228560,0,0.406478,0,0.000000,14
+2025,10,Canadian Grand Prix,2025-06-15,stroll,Lance Stroll,aston_martin,Aston Martin,17,18,0.174141,0,0.399807,0,0.000000,17
+2025,11,Austrian Grand Prix,2025-06-29,norris,Lando Norris,mclaren,McLaren,1,1,0.897114,1,17.797001,1,25.000000,1
+2025,11,Austrian Grand Prix,2025-06-29,leclerc,Charles Leclerc,ferrari,Ferrari,2,2,0.867919,1,14.751143,1,15.000000,3
+2025,11,Austrian Grand Prix,2025-06-29,piastri,Oscar Piastri,mclaren,McLaren,3,3,0.691141,1,13.526783,1,18.000000,2
+2025,11,Austrian Grand Prix,2025-06-29,hamilton,Lewis Hamilton,ferrari,Ferrari,4,4,0.917582,1,10.613702,1,12.000000,4
+2025,11,Austrian Grand Prix,2025-06-29,russell,George Russell,mercedes,Mercedes,5,5,0.837703,1,9.650390,1,10.000000,5
+2025,11,Austrian Grand Prix,2025-06-29,max_verstappen,Max Verstappen,red_bull,Red Bull,7,7,0.844115,1,7.379580,0,0.000000,18
+2025,11,Austrian Grand Prix,2025-06-29,antonelli,Andrea Kimi Antonelli,mercedes,Mercedes,9,9,0.763919,1,5.336158,0,0.000000,19
+2025,11,Austrian Grand Prix,2025-06-29,lawson,Liam Lawson,rb,RB F1 Team,6,6,0.607352,1,4.419172,1,8.000000,6
+2025,11,Austrian Grand Prix,2025-06-29,bortoleto,Gabriel Bortoleto,sauber,Sauber,8,8,0.476142,0,2.358841,1,4.000000,8
+2025,11,Austrian Grand Prix,2025-06-29,gasly,Pierre Gasly,alpine,Alpine F1 Team,10,10,0.486241,0,1.859067,0,0.000000,13
+2025,11,Austrian Grand Prix,2025-06-29,alonso,Fernando Alonso,aston_martin,Aston Martin,11,11,0.386391,0,1.752149,1,6.000000,7
+2025,11,Austrian Grand Prix,2025-06-29,tsunoda,Yuki Tsunoda,red_bull,Red Bull,18,18,0.201776,0,1.750150,0,0.000000,16
+2025,11,Austrian Grand Prix,2025-06-29,albon,Alexander Albon,williams,Williams,12,12,0.441152,0,1.734832,0,0.000000,17
+2025,11,Austrian Grand Prix,2025-06-29,hadjar,Isack Hadjar,rb,RB F1 Team,13,13,0.299699,0,1.184278,0,0.000000,12
+2025,11,Austrian Grand Prix,2025-06-29,hulkenberg,Nico Hülkenberg,sauber,Sauber,20,20,0.130933,0,0.766100,1,2.000000,9
+2025,11,Austrian Grand Prix,2025-06-29,ocon,Esteban Ocon,haas,Haas F1 Team,17,17,0.174442,0,0.762212,1,1.000000,10
+2025,11,Austrian Grand Prix,2025-06-29,sainz,Carlos Sainz,williams,Williams,19,19,0.199910,0,0.712595,0,0.000000,20
+2025,11,Austrian Grand Prix,2025-06-29,bearman,Oliver Bearman,haas,Haas F1 Team,15,15,0.123225,0,0.317228,0,0.000000,11
+2025,11,Austrian Grand Prix,2025-06-29,stroll,Lance Stroll,aston_martin,Aston Martin,16,16,0.156697,0,0.315314,0,0.000000,14
+2025,11,Austrian Grand Prix,2025-06-29,colapinto,Franco Colapinto,alpine,Alpine F1 Team,14,14,0.097181,0,0.168458,0,0.000000,15
+2025,12,British Grand Prix,2025-07-06,max_verstappen,Max Verstappen,red_bull,Red Bull,1,1,0.929746,1,16.516802,1,10.000000,5
+2025,12,British Grand Prix,2025-07-06,piastri,Oscar Piastri,mclaren,McLaren,2,2,0.862800,1,16.296409,1,18.000000,2
+2025,12,British Grand Prix,2025-07-06,norris,Lando Norris,mclaren,McLaren,3,3,0.875396,1,14.155409,1,25.000000,1
+2025,12,British Grand Prix,2025-07-06,russell,George Russell,mercedes,Mercedes,4,4,0.913465,1,11.043155,1,1.000000,10
+2025,12,British Grand Prix,2025-07-06,leclerc,Charles Leclerc,ferrari,Ferrari,6,6,0.870971,1,9.905566,0,0.000000,14
+2025,12,British Grand Prix,2025-07-06,hamilton,Lewis Hamilton,ferrari,Ferrari,5,5,0.912203,1,9.494605,1,12.000000,4
+2025,12,British Grand Prix,2025-07-06,antonelli,Andrea Kimi Antonelli,mercedes,Mercedes,10,7,0.794132,1,6.389831,0,0.000000,16
+2025,12,British Grand Prix,2025-07-06,alonso,Fernando Alonso,aston_martin,Aston Martin,7,9,0.647297,1,3.078019,1,2.000000,9
+2025,12,British Grand Prix,2025-07-06,tsunoda,Yuki Tsunoda,red_bull,Red Bull,11,12,0.376981,0,2.629097,0,0.000000,15
+2025,12,British Grand Prix,2025-07-06,sainz,Carlos Sainz,williams,Williams,9,11,0.408029,0,1.945490,0,0.000000,12
+2025,12,British Grand Prix,2025-07-06,gasly,Pierre Gasly,alpine,Alpine F1 Team,8,10,0.541884,1,1.891259,1,8.000000,6
+2025,12,British Grand Prix,2025-07-06,hadjar,Isack Hadjar,rb,RB F1 Team,12,13,0.224948,0,1.373458,0,0.000000,17
+2025,12,British Grand Prix,2025-07-06,bearman,Oliver Bearman,haas,Haas F1 Team,18,8,0.254648,0,1.234796,0,0.000000,11
+2025,12,British Grand Prix,2025-07-06,albon,Alexander Albon,williams,Williams,13,14,0.295307,0,1.114023,1,4.000000,8
+2025,12,British Grand Prix,2025-07-06,hulkenberg,Nico Hülkenberg,sauber,Sauber,19,19,0.191054,0,1.048916,1,15.000000,3
+2025,12,British Grand Prix,2025-07-06,lawson,Liam Lawson,rb,RB F1 Team,15,16,0.205270,0,0.716978,0,0.000000,19
+2025,12,British Grand Prix,2025-07-06,ocon,Esteban Ocon,haas,Haas F1 Team,14,15,0.258438,0,0.600575,0,0.000000,13
+2025,12,British Grand Prix,2025-07-06,bortoleto,Gabriel Bortoleto,sauber,Sauber,16,17,0.199225,0,0.547242,0,0.000000,18
+2025,12,British Grand Prix,2025-07-06,stroll,Lance Stroll,aston_martin,Aston Martin,17,18,0.278916,0,0.335354,1,6.000000,7
+2025,12,British Grand Prix,2025-07-06,colapinto,Franco Colapinto,alpine,Alpine F1 Team,20,20,0.050326,0,0.134479,0,0.000000,20
+2025,13,Belgian Grand Prix,2025-07-27,norris,Lando Norris,mclaren,McLaren,1,1,0.932854,1,18.832630,1,18.000000,2
+2025,13,Belgian Grand Prix,2025-07-27,piastri,Oscar Piastri,mclaren,McLaren,2,2,0.879967,1,17.086598,1,25.000000,1
+2025,13,Belgian Grand Prix,2025-07-27,leclerc,Charles Leclerc,ferrari,Ferrari,3,3,0.906418,1,12.047253,1,15.000000,3
+2025,13,Belgian Grand Prix,2025-07-27,max_verstappen,Max Verstappen,red_bull,Red Bull,4,4,0.906513,1,11.035606,1,12.000000,4
+2025,13,Belgian Grand Prix,2025-07-27,russell,George Russell,mercedes,Mercedes,6,6,0.849378,1,8.455393,1,10.000000,5
+2025,13,Belgian Grand Prix,2025-07-27,albon,Alexander Albon,williams,Williams,5,5,0.701609,1,6.120965,1,8.000000,6
+2025,13,Belgian Grand Prix,2025-07-27,hamilton,Lewis Hamilton,ferrari,Ferrari,18,16,0.629951,1,4.474192,1,6.000000,7
+2025,13,Belgian Grand Prix,2025-07-27,tsunoda,Yuki Tsunoda,red_bull,Red Bull,7,7,0.737114,1,4.454652,0,0.000000,13
+2025,13,Belgian Grand Prix,2025-07-27,antonelli,Andrea Kimi Antonelli,mercedes,Mercedes,19,18,0.541256,1,3.235358,0,0.000000,16
+2025,13,Belgian Grand Prix,2025-07-27,hadjar,Isack Hadjar,rb,RB F1 Team,8,8,0.588349,1,2.446036,0,0.000000,20
+2025,13,Belgian Grand Prix,2025-07-27,bortoleto,Gabriel Bortoleto,sauber,Sauber,10,10,0.435516,0,2.241840,1,2.000000,9
+2025,13,Belgian Grand Prix,2025-07-27,hulkenberg,Nico Hülkenberg,sauber,Sauber,14,14,0.266407,0,2.171716,0,0.000000,12
+2025,13,Belgian Grand Prix,2025-07-27,lawson,Liam Lawson,rb,RB F1 Team,9,9,0.515222,1,2.025146,1,4.000000,8
+2025,13,Belgian Grand Prix,2025-07-27,ocon,Esteban Ocon,haas,Haas F1 Team,11,11,0.331810,0,1.486956,0,0.000000,15
+2025,13,Belgian Grand Prix,2025-07-27,alonso,Fernando Alonso,aston_martin,Aston Martin,20,19,0.110982,0,1.149453,0,0.000000,17
+2025,13,Belgian Grand Prix,2025-07-27,gasly,Pierre Gasly,alpine,Alpine F1 Team,13,13,0.366709,0,0.886299,1,1.000000,10
+2025,13,Belgian Grand Prix,2025-07-27,bearman,Oliver Bearman,haas,Haas F1 Team,12,12,0.216634,0,0.840685,0,0.000000,11
+2025,13,Belgian Grand Prix,2025-07-27,stroll,Lance Stroll,aston_martin,Aston Martin,16,20,0.093986,0,0.616151,0,0.000000,14
+2025,13,Belgian Grand Prix,2025-07-27,sainz,Carlos Sainz,williams,Williams,17,15,0.209089,0,0.454549,0,0.000000,18
+2025,13,Belgian Grand Prix,2025-07-27,colapinto,Franco Colapinto,alpine,Alpine F1 Team,15,17,0.069746,0,0.112589,0,0.000000,19
+2025,14,Hungarian Grand Prix,2025-08-03,piastri,Oscar Piastri,mclaren,McLaren,2,2,0.943017,1,17.894263,1,18.000000,2
+2025,14,Hungarian Grand Prix,2025-08-03,leclerc,Charles Leclerc,ferrari,Ferrari,1,1,0.915311,1,17.820225,1,12.000000,4
+2025,14,Hungarian Grand Prix,2025-08-03,norris,Lando Norris,mclaren,McLaren,3,3,0.935985,1,15.604599,1,25.000000,1
+2025,14,Hungarian Grand Prix,2025-08-03,russell,George Russell,mercedes,Mercedes,4,4,0.909914,1,9.711255,1,15.000000,3
+2025,14,Hungarian Grand Prix,2025-08-03,max_verstappen,Max Verstappen,red_bull,Red Bull,8,8,0.823837,1,5.718796,1,2.000000,9
+2025,14,Hungarian Grand Prix,2025-08-03,alonso,Fernando Alonso,aston_martin,Aston Martin,5,5,0.724038,1,5.718399,1,10.000000,5
+2025,14,Hungarian Grand Prix,2025-08-03,hamilton,Lewis Hamilton,ferrari,Ferrari,12,12,0.833984,1,5.260535,0,0.000000,12
+2025,14,Hungarian Grand Prix,2025-08-03,stroll,Lance Stroll,aston_martin,Aston Martin,6,6,0.690474,1,4.604993,1,6.000000,7
+2025,14,Hungarian Grand Prix,2025-08-03,bortoleto,Gabriel Bortoleto,sauber,Sauber,7,7,0.573817,1,3.805767,1,8.000000,6
+2025,14,Hungarian Grand Prix,2025-08-03,lawson,Liam Lawson,rb,RB F1 Team,9,9,0.568759,1,2.517210,1,4.000000,8
+2025,14,Hungarian Grand Prix,2025-08-03,antonelli,Andrea Kimi Antonelli,mercedes,Mercedes,15,15,0.513694,1,2.197034,1,1.000000,10
+2025,14,Hungarian Grand Prix,2025-08-03,hulkenberg,Nico Hülkenberg,sauber,Sauber,18,19,0.231469,0,1.989331,0,0.000000,13
+2025,14,Hungarian Grand Prix,2025-08-03,hadjar,Isack Hadjar,rb,RB F1 Team,10,10,0.536953,1,1.919072,0,0.000000,11
+2025,14,Hungarian Grand Prix,2025-08-03,albon,Alexander Albon,williams,Williams,19,20,0.237974,0,1.512454,0,0.000000,15
+2025,14,Hungarian Grand Prix,2025-08-03,tsunoda,Yuki Tsunoda,red_bull,Red Bull,20,16,0.257991,0,1.278943,0,0.000000,17
+2025,14,Hungarian Grand Prix,2025-08-03,bearman,Oliver Bearman,haas,Haas F1 Team,11,11,0.209698,0,1.159478,0,0.000000,20
+2025,14,Hungarian Grand Prix,2025-08-03,sainz,Carlos Sainz,williams,Williams,13,13,0.269873,0,0.938067,0,0.000000,14
+2025,14,Hungarian Grand Prix,2025-08-03,gasly,Pierre Gasly,alpine,Alpine F1 Team,16,17,0.237993,0,0.761779,0,0.000000,19
+2025,14,Hungarian Grand Prix,2025-08-03,ocon,Esteban Ocon,haas,Haas F1 Team,17,18,0.166840,0,0.343483,0,0.000000,16
+2025,14,Hungarian Grand Prix,2025-08-03,colapinto,Franco Colapinto,alpine,Alpine F1 Team,14,14,0.115188,0,0.204568,0,0.000000,18
+2025,15,Dutch Grand Prix,2025-08-31,piastri,Oscar Piastri,mclaren,McLaren,1,1,0.970243,1,19.858648,1,25.000000,1
+2025,15,Dutch Grand Prix,2025-08-31,norris,Lando Norris,mclaren,McLaren,2,2,0.975125,1,18.655293,0,0.000000,18
+2025,15,Dutch Grand Prix,2025-08-31,max_verstappen,Max Verstappen,red_bull,Red Bull,3,3,0.834995,1,11.167895,1,18.000000,2
+2025,15,Dutch Grand Prix,2025-08-31,russell,George Russell,mercedes,Mercedes,5,5,0.833455,1,9.739862,1,12.000000,4
+2025,15,Dutch Grand Prix,2025-08-31,leclerc,Charles Leclerc,ferrari,Ferrari,6,6,0.830320,1,8.734578,0,0.000000,19
+2025,15,Dutch Grand Prix,2025-08-31,hamilton,Lewis Hamilton,ferrari,Ferrari,7,7,0.860356,1,6.791207,0,0.000000,20
+2025,15,Dutch Grand Prix,2025-08-31,hadjar,Isack Hadjar,rb,RB F1 Team,4,4,0.754104,1,6.439454,1,15.000000,3
+2025,15,Dutch Grand Prix,2025-08-31,antonelli,Andrea Kimi Antonelli,mercedes,Mercedes,11,11,0.664801,1,3.920034,0,0.000000,16
+2025,15,Dutch Grand Prix,2025-08-31,alonso,Fernando Alonso,aston_martin,Aston Martin,10,10,0.778867,1,3.083166,1,4.000000,8
+2025,15,Dutch Grand Prix,2025-08-31,lawson,Liam Lawson,rb,RB F1 Team,8,8,0.565335,1,2.769242,0,0.000000,12
+2025,15,Dutch Grand Prix,2025-08-31,sainz,Carlos Sainz,williams,Williams,9,9,0.471840,0,2.341534,0,0.000000,13
+2025,15,Dutch Grand Prix,2025-08-31,tsunoda,Yuki Tsunoda,red_bull,Red Bull,12,12,0.349465,0,2.183187,1,2.000000,9
+2025,15,Dutch Grand Prix,2025-08-31,hulkenberg,Nico Hülkenberg,sauber,Sauber,17,17,0.330681,0,2.008802,0,0.000000,14
+2025,15,Dutch Grand Prix,2025-08-31,albon,Alexander Albon,williams,Williams,15,15,0.307169,0,1.547685,1,10.000000,5
+2025,15,Dutch Grand Prix,2025-08-31,bortoleto,Gabriel Bortoleto,sauber,Sauber,13,13,0.305649,0,1.476781,0,0.000000,15
+2025,15,Dutch Grand Prix,2025-08-31,stroll,Lance Stroll,aston_martin,Aston Martin,19,20,0.132446,0,1.052141,1,6.000000,7
+2025,15,Dutch Grand Prix,2025-08-31,gasly,Pierre Gasly,alpine,Alpine F1 Team,14,14,0.224661,0,0.679082,0,0.000000,17
+2025,15,Dutch Grand Prix,2025-08-31,ocon,Esteban Ocon,haas,Haas F1 Team,18,18,0.109061,0,0.349703,1,1.000000,10
+2025,15,Dutch Grand Prix,2025-08-31,colapinto,Franco Colapinto,alpine,Alpine F1 Team,16,16,0.099391,0,0.283198,0,0.000000,11
+2025,15,Dutch Grand Prix,2025-08-31,bearman,Oliver Bearman,haas,Haas F1 Team,20,19,0.078650,0,0.140581,1,8.000000,6
+2025,16,Italian Grand Prix,2025-09-07,norris,Lando Norris,mclaren,McLaren,2,2,0.990631,1,17.767994,1,18.000000,2
+2025,16,Italian Grand Prix,2025-09-07,piastri,Oscar Piastri,mclaren,McLaren,3,3,0.985602,1,16.819367,1,15.000000,3
+2025,16,Italian Grand Prix,2025-09-07,max_verstappen,Max Verstappen,red_bull,Red Bull,1,1,0.882564,1,15.767445,1,25.000000,1
+2025,16,Italian Grand Prix,2025-09-07,leclerc,Charles Leclerc,ferrari,Ferrari,4,4,0.910047,1,11.311117,1,12.000000,4
+2025,16,Italian Grand Prix,2025-09-07,hamilton,Lewis Hamilton,ferrari,Ferrari,10,5,0.939042,1,9.339791,1,8.000000,6
+2025,16,Italian Grand Prix,2025-09-07,russell,George Russell,mercedes,Mercedes,5,6,0.876552,1,8.369428,1,10.000000,5
+2025,16,Italian Grand Prix,2025-09-07,antonelli,Andrea Kimi Antonelli,mercedes,Mercedes,6,7,0.787800,1,6.010608,1,2.000000,9
+2025,16,Italian Grand Prix,2025-09-07,tsunoda,Yuki Tsunoda,red_bull,Red Bull,9,10,0.579375,1,3.308107,0,0.000000,13
+2025,16,Italian Grand Prix,2025-09-07,alonso,Fernando Alonso,aston_martin,Aston Martin,8,9,0.647191,1,3.287598,0,0.000000,19
+2025,16,Italian Grand Prix,2025-09-07,bortoleto,Gabriel Bortoleto,sauber,Sauber,7,8,0.445984,0,2.773648,1,4.000000,8
+2025,16,Italian Grand Prix,2025-09-07,albon,Alexander Albon,williams,Williams,14,14,0.353875,0,1.739757,1,6.000000,7
+2025,16,Italian Grand Prix,2025-09-07,hadjar,Isack Hadjar,rb,RB F1 Team,19,16,0.145732,0,1.678124,1,1.000000,10
+2025,16,Italian Grand Prix,2025-09-07,hulkenberg,Nico Hülkenberg,sauber,Sauber,12,12,0.321383,0,1.584487,0,0.000000,20
+2025,16,Italian Grand Prix,2025-09-07,bearman,Oliver Bearman,haas,Haas F1 Team,11,11,0.166117,0,1.578598,0,0.000000,12
+2025,16,Italian Grand Prix,2025-09-07,lawson,Liam Lawson,rb,RB F1 Team,18,20,0.085100,0,1.168569,0,0.000000,14
+2025,16,Italian Grand Prix,2025-09-07,stroll,Lance Stroll,aston_martin,Aston Martin,16,17,0.144796,0,1.164197,0,0.000000,18
+2025,16,Italian Grand Prix,2025-09-07,sainz,Carlos Sainz,williams,Williams,13,13,0.258714,0,0.978539,0,0.000000,11
+2025,16,Italian Grand Prix,2025-09-07,ocon,Esteban Ocon,haas,Haas F1 Team,15,15,0.090058,0,0.546313,0,0.000000,15
+2025,16,Italian Grand Prix,2025-09-07,gasly,Pierre Gasly,alpine,Alpine F1 Team,20,19,0.099530,0,0.103726,0,0.000000,16
+2025,16,Italian Grand Prix,2025-09-07,colapinto,Franco Colapinto,alpine,Alpine F1 Team,17,18,0.065720,0,0.024574,0,0.000000,17
+2025,17,Azerbaijan Grand Prix,2025-09-21,max_verstappen,Max Verstappen,red_bull,Red Bull,1,1,0.874865,1,15.774233,1,25.000000,1
+2025,17,Azerbaijan Grand Prix,2025-09-21,norris,Lando Norris,mclaren,McLaren,7,7,0.977005,1,11.810514,1,6.000000,7
+2025,17,Azerbaijan Grand Prix,2025-09-21,piastri,Oscar Piastri,mclaren,McLaren,9,9,0.962440,1,10.287156,0,0.000000,20
+2025,17,Azerbaijan Grand Prix,2025-09-21,russell,George Russell,mercedes,Mercedes,5,5,0.771070,1,9.578552,1,18.000000,2
+2025,17,Azerbaijan Grand Prix,2025-09-21,antonelli,Andrea Kimi Antonelli,mercedes,Mercedes,4,4,0.852735,1,9.415268,1,12.000000,4
+2025,17,Azerbaijan Grand Prix,2025-09-21,sainz,Carlos Sainz,williams,Williams,2,2,0.773176,1,9.036134,1,15.000000,3
+2025,17,Azerbaijan Grand Prix,2025-09-21,lawson,Liam Lawson,rb,RB F1 Team,3,3,0.752213,1,7.541664,1,10.000000,5
+2025,17,Azerbaijan Grand Prix,2025-09-21,tsunoda,Yuki Tsunoda,red_bull,Red Bull,6,6,0.745609,1,5.763727,1,8.000000,6
+2025,17,Azerbaijan Grand Prix,2025-09-21,hamilton,Lewis Hamilton,ferrari,Ferrari,12,12,0.831999,1,5.019482,1,4.000000,8
+2025,17,Azerbaijan Grand Prix,2025-09-21,leclerc,Charles Leclerc,ferrari,Ferrari,10,10,0.857264,1,4.925383,1,2.000000,9
+2025,17,Azerbaijan Grand Prix,2025-09-21,hadjar,Isack Hadjar,rb,RB F1 Team,8,8,0.602512,1,3.772351,1,1.000000,10
+2025,17,Azerbaijan Grand Prix,2025-09-21,alonso,Fernando Alonso,aston_martin,Aston Martin,11,11,0.434414,0,2.419416,0,0.000000,15
+2025,17,Azerbaijan Grand Prix,2025-09-21,albon,Alexander Albon,williams,Williams,19,19,0.362052,0,1.752996,0,0.000000,13
+2025,17,Azerbaijan Grand Prix,2025-09-21,stroll,Lance Stroll,aston_martin,Aston Martin,14,14,0.274696,0,1.239056,0,0.000000,17
+2025,17,Azerbaijan Grand Prix,2025-09-21,bortoleto,Gabriel Bortoleto,sauber,Sauber,13,13,0.277372,0,1.129069,0,0.000000,11
+2025,17,Azerbaijan Grand Prix,2025-09-21,hulkenberg,Nico Hülkenberg,sauber,Sauber,17,17,0.169520,0,0.892094,0,0.000000,16
+2025,17,Azerbaijan Grand Prix,2025-09-21,ocon,Esteban Ocon,haas,Haas F1 Team,20,20,0.082670,0,0.606754,0,0.000000,14
+2025,17,Azerbaijan Grand Prix,2025-09-21,bearman,Oliver Bearman,haas,Haas F1 Team,15,15,0.156342,0,0.601243,0,0.000000,12
+2025,17,Azerbaijan Grand Prix,2025-09-21,colapinto,Franco Colapinto,alpine,Alpine F1 Team,16,16,0.077970,0,0.194812,0,0.000000,19
+2025,17,Azerbaijan Grand Prix,2025-09-21,gasly,Pierre Gasly,alpine,Alpine F1 Team,18,18,0.068531,0,0.189788,0,0.000000,18
+2025,18,Singapore Grand Prix,2025-10-05,russell,George Russell,mercedes,Mercedes,1,1,0.921214,1,16.730380,1,25.000000,1
+2025,18,Singapore Grand Prix,2025-10-05,max_verstappen,Max Verstappen,red_bull,Red Bull,2,2,0.950276,1,16.342499,1,18.000000,2
+2025,18,Singapore Grand Prix,2025-10-05,piastri,Oscar Piastri,mclaren,McLaren,3,3,0.980378,1,15.541899,1,12.000000,4
+2025,18,Singapore Grand Prix,2025-10-05,norris,Lando Norris,mclaren,McLaren,5,5,0.979610,1,12.345610,1,15.000000,3
+2025,18,Singapore Grand Prix,2025-10-05,antonelli,Andrea Kimi Antonelli,mercedes,Mercedes,4,4,0.858122,1,10.051984,1,10.000000,5
+2025,18,Singapore Grand Prix,2025-10-05,hamilton,Lewis Hamilton,ferrari,Ferrari,6,6,0.893656,1,8.378651,1,4.000000,8
+2025,18,Singapore Grand Prix,2025-10-05,leclerc,Charles Leclerc,ferrari,Ferrari,7,7,0.823949,1,6.634377,1,8.000000,6
+2025,18,Singapore Grand Prix,2025-10-05,hadjar,Isack Hadjar,rb,RB F1 Team,8,8,0.631789,1,4.333639,0,0.000000,11
+2025,18,Singapore Grand Prix,2025-10-05,tsunoda,Yuki Tsunoda,red_bull,Red Bull,13,13,0.447334,0,2.997768,0,0.000000,12
+2025,18,Singapore Grand Prix,2025-10-05,alonso,Fernando Alonso,aston_martin,Aston Martin,10,10,0.569571,1,2.719260,1,6.000000,7
+2025,18,Singapore Grand Prix,2025-10-05,lawson,Liam Lawson,rb,RB F1 Team,12,12,0.487051,0,2.338341,0,0.000000,15
+2025,18,Singapore Grand Prix,2025-10-05,bearman,Oliver Bearman,haas,Haas F1 Team,9,9,0.341860,0,2.321914,1,2.000000,9
+2025,18,Singapore Grand Prix,2025-10-05,sainz,Carlos Sainz,williams,Williams,18,20,0.359198,0,2.101590,1,1.000000,10
+2025,18,Singapore Grand Prix,2025-10-05,albon,Alexander Albon,williams,Williams,20,19,0.410170,0,1.977735,0,0.000000,14
+2025,18,Singapore Grand Prix,2025-10-05,hulkenberg,Nico Hülkenberg,sauber,Sauber,11,11,0.341677,0,1.631489,0,0.000000,20
+2025,18,Singapore Grand Prix,2025-10-05,stroll,Lance Stroll,aston_martin,Aston Martin,15,15,0.244483,0,0.881369,0,0.000000,13
+2025,18,Singapore Grand Prix,2025-10-05,bortoleto,Gabriel Bortoleto,sauber,Sauber,14,14,0.235814,0,0.526547,0,0.000000,17
+2025,18,Singapore Grand Prix,2025-10-05,ocon,Esteban Ocon,haas,Haas F1 Team,17,17,0.083209,0,0.440275,0,0.000000,18
+2025,18,Singapore Grand Prix,2025-10-05,gasly,Pierre Gasly,alpine,Alpine F1 Team,19,18,0.101097,0,0.096607,0,0.000000,19
+2025,18,Singapore Grand Prix,2025-10-05,colapinto,Franco Colapinto,alpine,Alpine F1 Team,16,16,0.080007,0,0.036970,0,0.000000,16
+2025,19,United States Grand Prix,2025-10-19,max_verstappen,Max Verstappen,red_bull,Red Bull,1,1,0.979472,1,18.125898,1,25.000000,1
+2025,19,United States Grand Prix,2025-10-19,norris,Lando Norris,mclaren,McLaren,2,2,0.988978,1,18.011406,1,18.000000,2
+2025,19,United States Grand Prix,2025-10-19,russell,George Russell,mercedes,Mercedes,4,4,0.897746,1,12.690770,1,8.000000,6
+2025,19,United States Grand Prix,2025-10-19,piastri,Oscar Piastri,mclaren,McLaren,6,6,0.981053,1,11.826732,1,10.000000,5
+2025,19,United States Grand Prix,2025-10-19,leclerc,Charles Leclerc,ferrari,Ferrari,3,3,0.874885,1,11.028066,1,15.000000,3
+2025,19,United States Grand Prix,2025-10-19,hamilton,Lewis Hamilton,ferrari,Ferrari,5,5,0.879455,1,9.331923,1,12.000000,4
+2025,19,United States Grand Prix,2025-10-19,antonelli,Andrea Kimi Antonelli,mercedes,Mercedes,7,7,0.824950,1,7.197261,0,0.000000,13
+2025,19,United States Grand Prix,2025-10-19,sainz,Carlos Sainz,williams,Williams,9,9,0.517575,1,3.674140,0,0.000000,20
+2025,19,United States Grand Prix,2025-10-19,tsunoda,Yuki Tsunoda,red_bull,Red Bull,13,13,0.393824,0,2.839154,1,6.000000,7
+2025,19,United States Grand Prix,2025-10-19,alonso,Fernando Alonso,aston_martin,Aston Martin,10,10,0.587446,1,2.390025,1,1.000000,10
+2025,19,United States Grand Prix,2025-10-19,bearman,Oliver Bearman,haas,Haas F1 Team,8,8,0.405087,0,2.224541,1,2.000000,9
+2025,19,United States Grand Prix,2025-10-19,lawson,Liam Lawson,rb,RB F1 Team,12,12,0.509812,1,1.745776,0,0.000000,11
+2025,19,United States Grand Prix,2025-10-19,albon,Alexander Albon,williams,Williams,18,19,0.377586,0,1.702668,0,0.000000,14
+2025,19,United States Grand Prix,2025-10-19,hulkenberg,Nico Hülkenberg,sauber,Sauber,11,11,0.360752,0,1.486791,1,4.000000,8
+2025,19,United States Grand Prix,2025-10-19,hadjar,Isack Hadjar,rb,RB F1 Team,20,20,0.248990,0,0.999833,0,0.000000,16
+2025,19,United States Grand Prix,2025-10-19,stroll,Lance Stroll,aston_martin,Aston Martin,19,18,0.140317,0,0.374706,0,0.000000,12
+2025,19,United States Grand Prix,2025-10-19,bortoleto,Gabriel Bortoleto,sauber,Sauber,16,16,0.198025,0,0.355300,0,0.000000,18
+2025,19,United States Grand Prix,2025-10-19,ocon,Esteban Ocon,haas,Haas F1 Team,17,17,0.132830,0,0.152764,0,0.000000,15
+2025,19,United States Grand Prix,2025-10-19,gasly,Pierre Gasly,alpine,Alpine F1 Team,14,14,0.148779,0,0.050137,0,0.000000,19
+2025,19,United States Grand Prix,2025-10-19,colapinto,Franco Colapinto,alpine,Alpine F1 Team,15,15,0.081974,0,0.000000,0,0.000000,17
+2025,20,Mexico City Grand Prix,2025-10-26,norris,Lando Norris,mclaren,McLaren,1,1,0.984420,1,18.483459,1,25.000000,1
+2025,20,Mexico City Grand Prix,2025-10-26,max_verstappen,Max Verstappen,red_bull,Red Bull,5,5,0.979302,1,15.306250,1,15.000000,3
+2025,20,Mexico City Grand Prix,2025-10-26,leclerc,Charles Leclerc,ferrari,Ferrari,2,2,0.876158,1,13.346464,1,18.000000,2
+2025,20,Mexico City Grand Prix,2025-10-26,russell,George Russell,mercedes,Mercedes,4,4,0.941416,1,12.431195,1,6.000000,7
+2025,20,Mexico City Grand Prix,2025-10-26,hamilton,Lewis Hamilton,ferrari,Ferrari,3,3,0.875886,1,10.761196,1,4.000000,8
+2025,20,Mexico City Grand Prix,2025-10-26,piastri,Oscar Piastri,mclaren,McLaren,7,8,0.967220,1,9.211929,1,10.000000,5
+2025,20,Mexico City Grand Prix,2025-10-26,antonelli,Andrea Kimi Antonelli,mercedes,Mercedes,6,6,0.841021,1,7.966675,1,8.000000,6
+2025,20,Mexico City Grand Prix,2025-10-26,tsunoda,Yuki Tsunoda,red_bull,Red Bull,10,11,0.578693,1,4.437792,0,0.000000,11
+2025,20,Mexico City Grand Prix,2025-10-26,sainz,Carlos Sainz,williams,Williams,12,7,0.678526,1,4.254383,0,0.000000,17
+2025,20,Mexico City Grand Prix,2025-10-26,hadjar,Isack Hadjar,rb,RB F1 Team,8,9,0.561778,1,2.601518,0,0.000000,13
+2025,20,Mexico City Grand Prix,2025-10-26,bearman,Oliver Bearman,haas,Haas F1 Team,9,10,0.391473,0,1.982604,1,12.000000,4
+2025,20,Mexico City Grand Prix,2025-10-26,albon,Alexander Albon,williams,Williams,17,17,0.331941,0,1.610413,0,0.000000,12
+2025,20,Mexico City Grand Prix,2025-10-26,ocon,Esteban Ocon,haas,Haas F1 Team,11,12,0.288713,0,1.275487,1,2.000000,9
+2025,20,Mexico City Grand Prix,2025-10-26,hulkenberg,Nico Hülkenberg,sauber,Sauber,13,13,0.372162,0,1.187003,0,0.000000,19
+2025,20,Mexico City Grand Prix,2025-10-26,alonso,Fernando Alonso,aston_martin,Aston Martin,14,14,0.298231,0,1.139344,0,0.000000,18
+2025,20,Mexico City Grand Prix,2025-10-26,lawson,Liam Lawson,rb,RB F1 Team,15,15,0.251640,0,1.137021,0,0.000000,20
+2025,20,Mexico City Grand Prix,2025-10-26,stroll,Lance Stroll,aston_martin,Aston Martin,19,19,0.121627,0,0.568086,0,0.000000,14
+2025,20,Mexico City Grand Prix,2025-10-26,bortoleto,Gabriel Bortoleto,sauber,Sauber,16,16,0.160373,0,0.326674,1,1.000000,10
+2025,20,Mexico City Grand Prix,2025-10-26,gasly,Pierre Gasly,alpine,Alpine F1 Team,18,18,0.058807,0,0.134471,0,0.000000,15
+2025,20,Mexico City Grand Prix,2025-10-26,colapinto,Franco Colapinto,alpine,Alpine F1 Team,20,20,0.054305,0,0.084986,0,0.000000,16
+2025,21,São Paulo Grand Prix,2025-11-09,norris,Lando Norris,mclaren,McLaren,1,1,0.953049,1,18.221574,1,25.000000,1
+2025,21,São Paulo Grand Prix,2025-11-09,antonelli,Andrea Kimi Antonelli,mercedes,Mercedes,2,2,0.925580,1,12.980724,1,18.000000,2
+2025,21,São Paulo Grand Prix,2025-11-09,leclerc,Charles Leclerc,ferrari,Ferrari,3,3,0.857341,1,12.941823,0,0.000000,19
+2025,21,São Paulo Grand Prix,2025-11-09,piastri,Oscar Piastri,mclaren,McLaren,4,4,0.963523,1,12.245058,1,10.000000,5
+2025,21,São Paulo Grand Prix,2025-11-09,max_verstappen,Max Verstappen,red_bull,Red Bull,19,16,0.919626,1,9.904607,1,15.000000,3
+2025,21,São Paulo Grand Prix,2025-11-09,russell,George Russell,mercedes,Mercedes,6,6,0.948885,1,8.977783,1,12.000000,4
+2025,21,São Paulo Grand Prix,2025-11-09,hadjar,Isack Hadjar,rb,RB F1 Team,5,5,0.628295,1,5.136325,1,4.000000,8
+2025,21,São Paulo Grand Prix,2025-11-09,hamilton,Lewis Hamilton,ferrari,Ferrari,13,13,0.692190,1,4.771135,0,0.000000,18
+2025,21,São Paulo Grand Prix,2025-11-09,bortoleto,Gabriel Bortoleto,sauber,Sauber,18,,0.359204,0,3.677731,0,0.000000,20
+2025,21,São Paulo Grand Prix,2025-11-09,lawson,Liam Lawson,rb,RB F1 Team,7,7,0.570386,1,3.360260,1,6.000000,7
+2025,21,São Paulo Grand Prix,2025-11-09,bearman,Oliver Bearman,haas,Haas F1 Team,8,8,0.411963,0,3.212984,1,8.000000,6
+2025,21,São Paulo Grand Prix,2025-11-09,tsunoda,Yuki Tsunoda,red_bull,Red Bull,17,19,0.245343,0,2.763779,0,0.000000,17
+2025,21,São Paulo Grand Prix,2025-11-09,hulkenberg,Nico Hülkenberg,sauber,Sauber,10,10,0.487482,0,2.118117,1,2.000000,9
+2025,21,São Paulo Grand Prix,2025-11-09,alonso,Fernando Alonso,aston_martin,Aston Martin,11,11,0.375427,0,2.073947,0,0.000000,14
+2025,21,São Paulo Grand Prix,2025-11-09,albon,Alexander Albon,williams,Williams,12,12,0.358544,0,1.996633,0,0.000000,11
+2025,21,São Paulo Grand Prix,2025-11-09,gasly,Pierre Gasly,alpine,Alpine F1 Team,9,9,0.440789,0,1.681430,1,1.000000,10
+2025,21,São Paulo Grand Prix,2025-11-09,sainz,Carlos Sainz,williams,Williams,15,15,0.288424,0,0.828167,0,0.000000,13
+2025,21,São Paulo Grand Prix,2025-11-09,ocon,Esteban Ocon,haas,Haas F1 Team,20,17,0.081909,0,0.583941,0,0.000000,12
+2025,21,São Paulo Grand Prix,2025-11-09,stroll,Lance Stroll,aston_martin,Aston Martin,14,14,0.272082,0,0.498634,0,0.000000,16
+2025,21,São Paulo Grand Prix,2025-11-09,colapinto,Franco Colapinto,alpine,Alpine F1 Team,16,18,0.062282,0,0.015477,0,0.000000,15
+2025,22,Las Vegas Grand Prix,2025-11-23,norris,Lando Norris,mclaren,McLaren,1,1,0.986992,1,20.195690,0,0.000000,19
+2025,22,Las Vegas Grand Prix,2025-11-23,max_verstappen,Max Verstappen,red_bull,Red Bull,2,2,0.968674,1,16.733397,1,25.000000,1
+2025,22,Las Vegas Grand Prix,2025-11-23,piastri,Oscar Piastri,mclaren,McLaren,5,5,0.965589,1,11.037670,0,0.000000,20
+2025,22,Las Vegas Grand Prix,2025-11-23,russell,George Russell,mercedes,Mercedes,4,4,0.964894,1,10.758429,1,18.000000,2
+2025,22,Las Vegas Grand Prix,2025-11-23,leclerc,Charles Leclerc,ferrari,Ferrari,9,9,0.718285,1,7.385843,1,12.000000,4
+2025,22,Las Vegas Grand Prix,2025-11-23,sainz,Carlos Sainz,williams,Williams,3,3,0.711696,1,7.108672,1,10.000000,5
+2025,22,Las Vegas Grand Prix,2025-11-23,lawson,Liam Lawson,rb,RB F1 Team,6,6,0.668572,1,4.768866,0,0.000000,14
+2025,22,Las Vegas Grand Prix,2025-11-23,antonelli,Andrea Kimi Antonelli,mercedes,Mercedes,17,17,0.702333,1,4.401828,1,15.000000,3
+2025,22,Las Vegas Grand Prix,2025-11-23,hamilton,Lewis Hamilton,ferrari,Ferrari,19,20,0.706627,1,4.014261,1,4.000000,8
+2025,22,Las Vegas Grand Prix,2025-11-23,alonso,Fernando Alonso,aston_martin,Aston Martin,7,7,0.672109,1,3.906604,0,0.000000,11
+2025,22,Las Vegas Grand Prix,2025-11-23,tsunoda,Yuki Tsunoda,red_bull,Red Bull,20,19,0.454268,0,3.086623,0,0.000000,12
+2025,22,Las Vegas Grand Prix,2025-11-23,hadjar,Isack Hadjar,rb,RB F1 Team,8,8,0.614707,1,3.020202,1,8.000000,6
+2025,22,Las Vegas Grand Prix,2025-11-23,hulkenberg,Nico Hülkenberg,sauber,Sauber,11,11,0.434029,0,2.104323,1,6.000000,7
+2025,22,Las Vegas Grand Prix,2025-11-23,gasly,Pierre Gasly,alpine,Alpine F1 Team,10,10,0.359371,0,1.658129,0,0.000000,13
+2025,22,Las Vegas Grand Prix,2025-11-23,bearman,Oliver Bearman,haas,Haas F1 Team,14,14,0.321646,0,1.499879,1,1.000000,10
+2025,22,Las Vegas Grand Prix,2025-11-23,stroll,Lance Stroll,aston_martin,Aston Martin,12,12,0.451642,0,1.320030,0,0.000000,18
+2025,22,Las Vegas Grand Prix,2025-11-23,albon,Alexander Albon,williams,Williams,16,16,0.303530,0,1.301787,0,0.000000,16
+2025,22,Las Vegas Grand Prix,2025-11-23,ocon,Esteban Ocon,haas,Haas F1 Team,13,13,0.319751,0,1.087979,1,2.000000,9
+2025,22,Las Vegas Grand Prix,2025-11-23,bortoleto,Gabriel Bortoleto,sauber,Sauber,18,18,0.149040,0,0.345023,0,0.000000,17
+2025,22,Las Vegas Grand Prix,2025-11-23,colapinto,Franco Colapinto,alpine,Alpine F1 Team,15,15,0.086632,0,0.215301,0,0.000000,15
+2025,23,Qatar Grand Prix,2025-11-30,norris,Lando Norris,mclaren,McLaren,2,2,0.972095,1,18.613823,1,12.000000,4
+2025,23,Qatar Grand Prix,2025-11-30,piastri,Oscar Piastri,mclaren,McLaren,1,1,0.976679,1,17.574660,1,18.000000,2
+2025,23,Qatar Grand Prix,2025-11-30,max_verstappen,Max Verstappen,red_bull,Red Bull,3,3,0.958112,1,14.823150,1,25.000000,1
+2025,23,Qatar Grand Prix,2025-11-30,russell,George Russell,mercedes,Mercedes,4,4,0.960232,1,11.805606,1,8.000000,6
+2025,23,Qatar Grand Prix,2025-11-30,antonelli,Andrea Kimi Antonelli,mercedes,Mercedes,5,5,0.791312,1,9.750932,1,10.000000,5
+2025,23,Qatar Grand Prix,2025-11-30,leclerc,Charles Leclerc,ferrari,Ferrari,10,10,0.797236,1,5.580327,1,4.000000,8
+2025,23,Qatar Grand Prix,2025-11-30,hadjar,Isack Hadjar,rb,RB F1 Team,6,6,0.657818,1,5.425333,0,0.000000,18
+2025,23,Qatar Grand Prix,2025-11-30,sainz,Carlos Sainz,williams,Williams,7,7,0.716162,1,4.329936,1,15.000000,3
+2025,23,Qatar Grand Prix,2025-11-30,alonso,Fernando Alonso,aston_martin,Aston Martin,8,8,0.615940,1,3.924119,1,6.000000,7
+2025,23,Qatar Grand Prix,2025-11-30,hamilton,Lewis Hamilton,ferrari,Ferrari,17,18,0.625378,1,3.819948,0,0.000000,12
+2025,23,Qatar Grand Prix,2025-11-30,hulkenberg,Nico Hülkenberg,sauber,Sauber,11,11,0.494419,0,2.241930,0,0.000000,20
+2025,23,Qatar Grand Prix,2025-11-30,tsunoda,Yuki Tsunoda,red_bull,Red Bull,15,16,0.396922,0,2.196216,1,1.000000,10
+2025,23,Qatar Grand Prix,2025-11-30,gasly,Pierre Gasly,alpine,Alpine F1 Team,9,9,0.569575,1,2.091600,0,0.000000,16
+2025,23,Qatar Grand Prix,2025-11-30,lawson,Liam Lawson,rb,RB F1 Team,12,12,0.414344,0,1.908031,1,2.000000,9
+2025,23,Qatar Grand Prix,2025-11-30,bearman,Oliver Bearman,haas,Haas F1 Team,13,13,0.357202,0,1.829198,0,0.000000,19
+2025,23,Qatar Grand Prix,2025-11-30,albon,Alexander Albon,williams,Williams,14,15,0.324455,0,1.589608,0,0.000000,11
+2025,23,Qatar Grand Prix,2025-11-30,ocon,Esteban Ocon,haas,Haas F1 Team,16,17,0.127311,0,0.947184,0,0.000000,15
+2025,23,Qatar Grand Prix,2025-11-30,bortoleto,Gabriel Bortoleto,sauber,Sauber,19,14,0.193908,0,0.510924,0,0.000000,13
+2025,23,Qatar Grand Prix,2025-11-30,stroll,Lance Stroll,aston_martin,Aston Martin,18,19,0.114286,0,0.461343,0,0.000000,17
+2025,23,Qatar Grand Prix,2025-11-30,colapinto,Franco Colapinto,alpine,Alpine F1 Team,20,20,0.087287,0,0.240594,0,0.000000,14
+2025,24,Abu Dhabi Grand Prix,2025-12-07,max_verstappen,Max Verstappen,red_bull,Red Bull,1,1,0.969583,1,21.526050,1,25.000000,1
+2025,24,Abu Dhabi Grand Prix,2025-12-07,norris,Lando Norris,mclaren,McLaren,2,2,0.983234,1,17.084070,1,15.000000,3
+2025,24,Abu Dhabi Grand Prix,2025-12-07,piastri,Oscar Piastri,mclaren,McLaren,3,3,0.983154,1,14.716819,1,18.000000,2
+2025,24,Abu Dhabi Grand Prix,2025-12-07,russell,George Russell,mercedes,Mercedes,4,4,0.980284,1,13.302630,1,10.000000,5
+2025,24,Abu Dhabi Grand Prix,2025-12-07,leclerc,Charles Leclerc,ferrari,Ferrari,5,5,0.917049,1,8.245215,1,12.000000,4
+2025,24,Abu Dhabi Grand Prix,2025-12-07,antonelli,Andrea Kimi Antonelli,mercedes,Mercedes,14,14,0.689444,1,5.902325,0,0.000000,15
+2025,24,Abu Dhabi Grand Prix,2025-12-07,alonso,Fernando Alonso,aston_martin,Aston Martin,6,6,0.752809,1,4.953695,1,8.000000,6
+2025,24,Abu Dhabi Grand Prix,2025-12-07,tsunoda,Yuki Tsunoda,red_bull,Red Bull,10,10,0.454896,0,3.883856,0,0.000000,14
+2025,24,Abu Dhabi Grand Prix,2025-12-07,bortoleto,Gabriel Bortoleto,sauber,Sauber,7,7,0.619311,1,3.344786,0,0.000000,11
+2025,24,Abu Dhabi Grand Prix,2025-12-07,sainz,Carlos Sainz,williams,Williams,12,12,0.559234,1,3.297578,0,0.000000,13
+2025,24,Abu Dhabi Grand Prix,2025-12-07,hamilton,Lewis Hamilton,ferrari,Ferrari,16,16,0.611575,1,3.188069,1,4.000000,8
+2025,24,Abu Dhabi Grand Prix,2025-12-07,hadjar,Isack Hadjar,rb,RB F1 Team,9,9,0.570507,1,2.886943,0,0.000000,17
+2025,24,Abu Dhabi Grand Prix,2025-12-07,ocon,Esteban Ocon,haas,Haas F1 Team,8,8,0.328589,0,2.722482,1,6.000000,7
+2025,24,Abu Dhabi Grand Prix,2025-12-07,bearman,Oliver Bearman,haas,Haas F1 Team,11,11,0.265825,0,2.011473,0,0.000000,12
+2025,24,Abu Dhabi Grand Prix,2025-12-07,albon,Alexander Albon,williams,Williams,17,17,0.265324,0,1.699936,0,0.000000,16
+2025,24,Abu Dhabi Grand Prix,2025-12-07,lawson,Liam Lawson,rb,RB F1 Team,13,13,0.294301,0,1.323658,0,0.000000,18
+2025,24,Abu Dhabi Grand Prix,2025-12-07,hulkenberg,Nico Hülkenberg,sauber,Sauber,18,18,0.133596,0,0.835826,1,2.000000,9
+2025,24,Abu Dhabi Grand Prix,2025-12-07,stroll,Lance Stroll,aston_martin,Aston Martin,15,15,0.191837,0,0.361120,1,1.000000,10
+2025,24,Abu Dhabi Grand Prix,2025-12-07,gasly,Pierre Gasly,alpine,Alpine F1 Team,19,19,0.045671,0,0.097096,0,0.000000,19
+2025,24,Abu Dhabi Grand Prix,2025-12-07,colapinto,Franco Colapinto,alpine,Alpine F1 Team,20,20,0.034170,0,0.053798,0,0.000000,20

@@ -237,6 +237,13 @@ python train_f1_points_model.py
 - `points_model_metrics.csv`: regression metrics for race-points prediction models, including traditional ML, advanced boosting, MLP, and TabNet regressors.
 - `points_predictions_2025.csv`: 2025 Top 10 probability and predicted race points by driver-race row.
 - `points_completed_2026_predictions.csv`: Top 10 probability and predicted race points for completed 2026 races.
+- `top10_race_level_metrics_2025.csv`: race-level Precision@10, Recall@10, and points capture rate for Top 10 predictions.
+- `points_error_by_points_bin_2025.csv`: race-points regression error grouped by actual-points bins.
+- `top10_calibration_metrics_2025.csv`: calibration bins for Top 10 probabilities, comparing predicted probability with actual Top 10 rate.
+- `points_rule_mapped_predictions_2025.csv`: race-level points predictions after mapping ranked drivers to the official F1 points table.
+- `points_rule_mapped_summary_2025.csv`: MAE, RMSE, and total-points comparison between continuous regression points and rule-mapped race points.
+- `top10_feature_importance.csv`: feature importance for the best Top 10 model.
+- `points_feature_importance.csv`: feature importance for the best race-points model.
 - `points_model_summary.json`: metadata summary for Top 10 and race-points prediction models.
 
 ### Deep learning outputs

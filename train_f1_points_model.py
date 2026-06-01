@@ -64,7 +64,8 @@ SUMMARY_PATH = MODEL_DIR / "points_model_summary.json"
 
 FEATURE_MODES = ["post_qualifying", "pre_race"]
 TOP10_TARGET = "is_top10"
-POINTS_TARGET = "points"
+POINTS_TARGET = "current_rule_points"
+F1_POINTS_TABLE = [25, 18, 15, 12, 10, 8, 6, 4, 2, 1]
 
 TOP10_METRIC_FIELDS = [
     "feature_mode",
@@ -117,10 +118,93 @@ POINTS_PREDICTION_FIELDS = [
     "actual_finish_position",
 ]
 
+TOP10_RACE_LEVEL_FIELDS = [
+    "season",
+    "round",
+    "race_name",
+    "predicted_top10_count",
+    "actual_top10_count",
+    "top10_hits",
+    "precision_at_10",
+    "recall_at_10",
+    "actual_points_in_predicted_top10",
+    "actual_points_total",
+    "points_capture_rate",
+    "exact_top10_set_hit",
+]
+
+POINTS_ERROR_BIN_FIELDS = [
+    "points_bin",
+    "bin_sort",
+    "records",
+    "mae",
+    "rmse",
+    "mean_actual_points",
+    "mean_predicted_points",
+    "total_actual_points",
+    "total_predicted_points",
+]
+
+RULE_MAPPED_POINTS_FIELDS = [
+    "season",
+    "round",
+    "race_name",
+    "driver_id",
+    "driver_name",
+    "constructor_name",
+    "predicted_points",
+    "rule_mapped_points",
+    "actual_points",
+    "actual_finish_position",
+]
+
+RULE_MAPPED_POINTS_SUMMARY_FIELDS = [
+    "metric",
+    "continuous_points",
+    "rule_mapped_points",
+]
+
+TOP10_CALIBRATION_FIELDS = [
+    "probability_bin",
+    "bin_sort",
+    "records",
+    "mean_predicted_probability",
+    "actual_top10_rate",
+    "calibration_error",
+]
+
+FEATURE_IMPORTANCE_FIELDS = [
+    "target",
+    "feature_mode",
+    "model",
+    "feature",
+    "importance_type",
+    "importance",
+    "abs_importance",
+]
+
 
 def package_available(package_name):
     """Return True when an optional model package is installed."""
     return importlib.util.find_spec(package_name) is not None
+
+
+def current_rule_points(row):
+    """Return current Grand Prix race points from finish position only.
+
+    The project intentionally ignores Sprint points and fastest-lap bonus points.
+    Every race is treated as a normal full-points Grand Prix with ten scoring places.
+    This keeps historical training labels on the same rules as the 2025/2026 target.
+    """
+    finish_position = to_int(row.get("finish_position", "0"))
+    if 1 <= finish_position <= len(F1_POINTS_TABLE):
+        return float(F1_POINTS_TABLE[finish_position - 1])
+    return 0.0
+
+
+def actual_points(row):
+    """Return the normalized points target used by this project."""
+    return current_rule_points(row)
 
 
 class TabNetClassifierPipeline:
@@ -502,8 +586,8 @@ def build_binary_y(rows, target_field):
 
 
 def build_points_y(rows):
-    """Read race points as a regression target."""
-    return [to_float(row[POINTS_TARGET]) for row in rows]
+    """Build the normalized current-rules race-points regression target."""
+    return [actual_points(row) for row in rows]
 
 
 def clamp_points(value):
@@ -522,6 +606,11 @@ def evaluate_top10(y_true, probabilities, threshold=0.5):
         "recall": recall_score(y_true, predictions, zero_division=0),
         "f1": f1_score(y_true, predictions, zero_division=0),
         "roc_auc": roc_auc_score(y_true, probabilities),
+        "brier_score": sum(
+            (probability - actual) ** 2
+            for probability, actual in zip(probabilities, y_true)
+        )
+        / len(y_true),
     }
 
 
@@ -659,7 +748,7 @@ def build_prediction_rows(test_rows, top10_probabilities, points_predictions):
                 "predicted_is_top10": 1 if top10_probability >= 0.5 else 0,
                 "predicted_points": format_float(clamp_points(predicted_points)),
                 "actual_is_top10": row["is_top10"],
-                "actual_points": row["points"],
+                "actual_points": format_float(actual_points(row)),
                 "actual_finish_position": row["finish_position"],
             }
         )
@@ -671,6 +760,287 @@ def build_prediction_rows(test_rows, top10_probabilities, points_predictions):
             -to_float(item["predicted_points"]),
         ),
     )
+
+
+def build_top10_race_level_rows(prediction_rows):
+    """Evaluate Top 10 predictions by selecting the ten highest probabilities per race."""
+    grouped = {}
+    for row in prediction_rows:
+        key = (row["season"], row["round"], row["race_name"])
+        grouped.setdefault(key, []).append(row)
+
+    output_rows = []
+    for (season, round_number, race_name), race_rows in sorted(
+        grouped.items(), key=lambda item: (to_int(item[0][0]), to_int(item[0][1]))
+    ):
+        predicted_top10 = sorted(
+            race_rows,
+            key=lambda row: to_float(row["top10_probability"]),
+            reverse=True,
+        )[:10]
+        predicted_driver_ids = {row["driver_id"] for row in predicted_top10}
+        actual_top10 = [row for row in race_rows if to_int(row["actual_is_top10"]) == 1]
+        actual_driver_ids = {row["driver_id"] for row in actual_top10}
+        hits = len(predicted_driver_ids & actual_driver_ids)
+        actual_points_total = sum(to_float(row["actual_points"]) for row in race_rows)
+        captured_points = sum(
+            to_float(row["actual_points"]) for row in predicted_top10
+        )
+
+        output_rows.append(
+            {
+                "season": season,
+                "round": round_number,
+                "race_name": race_name,
+                "predicted_top10_count": len(predicted_top10),
+                "actual_top10_count": len(actual_top10),
+                "top10_hits": hits,
+                "precision_at_10": format_float(hits / len(predicted_top10)),
+                "recall_at_10": format_float(
+                    hits / len(actual_top10) if actual_top10 else 0.0
+                ),
+                "actual_points_in_predicted_top10": format_float(captured_points),
+                "actual_points_total": format_float(actual_points_total),
+                "points_capture_rate": format_float(
+                    captured_points / actual_points_total
+                    if actual_points_total
+                    else 0.0
+                ),
+                "exact_top10_set_hit": 1 if predicted_driver_ids == actual_driver_ids else 0,
+            }
+        )
+    return output_rows
+
+
+def summarize_top10_race_level(race_level_rows):
+    """Summarize race-level Top 10 selection quality across the test season."""
+    if not race_level_rows:
+        return {}
+    return {
+        "race_count": len(race_level_rows),
+        "mean_precision_at_10": format_float(
+            sum(to_float(row["precision_at_10"]) for row in race_level_rows)
+            / len(race_level_rows)
+        ),
+        "mean_recall_at_10": format_float(
+            sum(to_float(row["recall_at_10"]) for row in race_level_rows)
+            / len(race_level_rows)
+        ),
+        "mean_points_capture_rate": format_float(
+            sum(to_float(row["points_capture_rate"]) for row in race_level_rows)
+            / len(race_level_rows)
+        ),
+        "exact_top10_set_rate": format_float(
+            sum(to_int(row["exact_top10_set_hit"]) for row in race_level_rows)
+            / len(race_level_rows)
+        ),
+    }
+
+
+def points_bin(actual_points):
+    """Assign actual race points to bins for regression error analysis."""
+    value = to_float(actual_points)
+    if value == 0:
+        return "0", 0
+    if value <= 5:
+        return "1-5", 1
+    if value <= 10:
+        return "6-10", 2
+    if value <= 15:
+        return "11-15", 3
+    return "16+", 4
+
+
+def probability_bin(probability):
+    """Assign a predicted probability to a calibration bin."""
+    value = max(0.0, min(1.0, to_float(probability)))
+    bin_index = min(9, int(value * 10))
+    lower = bin_index / 10
+    upper = 1.0 if bin_index == 9 else (bin_index + 1) / 10
+    return f"{lower:.1f}-{upper:.1f}", bin_index
+
+
+def build_top10_calibration_rows(prediction_rows):
+    """Build calibration bins for Top 10 predicted probabilities."""
+    grouped = {}
+    for row in prediction_rows:
+        label, sort_key = probability_bin(row["top10_probability"])
+        grouped.setdefault((label, sort_key), []).append(row)
+
+    output_rows = []
+    for (label, sort_key), rows in sorted(grouped.items(), key=lambda item: item[0][1]):
+        predicted = [to_float(row["top10_probability"]) for row in rows]
+        actual = [to_int(row["actual_is_top10"]) for row in rows]
+        mean_predicted = sum(predicted) / len(predicted)
+        actual_rate = sum(actual) / len(actual)
+        output_rows.append(
+            {
+                "probability_bin": label,
+                "bin_sort": sort_key,
+                "records": len(rows),
+                "mean_predicted_probability": format_float(mean_predicted),
+                "actual_top10_rate": format_float(actual_rate),
+                "calibration_error": format_float(abs(mean_predicted - actual_rate)),
+            }
+        )
+    return output_rows
+
+
+def summarize_top10_calibration(prediction_rows, calibration_rows):
+    """Summarize Brier score and expected calibration error for Top 10 probabilities."""
+    if not prediction_rows:
+        return {}
+    brier = sum(
+        (to_float(row["top10_probability"]) - to_int(row["actual_is_top10"])) ** 2
+        for row in prediction_rows
+    ) / len(prediction_rows)
+    weighted_error = sum(
+        to_int(row["records"]) * to_float(row["calibration_error"])
+        for row in calibration_rows
+    ) / len(prediction_rows)
+    return {
+        "brier_score": format_float(brier),
+        "expected_calibration_error": format_float(weighted_error),
+    }
+
+
+def build_points_error_bin_rows(prediction_rows):
+    """Summarize point-prediction error by actual-points bins."""
+    grouped = {}
+    for row in prediction_rows:
+        label, sort_key = points_bin(row["actual_points"])
+        grouped.setdefault((label, sort_key), []).append(row)
+
+    output_rows = []
+    for (label, sort_key), rows in sorted(grouped.items(), key=lambda item: item[0][1]):
+        errors = [
+            to_float(row["predicted_points"]) - to_float(row["actual_points"])
+            for row in rows
+        ]
+        abs_errors = [abs(error) for error in errors]
+        squared_errors = [error**2 for error in errors]
+        actual_points = [to_float(row["actual_points"]) for row in rows]
+        predicted_points = [to_float(row["predicted_points"]) for row in rows]
+        output_rows.append(
+            {
+                "points_bin": label,
+                "bin_sort": sort_key,
+                "records": len(rows),
+                "mae": format_float(sum(abs_errors) / len(abs_errors)),
+                "rmse": format_float(math.sqrt(sum(squared_errors) / len(squared_errors))),
+                "mean_actual_points": format_float(sum(actual_points) / len(actual_points)),
+                "mean_predicted_points": format_float(
+                    sum(predicted_points) / len(predicted_points)
+                ),
+                "total_actual_points": format_float(sum(actual_points)),
+                "total_predicted_points": format_float(sum(predicted_points)),
+            }
+        )
+    return output_rows
+
+
+def build_rule_mapped_points_rows(prediction_rows):
+    """Map predicted race ranking to official F1 points for each race."""
+    grouped = {}
+    for row in prediction_rows:
+        key = (row["season"], row["round"], row["race_name"])
+        grouped.setdefault(key, []).append(row)
+
+    output_rows = []
+    for race_key, race_rows in sorted(
+        grouped.items(), key=lambda item: (to_int(item[0][0]), to_int(item[0][1]))
+    ):
+        sorted_rows = sorted(
+            race_rows, key=lambda row: to_float(row["predicted_points"]), reverse=True
+        )
+        for index, row in enumerate(sorted_rows):
+            mapped_points = F1_POINTS_TABLE[index] if index < len(F1_POINTS_TABLE) else 0
+            output_rows.append(
+                {
+                    "season": row["season"],
+                    "round": row["round"],
+                    "race_name": row["race_name"],
+                    "driver_id": row["driver_id"],
+                    "driver_name": row["driver_name"],
+                    "constructor_name": row["constructor_name"],
+                    "predicted_points": row["predicted_points"],
+                    "rule_mapped_points": mapped_points,
+                    "actual_points": row["actual_points"],
+                    "actual_finish_position": row["actual_finish_position"],
+                }
+            )
+    return output_rows
+
+
+def summarize_rule_mapped_points(prediction_rows, mapped_rows):
+    """Compare continuous predicted points with rule-mapped F1 points."""
+    actual = [to_float(row["actual_points"]) for row in prediction_rows]
+    continuous = [to_float(row["predicted_points"]) for row in prediction_rows]
+    mapped = [to_float(row["rule_mapped_points"]) for row in mapped_rows]
+    return [
+        {
+            "metric": "mae",
+            "continuous_points": format_float(mean_absolute_error(actual, continuous)),
+            "rule_mapped_points": format_float(mean_absolute_error(actual, mapped)),
+        },
+        {
+            "metric": "rmse",
+            "continuous_points": format_float(
+                math.sqrt(mean_squared_error(actual, continuous))
+            ),
+            "rule_mapped_points": format_float(
+                math.sqrt(mean_squared_error(actual, mapped))
+            ),
+        },
+        {
+            "metric": "total_predicted_points",
+            "continuous_points": format_float(sum(continuous)),
+            "rule_mapped_points": format_float(sum(mapped)),
+        },
+        {
+            "metric": "total_actual_points",
+            "continuous_points": format_float(sum(actual)),
+            "rule_mapped_points": format_float(sum(actual)),
+        },
+    ]
+
+
+def get_feature_importance_rows(target, feature_mode, model_name, model, top_n=30):
+    """Extract feature importance from the selected Top 10 or points model."""
+    if not hasattr(model, "named_steps") or "vectorizer" not in model.named_steps:
+        return []
+    feature_names = model.named_steps["vectorizer"].get_feature_names_out()
+    estimator = model.named_steps["model"]
+
+    if hasattr(estimator, "feature_importances_"):
+        values = estimator.feature_importances_
+        importance_type = "feature_importance"
+    elif hasattr(estimator, "get_feature_importance"):
+        values = estimator.get_feature_importance()
+        importance_type = "feature_importance"
+    elif hasattr(estimator, "coef_"):
+        values = estimator.coef_
+        if hasattr(values, "ndim") and values.ndim > 1:
+            values = values[0]
+        importance_type = "coefficient"
+    else:
+        return []
+
+    rows = [
+        {
+            "target": target,
+            "feature_mode": feature_mode,
+            "model": model_name,
+            "feature": feature,
+            "importance_type": importance_type,
+            "importance": format_float(float(value)),
+            "abs_importance": format_float(abs(float(value))),
+        }
+        for feature, value in zip(feature_names, values)
+    ]
+    return sorted(rows, key=lambda row: to_float(row["abs_importance"]), reverse=True)[
+        :top_n
+    ]
 
 
 def save_top10_chart(rows):
@@ -690,6 +1060,133 @@ def save_top10_chart(rows):
         ax.text(bar.get_x() + bar.get_width() / 2, value + 0.01, f"{value:.3f}", ha="center", va="bottom", fontsize=8)
     fig.tight_layout()
     output_path = FIGURE_DIR / "top10_model_comparison_2025.png"
+    output_path.parent.mkdir(parents=True, exist_ok=True)
+    fig.savefig(output_path, dpi=180)
+    plt.close(fig)
+    return output_path
+
+
+def save_top10_race_level_chart(rows):
+    """Save race-level Top 10 precision by race."""
+    labels = [f"R{row['round']}" for row in rows]
+    values = [to_float(row["precision_at_10"]) for row in rows]
+
+    fig, ax = plt.subplots(figsize=(11, 5.6))
+    ax.bar(labels, values, color="#2563EB")
+    ax.set_ylim(0, 1.05)
+    ax.set_ylabel("Precision@10")
+    ax.set_title("Race-Level Top 10 Precision, 2025")
+    ax.tick_params(axis="x", rotation=45)
+    fig.tight_layout()
+    output_path = FIGURE_DIR / "top10_race_level_precision_2025.png"
+    output_path.parent.mkdir(parents=True, exist_ok=True)
+    fig.savefig(output_path, dpi=180)
+    plt.close(fig)
+    return output_path
+
+
+def save_points_error_bin_chart(rows):
+    """Save point-prediction MAE by actual-points bin."""
+    labels = [row["points_bin"] for row in rows]
+    values = [to_float(row["mae"]) for row in rows]
+
+    fig, ax = plt.subplots(figsize=(7.8, 5.4))
+    bars = ax.bar(labels, values, color="#EA580C")
+    ax.set_ylabel("Mean absolute error")
+    ax.set_xlabel("Actual points bin")
+    ax.set_title("Race Points Error by Actual Points Bin, 2025")
+    for bar, value in zip(bars, values):
+        ax.text(
+            bar.get_x() + bar.get_width() / 2,
+            value + 0.05,
+            f"{value:.2f}",
+            ha="center",
+            va="bottom",
+            fontsize=9,
+        )
+    fig.tight_layout()
+    output_path = FIGURE_DIR / "points_error_by_points_bin_2025.png"
+    output_path.parent.mkdir(parents=True, exist_ok=True)
+    fig.savefig(output_path, dpi=180)
+    plt.close(fig)
+    return output_path
+
+
+def save_top10_calibration_chart(rows):
+    """Save a calibration curve for Top 10 predicted probabilities."""
+    predicted = [to_float(row["mean_predicted_probability"]) for row in rows]
+    actual = [to_float(row["actual_top10_rate"]) for row in rows]
+
+    fig, ax = plt.subplots(figsize=(6.5, 6.1))
+    ax.plot([0, 1], [0, 1], color="#DC2626", linestyle="--", linewidth=1.5, label="Perfect calibration")
+    ax.plot(predicted, actual, marker="o", color="#2563EB", linewidth=2, label="Model")
+    for row, x_value, y_value in zip(rows, predicted, actual):
+        ax.text(x_value, y_value + 0.025, row["probability_bin"], ha="center", fontsize=8)
+    ax.set_xlim(0, 1)
+    ax.set_ylim(0, 1)
+    ax.set_xlabel("Mean predicted Top 10 probability")
+    ax.set_ylabel("Actual Top 10 rate")
+    ax.set_title("Top 10 Probability Calibration, 2025")
+    ax.legend()
+    ax.grid(True, color="#E5E7EB", linewidth=0.8)
+    fig.tight_layout()
+    output_path = FIGURE_DIR / "top10_calibration_curve_2025.png"
+    output_path.parent.mkdir(parents=True, exist_ok=True)
+    fig.savefig(output_path, dpi=180)
+    plt.close(fig)
+    return output_path
+
+
+def save_rule_mapped_points_chart(summary_rows):
+    """Save a chart comparing continuous and rule-mapped point prediction errors."""
+    error_rows = [row for row in summary_rows if row["metric"] in {"mae", "rmse"}]
+    labels = [row["metric"].upper() for row in error_rows]
+    continuous = [to_float(row["continuous_points"]) for row in error_rows]
+    mapped = [to_float(row["rule_mapped_points"]) for row in error_rows]
+    x_values = list(range(len(labels)))
+    width = 0.34
+
+    fig, ax = plt.subplots(figsize=(7.4, 5.4))
+    ax.bar(
+        [value - width / 2 for value in x_values],
+        continuous,
+        width=width,
+        label="Continuous regression",
+        color="#2563EB",
+    )
+    ax.bar(
+        [value + width / 2 for value in x_values],
+        mapped,
+        width=width,
+        label="Rule-mapped points",
+        color="#EA580C",
+    )
+    ax.set_xticks(x_values, labels=labels)
+    ax.set_ylabel("Error")
+    ax.set_title("Continuous vs F1 Rule-Mapped Points, 2025")
+    ax.legend()
+    fig.tight_layout()
+    output_path = FIGURE_DIR / "points_rule_mapped_comparison_2025.png"
+    output_path.parent.mkdir(parents=True, exist_ok=True)
+    fig.savefig(output_path, dpi=180)
+    plt.close(fig)
+    return output_path
+
+
+def save_feature_importance_chart(rows, filename, title):
+    """Save a feature-importance chart for a selected model."""
+    top_rows = rows[:15]
+    labels = [row["feature"] for row in reversed(top_rows)]
+    values = [to_float(row["importance"]) for row in reversed(top_rows)]
+    colors = ["#059669" if value >= 0 else "#DC2626" for value in values]
+
+    fig, ax = plt.subplots(figsize=(9.2, 6.2))
+    ax.barh(labels, values, color=colors)
+    ax.axvline(0, color="#111827", linewidth=0.8)
+    ax.set_title(title)
+    ax.set_xlabel("Importance")
+    fig.tight_layout()
+    output_path = FIGURE_DIR / filename
     output_path.parent.mkdir(parents=True, exist_ok=True)
     fig.savefig(output_path, dpi=180)
     plt.close(fig)
@@ -777,6 +1274,29 @@ def main():
         best_top10_info["probabilities"],
         best_points_info["predictions"],
     )
+    top10_race_level_rows = build_top10_race_level_rows(prediction_rows)
+    top10_race_level_summary = summarize_top10_race_level(top10_race_level_rows)
+    points_error_bin_rows = build_points_error_bin_rows(prediction_rows)
+    top10_calibration_rows = build_top10_calibration_rows(prediction_rows)
+    top10_calibration_summary = summarize_top10_calibration(
+        prediction_rows, top10_calibration_rows
+    )
+    rule_mapped_points_rows = build_rule_mapped_points_rows(prediction_rows)
+    rule_mapped_points_summary = summarize_rule_mapped_points(
+        prediction_rows, rule_mapped_points_rows
+    )
+    top10_feature_importance_rows = get_feature_importance_rows(
+        "top10",
+        best_top10_row["feature_mode"],
+        best_top10_row["model"],
+        best_top10_info["model"],
+    )
+    points_feature_importance_rows = get_feature_importance_rows(
+        "points",
+        best_points_row["feature_mode"],
+        best_points_row["model"],
+        best_points_info["model"],
+    )
 
     final_top10_model = build_top10_models()[best_top10_row["model"]]
     final_points_model = build_points_models()[best_points_row["model"]]
@@ -810,10 +1330,61 @@ def main():
         POINTS_PREDICTION_FIELDS,
         completed_2026_predictions,
     )
+    write_csv(
+        MODEL_DIR / "top10_race_level_metrics_2025.csv",
+        TOP10_RACE_LEVEL_FIELDS,
+        top10_race_level_rows,
+    )
+    write_csv(
+        MODEL_DIR / "points_error_by_points_bin_2025.csv",
+        POINTS_ERROR_BIN_FIELDS,
+        points_error_bin_rows,
+    )
+    write_csv(
+        MODEL_DIR / "top10_calibration_metrics_2025.csv",
+        TOP10_CALIBRATION_FIELDS,
+        top10_calibration_rows,
+    )
+    write_csv(
+        MODEL_DIR / "points_rule_mapped_predictions_2025.csv",
+        RULE_MAPPED_POINTS_FIELDS,
+        rule_mapped_points_rows,
+    )
+    write_csv(
+        MODEL_DIR / "points_rule_mapped_summary_2025.csv",
+        RULE_MAPPED_POINTS_SUMMARY_FIELDS,
+        rule_mapped_points_summary,
+    )
+    write_csv(
+        MODEL_DIR / "top10_feature_importance.csv",
+        FEATURE_IMPORTANCE_FIELDS,
+        top10_feature_importance_rows,
+    )
+    write_csv(
+        MODEL_DIR / "points_feature_importance.csv",
+        FEATURE_IMPORTANCE_FIELDS,
+        points_feature_importance_rows,
+    )
 
     top10_chart = save_top10_chart(top10_metric_rows)
     points_chart = save_points_chart(points_metric_rows)
     actual_vs_predicted_chart = save_actual_vs_predicted_chart(prediction_rows)
+    top10_race_level_chart = save_top10_race_level_chart(top10_race_level_rows)
+    points_error_bin_chart = save_points_error_bin_chart(points_error_bin_rows)
+    top10_calibration_chart = save_top10_calibration_chart(top10_calibration_rows)
+    rule_mapped_points_chart = save_rule_mapped_points_chart(
+        rule_mapped_points_summary
+    )
+    top10_feature_importance_chart = save_feature_importance_chart(
+        top10_feature_importance_rows,
+        "top10_feature_importance.png",
+        "Top 10 Model Feature Importance",
+    )
+    points_feature_importance_chart = save_feature_importance_chart(
+        points_feature_importance_rows,
+        "points_feature_importance.png",
+        "Points Model Feature Importance",
+    )
 
     summary = {
         "built_at": datetime.now(timezone.utc).isoformat(),
@@ -835,6 +1406,8 @@ def main():
             "model": best_top10_row["model"],
             "f1": best_top10_row["f1"],
             "roc_auc": best_top10_row["roc_auc"],
+            "race_level": top10_race_level_summary,
+            "calibration": top10_calibration_summary,
         },
         "best_points_model": {
             "feature_mode": best_points_row["feature_mode"],
@@ -842,19 +1415,34 @@ def main():
             "mae": best_points_row["mae"],
             "rmse": best_points_row["rmse"],
             "r2": best_points_row["r2"],
+            "primary_points_output": "rule_mapped_points",
+            "rule_mapped_points_summary": rule_mapped_points_summary,
         },
         "outputs": [
             "top10_model_metrics.csv",
             "points_model_metrics.csv",
             "points_predictions_2025.csv",
             "points_completed_2026_predictions.csv",
+            "top10_race_level_metrics_2025.csv",
+            "points_error_by_points_bin_2025.csv",
+            "top10_calibration_metrics_2025.csv",
+            "points_rule_mapped_predictions_2025.csv",
+            "points_rule_mapped_summary_2025.csv",
+            "top10_feature_importance.csv",
+            "points_feature_importance.csv",
         ],
         "figures": [
             str(top10_chart.relative_to(BASE_DIR)),
             str(points_chart.relative_to(BASE_DIR)),
             str(actual_vs_predicted_chart.relative_to(BASE_DIR)),
+            str(top10_race_level_chart.relative_to(BASE_DIR)),
+            str(points_error_bin_chart.relative_to(BASE_DIR)),
+            str(top10_calibration_chart.relative_to(BASE_DIR)),
+            str(rule_mapped_points_chart.relative_to(BASE_DIR)),
+            str(top10_feature_importance_chart.relative_to(BASE_DIR)),
+            str(points_feature_importance_chart.relative_to(BASE_DIR)),
         ],
-        "note": "These models estimate Top 10 probability and expected race points. They are intended as the next input layer for 2026 season-level driver and constructor championship simulation.",
+        "note": "These models estimate Top 10 probability and continuous expected race points. The regression target is normalized to current Grand Prix points from finish position only, so older historical scoring systems and fastest-lap bonus points are ignored. Sprint points are outside this project scope. Every race is treated as a normal full-points Grand Prix with ten scoring places. For downstream standings, season simulation, and championship prediction, rule_mapped_points should be treated as the primary points output because it follows the official F1 scoring table. Continuous predicted points are retained as an auxiliary expected-value signal.",
     }
     write_json(SUMMARY_PATH, summary)
 

@@ -1,5 +1,5 @@
 {
-  "built_at": "2026-06-01T04:48:07.524674+00:00",
+  "built_at": "2026-06-01T06:13:39.343886+00:00",
   "source_files": [
     "data\\modeling\\podium_model_metrics.csv",
     "data\\modeling\\advanced_podium_model_metrics.csv",
@@ -19,6 +19,12 @@
     "outputs\\figures\\podium_ml_2025_vs_rolling_f1.png",
     "outputs\\figures\\top10_model_comparison_2025.png",
     "outputs\\figures\\points_model_comparison_2025.png",
-    "outputs\\figures\\points_actual_vs_predicted_2025.png"
+    "outputs\\figures\\points_actual_vs_predicted_2025.png",
+    "outputs\\figures\\top10_race_level_precision_2025.png",
+    "outputs\\figures\\points_error_by_points_bin_2025.png",
+    "outputs\\figures\\top10_calibration_curve_2025.png",
+    "outputs\\figures\\points_rule_mapped_comparison_2025.png",
+    "outputs\\figures\\top10_feature_importance.png",
+    "outputs\\figures\\points_feature_importance.png"
   ]
 }

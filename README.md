@@ -187,6 +187,15 @@ Machine learning includes:
 - CatBoost, LightGBM, XGBoost, stacking ensemble, and race-level ranking metrics
 - Top 10 and race-points prediction as the bridge toward 2026 championship simulation
 
+Points-modeling rule scope:
+
+- The race-points regression target is normalized from finish position using the current Grand Prix scoring table: `25, 18, 15, 12, 10, 8, 6, 4, 2, 1`.
+- Older historical points systems are not used as the regression target; this avoids mixing incompatible scoring scales from 2003-2009 with modern F1.
+- Fastest-lap bonus points are not considered.
+- Sprint points are outside this project scope.
+- Each race is treated as a normal full-points Grand Prix with ten scoring positions.
+- Final standings and championship-simulation outputs should use `rule_mapped_points` as the primary points result. Continuous `predicted_points` is retained as an auxiliary expected-value signal.
+
 Historical analysis includes:
 
 - Historical dataset overview

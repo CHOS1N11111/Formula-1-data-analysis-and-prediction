@@ -1,5 +1,5 @@
 {
-  "built_at": "2026-06-01T04:47:53.094323+00:00",
+  "built_at": "2026-06-01T06:13:25.809502+00:00",
   "input_features": "data\\processed\\f1_features_extended.csv",
   "train_seasons": "2003-2024",
   "test_season": 2025,
@@ -8,7 +8,7 @@
     "pre_race"
   ],
   "top10_target": "is_top10",
-  "points_target": "points",
+  "points_target": "current_rule_points",
   "top10_model_count": 16,
   "points_model_count": 18,
   "model_families": [
@@ -20,25 +20,72 @@
     "feature_mode": "post_qualifying",
     "model": "lightgbm_classifier",
     "f1": "0.767010",
-    "roc_auc": "0.843846"
+    "roc_auc": "0.843846",
+    "race_level": {
+      "race_count": 24,
+      "mean_precision_at_10": "0.754167",
+      "mean_recall_at_10": "0.754167",
+      "mean_points_capture_rate": "0.905115",
+      "exact_top10_set_rate": "0.000000"
+    },
+    "calibration": {
+      "brier_score": "0.160859",
+      "expected_calibration_error": "0.062228"
+    }
   },
   "best_points_model": {
     "feature_mode": "post_qualifying",
     "model": "catboost_regressor",
-    "mae": "2.850913",
-    "rmse": "4.198787",
-    "r2": "0.657684"
+    "mae": "2.808622",
+    "rmse": "4.089592",
+    "r2": "0.675257",
+    "primary_points_output": "rule_mapped_points",
+    "rule_mapped_points_summary": [
+      {
+        "metric": "mae",
+        "continuous_points": "2.808622",
+        "rule_mapped_points": "2.434238"
+      },
+      {
+        "metric": "rmse",
+        "continuous_points": "4.089592",
+        "rule_mapped_points": "4.335126"
+      },
+      {
+        "metric": "total_predicted_points",
+        "continuous_points": "2463.578396",
+        "rule_mapped_points": "2424.000000"
+      },
+      {
+        "metric": "total_actual_points",
+        "continuous_points": "2424.000000",
+        "rule_mapped_points": "2424.000000"
+      }
+    ]
   },
   "outputs": [
     "top10_model_metrics.csv",
     "points_model_metrics.csv",
     "points_predictions_2025.csv",
-    "points_completed_2026_predictions.csv"
+    "points_completed_2026_predictions.csv",
+    "top10_race_level_metrics_2025.csv",
+    "points_error_by_points_bin_2025.csv",
+    "top10_calibration_metrics_2025.csv",
+    "points_rule_mapped_predictions_2025.csv",
+    "points_rule_mapped_summary_2025.csv",
+    "top10_feature_importance.csv",
+    "points_feature_importance.csv"
   ],
   "figures": [
     "outputs\\figures\\top10_model_comparison_2025.png",
     "outputs\\figures\\points_model_comparison_2025.png",
-    "outputs\\figures\\points_actual_vs_predicted_2025.png"
+    "outputs\\figures\\points_actual_vs_predicted_2025.png",
+    "outputs\\figures\\top10_race_level_precision_2025.png",
+    "outputs\\figures\\points_error_by_points_bin_2025.png",
+    "outputs\\figures\\top10_calibration_curve_2025.png",
+    "outputs\\figures\\points_rule_mapped_comparison_2025.png",
+    "outputs\\figures\\top10_feature_importance.png",
+    "outputs\\figures\\points_feature_importance.png"
   ],
-  "note": "These models estimate Top 10 probability and expected race points. They are intended as the next input layer for 2026 season-level driver and constructor championship simulation."
+  "note": "These models estimate Top 10 probability and continuous expected race points. The regression target is normalized to current Grand Prix points from finish position only, so older historical scoring systems and fastest-lap bonus points are ignored. Sprint points are outside this project scope. Every race is treated as a normal full-points Grand Prix with ten scoring places. For downstream standings, season simulation, and championship prediction, rule_mapped_points should be treated as the primary points output because it follows the official F1 scoring table. Continuous predicted points are retained as an auxiliary expected-value signal."
 }
