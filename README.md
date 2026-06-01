@@ -40,6 +40,8 @@ For report figures, the visualizations intentionally exclude 2026 data. The 2026
 |-- train_f1_podium_model.py
 |-- train_f1_podium_deep_model.py
 |-- train_f1_points_model.py
+|-- score_f1_podium_models.py
+|-- visualize_f1_model_results.py
 |-- requirements.txt
 |-- data/
 |   |-- processed/
