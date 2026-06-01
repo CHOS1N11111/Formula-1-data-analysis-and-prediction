@@ -1,16 +1,19 @@
 """Train Top 10 and race-points models as the bridge toward 2026 championship prediction.
 
 This script extends the current podium-prediction workflow from a single binary target
-to points-related targets. It trains Top 10 classifiers and points regressors, evaluates
-them on the 2025 season, writes prediction tables, and saves figures that can later feed
-season-level driver and constructor championship simulations.
+to points-related targets. It trains traditional ML, advanced boosting, and deep-learning
+models for Top 10 classification and race-points regression, evaluates them on the 2025
+season, writes prediction tables, and saves figures that can later feed season-level
+driver and constructor championship simulations.
 """
 
+import importlib.util
 import json
 import math
 from datetime import datetime, timezone
 
 import matplotlib
+import numpy as np
 
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
@@ -23,6 +26,7 @@ from sklearn.ensemble import (
 )
 from sklearn.feature_extraction import DictVectorizer
 from sklearn.linear_model import LogisticRegression, Ridge
+from sklearn.neural_network import MLPClassifier, MLPRegressor
 from sklearn.metrics import (
     accuracy_score,
     f1_score,
@@ -114,9 +118,104 @@ POINTS_PREDICTION_FIELDS = [
 ]
 
 
+def package_available(package_name):
+    """Return True when an optional model package is installed."""
+    return importlib.util.find_spec(package_name) is not None
+
+
+class TabNetClassifierPipeline:
+    """Small sklearn-like wrapper around TabNetClassifier for dictionary features."""
+
+    def __init__(self):
+        """Create vectorizer and scaler placeholders for TabNet classification."""
+        self.vectorizer = DictVectorizer(sparse=False)
+        self.scaler = StandardScaler()
+        self.model = None
+
+    def fit(self, x_rows, y_values):
+        """Fit TabNetClassifier on vectorized and scaled feature dictionaries."""
+        from pytorch_tabnet.tab_model import TabNetClassifier
+
+        x_values = self.vectorizer.fit_transform(x_rows).astype(np.float32)
+        x_values = self.scaler.fit_transform(x_values).astype(np.float32)
+        y_array = np.asarray(y_values, dtype=np.int64)
+        self.model = TabNetClassifier(
+            n_d=16,
+            n_a=16,
+            n_steps=4,
+            gamma=1.4,
+            lambda_sparse=0.0001,
+            optimizer_params={"lr": 0.02},
+            seed=42,
+            verbose=0,
+        )
+        self.model.fit(
+            x_values,
+            y_array,
+            max_epochs=90,
+            patience=20,
+            batch_size=256,
+            virtual_batch_size=64,
+            num_workers=0,
+            drop_last=False,
+        )
+        return self
+
+    def predict_proba(self, x_rows):
+        """Return class probabilities for vectorized feature dictionaries."""
+        x_values = self.vectorizer.transform(x_rows).astype(np.float32)
+        x_values = self.scaler.transform(x_values).astype(np.float32)
+        return self.model.predict_proba(x_values)
+
+
+class TabNetRegressorPipeline:
+    """Small sklearn-like wrapper around TabNetRegressor for dictionary features."""
+
+    def __init__(self):
+        """Create vectorizer and scaler placeholders for TabNet regression."""
+        self.vectorizer = DictVectorizer(sparse=False)
+        self.scaler = StandardScaler()
+        self.model = None
+
+    def fit(self, x_rows, y_values):
+        """Fit TabNetRegressor on vectorized and scaled feature dictionaries."""
+        from pytorch_tabnet.tab_model import TabNetRegressor
+
+        x_values = self.vectorizer.fit_transform(x_rows).astype(np.float32)
+        x_values = self.scaler.fit_transform(x_values).astype(np.float32)
+        y_array = np.asarray(y_values, dtype=np.float32).reshape(-1, 1)
+        self.model = TabNetRegressor(
+            n_d=16,
+            n_a=16,
+            n_steps=4,
+            gamma=1.4,
+            lambda_sparse=0.0001,
+            optimizer_params={"lr": 0.02},
+            seed=42,
+            verbose=0,
+        )
+        self.model.fit(
+            x_values,
+            y_array,
+            max_epochs=90,
+            patience=20,
+            batch_size=256,
+            virtual_batch_size=64,
+            num_workers=0,
+            drop_last=False,
+        )
+        return self
+
+    def predict(self, x_rows):
+        """Return point predictions for vectorized feature dictionaries."""
+        x_values = self.vectorizer.transform(x_rows).astype(np.float32)
+        x_values = self.scaler.transform(x_values).astype(np.float32)
+        return self.model.predict(x_values).reshape(-1)
+
+
 def build_top10_models():
     """Create classifiers that estimate whether a driver finishes in the points."""
-    return {
+    models = {
         "logistic_regression": Pipeline(
             steps=[
                 ("vectorizer", DictVectorizer(sparse=False)),
@@ -164,11 +263,96 @@ def build_top10_models():
             ]
         ),
     }
+    if package_available("catboost"):
+        from catboost import CatBoostClassifier
+
+        models["catboost_classifier"] = Pipeline(
+            steps=[
+                ("vectorizer", DictVectorizer(sparse=False)),
+                (
+                    "model",
+                    CatBoostClassifier(
+                        iterations=250,
+                        depth=5,
+                        learning_rate=0.04,
+                        loss_function="Logloss",
+                        eval_metric="AUC",
+                        random_seed=42,
+                        verbose=False,
+                    ),
+                ),
+            ]
+        )
+    if package_available("lightgbm"):
+        from lightgbm import LGBMClassifier
+
+        models["lightgbm_classifier"] = Pipeline(
+            steps=[
+                ("vectorizer", DictVectorizer(sparse=False)),
+                (
+                    "model",
+                    LGBMClassifier(
+                        n_estimators=250,
+                        max_depth=5,
+                        learning_rate=0.04,
+                        class_weight="balanced",
+                        random_state=42,
+                        verbose=-1,
+                    ),
+                ),
+            ]
+        )
+    if package_available("xgboost"):
+        from xgboost import XGBClassifier
+
+        models["xgboost_classifier"] = Pipeline(
+            steps=[
+                ("vectorizer", DictVectorizer(sparse=False)),
+                (
+                    "model",
+                    XGBClassifier(
+                        n_estimators=250,
+                        max_depth=5,
+                        learning_rate=0.04,
+                        subsample=0.9,
+                        colsample_bytree=0.9,
+                        eval_metric="logloss",
+                        random_state=42,
+                        n_jobs=1,
+                    ),
+                ),
+            ]
+        )
+    models["mlp_classifier"] = Pipeline(
+        steps=[
+            ("vectorizer", DictVectorizer(sparse=False)),
+            ("scaler", StandardScaler()),
+            (
+                "model",
+                MLPClassifier(
+                    hidden_layer_sizes=(128, 64, 32),
+                    activation="relu",
+                    learning_rate="adaptive",
+                    learning_rate_init=0.0008,
+                    alpha=0.0005,
+                    batch_size=64,
+                    max_iter=600,
+                    early_stopping=True,
+                    validation_fraction=0.2,
+                    n_iter_no_change=30,
+                    random_state=42,
+                ),
+            ),
+        ]
+    )
+    if package_available("pytorch_tabnet"):
+        models["tabnet_classifier"] = TabNetClassifierPipeline()
+    return models
 
 
 def build_points_models():
     """Create regressors that estimate each driver's race points."""
-    return {
+    models = {
         "ridge_regression": Pipeline(
             steps=[
                 ("vectorizer", DictVectorizer(sparse=False)),
@@ -222,6 +406,89 @@ def build_points_models():
             ]
         ),
     }
+    if package_available("catboost"):
+        from catboost import CatBoostRegressor
+
+        models["catboost_regressor"] = Pipeline(
+            steps=[
+                ("vectorizer", DictVectorizer(sparse=False)),
+                (
+                    "model",
+                    CatBoostRegressor(
+                        iterations=250,
+                        depth=5,
+                        learning_rate=0.04,
+                        loss_function="RMSE",
+                        random_seed=42,
+                        verbose=False,
+                    ),
+                ),
+            ]
+        )
+    if package_available("lightgbm"):
+        from lightgbm import LGBMRegressor
+
+        models["lightgbm_regressor"] = Pipeline(
+            steps=[
+                ("vectorizer", DictVectorizer(sparse=False)),
+                (
+                    "model",
+                    LGBMRegressor(
+                        n_estimators=250,
+                        max_depth=5,
+                        learning_rate=0.04,
+                        random_state=42,
+                        verbose=-1,
+                    ),
+                ),
+            ]
+        )
+    if package_available("xgboost"):
+        from xgboost import XGBRegressor
+
+        models["xgboost_regressor"] = Pipeline(
+            steps=[
+                ("vectorizer", DictVectorizer(sparse=False)),
+                (
+                    "model",
+                    XGBRegressor(
+                        n_estimators=250,
+                        max_depth=5,
+                        learning_rate=0.04,
+                        subsample=0.9,
+                        colsample_bytree=0.9,
+                        objective="reg:squarederror",
+                        random_state=42,
+                        n_jobs=1,
+                    ),
+                ),
+            ]
+        )
+    models["mlp_regressor"] = Pipeline(
+        steps=[
+            ("vectorizer", DictVectorizer(sparse=False)),
+            ("scaler", StandardScaler()),
+            (
+                "model",
+                MLPRegressor(
+                    hidden_layer_sizes=(128, 64, 32),
+                    activation="relu",
+                    learning_rate="adaptive",
+                    learning_rate_init=0.0008,
+                    alpha=0.0005,
+                    batch_size=64,
+                    max_iter=700,
+                    early_stopping=True,
+                    validation_fraction=0.2,
+                    n_iter_no_change=30,
+                    random_state=42,
+                ),
+            ),
+        ]
+    )
+    if package_available("pytorch_tabnet"):
+        models["tabnet_regressor"] = TabNetRegressorPipeline()
+    return models
 
 
 def build_x(rows, feature_mode):
@@ -556,6 +823,13 @@ def main():
         "feature_modes": FEATURE_MODES,
         "top10_target": TOP10_TARGET,
         "points_target": POINTS_TARGET,
+        "top10_model_count": len(top10_metric_rows),
+        "points_model_count": len(points_metric_rows),
+        "model_families": [
+            "traditional_machine_learning",
+            "advanced_boosting",
+            "deep_learning",
+        ],
         "best_top10_model": {
             "feature_mode": best_top10_row["feature_mode"],
             "model": best_top10_row["model"],

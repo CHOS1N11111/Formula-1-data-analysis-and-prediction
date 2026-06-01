@@ -1,5 +1,5 @@
 {
-  "built_at": "2026-06-01T02:28:30.599077+00:00",
+  "built_at": "2026-06-01T04:47:53.094323+00:00",
   "input_features": "data\\processed\\f1_features_extended.csv",
   "train_seasons": "2003-2024",
   "test_season": 2025,
@@ -9,18 +9,25 @@
   ],
   "top10_target": "is_top10",
   "points_target": "points",
+  "top10_model_count": 16,
+  "points_model_count": 18,
+  "model_families": [
+    "traditional_machine_learning",
+    "advanced_boosting",
+    "deep_learning"
+  ],
   "best_top10_model": {
     "feature_mode": "post_qualifying",
-    "model": "random_forest",
-    "f1": "0.755187",
-    "roc_auc": "0.836349"
+    "model": "lightgbm_classifier",
+    "f1": "0.767010",
+    "roc_auc": "0.843846"
   },
   "best_points_model": {
     "feature_mode": "post_qualifying",
-    "model": "random_forest_regressor",
-    "mae": "2.864715",
-    "rmse": "4.279099",
-    "r2": "0.644463"
+    "model": "catboost_regressor",
+    "mae": "2.850913",
+    "rmse": "4.198787",
+    "r2": "0.657684"
   },
   "outputs": [
     "top10_model_metrics.csv",

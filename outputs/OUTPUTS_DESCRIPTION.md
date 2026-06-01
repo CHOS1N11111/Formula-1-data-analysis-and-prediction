@@ -424,7 +424,7 @@ Use in report: final model selection and overall model evaluation.
 
 ![Top 10 Model Comparison](figures/top10_model_comparison_2025.png)
 
-Compares 2025 F1 scores for Top 10 classification models. This extends the project from podium-only prediction to points-zone prediction.
+Compares 2025 F1 scores for Top 10 classification models, including traditional ML, advanced boosting, MLP, and TabNet classifiers. This extends the project from podium-only prediction to points-zone prediction.
 
 Use in report: championship-simulation preparation.
 
@@ -432,7 +432,7 @@ Use in report: championship-simulation preparation.
 
 ![Points Model Comparison](figures/points_model_comparison_2025.png)
 
-Compares mean absolute error for race-points regression models. Lower values indicate better predicted single-race points, which are needed for season-level standings simulation.
+Compares mean absolute error for race-points regression models, including traditional ML, advanced boosting, MLP, and TabNet regressors. Lower values indicate better predicted single-race points, which are needed for season-level standings simulation.
 
 Use in report: expected-points model evaluation.
 

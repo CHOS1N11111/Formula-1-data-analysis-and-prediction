@@ -233,8 +233,8 @@ python train_f1_points_model.py
 - `podium_model_summary.json`: metadata summary for the traditional ML model pipeline.
 - `podium_model_composite_scores.csv`: one 0-100 composite score for each ML, advanced ML, and DL model.
 - `podium_model_composite_score_summary.json`: metadata summary for the composite scoring method and best model.
-- `top10_model_metrics.csv`: classification metrics for predicting whether each driver finishes in the Top 10.
-- `points_model_metrics.csv`: regression metrics for predicting race points.
+- `top10_model_metrics.csv`: classification metrics for Top 10 prediction models, including traditional ML, advanced boosting, MLP, and TabNet classifiers.
+- `points_model_metrics.csv`: regression metrics for race-points prediction models, including traditional ML, advanced boosting, MLP, and TabNet regressors.
 - `points_predictions_2025.csv`: 2025 Top 10 probability and predicted race points by driver-race row.
 - `points_completed_2026_predictions.csv`: Top 10 probability and predicted race points for completed 2026 races.
 - `points_model_summary.json`: metadata summary for Top 10 and race-points prediction models.
