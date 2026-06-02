@@ -1,0 +1,3 @@
+entity_type,simulation_count,best_strategy,predicted_champion,predicted_champion_probability,actual_champion,actual_champion_simulated_probability,deterministic_champion
+driver,3000,points_calibrated_top10_hybrid,Lando Norris,0.620000,Lando Norris,0.620000,Lando Norris
+constructor,3000,points_calibrated_top10_hybrid,McLaren,1.000000,McLaren,1.000000,McLaren

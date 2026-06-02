@@ -1,0 +1,3 @@
+metric,raw_probability,calibrated_probability
+brier_score,0.164130,0.164974
+expected_calibration_error,0.055725,0.042454

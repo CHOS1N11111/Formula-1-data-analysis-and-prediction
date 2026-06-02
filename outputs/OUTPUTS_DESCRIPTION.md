@@ -515,3 +515,43 @@ Use in report: Top 10 model interpretation.
 Shows the most important features used by the best race-points model. It helps explain which factors affect predicted single-race points.
 
 Use in report: points model interpretation.
+
+#### [`figures/rule_mapped_strategy_comparison_2025.png`](figures/rule_mapped_strategy_comparison_2025.png)
+
+![Rule-Mapped Strategy Comparison](figures/rule_mapped_strategy_comparison_2025.png)
+
+Compares multiple race-level ranking strategies after assigning the official F1 points table. The best 2025 backtest strategy combines normalized predicted points with leave-one-race-out calibrated Top 10 probability.
+
+Use in report: F1 scoring-rule post-processing and model selection for season simulation.
+
+#### [`figures/top10_calibrated_probability_curve_2025.png`](figures/top10_calibrated_probability_curve_2025.png)
+
+![Calibrated Top 10 Probability Curve](figures/top10_calibrated_probability_curve_2025.png)
+
+Compares raw Top 10 probabilities, calibrated Top 10 probabilities, and actual Top 10 rates. Calibration uses a leave-one-race-out empirical mapping, so each race is calibrated without using its own labels.
+
+Use in report: probability calibration before season-level simulation.
+
+#### [`figures/season_simulation_driver_uncertainty_2025.png`](figures/season_simulation_driver_uncertainty_2025.png)
+
+![Driver Season Simulation Uncertainty](figures/season_simulation_driver_uncertainty_2025.png)
+
+Shows Monte Carlo simulated driver points with 5-95% uncertainty intervals and actual 2025 points. It demonstrates how model outputs can become a probabilistic season standings forecast.
+
+Use in report: uncertainty modeling and championship-prediction preparation.
+
+#### [`figures/season_simulation_constructor_uncertainty_2025.png`](figures/season_simulation_constructor_uncertainty_2025.png)
+
+![Constructor Season Simulation Uncertainty](figures/season_simulation_constructor_uncertainty_2025.png)
+
+Shows Monte Carlo simulated constructor points with uncertainty intervals and actual 2025 points. It provides the constructor-level version of the season simulation backtest.
+
+Use in report: constructor championship uncertainty analysis.
+
+#### [`figures/season_simulation_champion_probabilities_2025.png`](figures/season_simulation_champion_probabilities_2025.png)
+
+![Season Simulation Champion Probabilities](figures/season_simulation_champion_probabilities_2025.png)
+
+Shows driver and constructor champion probabilities from the Monte Carlo 2025 backtest. This is not the final 2026 prediction; it validates the method that will later be used for 2026.
+
+Use in report: probabilistic championship prediction method.

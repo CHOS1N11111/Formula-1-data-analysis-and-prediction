@@ -1,0 +1,7 @@
+strategy,strategy_description,records,race_count,mae,rmse,mean_top10_precision,mean_top10_recall,mean_top3_precision,winner_hit_rate,exact_top10_set_rate,total_actual_points,total_rule_mapped_points
+points_calibrated_top10_hybrid,Rank by 70% normalized points and 30% calibrated Top 10 probability.,479,24,2.417537,4.299342,0.758333,0.758333,0.777778,0.541667,0.041667,2424.000000,2424.000000
+podium_top10_points_hybrid,"Rank by 50% normalized points, 30% podium probability, and 20% calibrated Top 10 probability.",479,24,2.417537,4.304680,0.758333,0.758333,0.777778,0.541667,0.041667,2424.000000,2424.000000
+calibrated_top10_probability,Rank by calibrated Top 10 probability.,479,24,2.430063,4.355785,0.770833,0.770833,0.791667,0.458333,0.041667,2424.000000,2424.000000
+top10_probability,Rank by raw Top 10 probability.,479,24,2.438413,4.442159,0.758333,0.758333,0.722222,0.416667,0.041667,2424.000000,2424.000000
+points_top10_hybrid,Rank by 70% normalized points and 30% raw Top 10 probability.,479,24,2.450939,4.334645,0.762500,0.762500,0.763889,0.541667,0.041667,2424.000000,2424.000000
+predicted_points,Rank by continuous predicted race points.,479,24,2.546973,4.428037,0.745833,0.745833,0.763889,0.541667,0.083333,2424.000000,2424.000000

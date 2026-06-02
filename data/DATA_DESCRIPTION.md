@@ -221,6 +221,7 @@ python train_f1_podium_model.py
 python train_f1_podium_deep_model.py
 python train_f1_points_model.py
 python score_f1_podium_models.py
+python simulate_f1_season_uncertainty.py
 ```
 
 ### Traditional machine learning outputs
@@ -252,6 +253,15 @@ python score_f1_podium_models.py
 - `top10_feature_importance.csv`: feature importance for the best Top 10 model.
 - `points_feature_importance.csv`: feature importance for the best race-points model.
 - `points_model_summary.json`: metadata summary for Top 10 and race-points prediction models.
+- `top10_calibrated_predictions_2025.csv`: Top 10 probabilities after leave-one-race-out empirical calibration.
+- `top10_calibrated_probability_bins_2025.csv`: raw versus calibrated probability bins for 2025.
+- `top10_calibrated_probability_summary_2025.csv`: Brier score and expected calibration error before and after calibration.
+- `rule_mapped_strategy_predictions_2025.csv`: race-level F1 points assigned by each ranking strategy.
+- `rule_mapped_strategy_metrics_2025.csv`: MAE, RMSE, Top 10 precision, Top 3 precision, and winner hit rate for each rule-mapped strategy.
+- `season_simulation_driver_standings_2025.csv`: Monte Carlo driver standings backtest with champion, Top 3, and Top 5 probabilities.
+- `season_simulation_constructor_standings_2025.csv`: Monte Carlo constructor standings backtest with champion, Top 3, and Top 5 probabilities.
+- `season_simulation_summary_2025.csv`: compact driver and constructor championship uncertainty summary.
+- `season_simulation_summary_2025.json`: metadata summary for strategy comparison, calibration, and simulation outputs.
 
 ### Deep learning outputs
 
@@ -293,6 +303,7 @@ python train_f1_podium_deep_model.py
 python score_f1_podium_models.py
 python train_f1_points_model.py
 python visualize_f1_model_results.py
+python simulate_f1_season_uncertainty.py
 ```
 
 Raw downloaded data can be regenerated. Processed, analysis, and modeling files are generated outputs kept in the project for reporting and verification.

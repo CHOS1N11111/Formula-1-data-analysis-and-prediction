@@ -42,6 +42,7 @@ For report figures, the visualizations intentionally exclude 2026 data. The 2026
 |-- train_f1_points_model.py
 |-- score_f1_podium_models.py
 |-- visualize_f1_model_results.py
+|-- simulate_f1_season_uncertainty.py
 |-- requirements.txt
 |-- data/
 |   |-- processed/
@@ -112,6 +113,7 @@ python train_f1_podium_deep_model.py
 python score_f1_podium_models.py
 python train_f1_points_model.py
 python visualize_f1_model_results.py
+python simulate_f1_season_uncertainty.py
 ```
 
 If the Kaggle datasets or raw Jolpica-F1 data already exist locally, the download steps can be skipped.
@@ -188,6 +190,9 @@ Machine learning includes:
 - Combined ML/DL result visualizations
 - CatBoost, LightGBM, XGBoost, stacking ensemble, and race-level ranking metrics
 - Top 10 and race-points prediction as the bridge toward 2026 championship simulation
+- Rule-mapped points strategy comparison for race-level F1 scoring
+- Leave-one-race-out Top 10 probability calibration for season simulation
+- Monte Carlo 2025 season uncertainty backtest before final 2026 championship prediction
 
 Points-modeling rule scope:
 

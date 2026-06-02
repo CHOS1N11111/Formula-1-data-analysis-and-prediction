@@ -1,5 +1,5 @@
 {
-  "built_at": "2026-06-01T13:30:05.811410+00:00",
+  "built_at": "2026-06-02T05:26:12.511849+00:00",
   "source_files": [
     "data\\modeling\\podium_model_metrics.csv",
     "data\\modeling\\advanced_podium_model_metrics.csv",
@@ -7,7 +7,10 @@
     "data\\modeling\\podium_feature_mode_summary.csv",
     "data\\modeling\\race_ranking_metrics.csv",
     "data\\modeling\\top10_model_metrics.csv",
-    "data\\modeling\\points_model_metrics.csv"
+    "data\\modeling\\points_model_metrics.csv",
+    "data\\modeling\\rule_mapped_strategy_metrics_2025.csv",
+    "data\\modeling\\top10_calibrated_probability_summary_2025.csv",
+    "data\\modeling\\season_simulation_summary_2025.csv"
   ],
   "figures": [
     "outputs\\figures\\podium_all_models_f1_comparison.png",
@@ -28,6 +31,11 @@
     "outputs\\figures\\top10_points_rolling_backtest.png",
     "outputs\\figures\\points_correction_experiment_2025.png",
     "outputs\\figures\\top10_feature_importance.png",
-    "outputs\\figures\\points_feature_importance.png"
+    "outputs\\figures\\points_feature_importance.png",
+    "outputs\\figures\\rule_mapped_strategy_comparison_2025.png",
+    "outputs\\figures\\top10_calibrated_probability_curve_2025.png",
+    "outputs\\figures\\season_simulation_driver_uncertainty_2025.png",
+    "outputs\\figures\\season_simulation_constructor_uncertainty_2025.png",
+    "outputs\\figures\\season_simulation_champion_probabilities_2025.png"
   ]
 }
