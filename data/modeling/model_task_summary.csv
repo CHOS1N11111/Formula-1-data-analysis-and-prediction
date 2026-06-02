@@ -1,4 +1,4 @@
-﻿task,target,best_model,best_feature_mode,key_metric,value,source_file
+task,target,best_model,best_feature_mode,key_metric,value,source_file
 podium,is_podium,catboost,post_qualifying,composite_score_100,81.430630,podium_model_composite_score_summary.json
 top10,is_top10,tabnet_classifier,post_qualifying,F1,0.769231,points_model_summary.json
-points,current_rule_points,catboost_regressor,post_qualifying,rule_mapped_MAE,2.546973,points_model_summary.json
+points,current_rule_points,catboost_regressor + points_calibrated_top10_hybrid,post_qualifying,strategy_rule_mapped_MAE,2.417537,rule_mapped_strategy_metrics_2025.csv

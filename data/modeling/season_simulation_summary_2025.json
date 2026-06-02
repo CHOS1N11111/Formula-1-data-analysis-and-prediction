@@ -1,5 +1,5 @@
 {
-  "built_at": "2026-06-02T05:26:12.510620+00:00",
+  "built_at": "2026-06-02T05:36:30.482515+00:00",
   "input_files": [
     "data\\modeling\\points_predictions_2025.csv",
     "data\\modeling\\podium_predictions_2025.csv"
@@ -18,7 +18,8 @@
     "rule_mapped_strategy_metrics_2025.csv",
     "season_simulation_driver_standings_2025.csv",
     "season_simulation_constructor_standings_2025.csv",
-    "season_simulation_summary_2025.csv"
+    "season_simulation_summary_2025.csv",
+    "model_task_summary.csv"
   ],
   "figures": [
     "outputs\\figures\\rule_mapped_strategy_comparison_2025.png",

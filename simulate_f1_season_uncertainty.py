@@ -162,6 +162,16 @@ SIMULATION_SUMMARY_FIELDS = [
     "deterministic_champion",
 ]
 
+MODEL_TASK_SUMMARY_FIELDS = [
+    "task",
+    "target",
+    "best_model",
+    "best_feature_mode",
+    "key_metric",
+    "value",
+    "source_file",
+]
+
 
 def read_csv(path):
     """Read a CSV file into a list of dictionaries."""
@@ -724,6 +734,52 @@ def build_simulation_summary_rows(driver_rows, constructor_rows, best_strategy):
     return rows
 
 
+def update_model_task_summary(best_strategy_row):
+    """Update the compact task summary with the best points post-processing strategy."""
+    summary_path = MODEL_DIR / "model_task_summary.csv"
+    if not summary_path.exists():
+        return
+
+    rows = read_csv(summary_path)
+    existing_points_model = "catboost_regressor"
+    for row in rows:
+        if row.get("task") == "points" and row.get("best_model"):
+            existing_points_model = row["best_model"].split(" + ")[0]
+
+    updated_rows = []
+    points_row_written = False
+    for row in rows:
+        if row.get("task") == "points":
+            updated_rows.append(
+                {
+                    "task": "points",
+                    "target": "current_rule_points",
+                    "best_model": f"{existing_points_model} + {best_strategy_row['strategy']}",
+                    "best_feature_mode": "post_qualifying",
+                    "key_metric": "strategy_rule_mapped_MAE",
+                    "value": best_strategy_row["mae"],
+                    "source_file": "rule_mapped_strategy_metrics_2025.csv",
+                }
+            )
+            points_row_written = True
+        else:
+            updated_rows.append(row)
+
+    if not points_row_written:
+        updated_rows.append(
+            {
+                "task": "points",
+                "target": "current_rule_points",
+                "best_model": f"{existing_points_model} + {best_strategy_row['strategy']}",
+                "best_feature_mode": "post_qualifying",
+                "key_metric": "strategy_rule_mapped_MAE",
+                "value": best_strategy_row["mae"],
+                "source_file": "rule_mapped_strategy_metrics_2025.csv",
+            }
+        )
+    write_csv(summary_path, MODEL_TASK_SUMMARY_FIELDS, updated_rows)
+
+
 def save_strategy_comparison_chart(metric_rows):
     """Save a bar chart comparing rule-mapped ranking strategies."""
     labels = [row["strategy"].replace("_", "\n") for row in metric_rows]
@@ -860,6 +916,7 @@ def main():
     strategy_prediction_rows = build_strategy_prediction_rows(rows)
     strategy_metric_rows = calculate_strategy_metrics(strategy_prediction_rows)
     best_strategy = strategy_metric_rows[0]["strategy"]
+    update_model_task_summary(strategy_metric_rows[0])
     driver_simulation_rows, constructor_simulation_rows = simulate_season(
         rows, strategy_prediction_rows, best_strategy
     )
@@ -947,6 +1004,7 @@ def main():
             "season_simulation_driver_standings_2025.csv",
             "season_simulation_constructor_standings_2025.csv",
             "season_simulation_summary_2025.csv",
+            "model_task_summary.csv",
         ],
         "figures": [
             str(strategy_chart.relative_to(BASE_DIR)),
