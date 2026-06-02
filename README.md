@@ -1,8 +1,8 @@
 # Formula 1 Data Analysis and Prediction
 
-This project is a Formula 1 data engineering, analysis, and visualization project for a course assignment. It builds a reproducible data pipeline from raw datasets and API data to processed tables, statistical analysis, figures, and animated videos.
+This project is a Formula 1 data engineering, analysis, visualization, and prediction project for a course assignment. It builds a reproducible pipeline from raw datasets and API data to processed tables, statistical analysis, figures, animated videos, machine-learning models, and season-simulation backtests.
 
-The current implementation focuses on data collection, validation, feature engineering, statistical analysis, and visualization. The processed data is also prepared for later podium and season-ranking prediction tasks.
+The current implementation covers data collection, validation, feature engineering, statistical analysis, visualization, podium prediction, Top 10 prediction, race-points prediction, F1 points-rule mapping, probability calibration, and Monte Carlo season uncertainty simulation. The final 2026 champion prediction module is intentionally left as the next application step.
 
 ## Project Scope
 
@@ -19,6 +19,9 @@ The project covers:
 - Historical background analysis for 1950-2017/2018
 - Static visualization for 2019-2025 and historical data
 - Animated standings videos
+- Podium, Top 10, and race-points prediction models
+- F1 rule-mapped points strategy comparison
+- 2025 Monte Carlo season uncertainty backtest
 
 For report figures, the visualizations intentionally exclude 2026 data. The 2026 data is kept for current-season state analysis and later prediction work.
 

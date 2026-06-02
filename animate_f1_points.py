@@ -327,7 +327,7 @@ def save_animation(frames, output_path, title, top_n):
     fig.subplots_adjust(top=0.80, left=0.19, right=0.96, bottom=0.11)
 
     def update(frame_index):
-        """Build or render the update project output."""
+        """Update one animation frame with the current standings bars."""
         draw_frame(ax, frames[frame_index], title, top_n)
 
     animation = FuncAnimation(

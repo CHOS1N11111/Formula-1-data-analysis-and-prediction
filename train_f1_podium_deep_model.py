@@ -124,6 +124,7 @@ def split_validation_rows(rows, validation_fraction=0.2):
     negatives = [row for row in rows if to_int(row[TARGET_FIELD]) == 0]
 
     def split_group(group):
+        """Split one class group into train and validation rows."""
         cutoff = max(1, int(len(group) * (1 - validation_fraction)))
         return group[:cutoff], group[cutoff:]
 

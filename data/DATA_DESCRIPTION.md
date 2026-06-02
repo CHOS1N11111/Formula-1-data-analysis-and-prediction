@@ -137,6 +137,8 @@ Used by:
 
 - `train_f1_podium_model.py`
 - `train_f1_podium_deep_model.py`
+- `train_f1_points_model.py`
+- `simulate_f1_season_uncertainty.py`
 
 ### `extended_feature_summary.json`
 
@@ -298,6 +300,8 @@ python build_f1_features.py
 python build_f1_extended_features.py
 python analyze_f1_basic_stats.py
 python analyze_f1_historical_sqlite.py
+python visualize_f1_analysis.py
+python animate_f1_points.py
 python train_f1_podium_model.py
 python train_f1_podium_deep_model.py
 python score_f1_podium_models.py
