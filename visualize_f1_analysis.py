@@ -1328,18 +1328,32 @@ def plot_circuit_grid_importance_bubble(manifest, modern_rows):
 
     labeled = sorted(rows, key=lambda row: row["pole_win_rate"], reverse=True)[:5]
     labeled += sorted(rows, key=lambda row: row["avg_abs_position_change"], reverse=True)[:5]
+    circuit_label_offsets = {
+        "albert_park": (8, 8),
+        "interlagos": (8, -10),
+        "suzuka": (8, -9),
+        "monaco": (8, 9),
+        "yas_marina": (8, -12),
+    }
     seen = set()
     for row in labeled:
         if row["circuit_id"] in seen:
             continue
         seen.add(row["circuit_id"])
+        x_position = row["pole_win_rate"] * 100
+        label_offset = circuit_label_offsets.get(row["circuit_id"], (6, 5))
+        horizontal_alignment = "left"
+        if x_position >= 95:
+            label_offset = (-8, label_offset[1])
+            horizontal_alignment = "right"
         ax.annotate(
             row["circuit_name"].replace(" Circuit", ""),
-            (row["pole_win_rate"] * 100, row["avg_abs_position_change"]),
-            xytext=(5, 4),
+            (x_position, row["avg_abs_position_change"]),
+            xytext=label_offset,
             textcoords="offset points",
             fontsize=8,
             color=COLORS["slate"],
+            ha=horizontal_alignment,
         )
 
     filename = "circuit_grid_importance_bubble_2019_2025.png"
@@ -1429,11 +1443,20 @@ def plot_constructor_efficiency_scatter(manifest, modern_rows):
     colorbar = fig.colorbar(scatter, ax=ax, fraction=0.035, pad=0.03)
     colorbar.set_label("Average points per car")
 
+    constructor_label_offsets = {
+        "Sauber": (6, -8),
+        "Williams": (6, 6),
+        "Toro Rosso": (6, -10),
+        "Aston Martin": (6, 8),
+        "Red Bull": (8, -2),
+        "Mercedes": (8, 5),
+    }
     for row in rows:
+        label = row["constructor_name"].replace(" F1 Team", "")
         ax.annotate(
-            row["constructor_name"].replace(" F1 Team", ""),
+            label,
             (row["avg_grid"], row["avg_finish_position"]),
-            xytext=(5, 4),
+            xytext=constructor_label_offsets.get(label, (6, 5)),
             textcoords="offset points",
             fontsize=8,
             color=COLORS["slate"],

@@ -211,9 +211,12 @@ def save_all_model_heatmap(rows):
     ]
     labels = [model_label(row).replace("\n", " | ") for row in sorted_rows]
 
-    fig, ax = plt.subplots(figsize=(11.5, 8.5))
+    fig, ax = plt.subplots(figsize=(13.2, 8.8))
     image = ax.imshow(values, cmap="YlGnBu", vmin=0, vmax=1)
     ax.set_xticks(range(len(metric_fields)), labels=[label for _, label in metric_fields])
+    ax.tick_params(axis="x", labelrotation=28)
+    for label in ax.get_xticklabels():
+        label.set_ha("right")
     ax.set_yticks(range(len(sorted_rows)), labels=labels)
     ax.set_title("All Podium Models: Metric Heatmap, 2025 Backtest")
     for row_index, row_values in enumerate(values):
@@ -228,7 +231,7 @@ def save_all_model_heatmap(rows):
                 color="#111827" if value < 0.72 else "white",
             )
     fig.colorbar(image, ax=ax, fraction=0.035, pad=0.03)
-    fig.tight_layout()
+    fig.subplots_adjust(left=0.43, right=0.90, bottom=0.16, top=0.92)
     output_path = FIGURE_DIR / "podium_all_model_metric_heatmap.png"
     fig.savefig(output_path, dpi=180)
     plt.close(fig)
