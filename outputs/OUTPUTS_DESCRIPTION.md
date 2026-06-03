@@ -555,3 +555,35 @@ Use in report: constructor championship uncertainty analysis.
 Shows driver and constructor champion probabilities from the Monte Carlo 2025 backtest. This is not the final 2026 prediction; it validates the method that will later be used for 2026.
 
 Use in report: probabilistic championship prediction method.
+
+#### [`figures/season_prediction_driver_champion_2026.png`](figures/season_prediction_driver_champion_2026.png)
+
+![2026 Driver Champion Probability](figures/season_prediction_driver_champion_2026.png)
+
+Shows the final 2026 driver champion probabilities from the pre-race championship simulation. Completed 2026 races use real standings as the starting point, while remaining races are simulated with pre-race model signals and F1 rule-mapped points.
+
+Use in report: final 2026 driver championship prediction.
+
+#### [`figures/season_prediction_constructor_champion_2026.png`](figures/season_prediction_constructor_champion_2026.png)
+
+![2026 Constructor Champion Probability](figures/season_prediction_constructor_champion_2026.png)
+
+Shows the final 2026 constructor champion probabilities from the same championship simulation process. It aggregates simulated driver race points into constructor standings.
+
+Use in report: final 2026 constructor championship prediction.
+
+#### [`figures/season_prediction_driver_points_uncertainty_2026.png`](figures/season_prediction_driver_points_uncertainty_2026.png)
+
+![2026 Driver Points Projection Uncertainty](figures/season_prediction_driver_points_uncertainty_2026.png)
+
+Shows projected 2026 driver points with 5-95% uncertainty intervals and current points. It explains not only who is most likely to win, but also how uncertain each driver's final score is.
+
+Use in report: final driver standings uncertainty analysis.
+
+#### [`figures/season_prediction_constructor_points_uncertainty_2026.png`](figures/season_prediction_constructor_points_uncertainty_2026.png)
+
+![2026 Constructor Points Projection Uncertainty](figures/season_prediction_constructor_points_uncertainty_2026.png)
+
+Shows projected 2026 constructor points with uncertainty intervals and current points. It is the constructor-level counterpart of the driver points uncertainty figure.
+
+Use in report: final constructor standings uncertainty analysis.

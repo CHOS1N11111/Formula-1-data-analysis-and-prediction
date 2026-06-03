@@ -139,6 +139,7 @@ Used by:
 - `train_f1_podium_deep_model.py`
 - `train_f1_points_model.py`
 - `simulate_f1_season_uncertainty.py`
+- `predict_f1_2026_championship.py`
 
 ### `extended_feature_summary.json`
 
@@ -224,6 +225,7 @@ python train_f1_podium_deep_model.py
 python train_f1_points_model.py
 python score_f1_podium_models.py
 python simulate_f1_season_uncertainty.py
+python predict_f1_2026_championship.py
 ```
 
 ### Traditional machine learning outputs
@@ -264,6 +266,11 @@ python simulate_f1_season_uncertainty.py
 - `season_simulation_constructor_standings_2025.csv`: Monte Carlo constructor standings backtest with champion, Top 3, and Top 5 probabilities.
 - `season_simulation_summary_2025.csv`: compact driver and constructor championship uncertainty summary.
 - `season_simulation_summary_2025.json`: metadata summary for strategy comparison, calibration, and simulation outputs.
+- `season_prediction_driver_standings_2026.csv`: final 2026 driver championship prediction with current points, projected points intervals, champion probability, Top 3 probability, and Top 5 probability.
+- `season_prediction_constructor_standings_2026.csv`: final 2026 constructor championship prediction with current points, projected points intervals, champion probability, Top 3 probability, and Top 5 probability.
+- `season_prediction_race_points_2026.csv`: deterministic rule-mapped points prediction for each remaining 2026 race and driver.
+- `season_prediction_summary_2026.csv`: compact 2026 predicted champion summary for drivers and constructors.
+- `season_prediction_summary_2026.json`: metadata summary for the final 2026 championship prediction pipeline.
 
 ### Deep learning outputs
 
@@ -308,6 +315,7 @@ python score_f1_podium_models.py
 python train_f1_points_model.py
 python visualize_f1_model_results.py
 python simulate_f1_season_uncertainty.py
+python predict_f1_2026_championship.py
 ```
 
 Raw downloaded data can be regenerated. Processed, analysis, and modeling files are generated outputs kept in the project for reporting and verification.

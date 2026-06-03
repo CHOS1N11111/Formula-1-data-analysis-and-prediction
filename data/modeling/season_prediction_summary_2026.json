@@ -1,0 +1,72 @@
+{
+  "built_at": "2026-06-03T06:51:28.854782+00:00",
+  "feature_mode": "pre_race",
+  "simulation_count": 5000,
+  "random_seed": 42,
+  "points_rule": [
+    25,
+    18,
+    15,
+    12,
+    10,
+    8,
+    6,
+    4,
+    2,
+    1
+  ],
+  "top10_model": "xgboost_classifier",
+  "top10_model_2025_metric": {
+    "feature_mode": "pre_race",
+    "model": "xgboost_classifier",
+    "train_seasons": "2003-2024",
+    "test_season": "2025",
+    "train_records": "8529",
+    "test_records": "479",
+    "positive_train_records": "4064",
+    "positive_test_records": "240",
+    "accuracy": "0.711900",
+    "precision": "0.717949",
+    "recall": "0.700000",
+    "f1": "0.708861",
+    "roc_auc": "0.766893"
+  },
+  "points_model": "mlp_regressor",
+  "points_model_2025_metric": {
+    "feature_mode": "pre_race",
+    "model": "mlp_regressor",
+    "train_seasons": "2003-2024",
+    "test_season": "2025",
+    "train_records": "8529",
+    "test_records": "479",
+    "mae": "3.617885",
+    "rmse": "5.226019",
+    "r2": "0.469700",
+    "mean_actual_points": "5.060543",
+    "mean_predicted_points": "4.483607",
+    "total_actual_points": "2424.000000",
+    "total_predicted_points": "2147.647587"
+  },
+  "remaining_race_count": 18,
+  "driver_count": 22,
+  "outputs": [
+    "data\\modeling\\season_prediction_driver_standings_2026.csv",
+    "data\\modeling\\season_prediction_constructor_standings_2026.csv",
+    "data\\modeling\\season_prediction_race_points_2026.csv",
+    "data\\modeling\\season_prediction_summary_2026.csv"
+  ],
+  "figures": [
+    "outputs\\figures\\season_prediction_driver_champion_2026.png",
+    "outputs\\figures\\season_prediction_constructor_champion_2026.png",
+    "outputs\\figures\\season_prediction_driver_points_uncertainty_2026.png",
+    "outputs\\figures\\season_prediction_constructor_points_uncertainty_2026.png"
+  ],
+  "notes": [
+    "Completed 2026 races are converted from finishing positions to the current Grand Prix points table as the starting point.",
+    "Remaining 2026 deterministic predictions are generated race by race, updating projected pre-race points and recent form after each future race.",
+    "Monte Carlo simulations sample from the rolling pre-race prediction signals generated for the remaining races.",
+    "Remaining 2026 races use pre-race features only; qualifying and grid data are not used.",
+    "Sprint points and fastest-lap bonus points are outside this project scope.",
+    "Each simulated race maps the ranked top 10 to the current Grand Prix points table."
+  ]
+}

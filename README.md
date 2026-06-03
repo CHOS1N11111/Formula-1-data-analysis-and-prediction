@@ -1,8 +1,8 @@
 # Formula 1 Data Analysis and Prediction
 
-This project is a Formula 1 data engineering, analysis, visualization, and prediction project for a course assignment. It builds a reproducible pipeline from raw datasets and API data to processed tables, statistical analysis, figures, animated videos, machine-learning models, and season-simulation backtests.
+This project is a Formula 1 data engineering, analysis, visualization, and prediction project for a course assignment. It builds a reproducible pipeline from raw datasets and API data to processed tables, statistical analysis, figures, animated videos, machine-learning models, season-simulation backtests, and 2026 championship predictions.
 
-The current implementation covers data collection, validation, feature engineering, statistical analysis, visualization, podium prediction, Top 10 prediction, race-points prediction, F1 points-rule mapping, probability calibration, and Monte Carlo season uncertainty simulation. The final 2026 champion prediction module is intentionally left as the next application step.
+The current implementation covers data collection, validation, feature engineering, statistical analysis, visualization, podium prediction, Top 10 prediction, race-points prediction, F1 points-rule mapping, probability calibration, Monte Carlo season uncertainty simulation, and final 2026 driver/constructor championship prediction.
 
 ## Project Scope
 
@@ -22,8 +22,9 @@ The project covers:
 - Podium, Top 10, and race-points prediction models
 - F1 rule-mapped points strategy comparison
 - 2025 Monte Carlo season uncertainty backtest
+- 2026 driver and constructor championship probability prediction
 
-For report figures, the visualizations intentionally exclude 2026 data. The 2026 data is kept for current-season state analysis and later prediction work.
+For report-oriented historical analysis figures, the visualizations intentionally exclude 2026 data. The 2026 data is used for current-season state analysis and final championship prediction.
 
 ## Repository Structure
 
@@ -46,6 +47,7 @@ For report figures, the visualizations intentionally exclude 2026 data. The 2026
 |-- score_f1_podium_models.py
 |-- visualize_f1_model_results.py
 |-- simulate_f1_season_uncertainty.py
+|-- predict_f1_2026_championship.py
 |-- requirements.txt
 |-- data/
 |   |-- processed/
@@ -117,6 +119,7 @@ python score_f1_podium_models.py
 python train_f1_points_model.py
 python visualize_f1_model_results.py
 python simulate_f1_season_uncertainty.py
+python predict_f1_2026_championship.py
 ```
 
 If the Kaggle datasets or raw Jolpica-F1 data already exist locally, the download steps can be skipped.
@@ -196,6 +199,7 @@ Machine learning includes:
 - Rule-mapped points strategy comparison for race-level F1 scoring
 - Leave-one-race-out Top 10 probability calibration for season simulation
 - Monte Carlo 2025 season uncertainty backtest before final 2026 championship prediction
+- 2026 driver and constructor championship prediction using pre-race models only
 
 Points-modeling rule scope:
 
@@ -206,6 +210,7 @@ Points-modeling rule scope:
 - Each race is treated as a normal full-points Grand Prix with ten scoring positions.
 - Final standings and championship-simulation outputs should use `rule_mapped_points` as the primary points result. Continuous `predicted_points` is retained as an auxiliary expected-value signal.
 - Raw `points` remain available for historical analysis and visualization. Modeling-stage point features such as pre-race points and recent average points are recalculated from finish position with the current scoring table.
+- The final 2026 prediction starts from completed-race standings, predicts remaining races with pre-race features only, and does not use future qualifying or grid data.
 
 Historical analysis includes:
 
@@ -218,6 +223,6 @@ Historical analysis includes:
 ## Notes
 
 - Static report figures use 2019-2025 modern historical data and historical SQLite data.
-- 2026 data is not used in static report figures.
-- 2026 data is retained for current-season status and later prediction.
+- 2026 data is not used in static historical report figures.
+- 2026 data is used for current-season status and final championship prediction.
 - Raw downloaded data is ignored by Git. Generated videos are tracked in this repository.

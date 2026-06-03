@@ -1,5 +1,5 @@
 {
-  "built_at": "2026-06-03T02:59:55.012400+00:00",
+  "built_at": "2026-06-03T06:51:28.853967+00:00",
   "source_files": [
     "data\\modeling\\podium_model_metrics.csv",
     "data\\modeling\\advanced_podium_model_metrics.csv",
@@ -10,7 +10,11 @@
     "data\\modeling\\points_model_metrics.csv",
     "data\\modeling\\rule_mapped_strategy_metrics_2025.csv",
     "data\\modeling\\top10_calibrated_probability_summary_2025.csv",
-    "data\\modeling\\season_simulation_summary_2025.csv"
+    "data\\modeling\\season_simulation_summary_2025.csv",
+    "data\\modeling\\season_prediction_driver_standings_2026.csv",
+    "data\\modeling\\season_prediction_constructor_standings_2026.csv",
+    "data\\modeling\\season_prediction_race_points_2026.csv",
+    "data\\modeling\\season_prediction_summary_2026.csv"
   ],
   "figures": [
     "outputs\\figures\\podium_all_models_f1_comparison.png",
@@ -36,6 +40,10 @@
     "outputs\\figures\\top10_calibrated_probability_curve_2025.png",
     "outputs\\figures\\season_simulation_driver_uncertainty_2025.png",
     "outputs\\figures\\season_simulation_constructor_uncertainty_2025.png",
-    "outputs\\figures\\season_simulation_champion_probabilities_2025.png"
+    "outputs\\figures\\season_simulation_champion_probabilities_2025.png",
+    "outputs\\figures\\season_prediction_driver_champion_2026.png",
+    "outputs\\figures\\season_prediction_constructor_champion_2026.png",
+    "outputs\\figures\\season_prediction_driver_points_uncertainty_2026.png",
+    "outputs\\figures\\season_prediction_constructor_points_uncertainty_2026.png"
   ]
 }
