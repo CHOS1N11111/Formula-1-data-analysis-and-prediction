@@ -21,355 +21,355 @@
 2026,6,Monaco Grand Prix,2026-06-07,stroll,Lance Stroll,aston_martin,Aston Martin,1.408893,0.046013,0.166667,0.104067,20,0
 2026,6,Monaco Grand Prix,2026-06-07,bortoleto,Gabriel Bortoleto,audi,Audi,1.134699,0.195504,0.190476,0.100688,21,0
 2026,6,Monaco Grand Prix,2026-06-07,hulkenberg,Nico Hülkenberg,audi,Audi,0.898080,0.133952,0.190476,0.091607,22,0
-2026,7,Barcelona Grand Prix,2026-06-14,antonelli,Andrea Kimi Antonelli,mercedes,Mercedes,17.823025,0.833768,0.823529,0.947059,1,25
-2026,7,Barcelona Grand Prix,2026-06-14,hamilton,Lewis Hamilton,ferrari,Ferrari,15.845437,0.847130,0.823529,0.869389,2,18
-2026,7,Barcelona Grand Prix,2026-06-14,russell,George Russell,mercedes,Mercedes,15.599092,0.841833,0.823529,0.859714,3,15
-2026,7,Barcelona Grand Prix,2026-06-14,max_verstappen,Max Verstappen,red_bull,Red Bull,15.528104,0.827529,0.823529,0.856926,4,12
-2026,7,Barcelona Grand Prix,2026-06-14,leclerc,Charles Leclerc,ferrari,Ferrari,12.907370,0.815772,0.823529,0.753996,5,10
-2026,7,Barcelona Grand Prix,2026-06-14,piastri,Oscar Piastri,mclaren,McLaren,11.468292,0.749794,0.837838,0.701769,6,8
-2026,7,Barcelona Grand Prix,2026-06-14,norris,Lando Norris,mclaren,McLaren,11.550200,0.855991,0.823529,0.700693,7,6
-2026,7,Barcelona Grand Prix,2026-06-14,gasly,Pierre Gasly,alpine,Alpine F1 Team,6.294039,0.542993,0.400000,0.367199,8,4
-2026,7,Barcelona Grand Prix,2026-06-14,hadjar,Isack Hadjar,red_bull,Red Bull,5.599506,0.592150,0.400000,0.339921,9,2
-2026,7,Barcelona Grand Prix,2026-06-14,sainz,Carlos Sainz,williams,Williams,5.776411,0.398580,0.311475,0.320311,10,1
-2026,7,Barcelona Grand Prix,2026-06-14,lawson,Liam Lawson,rb,RB F1 Team,4.505761,0.423043,0.310345,0.270067,11,0
-2026,7,Barcelona Grand Prix,2026-06-14,albon,Alexander Albon,williams,Williams,3.917254,0.226246,0.363636,0.262941,12,0
-2026,7,Barcelona Grand Prix,2026-06-14,bearman,Oliver Bearman,haas,Haas F1 Team,3.698921,0.297298,0.363636,0.254366,13,0
-2026,7,Barcelona Grand Prix,2026-06-14,alonso,Fernando Alonso,aston_martin,Aston Martin,4.826298,0.058409,0.166667,0.239553,14,0
-2026,7,Barcelona Grand Prix,2026-06-14,colapinto,Franco Colapinto,alpine,Alpine F1 Team,3.634648,0.492016,0.310345,0.235854,15,0
-2026,7,Barcelona Grand Prix,2026-06-14,ocon,Esteban Ocon,haas,Haas F1 Team,2.244821,0.258782,0.363636,0.197256,16,0
-2026,7,Barcelona Grand Prix,2026-06-14,bottas,Valtteri Bottas,cadillac,Cadillac F1 Team,2.844155,0.040467,0.166667,0.161704,17,0
-2026,7,Barcelona Grand Prix,2026-06-14,stroll,Lance Stroll,aston_martin,Aston Martin,2.288154,0.040931,0.166667,0.139867,18,0
-2026,7,Barcelona Grand Prix,2026-06-14,perez,Sergio Pérez,cadillac,Cadillac F1 Team,2.142233,0.044714,0.166667,0.134136,19,0
-2026,7,Barcelona Grand Prix,2026-06-14,arvid_lindblad,Arvid Lindblad,rb,RB F1 Team,0.492496,0.303057,0.311475,0.112785,20,0
-2026,7,Barcelona Grand Prix,2026-06-14,hulkenberg,Nico Hülkenberg,audi,Audi,1.156778,0.103184,0.190476,0.102575,21,0
-2026,7,Barcelona Grand Prix,2026-06-14,bortoleto,Gabriel Bortoleto,audi,Audi,1.138398,0.149552,0.190476,0.101853,22,0
-2026,8,Austrian Grand Prix,2026-06-28,antonelli,Andrea Kimi Antonelli,mercedes,Mercedes,16.743318,0.824544,0.823529,0.947059,1,25
-2026,8,Austrian Grand Prix,2026-06-28,hamilton,Lewis Hamilton,ferrari,Ferrari,16.348563,0.867998,0.823529,0.930555,2,18
-2026,8,Austrian Grand Prix,2026-06-28,max_verstappen,Max Verstappen,red_bull,Red Bull,15.073284,0.809733,0.823529,0.877239,3,15
-2026,8,Austrian Grand Prix,2026-06-28,russell,George Russell,mercedes,Mercedes,14.785842,0.832301,0.823529,0.865221,4,12
-2026,8,Austrian Grand Prix,2026-06-28,leclerc,Charles Leclerc,ferrari,Ferrari,13.076101,0.801221,0.823529,0.793741,5,10
-2026,8,Austrian Grand Prix,2026-06-28,norris,Lando Norris,mclaren,McLaren,10.701636,0.712130,0.837838,0.698762,6,8
-2026,8,Austrian Grand Prix,2026-06-28,piastri,Oscar Piastri,mclaren,McLaren,9.747517,0.610195,0.545455,0.571158,7,6
-2026,8,Austrian Grand Prix,2026-06-28,hadjar,Isack Hadjar,red_bull,Red Bull,6.515889,0.705032,0.837838,0.523766,8,4
-2026,8,Austrian Grand Prix,2026-06-28,gasly,Pierre Gasly,alpine,Alpine F1 Team,6.474290,0.510302,0.400000,0.390675,9,2
-2026,8,Austrian Grand Prix,2026-06-28,lawson,Liam Lawson,rb,RB F1 Team,5.919768,0.445366,0.310345,0.340595,10,1
-2026,8,Austrian Grand Prix,2026-06-28,sainz,Carlos Sainz,williams,Williams,5.347324,0.307664,0.311475,0.317002,11,0
-2026,8,Austrian Grand Prix,2026-06-28,bearman,Oliver Bearman,haas,Haas F1 Team,4.251713,0.292712,0.363636,0.286845,12,0
-2026,8,Austrian Grand Prix,2026-06-28,alonso,Fernando Alonso,aston_martin,Aston Martin,5.061026,0.042601,0.166667,0.261590,13,0
-2026,8,Austrian Grand Prix,2026-06-28,ocon,Esteban Ocon,haas,Haas F1 Team,3.447152,0.290225,0.363636,0.253209,14,0
-2026,8,Austrian Grand Prix,2026-06-28,colapinto,Franco Colapinto,alpine,Alpine F1 Team,3.561444,0.490875,0.310345,0.241999,15,0
-2026,8,Austrian Grand Prix,2026-06-28,albon,Alexander Albon,williams,Williams,4.347105,0.185758,0.190476,0.238885,16,0
-2026,8,Austrian Grand Prix,2026-06-28,stroll,Lance Stroll,aston_martin,Aston Martin,2.984872,0.030323,0.166667,0.174791,17,0
-2026,8,Austrian Grand Prix,2026-06-28,bottas,Valtteri Bottas,cadillac,Cadillac F1 Team,2.554575,0.029941,0.166667,0.156801,18,0
-2026,8,Austrian Grand Prix,2026-06-28,hulkenberg,Nico Hülkenberg,audi,Audi,2.042783,0.087652,0.166667,0.135404,19,0
-2026,8,Austrian Grand Prix,2026-06-28,perez,Sergio Pérez,cadillac,Cadillac F1 Team,1.749028,0.030728,0.166667,0.123123,20,0
-2026,8,Austrian Grand Prix,2026-06-28,bortoleto,Gabriel Bortoleto,audi,Audi,1.464501,0.116919,0.190476,0.118370,21,0
-2026,8,Austrian Grand Prix,2026-06-28,arvid_lindblad,Arvid Lindblad,rb,RB F1 Team,0.116217,0.331574,0.311475,0.098301,22,0
-2026,9,British Grand Prix,2026-07-05,hamilton,Lewis Hamilton,ferrari,Ferrari,16.509536,0.890675,0.823529,0.947059,1,25
-2026,9,British Grand Prix,2026-07-05,antonelli,Andrea Kimi Antonelli,mercedes,Mercedes,16.019229,0.840866,0.823529,0.926270,2,18
-2026,9,British Grand Prix,2026-07-05,russell,George Russell,mercedes,Mercedes,15.745499,0.860912,0.823529,0.914664,3,15
-2026,9,British Grand Prix,2026-07-05,max_verstappen,Max Verstappen,red_bull,Red Bull,15.546575,0.712248,0.837838,0.910522,4,12
-2026,9,British Grand Prix,2026-07-05,leclerc,Charles Leclerc,ferrari,Ferrari,13.299253,0.822749,0.823529,0.810944,5,10
-2026,9,British Grand Prix,2026-07-05,norris,Lando Norris,mclaren,McLaren,12.384380,0.749102,0.837838,0.776446,6,8
-2026,9,British Grand Prix,2026-07-05,piastri,Oscar Piastri,mclaren,McLaren,11.682349,0.657048,0.545455,0.658965,7,6
-2026,9,British Grand Prix,2026-07-05,hadjar,Isack Hadjar,red_bull,Red Bull,7.600256,0.555650,0.400000,0.442249,8,4
-2026,9,British Grand Prix,2026-07-05,sainz,Carlos Sainz,williams,Williams,7.492858,0.224976,0.363636,0.426786,9,2
-2026,9,British Grand Prix,2026-07-05,gasly,Pierre Gasly,alpine,Alpine F1 Team,7.201952,0.495963,0.310345,0.398464,10,1
-2026,9,British Grand Prix,2026-07-05,lawson,Liam Lawson,rb,RB F1 Team,6.469900,0.285967,0.363636,0.383413,11,0
-2026,9,British Grand Prix,2026-07-05,bearman,Oliver Bearman,haas,Haas F1 Team,4.880122,0.240111,0.363636,0.316007,12,0
-2026,9,British Grand Prix,2026-07-05,albon,Alexander Albon,williams,Williams,5.977558,0.197419,0.190476,0.310590,13,0
-2026,9,British Grand Prix,2026-07-05,alonso,Fernando Alonso,aston_martin,Aston Martin,5.721125,0.052092,0.166667,0.292574,14,0
-2026,9,British Grand Prix,2026-07-05,colapinto,Franco Colapinto,alpine,Alpine F1 Team,4.651388,0.461322,0.310345,0.290321,15,0
-2026,9,British Grand Prix,2026-07-05,ocon,Esteban Ocon,haas,Haas F1 Team,3.808412,0.204761,0.363636,0.270567,16,0
-2026,9,British Grand Prix,2026-07-05,bottas,Valtteri Bottas,cadillac,Cadillac F1 Team,3.662889,0.034165,0.166667,0.205306,17,0
-2026,9,British Grand Prix,2026-07-05,stroll,Lance Stroll,aston_martin,Aston Martin,3.413812,0.035935,0.166667,0.194745,18,0
-2026,9,British Grand Prix,2026-07-05,hulkenberg,Nico Hülkenberg,audi,Audi,2.456925,0.093848,0.166667,0.154173,19,0
-2026,9,British Grand Prix,2026-07-05,perez,Sergio Pérez,cadillac,Cadillac F1 Team,2.349467,0.035582,0.166667,0.149617,20,0
-2026,9,British Grand Prix,2026-07-05,bortoleto,Gabriel Bortoleto,audi,Audi,2.070193,0.137474,0.190476,0.144919,21,0
-2026,9,British Grand Prix,2026-07-05,arvid_lindblad,Arvid Lindblad,rb,RB F1 Team,0.779444,0.258329,0.363636,0.142139,22,0
-2026,10,Belgian Grand Prix,2026-07-19,hamilton,Lewis Hamilton,ferrari,Ferrari,17.428054,0.845223,0.823529,0.947059,1,25
-2026,10,Belgian Grand Prix,2026-07-19,antonelli,Andrea Kimi Antonelli,mercedes,Mercedes,16.276331,0.822215,0.823529,0.900800,2,18
-2026,10,Belgian Grand Prix,2026-07-19,russell,George Russell,mercedes,Mercedes,15.940399,0.825398,0.823529,0.887307,3,15
-2026,10,Belgian Grand Prix,2026-07-19,max_verstappen,Max Verstappen,red_bull,Red Bull,15.485189,0.725807,0.837838,0.873316,4,12
-2026,10,Belgian Grand Prix,2026-07-19,leclerc,Charles Leclerc,ferrari,Ferrari,14.141731,0.801394,0.823529,0.815063,5,10
-2026,10,Belgian Grand Prix,2026-07-19,norris,Lando Norris,mclaren,McLaren,13.043180,0.720463,0.837838,0.775232,6,8
-2026,10,Belgian Grand Prix,2026-07-19,piastri,Oscar Piastri,mclaren,McLaren,12.088391,0.651852,0.545455,0.649168,7,6
-2026,10,Belgian Grand Prix,2026-07-19,hadjar,Isack Hadjar,red_bull,Red Bull,8.333745,0.565636,0.400000,0.454726,8,4
-2026,10,Belgian Grand Prix,2026-07-19,gasly,Pierre Gasly,alpine,Alpine F1 Team,8.678515,0.487150,0.310345,0.441677,9,2
-2026,10,Belgian Grand Prix,2026-07-19,sainz,Carlos Sainz,williams,Williams,7.904824,0.263628,0.363636,0.426589,10,1
-2026,10,Belgian Grand Prix,2026-07-19,lawson,Liam Lawson,rb,RB F1 Team,7.463402,0.358203,0.311475,0.393211,11,0
-2026,10,Belgian Grand Prix,2026-07-19,albon,Alexander Albon,williams,Williams,6.459587,0.208360,0.363636,0.368541,12,0
-2026,10,Belgian Grand Prix,2026-07-19,alonso,Fernando Alonso,aston_martin,Aston Martin,7.004039,0.059473,0.166667,0.331318,13,0
-2026,10,Belgian Grand Prix,2026-07-19,bearman,Oliver Bearman,haas,Haas F1 Team,5.515592,0.272260,0.363636,0.330625,14,0
-2026,10,Belgian Grand Prix,2026-07-19,ocon,Esteban Ocon,haas,Haas F1 Team,4.951375,0.241112,0.363636,0.307964,15,0
-2026,10,Belgian Grand Prix,2026-07-19,colapinto,Franco Colapinto,alpine,Alpine F1 Team,4.322126,0.477572,0.310345,0.266702,16,0
-2026,10,Belgian Grand Prix,2026-07-19,stroll,Lance Stroll,aston_martin,Aston Martin,4.300344,0.036698,0.166667,0.222724,17,0
-2026,10,Belgian Grand Prix,2026-07-19,bottas,Valtteri Bottas,cadillac,Cadillac F1 Team,4.033794,0.036280,0.166667,0.212018,18,0
-2026,10,Belgian Grand Prix,2026-07-19,hulkenberg,Nico Hülkenberg,audi,Audi,2.917061,0.099045,0.166667,0.167164,19,0
-2026,10,Belgian Grand Prix,2026-07-19,perez,Sergio Pérez,cadillac,Cadillac F1 Team,2.797691,0.035523,0.166667,0.162370,20,0
-2026,10,Belgian Grand Prix,2026-07-19,arvid_lindblad,Arvid Lindblad,rb,RB F1 Team,0.807374,0.269881,0.363636,0.141519,21,0
-2026,10,Belgian Grand Prix,2026-07-19,bortoleto,Gabriel Bortoleto,audi,Audi,1.924127,0.132704,0.190476,0.134426,22,0
-2026,11,Hungarian Grand Prix,2026-07-26,hamilton,Lewis Hamilton,ferrari,Ferrari,18.867007,0.890162,0.823529,0.947059,1,25
-2026,11,Hungarian Grand Prix,2026-07-26,russell,George Russell,mercedes,Mercedes,17.250615,0.860442,0.823529,0.887088,2,18
-2026,11,Hungarian Grand Prix,2026-07-26,max_verstappen,Max Verstappen,red_bull,Red Bull,17.074323,0.763394,0.837838,0.884840,3,15
-2026,11,Hungarian Grand Prix,2026-07-26,antonelli,Andrea Kimi Antonelli,mercedes,Mercedes,16.701028,0.853527,0.823529,0.866697,4,12
-2026,11,Hungarian Grand Prix,2026-07-26,leclerc,Charles Leclerc,ferrari,Ferrari,15.234965,0.838202,0.823529,0.812304,5,10
-2026,11,Hungarian Grand Prix,2026-07-26,norris,Lando Norris,mclaren,McLaren,14.530062,0.685067,0.545455,0.702728,6,8
-2026,11,Hungarian Grand Prix,2026-07-26,piastri,Oscar Piastri,mclaren,McLaren,13.451505,0.668145,0.545455,0.662711,7,6
-2026,11,Hungarian Grand Prix,2026-07-26,hadjar,Isack Hadjar,red_bull,Red Bull,9.538439,0.589499,0.400000,0.473893,8,4
-2026,11,Hungarian Grand Prix,2026-07-26,gasly,Pierre Gasly,alpine,Alpine F1 Team,9.690917,0.351743,0.311475,0.452993,9,2
-2026,11,Hungarian Grand Prix,2026-07-26,sainz,Carlos Sainz,williams,Williams,8.792777,0.235100,0.363636,0.435319,10,1
-2026,11,Hungarian Grand Prix,2026-07-26,lawson,Liam Lawson,rb,RB F1 Team,8.045686,0.326177,0.311475,0.391952,11,0
-2026,11,Hungarian Grand Prix,2026-07-26,albon,Alexander Albon,williams,Williams,7.396498,0.184386,0.190476,0.331566,12,0
-2026,11,Hungarian Grand Prix,2026-07-26,alonso,Fernando Alonso,aston_martin,Aston Martin,7.307597,0.082042,0.166667,0.321125,13,0
-2026,11,Hungarian Grand Prix,2026-07-26,bearman,Oliver Bearman,haas,Haas F1 Team,5.667706,0.230524,0.363636,0.319373,14,0
-2026,11,Hungarian Grand Prix,2026-07-26,colapinto,Franco Colapinto,alpine,Alpine F1 Team,5.355331,0.380322,0.311475,0.292135,15,0
-2026,11,Hungarian Grand Prix,2026-07-26,ocon,Esteban Ocon,haas,Haas F1 Team,5.955546,0.190510,0.190476,0.278104,16,0
-2026,11,Hungarian Grand Prix,2026-07-26,bottas,Valtteri Bottas,cadillac,Cadillac F1 Team,5.103314,0.039990,0.166667,0.239342,17,0
-2026,11,Hungarian Grand Prix,2026-07-26,stroll,Lance Stroll,aston_martin,Aston Martin,4.659838,0.040449,0.166667,0.222888,18,0
-2026,11,Hungarian Grand Prix,2026-07-26,perez,Sergio Pérez,cadillac,Cadillac F1 Team,3.504298,0.040336,0.166667,0.180016,19,0
-2026,11,Hungarian Grand Prix,2026-07-26,hulkenberg,Nico Hülkenberg,audi,Audi,2.942478,0.090096,0.166667,0.159171,20,0
-2026,11,Hungarian Grand Prix,2026-07-26,arvid_lindblad,Arvid Lindblad,rb,RB F1 Team,0.832542,0.232872,0.363636,0.139980,21,0
-2026,11,Hungarian Grand Prix,2026-07-26,bortoleto,Gabriel Bortoleto,audi,Audi,1.808654,0.129465,0.190476,0.124247,22,0
-2026,12,Dutch Grand Prix,2026-08-23,hamilton,Lewis Hamilton,ferrari,Ferrari,18.595081,0.778558,0.837838,0.951351,1,25
-2026,12,Dutch Grand Prix,2026-08-23,russell,George Russell,mercedes,Mercedes,16.171007,0.831153,0.823529,0.855806,2,18
-2026,12,Dutch Grand Prix,2026-08-23,antonelli,Andrea Kimi Antonelli,mercedes,Mercedes,14.791770,0.801535,0.823529,0.803886,3,15
-2026,12,Dutch Grand Prix,2026-08-23,leclerc,Charles Leclerc,ferrari,Ferrari,14.615867,0.789437,0.837838,0.801556,4,12
-2026,12,Dutch Grand Prix,2026-08-23,max_verstappen,Max Verstappen,red_bull,Red Bull,16.589008,0.683393,0.545455,0.788119,5,10
-2026,12,Dutch Grand Prix,2026-08-23,norris,Lando Norris,mclaren,McLaren,12.786599,0.736538,0.837838,0.732695,6,8
-2026,12,Dutch Grand Prix,2026-08-23,piastri,Oscar Piastri,mclaren,McLaren,12.976202,0.657263,0.545455,0.652117,7,6
-2026,12,Dutch Grand Prix,2026-08-23,hadjar,Isack Hadjar,red_bull,Red Bull,10.122772,0.622430,0.545455,0.544702,8,4
-2026,12,Dutch Grand Prix,2026-08-23,gasly,Pierre Gasly,alpine,Alpine F1 Team,9.231588,0.480944,0.310345,0.440621,9,2
-2026,12,Dutch Grand Prix,2026-08-23,sainz,Carlos Sainz,williams,Williams,8.274525,0.253941,0.363636,0.420580,10,1
-2026,12,Dutch Grand Prix,2026-08-23,lawson,Liam Lawson,rb,RB F1 Team,6.927044,0.252389,0.363636,0.369855,11,0
-2026,12,Dutch Grand Prix,2026-08-23,albon,Alexander Albon,williams,Williams,7.876791,0.167518,0.190476,0.353660,12,0
-2026,12,Dutch Grand Prix,2026-08-23,alonso,Fernando Alonso,aston_martin,Aston Martin,6.997404,0.049674,0.166667,0.313413,13,0
-2026,12,Dutch Grand Prix,2026-08-23,colapinto,Franco Colapinto,alpine,Alpine F1 Team,5.044812,0.400412,0.310345,0.283012,14,0
-2026,12,Dutch Grand Prix,2026-08-23,ocon,Esteban Ocon,haas,Haas F1 Team,5.546705,0.170145,0.190476,0.265945,15,0
-2026,12,Dutch Grand Prix,2026-08-23,bearman,Oliver Bearman,haas,Haas F1 Team,5.481010,0.196891,0.190476,0.263472,16,0
-2026,12,Dutch Grand Prix,2026-08-23,bottas,Valtteri Bottas,cadillac,Cadillac F1 Team,4.329940,0.024316,0.166667,0.212998,17,0
-2026,12,Dutch Grand Prix,2026-08-23,stroll,Lance Stroll,aston_martin,Aston Martin,3.957138,0.025406,0.166667,0.198964,18,0
-2026,12,Dutch Grand Prix,2026-08-23,perez,Sergio Pérez,cadillac,Cadillac F1 Team,3.511573,0.027795,0.166667,0.182191,19,0
-2026,12,Dutch Grand Prix,2026-08-23,hulkenberg,Nico Hülkenberg,audi,Audi,3.141948,0.080449,0.166667,0.168277,20,0
-2026,12,Dutch Grand Prix,2026-08-23,arvid_lindblad,Arvid Lindblad,rb,RB F1 Team,0.820303,0.202810,0.363636,0.139971,21,0
-2026,12,Dutch Grand Prix,2026-08-23,bortoleto,Gabriel Bortoleto,audi,Audi,2.110684,0.093603,0.166667,0.129455,22,0
-2026,13,Italian Grand Prix,2026-09-06,hamilton,Lewis Hamilton,ferrari,Ferrari,21.109154,0.878825,0.823529,0.947059,1,25
-2026,13,Italian Grand Prix,2026-09-06,russell,George Russell,mercedes,Mercedes,19.730893,0.855518,0.823529,0.901354,2,18
-2026,13,Italian Grand Prix,2026-09-06,max_verstappen,Max Verstappen,red_bull,Red Bull,19.096279,0.766679,0.837838,0.884602,3,15
-2026,13,Italian Grand Prix,2026-09-06,antonelli,Andrea Kimi Antonelli,mercedes,Mercedes,17.691517,0.863883,0.823529,0.833727,4,12
-2026,13,Italian Grand Prix,2026-09-06,leclerc,Charles Leclerc,ferrari,Ferrari,17.461016,0.813482,0.823529,0.826083,5,10
-2026,13,Italian Grand Prix,2026-09-06,norris,Lando Norris,mclaren,McLaren,16.222618,0.748440,0.837838,0.789309,6,8
-2026,13,Italian Grand Prix,2026-09-06,piastri,Oscar Piastri,mclaren,McLaren,14.846747,0.653937,0.545455,0.655969,7,6
-2026,13,Italian Grand Prix,2026-09-06,hadjar,Isack Hadjar,red_bull,Red Bull,12.125087,0.583424,0.400000,0.522080,8,4
-2026,13,Italian Grand Prix,2026-09-06,gasly,Pierre Gasly,alpine,Alpine F1 Team,11.536733,0.503487,0.400000,0.502569,9,2
-2026,13,Italian Grand Prix,2026-09-06,sainz,Carlos Sainz,williams,Williams,10.877683,0.253499,0.363636,0.469805,10,1
-2026,13,Italian Grand Prix,2026-09-06,lawson,Liam Lawson,rb,RB F1 Team,10.637440,0.297453,0.363636,0.461839,11,0
-2026,13,Italian Grand Prix,2026-09-06,albon,Alexander Albon,williams,Williams,9.394087,0.196474,0.190476,0.368660,12,0
-2026,13,Italian Grand Prix,2026-09-06,ocon,Esteban Ocon,haas,Haas F1 Team,7.617574,0.200940,0.363636,0.361697,13,0
-2026,13,Italian Grand Prix,2026-09-06,alonso,Fernando Alonso,aston_martin,Aston Martin,9.215077,0.045721,0.166667,0.355581,14,0
-2026,13,Italian Grand Prix,2026-09-06,bearman,Oliver Bearman,haas,Haas F1 Team,6.774273,0.270172,0.363636,0.333732,15,0
-2026,13,Italian Grand Prix,2026-09-06,colapinto,Franco Colapinto,alpine,Alpine F1 Team,7.055172,0.483125,0.310345,0.327060,16,0
-2026,13,Italian Grand Prix,2026-09-06,bottas,Valtteri Bottas,cadillac,Cadillac F1 Team,6.295906,0.030897,0.166667,0.258778,17,0
-2026,13,Italian Grand Prix,2026-09-06,stroll,Lance Stroll,aston_martin,Aston Martin,6.018007,0.032503,0.166667,0.249563,18,0
-2026,13,Italian Grand Prix,2026-09-06,hulkenberg,Nico Hülkenberg,audi,Audi,4.852616,0.094618,0.166667,0.210917,19,0
-2026,13,Italian Grand Prix,2026-09-06,perez,Sergio Pérez,cadillac,Cadillac F1 Team,4.784437,0.033266,0.166667,0.208657,20,0
-2026,13,Italian Grand Prix,2026-09-06,bortoleto,Gabriel Bortoleto,audi,Audi,3.570653,0.110807,0.190476,0.175549,21,0
-2026,13,Italian Grand Prix,2026-09-06,arvid_lindblad,Arvid Lindblad,rb,RB F1 Team,1.620815,0.260100,0.363636,0.162839,22,0
-2026,14,Spanish Grand Prix,2026-09-13,hamilton,Lewis Hamilton,ferrari,Ferrari,22.749524,0.854292,0.823529,0.947059,1,25
-2026,14,Spanish Grand Prix,2026-09-13,russell,George Russell,mercedes,Mercedes,21.257017,0.791455,0.837838,0.905427,2,18
-2026,14,Spanish Grand Prix,2026-09-13,max_verstappen,Max Verstappen,red_bull,Red Bull,20.839032,0.766855,0.837838,0.892566,3,15
-2026,14,Spanish Grand Prix,2026-09-13,leclerc,Charles Leclerc,ferrari,Ferrari,18.972677,0.759140,0.837838,0.835138,4,12
-2026,14,Spanish Grand Prix,2026-09-13,antonelli,Andrea Kimi Antonelli,mercedes,Mercedes,19.047705,0.810106,0.823529,0.833154,5,10
-2026,14,Spanish Grand Prix,2026-09-13,norris,Lando Norris,mclaren,McLaren,18.238211,0.682249,0.545455,0.724824,6,8
-2026,14,Spanish Grand Prix,2026-09-13,piastri,Oscar Piastri,mclaren,McLaren,17.347341,0.654581,0.545455,0.697412,7,6
-2026,14,Spanish Grand Prix,2026-09-13,hadjar,Isack Hadjar,red_bull,Red Bull,13.974563,0.630839,0.545455,0.593632,8,4
-2026,14,Spanish Grand Prix,2026-09-13,gasly,Pierre Gasly,alpine,Alpine F1 Team,12.697794,0.502030,0.400000,0.510710,9,2
-2026,14,Spanish Grand Prix,2026-09-13,sainz,Carlos Sainz,williams,Williams,12.938545,0.284273,0.363636,0.507208,10,1
-2026,14,Spanish Grand Prix,2026-09-13,lawson,Liam Lawson,rb,RB F1 Team,11.755409,0.267254,0.363636,0.470803,11,0
-2026,14,Spanish Grand Prix,2026-09-13,albon,Alexander Albon,williams,Williams,11.031431,0.238283,0.363636,0.448527,12,0
-2026,14,Spanish Grand Prix,2026-09-13,alonso,Fernando Alonso,aston_martin,Aston Martin,11.098877,0.062150,0.166667,0.391511,13,0
-2026,14,Spanish Grand Prix,2026-09-13,ocon,Esteban Ocon,haas,Haas F1 Team,8.946355,0.241571,0.363636,0.384369,14,0
-2026,14,Spanish Grand Prix,2026-09-13,colapinto,Franco Colapinto,alpine,Alpine F1 Team,8.297384,0.555315,0.400000,0.375309,15,0
-2026,14,Spanish Grand Prix,2026-09-13,bearman,Oliver Bearman,haas,Haas F1 Team,8.008351,0.240063,0.363636,0.355507,16,0
-2026,14,Spanish Grand Prix,2026-09-13,bottas,Valtteri Bottas,cadillac,Cadillac F1 Team,7.528310,0.050161,0.166667,0.281645,17,0
-2026,14,Spanish Grand Prix,2026-09-13,stroll,Lance Stroll,aston_martin,Aston Martin,7.305564,0.052101,0.166667,0.274791,18,0
-2026,14,Spanish Grand Prix,2026-09-13,perez,Sergio Pérez,cadillac,Cadillac F1 Team,5.870102,0.050598,0.166667,0.230622,19,0
-2026,14,Spanish Grand Prix,2026-09-13,hulkenberg,Nico Hülkenberg,audi,Audi,5.542011,0.114899,0.190476,0.227670,20,0
-2026,14,Spanish Grand Prix,2026-09-13,bortoleto,Gabriel Bortoleto,audi,Audi,3.819839,0.143582,0.190476,0.174679,21,0
-2026,14,Spanish Grand Prix,2026-09-13,arvid_lindblad,Arvid Lindblad,rb,RB F1 Team,1.725845,0.262227,0.363636,0.162195,22,0
-2026,15,Azerbaijan Grand Prix,2026-09-26,hamilton,Lewis Hamilton,ferrari,Ferrari,23.058548,0.893279,0.823529,0.947059,1,25
-2026,15,Azerbaijan Grand Prix,2026-09-26,russell,George Russell,mercedes,Mercedes,21.839712,0.861049,0.823529,0.910058,2,18
-2026,15,Azerbaijan Grand Prix,2026-09-26,max_verstappen,Max Verstappen,red_bull,Red Bull,21.041671,0.728993,0.837838,0.890124,3,15
-2026,15,Azerbaijan Grand Prix,2026-09-26,leclerc,Charles Leclerc,ferrari,Ferrari,19.528298,0.819745,0.823529,0.839889,4,12
-2026,15,Azerbaijan Grand Prix,2026-09-26,antonelli,Andrea Kimi Antonelli,mercedes,Mercedes,19.276493,0.794814,0.837838,0.836538,5,10
-2026,15,Azerbaijan Grand Prix,2026-09-26,norris,Lando Norris,mclaren,McLaren,18.520984,0.740853,0.837838,0.813602,6,8
-2026,15,Azerbaijan Grand Prix,2026-09-26,piastri,Oscar Piastri,mclaren,McLaren,18.104088,0.637541,0.545455,0.713231,7,6
-2026,15,Azerbaijan Grand Prix,2026-09-26,hadjar,Isack Hadjar,red_bull,Red Bull,15.082385,0.600619,0.545455,0.621500,8,4
-2026,15,Azerbaijan Grand Prix,2026-09-26,gasly,Pierre Gasly,alpine,Alpine F1 Team,13.866821,0.483739,0.310345,0.514066,9,2
-2026,15,Azerbaijan Grand Prix,2026-09-26,sainz,Carlos Sainz,williams,Williams,13.318209,0.247965,0.363636,0.513399,10,1
-2026,15,Azerbaijan Grand Prix,2026-09-26,lawson,Liam Lawson,rb,RB F1 Team,12.635513,0.265506,0.363636,0.492674,11,0
-2026,15,Azerbaijan Grand Prix,2026-09-26,albon,Alexander Albon,williams,Williams,12.309405,0.188888,0.190476,0.430826,12,0
-2026,15,Azerbaijan Grand Prix,2026-09-26,alonso,Fernando Alonso,aston_martin,Aston Martin,12.446686,0.045481,0.166667,0.427850,13,0
-2026,15,Azerbaijan Grand Prix,2026-09-26,colapinto,Franco Colapinto,alpine,Alpine F1 Team,9.766457,0.517306,0.400000,0.416485,14,0
-2026,15,Azerbaijan Grand Prix,2026-09-26,bearman,Oliver Bearman,haas,Haas F1 Team,9.770727,0.225846,0.363636,0.405706,15,0
-2026,15,Azerbaijan Grand Prix,2026-09-26,ocon,Esteban Ocon,haas,Haas F1 Team,9.877258,0.185202,0.190476,0.356992,16,0
-2026,15,Azerbaijan Grand Prix,2026-09-26,stroll,Lance Stroll,aston_martin,Aston Martin,9.110677,0.030143,0.166667,0.326577,17,0
-2026,15,Azerbaijan Grand Prix,2026-09-26,bottas,Valtteri Bottas,cadillac,Cadillac F1 Team,7.525608,0.028856,0.166667,0.278459,18,0
-2026,15,Azerbaijan Grand Prix,2026-09-26,hulkenberg,Nico Hülkenberg,audi,Audi,6.307576,0.086673,0.166667,0.241482,19,0
-2026,15,Azerbaijan Grand Prix,2026-09-26,perez,Sergio Pérez,cadillac,Cadillac F1 Team,6.239677,0.031039,0.166667,0.239421,20,0
-2026,15,Azerbaijan Grand Prix,2026-09-26,bortoleto,Gabriel Bortoleto,audi,Audi,4.304934,0.123335,0.190476,0.187830,21,0
-2026,15,Azerbaijan Grand Prix,2026-09-26,arvid_lindblad,Arvid Lindblad,rb,RB F1 Team,1.875957,0.188924,0.190476,0.114092,22,0
-2026,16,Singapore Grand Prix,2026-10-11,hamilton,Lewis Hamilton,ferrari,Ferrari,24.254769,0.857539,0.823529,0.947059,1,25
-2026,16,Singapore Grand Prix,2026-10-11,max_verstappen,Max Verstappen,red_bull,Red Bull,22.827680,0.786965,0.837838,0.910165,2,18
-2026,16,Singapore Grand Prix,2026-10-11,russell,George Russell,mercedes,Mercedes,21.964588,0.866516,0.823529,0.880964,3,15
-2026,16,Singapore Grand Prix,2026-10-11,leclerc,Charles Leclerc,ferrari,Ferrari,19.887324,0.781227,0.837838,0.825306,4,12
-2026,16,Singapore Grand Prix,2026-10-11,antonelli,Andrea Kimi Antonelli,mercedes,Mercedes,19.543189,0.829410,0.823529,0.811081,5,10
-2026,16,Singapore Grand Prix,2026-10-11,norris,Lando Norris,mclaren,McLaren,19.062447,0.737122,0.837838,0.801499,6,8
-2026,16,Singapore Grand Prix,2026-10-11,piastri,Oscar Piastri,mclaren,McLaren,17.998603,0.698628,0.545455,0.683082,7,6
-2026,16,Singapore Grand Prix,2026-10-11,hadjar,Isack Hadjar,red_bull,Red Bull,16.042137,0.654483,0.545455,0.626617,8,4
-2026,16,Singapore Grand Prix,2026-10-11,gasly,Pierre Gasly,alpine,Alpine F1 Team,14.241992,0.525580,0.400000,0.531028,9,2
-2026,16,Singapore Grand Prix,2026-10-11,lawson,Liam Lawson,rb,RB F1 Team,13.596242,0.262891,0.363636,0.501483,10,1
-2026,16,Singapore Grand Prix,2026-10-11,sainz,Carlos Sainz,williams,Williams,13.258177,0.255512,0.363636,0.491726,11,0
-2026,16,Singapore Grand Prix,2026-10-11,alonso,Fernando Alonso,aston_martin,Aston Martin,12.289352,0.046214,0.166667,0.404674,12,0
-2026,16,Singapore Grand Prix,2026-10-11,albon,Alexander Albon,williams,Williams,11.509256,0.178127,0.190476,0.389303,13,0
-2026,16,Singapore Grand Prix,2026-10-11,bearman,Oliver Bearman,haas,Haas F1 Team,9.084745,0.236020,0.363636,0.371279,14,0
-2026,16,Singapore Grand Prix,2026-10-11,colapinto,Franco Colapinto,alpine,Alpine F1 Team,8.986192,0.490720,0.310345,0.352448,15,0
-2026,16,Singapore Grand Prix,2026-10-11,ocon,Esteban Ocon,haas,Haas F1 Team,10.065263,0.160904,0.190476,0.347629,16,0
-2026,16,Singapore Grand Prix,2026-10-11,stroll,Lance Stroll,aston_martin,Aston Martin,8.277242,0.028056,0.166667,0.288884,17,0
-2026,16,Singapore Grand Prix,2026-10-11,bottas,Valtteri Bottas,cadillac,Cadillac F1 Team,8.085432,0.026855,0.166667,0.283348,18,0
-2026,16,Singapore Grand Prix,2026-10-11,perez,Sergio Pérez,cadillac,Cadillac F1 Team,6.863226,0.029631,0.166667,0.248075,19,0
-2026,16,Singapore Grand Prix,2026-10-11,hulkenberg,Nico Hülkenberg,audi,Audi,5.794027,0.078869,0.166667,0.217217,20,0
-2026,16,Singapore Grand Prix,2026-10-11,bortoleto,Gabriel Bortoleto,audi,Audi,4.245246,0.110178,0.190476,0.179662,21,0
-2026,16,Singapore Grand Prix,2026-10-11,arvid_lindblad,Arvid Lindblad,rb,RB F1 Team,1.682286,0.185075,0.190476,0.105694,22,0
-2026,17,United States Grand Prix,2026-10-25,hamilton,Lewis Hamilton,ferrari,Ferrari,24.906646,0.880988,0.823529,0.947059,1,25
-2026,17,United States Grand Prix,2026-10-25,max_verstappen,Max Verstappen,red_bull,Red Bull,23.561369,0.820876,0.823529,0.909250,2,18
-2026,17,United States Grand Prix,2026-10-25,russell,George Russell,mercedes,Mercedes,22.963375,0.871477,0.823529,0.892443,3,15
-2026,17,United States Grand Prix,2026-10-25,leclerc,Charles Leclerc,ferrari,Ferrari,20.780264,0.807020,0.823529,0.831087,4,12
-2026,17,United States Grand Prix,2026-10-25,norris,Lando Norris,mclaren,McLaren,19.928364,0.770913,0.837838,0.811437,5,10
-2026,17,United States Grand Prix,2026-10-25,antonelli,Andrea Kimi Antonelli,mercedes,Mercedes,19.735242,0.844742,0.823529,0.801717,6,8
-2026,17,United States Grand Prix,2026-10-25,hadjar,Isack Hadjar,red_bull,Red Bull,16.234884,0.702291,0.837838,0.707632,7,6
-2026,17,United States Grand Prix,2026-10-25,piastri,Oscar Piastri,mclaren,McLaren,18.923550,0.674954,0.545455,0.695482,8,4
-2026,17,United States Grand Prix,2026-10-25,sainz,Carlos Sainz,williams,Williams,14.518658,0.268289,0.363636,0.517137,9,2
-2026,17,United States Grand Prix,2026-10-25,gasly,Pierre Gasly,alpine,Alpine F1 Team,14.730185,0.497917,0.310345,0.507095,10,1
-2026,17,United States Grand Prix,2026-10-25,lawson,Liam Lawson,rb,RB F1 Team,14.059300,0.258494,0.363636,0.504227,11,0
-2026,17,United States Grand Prix,2026-10-25,alonso,Fernando Alonso,aston_martin,Aston Martin,13.379791,0.042475,0.166667,0.426038,12,0
-2026,17,United States Grand Prix,2026-10-25,albon,Alexander Albon,williams,Williams,12.516625,0.180905,0.190476,0.408922,13,0
-2026,17,United States Grand Prix,2026-10-25,bearman,Oliver Bearman,haas,Haas F1 Team,9.526448,0.235577,0.363636,0.376831,14,0
-2026,17,United States Grand Prix,2026-10-25,colapinto,Franco Colapinto,alpine,Alpine F1 Team,9.884969,0.494614,0.310345,0.370920,15,0
-2026,17,United States Grand Prix,2026-10-25,ocon,Esteban Ocon,haas,Haas F1 Team,11.151307,0.179887,0.190476,0.370550,16,0
-2026,17,United States Grand Prix,2026-10-25,stroll,Lance Stroll,aston_martin,Aston Martin,9.548309,0.027132,0.166667,0.318355,17,0
-2026,17,United States Grand Prix,2026-10-25,bottas,Valtteri Bottas,cadillac,Cadillac F1 Team,8.693591,0.025970,0.166667,0.294333,18,0
-2026,17,United States Grand Prix,2026-10-25,perez,Sergio Pérez,cadillac,Cadillac F1 Team,7.494540,0.026978,0.166667,0.260634,19,0
-2026,17,United States Grand Prix,2026-10-25,hulkenberg,Nico Hülkenberg,audi,Audi,7.030423,0.087670,0.166667,0.247590,20,0
-2026,17,United States Grand Prix,2026-10-25,bortoleto,Gabriel Bortoleto,audi,Audi,4.920299,0.107265,0.190476,0.195428,21,0
-2026,17,United States Grand Prix,2026-10-25,arvid_lindblad,Arvid Lindblad,rb,RB F1 Team,1.788544,0.184834,0.190476,0.107410,22,0
-2026,18,Mexico City Grand Prix,2026-11-01,hamilton,Lewis Hamilton,ferrari,Ferrari,25.795268,0.897599,0.823529,0.947059,1,25
-2026,18,Mexico City Grand Prix,2026-11-01,max_verstappen,Max Verstappen,red_bull,Red Bull,24.521618,0.800589,0.823529,0.912496,2,18
-2026,18,Mexico City Grand Prix,2026-11-01,russell,George Russell,mercedes,Mercedes,23.964506,0.872606,0.823529,0.897378,3,15
-2026,18,Mexico City Grand Prix,2026-11-01,leclerc,Charles Leclerc,ferrari,Ferrari,22.288115,0.781137,0.837838,0.856179,4,12
-2026,18,Mexico City Grand Prix,2026-11-01,antonelli,Andrea Kimi Antonelli,mercedes,Mercedes,21.555724,0.814690,0.823529,0.832011,5,10
-2026,18,Mexico City Grand Prix,2026-11-01,norris,Lando Norris,mclaren,McLaren,20.469259,0.725851,0.837838,0.806821,6,8
-2026,18,Mexico City Grand Prix,2026-11-01,piastri,Oscar Piastri,mclaren,McLaren,19.000492,0.667732,0.545455,0.679248,7,6
-2026,18,Mexico City Grand Prix,2026-11-01,hadjar,Isack Hadjar,red_bull,Red Bull,18.562289,0.658364,0.545455,0.667357,8,4
-2026,18,Mexico City Grand Prix,2026-11-01,gasly,Pierre Gasly,alpine,Alpine F1 Team,15.799282,0.443459,0.310345,0.521845,9,2
-2026,18,Mexico City Grand Prix,2026-11-01,lawson,Liam Lawson,rb,RB F1 Team,15.015404,0.254024,0.363636,0.516560,10,1
-2026,18,Mexico City Grand Prix,2026-11-01,sainz,Carlos Sainz,williams,Williams,14.997964,0.241211,0.363636,0.516087,11,0
-2026,18,Mexico City Grand Prix,2026-11-01,albon,Alexander Albon,williams,Williams,14.031047,0.165307,0.190476,0.437900,12,0
-2026,18,Mexico City Grand Prix,2026-11-01,alonso,Fernando Alonso,aston_martin,Aston Martin,14.258916,0.041844,0.166667,0.436941,13,0
-2026,18,Mexico City Grand Prix,2026-11-01,bearman,Oliver Bearman,haas,Haas F1 Team,11.402368,0.212635,0.363636,0.418514,14,0
-2026,18,Mexico City Grand Prix,2026-11-01,ocon,Esteban Ocon,haas,Haas F1 Team,11.687156,0.183755,0.190476,0.374294,15,0
-2026,18,Mexico City Grand Prix,2026-11-01,colapinto,Franco Colapinto,alpine,Alpine F1 Team,10.229334,0.425147,0.310345,0.370694,16,0
-2026,18,Mexico City Grand Prix,2026-11-01,stroll,Lance Stroll,aston_martin,Aston Martin,10.470326,0.031943,0.166667,0.334131,17,0
-2026,18,Mexico City Grand Prix,2026-11-01,bottas,Valtteri Bottas,cadillac,Cadillac F1 Team,9.500260,0.030581,0.166667,0.307806,18,0
-2026,18,Mexico City Grand Prix,2026-11-01,perez,Sergio Pérez,cadillac,Cadillac F1 Team,7.977237,0.032890,0.166667,0.266476,19,0
-2026,18,Mexico City Grand Prix,2026-11-01,hulkenberg,Nico Hülkenberg,audi,Audi,7.209295,0.090353,0.166667,0.245637,20,0
-2026,18,Mexico City Grand Prix,2026-11-01,bortoleto,Gabriel Bortoleto,audi,Audi,5.020884,0.119695,0.190476,0.193393,21,0
-2026,18,Mexico City Grand Prix,2026-11-01,arvid_lindblad,Arvid Lindblad,rb,RB F1 Team,1.995239,0.190238,0.190476,0.111287,22,0
-2026,19,Brazilian Grand Prix,2026-11-08,hamilton,Lewis Hamilton,ferrari,Ferrari,27.116702,0.887509,0.823529,0.947059,1,25
-2026,19,Brazilian Grand Prix,2026-11-08,max_verstappen,Max Verstappen,red_bull,Red Bull,26.758012,0.785295,0.837838,0.942092,2,18
-2026,19,Brazilian Grand Prix,2026-11-08,russell,George Russell,mercedes,Mercedes,25.184584,0.854581,0.823529,0.897182,3,15
-2026,19,Brazilian Grand Prix,2026-11-08,leclerc,Charles Leclerc,ferrari,Ferrari,23.573282,0.724757,0.837838,0.859880,4,12
-2026,19,Brazilian Grand Prix,2026-11-08,antonelli,Andrea Kimi Antonelli,mercedes,Mercedes,22.635673,0.838646,0.823529,0.831384,5,10
-2026,19,Brazilian Grand Prix,2026-11-08,norris,Lando Norris,mclaren,McLaren,22.201838,0.730335,0.837838,0.824477,6,8
-2026,19,Brazilian Grand Prix,2026-11-08,piastri,Oscar Piastri,mclaren,McLaren,21.399417,0.674279,0.545455,0.716048,7,6
-2026,19,Brazilian Grand Prix,2026-11-08,hadjar,Isack Hadjar,red_bull,Red Bull,19.963381,0.610026,0.545455,0.678978,8,4
-2026,19,Brazilian Grand Prix,2026-11-08,sainz,Carlos Sainz,williams,Williams,16.811993,0.280841,0.363636,0.543082,9,2
-2026,19,Brazilian Grand Prix,2026-11-08,gasly,Pierre Gasly,alpine,Alpine F1 Team,17.411580,0.444684,0.310345,0.542572,10,1
-2026,19,Brazilian Grand Prix,2026-11-08,lawson,Liam Lawson,rb,RB F1 Team,16.379398,0.338425,0.311475,0.516266,11,0
-2026,19,Brazilian Grand Prix,2026-11-08,alonso,Fernando Alonso,aston_martin,Aston Martin,15.712050,0.072160,0.166667,0.455596,12,0
-2026,19,Brazilian Grand Prix,2026-11-08,albon,Alexander Albon,williams,Williams,15.196927,0.186341,0.190476,0.449442,13,0
-2026,19,Brazilian Grand Prix,2026-11-08,bearman,Oliver Bearman,haas,Haas F1 Team,12.684866,0.312566,0.311475,0.420894,14,0
-2026,19,Brazilian Grand Prix,2026-11-08,colapinto,Franco Colapinto,alpine,Alpine F1 Team,12.115054,0.457460,0.310345,0.405846,15,0
-2026,19,Brazilian Grand Prix,2026-11-08,ocon,Esteban Ocon,haas,Haas F1 Team,13.474135,0.196502,0.190476,0.404969,16,0
-2026,19,Brazilian Grand Prix,2026-11-08,stroll,Lance Stroll,aston_martin,Aston Martin,11.893311,0.044909,0.166667,0.357018,17,0
-2026,19,Brazilian Grand Prix,2026-11-08,bottas,Valtteri Bottas,cadillac,Cadillac F1 Team,9.908061,0.044401,0.166667,0.305770,18,0
-2026,19,Brazilian Grand Prix,2026-11-08,hulkenberg,Nico Hülkenberg,audi,Audi,8.586491,0.096875,0.166667,0.271655,19,0
-2026,19,Brazilian Grand Prix,2026-11-08,perez,Sergio Pérez,cadillac,Cadillac F1 Team,8.571882,0.044657,0.166667,0.271278,20,0
-2026,19,Brazilian Grand Prix,2026-11-08,bortoleto,Gabriel Bortoleto,audi,Audi,6.458311,0.139848,0.190476,0.223860,21,0
-2026,19,Brazilian Grand Prix,2026-11-08,arvid_lindblad,Arvid Lindblad,rb,RB F1 Team,3.111152,0.229351,0.363636,0.189403,22,0
-2026,20,Las Vegas Grand Prix,2026-11-22,hamilton,Lewis Hamilton,ferrari,Ferrari,29.300234,0.911476,0.875000,0.962500,1,25
-2026,20,Las Vegas Grand Prix,2026-11-22,max_verstappen,Max Verstappen,red_bull,Red Bull,28.341208,0.787688,0.837838,0.928440,2,18
-2026,20,Las Vegas Grand Prix,2026-11-22,russell,George Russell,mercedes,Mercedes,26.977302,0.874500,0.823529,0.891563,3,15
-2026,20,Las Vegas Grand Prix,2026-11-22,leclerc,Charles Leclerc,ferrari,Ferrari,25.421059,0.761227,0.837838,0.858676,4,12
-2026,20,Las Vegas Grand Prix,2026-11-22,antonelli,Andrea Kimi Antonelli,mercedes,Mercedes,24.545384,0.869300,0.823529,0.833463,5,10
-2026,20,Las Vegas Grand Prix,2026-11-22,norris,Lando Norris,mclaren,McLaren,24.333785,0.733577,0.837838,0.832700,6,8
-2026,20,Las Vegas Grand Prix,2026-11-22,piastri,Oscar Piastri,mclaren,McLaren,22.548727,0.693321,0.545455,0.702339,7,6
-2026,20,Las Vegas Grand Prix,2026-11-22,hadjar,Isack Hadjar,red_bull,Red Bull,21.166600,0.661696,0.545455,0.669319,8,4
-2026,20,Las Vegas Grand Prix,2026-11-22,gasly,Pierre Gasly,alpine,Alpine F1 Team,18.942483,0.430214,0.310345,0.545651,9,2
-2026,20,Las Vegas Grand Prix,2026-11-22,sainz,Carlos Sainz,williams,Williams,18.646895,0.321587,0.311475,0.538928,10,1
-2026,20,Las Vegas Grand Prix,2026-11-22,lawson,Liam Lawson,rb,RB F1 Team,18.179305,0.303129,0.311475,0.527757,11,0
-2026,20,Las Vegas Grand Prix,2026-11-22,albon,Alexander Albon,williams,Williams,16.300667,0.215996,0.363636,0.498524,12,0
-2026,20,Las Vegas Grand Prix,2026-11-22,ocon,Esteban Ocon,haas,Haas F1 Team,15.173932,0.200630,0.363636,0.471605,13,0
-2026,20,Las Vegas Grand Prix,2026-11-22,alonso,Fernando Alonso,aston_martin,Aston Martin,17.078946,0.043151,0.166667,0.458026,14,0
-2026,20,Las Vegas Grand Prix,2026-11-22,bearman,Oliver Bearman,haas,Haas F1 Team,14.074637,0.247955,0.363636,0.445342,15,0
-2026,20,Las Vegas Grand Prix,2026-11-22,colapinto,Franco Colapinto,alpine,Alpine F1 Team,12.867590,0.436716,0.310345,0.400518,16,0
-2026,20,Las Vegas Grand Prix,2026-11-22,stroll,Lance Stroll,aston_martin,Aston Martin,12.678379,0.028776,0.166667,0.352894,17,0
-2026,20,Las Vegas Grand Prix,2026-11-22,bottas,Valtteri Bottas,cadillac,Cadillac F1 Team,10.357893,0.026482,0.166667,0.297456,18,0
-2026,20,Las Vegas Grand Prix,2026-11-22,perez,Sergio Pérez,cadillac,Cadillac F1 Team,8.972578,0.027509,0.166667,0.264360,19,0
-2026,20,Las Vegas Grand Prix,2026-11-22,hulkenberg,Nico Hülkenberg,audi,Audi,8.504215,0.083960,0.166667,0.253171,20,0
-2026,20,Las Vegas Grand Prix,2026-11-22,bortoleto,Gabriel Bortoleto,audi,Audi,6.488708,0.127612,0.190476,0.212162,21,0
-2026,20,Las Vegas Grand Prix,2026-11-22,arvid_lindblad,Arvid Lindblad,rb,RB F1 Team,3.562781,0.228324,0.363636,0.194208,22,0
-2026,21,Qatar Grand Prix,2026-11-29,hamilton,Lewis Hamilton,ferrari,Ferrari,29.501907,0.906611,0.875000,0.962500,1,25
-2026,21,Qatar Grand Prix,2026-11-29,max_verstappen,Max Verstappen,red_bull,Red Bull,27.956297,0.842140,0.823529,0.910386,2,18
-2026,21,Qatar Grand Prix,2026-11-29,russell,George Russell,mercedes,Mercedes,26.813388,0.865000,0.823529,0.883268,3,15
-2026,21,Qatar Grand Prix,2026-11-29,leclerc,Charles Leclerc,ferrari,Ferrari,25.363019,0.756799,0.837838,0.853147,4,12
-2026,21,Qatar Grand Prix,2026-11-29,antonelli,Andrea Kimi Antonelli,mercedes,Mercedes,24.946904,0.869055,0.823529,0.838981,5,10
-2026,21,Qatar Grand Prix,2026-11-29,norris,Lando Norris,mclaren,McLaren,24.698577,0.743579,0.837838,0.837381,6,8
-2026,21,Qatar Grand Prix,2026-11-29,piastri,Oscar Piastri,mclaren,McLaren,23.275329,0.701235,0.837838,0.803612,7,6
-2026,21,Qatar Grand Prix,2026-11-29,hadjar,Isack Hadjar,red_bull,Red Bull,21.528316,0.689863,0.545455,0.674445,8,4
-2026,21,Qatar Grand Prix,2026-11-29,gasly,Pierre Gasly,alpine,Alpine F1 Team,19.198393,0.439637,0.310345,0.548629,9,2
-2026,21,Qatar Grand Prix,2026-11-29,lawson,Liam Lawson,rb,RB F1 Team,17.771720,0.275528,0.363636,0.530765,10,1
-2026,21,Qatar Grand Prix,2026-11-29,sainz,Carlos Sainz,williams,Williams,18.162103,0.308963,0.311475,0.524380,11,0
-2026,21,Qatar Grand Prix,2026-11-29,albon,Alexander Albon,williams,Williams,15.490084,0.200860,0.363636,0.476628,12,0
-2026,21,Qatar Grand Prix,2026-11-29,alonso,Fernando Alonso,aston_martin,Aston Martin,17.000869,0.046874,0.166667,0.453384,13,0
-2026,21,Qatar Grand Prix,2026-11-29,bearman,Oliver Bearman,haas,Haas F1 Team,13.285423,0.228220,0.363636,0.424318,14,0
-2026,21,Qatar Grand Prix,2026-11-29,colapinto,Franco Colapinto,alpine,Alpine F1 Team,13.012234,0.410439,0.310345,0.401848,15,0
-2026,21,Qatar Grand Prix,2026-11-29,ocon,Esteban Ocon,haas,Haas F1 Team,14.262574,0.177416,0.190476,0.395555,16,0
-2026,21,Qatar Grand Prix,2026-11-29,bottas,Valtteri Bottas,cadillac,Cadillac F1 Team,13.092705,0.026945,0.166667,0.360654,17,0
-2026,21,Qatar Grand Prix,2026-11-29,stroll,Lance Stroll,aston_martin,Aston Martin,12.628799,0.029277,0.166667,0.349647,18,0
-2026,21,Qatar Grand Prix,2026-11-29,perez,Sergio Pérez,cadillac,Cadillac F1 Team,11.354981,0.028987,0.166667,0.319423,19,0
-2026,21,Qatar Grand Prix,2026-11-29,hulkenberg,Nico Hülkenberg,audi,Audi,10.356799,0.082191,0.166667,0.295739,20,0
-2026,21,Qatar Grand Prix,2026-11-29,bortoleto,Gabriel Bortoleto,audi,Audi,8.136677,0.116085,0.190476,0.250204,21,0
-2026,21,Qatar Grand Prix,2026-11-29,arvid_lindblad,Arvid Lindblad,rb,RB F1 Team,3.107014,0.220177,0.363636,0.182812,22,0
-2026,22,Abu Dhabi Grand Prix,2026-12-06,hamilton,Lewis Hamilton,ferrari,Ferrari,30.000000,0.918561,0.875000,0.962500,1,25
-2026,22,Abu Dhabi Grand Prix,2026-12-06,max_verstappen,Max Verstappen,red_bull,Red Bull,29.136053,0.839770,0.823529,0.926900,2,18
-2026,22,Abu Dhabi Grand Prix,2026-12-06,russell,George Russell,mercedes,Mercedes,28.225634,0.843338,0.823529,0.905657,3,15
-2026,22,Abu Dhabi Grand Prix,2026-12-06,leclerc,Charles Leclerc,ferrari,Ferrari,26.604539,0.779117,0.837838,0.872124,4,12
-2026,22,Abu Dhabi Grand Prix,2026-12-06,antonelli,Andrea Kimi Antonelli,mercedes,Mercedes,25.322107,0.797487,0.837838,0.842201,5,10
-2026,22,Abu Dhabi Grand Prix,2026-12-06,norris,Lando Norris,mclaren,McLaren,24.882923,0.740281,0.837838,0.831953,6,8
-2026,22,Abu Dhabi Grand Prix,2026-12-06,piastri,Oscar Piastri,mclaren,McLaren,23.346218,0.649657,0.545455,0.708381,7,6
-2026,22,Abu Dhabi Grand Prix,2026-12-06,hadjar,Isack Hadjar,red_bull,Red Bull,22.601477,0.643496,0.545455,0.691004,8,4
-2026,22,Abu Dhabi Grand Prix,2026-12-06,lawson,Liam Lawson,rb,RB F1 Team,19.341436,0.232842,0.363636,0.560391,9,2
-2026,22,Abu Dhabi Grand Prix,2026-12-06,sainz,Carlos Sainz,williams,Williams,19.209754,0.227630,0.363636,0.557318,10,1
-2026,22,Abu Dhabi Grand Prix,2026-12-06,gasly,Pierre Gasly,alpine,Alpine F1 Team,19.447857,0.419804,0.310345,0.546887,11,0
-2026,22,Abu Dhabi Grand Prix,2026-12-06,alonso,Fernando Alonso,aston_martin,Aston Martin,18.253248,0.045554,0.166667,0.475909,12,0
-2026,22,Abu Dhabi Grand Prix,2026-12-06,albon,Alexander Albon,williams,Williams,17.643873,0.163849,0.190476,0.468833,13,0
-2026,22,Abu Dhabi Grand Prix,2026-12-06,ocon,Esteban Ocon,haas,Haas F1 Team,15.501670,0.165484,0.190476,0.418848,14,0
-2026,22,Abu Dhabi Grand Prix,2026-12-06,colapinto,Franco Colapinto,alpine,Alpine F1 Team,13.840141,0.383445,0.311475,0.416379,15,0
-2026,22,Abu Dhabi Grand Prix,2026-12-06,bearman,Oliver Bearman,haas,Haas F1 Team,14.798129,0.176584,0.190476,0.402433,16,0
-2026,22,Abu Dhabi Grand Prix,2026-12-06,stroll,Lance Stroll,aston_martin,Aston Martin,14.081359,0.028553,0.166667,0.378565,17,0
-2026,22,Abu Dhabi Grand Prix,2026-12-06,bottas,Valtteri Bottas,cadillac,Cadillac F1 Team,12.205491,0.027332,0.166667,0.334795,18,0
-2026,22,Abu Dhabi Grand Prix,2026-12-06,perez,Sergio Pérez,cadillac,Cadillac F1 Team,10.799181,0.031229,0.166667,0.301981,19,0
-2026,22,Abu Dhabi Grand Prix,2026-12-06,hulkenberg,Nico Hülkenberg,audi,Audi,10.742324,0.071068,0.166667,0.300654,20,0
-2026,22,Abu Dhabi Grand Prix,2026-12-06,bortoleto,Gabriel Bortoleto,audi,Audi,8.454112,0.090177,0.166667,0.247263,21,0
-2026,22,Abu Dhabi Grand Prix,2026-12-06,arvid_lindblad,Arvid Lindblad,rb,RB F1 Team,3.898013,0.173840,0.190476,0.148096,22,0
+2026,7,Barcelona Grand Prix,2026-06-14,antonelli,Andrea Kimi Antonelli,mercedes,Mercedes,20.063081,0.844245,0.823529,0.947059,1,25
+2026,7,Barcelona Grand Prix,2026-06-14,hamilton,Lewis Hamilton,ferrari,Ferrari,17.968986,0.872592,0.823529,0.873996,2,18
+2026,7,Barcelona Grand Prix,2026-06-14,russell,George Russell,mercedes,Mercedes,17.751283,0.855892,0.823529,0.866400,3,15
+2026,7,Barcelona Grand Prix,2026-06-14,max_verstappen,Max Verstappen,red_bull,Red Bull,16.944406,0.838395,0.823529,0.838248,4,12
+2026,7,Barcelona Grand Prix,2026-06-14,leclerc,Charles Leclerc,ferrari,Ferrari,14.683704,0.820261,0.823529,0.759373,5,10
+2026,7,Barcelona Grand Prix,2026-06-14,norris,Lando Norris,mclaren,McLaren,13.016755,0.852217,0.823529,0.701213,6,8
+2026,7,Barcelona Grand Prix,2026-06-14,piastri,Oscar Piastri,mclaren,McLaren,12.676491,0.792590,0.837838,0.693634,7,6
+2026,7,Barcelona Grand Prix,2026-06-14,hadjar,Isack Hadjar,red_bull,Red Bull,6.930110,0.664760,0.545455,0.405428,8,4
+2026,7,Barcelona Grand Prix,2026-06-14,gasly,Pierre Gasly,alpine,Alpine F1 Team,7.409340,0.542993,0.400000,0.378512,9,2
+2026,7,Barcelona Grand Prix,2026-06-14,sainz,Carlos Sainz,williams,Williams,6.827427,0.401100,0.310345,0.331312,10,1
+2026,7,Barcelona Grand Prix,2026-06-14,lawson,Liam Lawson,rb,RB F1 Team,5.655985,0.437996,0.310345,0.290441,11,0
+2026,7,Barcelona Grand Prix,2026-06-14,albon,Alexander Albon,williams,Williams,4.911170,0.227755,0.363636,0.280441,12,0
+2026,7,Barcelona Grand Prix,2026-06-14,alonso,Fernando Alonso,aston_martin,Aston Martin,5.752934,0.060443,0.166667,0.250720,13,0
+2026,7,Barcelona Grand Prix,2026-06-14,bearman,Oliver Bearman,haas,Haas F1 Team,4.320058,0.306084,0.311475,0.244169,14,0
+2026,7,Barcelona Grand Prix,2026-06-14,colapinto,Franco Colapinto,alpine,Alpine F1 Team,4.313546,0.456632,0.310345,0.243603,15,0
+2026,7,Barcelona Grand Prix,2026-06-14,ocon,Esteban Ocon,haas,Haas F1 Team,2.982903,0.240351,0.363636,0.213164,16,0
+2026,7,Barcelona Grand Prix,2026-06-14,bottas,Valtteri Bottas,cadillac,Cadillac F1 Team,3.237899,0.040993,0.166667,0.162970,17,0
+2026,7,Barcelona Grand Prix,2026-06-14,stroll,Lance Stroll,aston_martin,Aston Martin,2.960827,0.040931,0.166667,0.153303,18,0
+2026,7,Barcelona Grand Prix,2026-06-14,perez,Sergio Pérez,cadillac,Cadillac F1 Team,2.435647,0.044714,0.166667,0.134980,19,0
+2026,7,Barcelona Grand Prix,2026-06-14,arvid_lindblad,Arvid Lindblad,rb,RB F1 Team,0.588851,0.316093,0.311475,0.113988,20,0
+2026,7,Barcelona Grand Prix,2026-06-14,hulkenberg,Nico Hülkenberg,audi,Audi,1.484889,0.103184,0.190476,0.108951,21,0
+2026,7,Barcelona Grand Prix,2026-06-14,bortoleto,Gabriel Bortoleto,audi,Audi,1.360323,0.149552,0.190476,0.104604,22,0
+2026,8,Austrian Grand Prix,2026-06-28,antonelli,Andrea Kimi Antonelli,mercedes,Mercedes,21.301659,0.908049,0.875000,0.962500,1,25
+2026,8,Austrian Grand Prix,2026-06-28,hamilton,Lewis Hamilton,ferrari,Ferrari,20.740607,0.876833,0.823529,0.928622,2,18
+2026,8,Austrian Grand Prix,2026-06-28,russell,George Russell,mercedes,Mercedes,19.182232,0.878358,0.823529,0.877412,3,15
+2026,8,Austrian Grand Prix,2026-06-28,max_verstappen,Max Verstappen,red_bull,Red Bull,17.838722,0.837129,0.823529,0.833262,4,12
+2026,8,Austrian Grand Prix,2026-06-28,leclerc,Charles Leclerc,ferrari,Ferrari,16.505362,0.813479,0.823529,0.789446,5,10
+2026,8,Austrian Grand Prix,2026-06-28,norris,Lando Norris,mclaren,McLaren,13.249652,0.787742,0.837838,0.686752,6,8
+2026,8,Austrian Grand Prix,2026-06-28,piastri,Oscar Piastri,mclaren,McLaren,12.204004,0.688546,0.545455,0.564676,7,6
+2026,8,Austrian Grand Prix,2026-06-28,hadjar,Isack Hadjar,red_bull,Red Bull,9.185961,0.705562,0.837838,0.553214,8,4
+2026,8,Austrian Grand Prix,2026-06-28,gasly,Pierre Gasly,alpine,Alpine F1 Team,8.523089,0.527884,0.400000,0.400080,9,2
+2026,8,Austrian Grand Prix,2026-06-28,lawson,Liam Lawson,rb,RB F1 Team,8.018594,0.455340,0.310345,0.356605,10,1
+2026,8,Austrian Grand Prix,2026-06-28,sainz,Carlos Sainz,williams,Williams,7.445319,0.407668,0.310345,0.337766,11,0
+2026,8,Austrian Grand Prix,2026-06-28,albon,Alexander Albon,williams,Williams,6.256155,0.233488,0.363636,0.314676,12,0
+2026,8,Austrian Grand Prix,2026-06-28,alonso,Fernando Alonso,aston_martin,Aston Martin,6.798662,0.046941,0.166667,0.273413,13,0
+2026,8,Austrian Grand Prix,2026-06-28,ocon,Esteban Ocon,haas,Haas F1 Team,4.964379,0.283683,0.363636,0.272227,14,0
+2026,8,Austrian Grand Prix,2026-06-28,bearman,Oliver Bearman,haas,Haas F1 Team,5.392801,0.332434,0.311475,0.270657,15,0
+2026,8,Austrian Grand Prix,2026-06-28,colapinto,Franco Colapinto,alpine,Alpine F1 Team,5.005120,0.495148,0.310345,0.257578,16,0
+2026,8,Austrian Grand Prix,2026-06-28,stroll,Lance Stroll,aston_martin,Aston Martin,4.567104,0.031275,0.166667,0.200081,17,0
+2026,8,Austrian Grand Prix,2026-06-28,bottas,Valtteri Bottas,cadillac,Cadillac F1 Team,3.253387,0.032306,0.166667,0.156911,18,0
+2026,8,Austrian Grand Prix,2026-06-28,hulkenberg,Nico Hülkenberg,audi,Audi,2.856722,0.081928,0.166667,0.143876,19,0
+2026,8,Austrian Grand Prix,2026-06-28,perez,Sergio Pérez,cadillac,Cadillac F1 Team,2.346800,0.030728,0.166667,0.127119,20,0
+2026,8,Austrian Grand Prix,2026-06-28,bortoleto,Gabriel Bortoleto,audi,Audi,1.957141,0.116881,0.190476,0.121457,21,0
+2026,8,Austrian Grand Prix,2026-06-28,arvid_lindblad,Arvid Lindblad,rb,RB F1 Team,0.338214,0.339151,0.311475,0.104557,22,0
+2026,9,British Grand Prix,2026-07-05,antonelli,Andrea Kimi Antonelli,mercedes,Mercedes,23.332220,0.890027,0.823529,0.947059,1,25
+2026,9,British Grand Prix,2026-07-05,hamilton,Lewis Hamilton,ferrari,Ferrari,22.928762,0.865507,0.823529,0.934955,2,18
+2026,9,British Grand Prix,2026-07-05,russell,George Russell,mercedes,Mercedes,22.714336,0.866873,0.823529,0.928521,3,15
+2026,9,British Grand Prix,2026-07-05,max_verstappen,Max Verstappen,red_bull,Red Bull,19.207985,0.832541,0.823529,0.823326,4,12
+2026,9,British Grand Prix,2026-07-05,leclerc,Charles Leclerc,ferrari,Ferrari,18.539629,0.828130,0.823529,0.803274,5,10
+2026,9,British Grand Prix,2026-07-05,norris,Lando Norris,mclaren,McLaren,16.674736,0.860071,0.823529,0.747325,6,8
+2026,9,British Grand Prix,2026-07-05,piastri,Oscar Piastri,mclaren,McLaren,15.318553,0.751649,0.837838,0.710930,7,6
+2026,9,British Grand Prix,2026-07-05,hadjar,Isack Hadjar,red_bull,Red Bull,11.549271,0.666096,0.545455,0.510131,8,4
+2026,9,British Grand Prix,2026-07-05,gasly,Pierre Gasly,alpine,Alpine F1 Team,10.442762,0.509356,0.400000,0.433298,9,2
+2026,9,British Grand Prix,2026-07-05,sainz,Carlos Sainz,williams,Williams,10.535089,0.300406,0.311475,0.409510,10,1
+2026,9,British Grand Prix,2026-07-05,lawson,Liam Lawson,rb,RB F1 Team,10.182334,0.309924,0.311475,0.398927,11,0
+2026,9,British Grand Prix,2026-07-05,albon,Alexander Albon,williams,Williams,8.855149,0.217832,0.363636,0.374758,12,0
+2026,9,British Grand Prix,2026-07-05,bearman,Oliver Bearman,haas,Haas F1 Team,6.752170,0.281633,0.363636,0.311666,13,0
+2026,9,British Grand Prix,2026-07-05,alonso,Fernando Alonso,aston_martin,Aston Martin,8.654433,0.087631,0.166667,0.309645,14,0
+2026,9,British Grand Prix,2026-07-05,ocon,Esteban Ocon,haas,Haas F1 Team,6.663721,0.203910,0.363636,0.309012,15,0
+2026,9,British Grand Prix,2026-07-05,colapinto,Franco Colapinto,alpine,Alpine F1 Team,6.701757,0.473697,0.310345,0.294166,16,0
+2026,9,British Grand Prix,2026-07-05,stroll,Lance Stroll,aston_martin,Aston Martin,5.633119,0.035935,0.166667,0.219002,17,0
+2026,9,British Grand Prix,2026-07-05,bottas,Valtteri Bottas,cadillac,Cadillac F1 Team,5.351081,0.039219,0.166667,0.210540,18,0
+2026,9,British Grand Prix,2026-07-05,hulkenberg,Nico Hülkenberg,audi,Audi,4.009837,0.093848,0.166667,0.170301,19,0
+2026,9,British Grand Prix,2026-07-05,perez,Sergio Pérez,cadillac,Cadillac F1 Team,3.770405,0.035582,0.166667,0.163118,20,0
+2026,9,British Grand Prix,2026-07-05,bortoleto,Gabriel Bortoleto,audi,Audi,2.997402,0.120831,0.190476,0.147069,21,0
+2026,9,British Grand Prix,2026-07-05,arvid_lindblad,Arvid Lindblad,rb,RB F1 Team,1.074310,0.262551,0.363636,0.141322,22,0
+2026,10,Belgian Grand Prix,2026-07-19,hamilton,Lewis Hamilton,ferrari,Ferrari,24.958027,0.829864,0.823529,0.947059,1,25
+2026,10,Belgian Grand Prix,2026-07-19,antonelli,Andrea Kimi Antonelli,mercedes,Mercedes,24.267817,0.925568,0.875000,0.943142,2,18
+2026,10,Belgian Grand Prix,2026-07-19,russell,George Russell,mercedes,Mercedes,24.120079,0.842021,0.823529,0.923557,3,15
+2026,10,Belgian Grand Prix,2026-07-19,leclerc,Charles Leclerc,ferrari,Ferrari,20.297134,0.787158,0.837838,0.820627,4,12
+2026,10,Belgian Grand Prix,2026-07-19,max_verstappen,Max Verstappen,red_bull,Red Bull,20.448532,0.811195,0.823529,0.820581,5,10
+2026,10,Belgian Grand Prix,2026-07-19,norris,Lando Norris,mclaren,McLaren,18.250923,0.793055,0.837838,0.763237,6,8
+2026,10,Belgian Grand Prix,2026-07-19,piastri,Oscar Piastri,mclaren,McLaren,17.263597,0.693148,0.545455,0.647830,7,6
+2026,10,Belgian Grand Prix,2026-07-19,hadjar,Isack Hadjar,red_bull,Red Bull,13.279903,0.610199,0.545455,0.536099,8,4
+2026,10,Belgian Grand Prix,2026-07-19,gasly,Pierre Gasly,alpine,Alpine F1 Team,12.844410,0.543861,0.400000,0.480248,9,2
+2026,10,Belgian Grand Prix,2026-07-19,lawson,Liam Lawson,rb,RB F1 Team,12.005160,0.388740,0.311475,0.430152,10,1
+2026,10,Belgian Grand Prix,2026-07-19,sainz,Carlos Sainz,williams,Williams,11.921933,0.357282,0.311475,0.427818,11,0
+2026,10,Belgian Grand Prix,2026-07-19,albon,Alexander Albon,williams,Williams,10.164598,0.233789,0.363636,0.394178,12,0
+2026,10,Belgian Grand Prix,2026-07-19,alonso,Fernando Alonso,aston_martin,Aston Martin,10.737319,0.086690,0.166667,0.351151,13,0
+2026,10,Belgian Grand Prix,2026-07-19,ocon,Esteban Ocon,haas,Haas F1 Team,8.510391,0.242088,0.363636,0.347783,14,0
+2026,10,Belgian Grand Prix,2026-07-19,bearman,Oliver Bearman,haas,Haas F1 Team,8.419993,0.363382,0.311475,0.329599,15,0
+2026,10,Belgian Grand Prix,2026-07-19,colapinto,Franco Colapinto,alpine,Alpine F1 Team,7.474031,0.490271,0.310345,0.302728,16,0
+2026,10,Belgian Grand Prix,2026-07-19,stroll,Lance Stroll,aston_martin,Aston Martin,7.479309,0.040955,0.166667,0.259773,17,0
+2026,10,Belgian Grand Prix,2026-07-19,bottas,Valtteri Bottas,cadillac,Cadillac F1 Team,6.648576,0.040490,0.166667,0.236473,18,0
+2026,10,Belgian Grand Prix,2026-07-19,hulkenberg,Nico Hülkenberg,audi,Audi,5.253277,0.099045,0.166667,0.197339,19,0
+2026,10,Belgian Grand Prix,2026-07-19,perez,Sergio Pérez,cadillac,Cadillac F1 Team,4.959516,0.035523,0.166667,0.189100,20,0
+2026,10,Belgian Grand Prix,2026-07-19,bortoleto,Gabriel Bortoleto,audi,Audi,3.726301,0.110984,0.190476,0.161655,21,0
+2026,10,Belgian Grand Prix,2026-07-19,arvid_lindblad,Arvid Lindblad,rb,RB F1 Team,1.502015,0.241498,0.363636,0.151218,22,0
+2026,11,Hungarian Grand Prix,2026-07-26,hamilton,Lewis Hamilton,ferrari,Ferrari,27.654097,0.899717,0.823529,0.947059,1,25
+2026,11,Hungarian Grand Prix,2026-07-26,antonelli,Andrea Kimi Antonelli,mercedes,Mercedes,25.930072,0.937282,0.875000,0.918860,2,18
+2026,11,Hungarian Grand Prix,2026-07-26,russell,George Russell,mercedes,Mercedes,26.407234,0.873195,0.823529,0.915497,3,15
+2026,11,Hungarian Grand Prix,2026-07-26,leclerc,Charles Leclerc,ferrari,Ferrari,22.904785,0.833996,0.823529,0.826841,4,12
+2026,11,Hungarian Grand Prix,2026-07-26,max_verstappen,Max Verstappen,red_bull,Red Bull,22.722167,0.850541,0.823529,0.822218,5,10
+2026,11,Hungarian Grand Prix,2026-07-26,norris,Lando Norris,mclaren,McLaren,20.827362,0.812403,0.823529,0.774256,6,8
+2026,11,Hungarian Grand Prix,2026-07-26,piastri,Oscar Piastri,mclaren,McLaren,19.362728,0.756937,0.837838,0.741474,7,6
+2026,11,Hungarian Grand Prix,2026-07-26,hadjar,Isack Hadjar,red_bull,Red Bull,15.845094,0.710308,0.837838,0.652434,8,4
+2026,11,Hungarian Grand Prix,2026-07-26,gasly,Pierre Gasly,alpine,Alpine F1 Team,14.518467,0.455242,0.310345,0.460605,9,2
+2026,11,Hungarian Grand Prix,2026-07-26,lawson,Liam Lawson,rb,RB F1 Team,13.978375,0.302446,0.311475,0.447273,10,1
+2026,11,Hungarian Grand Prix,2026-07-26,sainz,Carlos Sainz,williams,Williams,13.849722,0.302017,0.311475,0.444017,11,0
+2026,11,Hungarian Grand Prix,2026-07-26,albon,Alexander Albon,williams,Williams,12.182245,0.210432,0.363636,0.417456,12,0
+2026,11,Hungarian Grand Prix,2026-07-26,alonso,Fernando Alonso,aston_martin,Aston Martin,12.439061,0.115808,0.190476,0.372009,13,0
+2026,11,Hungarian Grand Prix,2026-07-26,bearman,Oliver Bearman,haas,Haas F1 Team,9.954991,0.239984,0.363636,0.361079,14,0
+2026,11,Hungarian Grand Prix,2026-07-26,ocon,Esteban Ocon,haas,Haas F1 Team,11.033918,0.170208,0.190476,0.336441,15,0
+2026,11,Hungarian Grand Prix,2026-07-26,colapinto,Franco Colapinto,alpine,Alpine F1 Team,9.335779,0.435350,0.310345,0.329417,16,0
+2026,11,Hungarian Grand Prix,2026-07-26,stroll,Lance Stroll,aston_martin,Aston Martin,8.962354,0.052072,0.166667,0.276861,17,0
+2026,11,Hungarian Grand Prix,2026-07-26,bottas,Valtteri Bottas,cadillac,Cadillac F1 Team,8.610094,0.043608,0.166667,0.267945,18,0
+2026,11,Hungarian Grand Prix,2026-07-26,perez,Sergio Pérez,cadillac,Cadillac F1 Team,6.957298,0.040336,0.166667,0.226108,19,0
+2026,11,Hungarian Grand Prix,2026-07-26,hulkenberg,Nico Hülkenberg,audi,Audi,5.979665,0.090096,0.166667,0.201361,20,0
+2026,11,Hungarian Grand Prix,2026-07-26,bortoleto,Gabriel Bortoleto,audi,Audi,3.934936,0.110922,0.190476,0.156747,21,0
+2026,11,Hungarian Grand Prix,2026-07-26,arvid_lindblad,Arvid Lindblad,rb,RB F1 Team,1.665935,0.231278,0.363636,0.151260,22,0
+2026,12,Dutch Grand Prix,2026-08-23,hamilton,Lewis Hamilton,ferrari,Ferrari,28.877296,0.825832,0.823529,0.947059,1,25
+2026,12,Dutch Grand Prix,2026-08-23,russell,George Russell,mercedes,Mercedes,26.608583,0.838077,0.823529,0.892064,2,18
+2026,12,Dutch Grand Prix,2026-08-23,antonelli,Andrea Kimi Antonelli,mercedes,Mercedes,25.109505,0.893061,0.823529,0.855726,3,15
+2026,12,Dutch Grand Prix,2026-08-23,leclerc,Charles Leclerc,ferrari,Ferrari,23.508101,0.754691,0.837838,0.821199,4,12
+2026,12,Dutch Grand Prix,2026-08-23,max_verstappen,Max Verstappen,red_bull,Red Bull,23.370407,0.745533,0.837838,0.817862,5,10
+2026,12,Dutch Grand Prix,2026-08-23,norris,Lando Norris,mclaren,McLaren,20.320696,0.839326,0.823529,0.739643,6,8
+2026,12,Dutch Grand Prix,2026-08-23,piastri,Oscar Piastri,mclaren,McLaren,19.794876,0.752312,0.837838,0.731189,7,6
+2026,12,Dutch Grand Prix,2026-08-23,hadjar,Isack Hadjar,red_bull,Red Bull,16.727025,0.688913,0.545455,0.569108,8,4
+2026,12,Dutch Grand Prix,2026-08-23,gasly,Pierre Gasly,alpine,Alpine F1 Team,15.072798,0.577912,0.400000,0.485372,9,2
+2026,12,Dutch Grand Prix,2026-08-23,lawson,Liam Lawson,rb,RB F1 Team,14.362160,0.314977,0.311475,0.441589,10,1
+2026,12,Dutch Grand Prix,2026-08-23,sainz,Carlos Sainz,williams,Williams,14.165221,0.302223,0.311475,0.436815,11,0
+2026,12,Dutch Grand Prix,2026-08-23,albon,Alexander Albon,williams,Williams,13.535026,0.199019,0.190476,0.385239,12,0
+2026,12,Dutch Grand Prix,2026-08-23,ocon,Esteban Ocon,haas,Haas F1 Team,11.094973,0.200180,0.363636,0.378039,13,0
+2026,12,Dutch Grand Prix,2026-08-23,alonso,Fernando Alonso,aston_martin,Aston Martin,13.010502,0.070554,0.166667,0.365381,14,0
+2026,12,Dutch Grand Prix,2026-08-23,bearman,Oliver Bearman,haas,Haas F1 Team,10.496725,0.285624,0.363636,0.363537,15,0
+2026,12,Dutch Grand Prix,2026-08-23,colapinto,Franco Colapinto,alpine,Alpine F1 Team,10.446800,0.468420,0.310345,0.346339,16,0
+2026,12,Dutch Grand Prix,2026-08-23,stroll,Lance Stroll,aston_martin,Aston Martin,8.933186,0.028811,0.166667,0.266545,17,0
+2026,12,Dutch Grand Prix,2026-08-23,bottas,Valtteri Bottas,cadillac,Cadillac F1 Team,8.291863,0.026200,0.166667,0.250999,18,0
+2026,12,Dutch Grand Prix,2026-08-23,perez,Sergio Pérez,cadillac,Cadillac F1 Team,6.952463,0.027795,0.166667,0.218531,19,0
+2026,12,Dutch Grand Prix,2026-08-23,hulkenberg,Nico Hülkenberg,audi,Audi,6.873889,0.080449,0.166667,0.216626,20,0
+2026,12,Dutch Grand Prix,2026-08-23,bortoleto,Gabriel Bortoleto,audi,Audi,4.829923,0.093603,0.166667,0.167080,21,0
+2026,12,Dutch Grand Prix,2026-08-23,arvid_lindblad,Arvid Lindblad,rb,RB F1 Team,1.985006,0.211530,0.363636,0.157208,22,0
+2026,13,Italian Grand Prix,2026-09-06,hamilton,Lewis Hamilton,ferrari,Ferrari,30.000000,0.919715,0.875000,0.962500,1,25
+2026,13,Italian Grand Prix,2026-09-06,russell,George Russell,mercedes,Mercedes,30.000000,0.845118,0.823529,0.947059,2,18
+2026,13,Italian Grand Prix,2026-09-06,antonelli,Andrea Kimi Antonelli,mercedes,Mercedes,28.647187,0.866896,0.823529,0.915493,3,15
+2026,13,Italian Grand Prix,2026-09-06,leclerc,Charles Leclerc,ferrari,Ferrari,27.692665,0.853248,0.823529,0.893221,4,12
+2026,13,Italian Grand Prix,2026-09-06,max_verstappen,Max Verstappen,red_bull,Red Bull,26.724832,0.825339,0.823529,0.870638,5,10
+2026,13,Italian Grand Prix,2026-09-06,norris,Lando Norris,mclaren,McLaren,24.564894,0.862929,0.823529,0.820240,6,8
+2026,13,Italian Grand Prix,2026-09-06,piastri,Oscar Piastri,mclaren,McLaren,23.206962,0.775566,0.837838,0.792847,7,6
+2026,13,Italian Grand Prix,2026-09-06,hadjar,Isack Hadjar,red_bull,Red Bull,20.596884,0.709426,0.837838,0.731945,8,4
+2026,13,Italian Grand Prix,2026-09-06,gasly,Pierre Gasly,alpine,Alpine F1 Team,18.691267,0.511826,0.400000,0.556130,9,2
+2026,13,Italian Grand Prix,2026-09-06,lawson,Liam Lawson,rb,RB F1 Team,18.529928,0.415847,0.310345,0.525468,10,1
+2026,13,Italian Grand Prix,2026-09-06,sainz,Carlos Sainz,williams,Williams,17.905804,0.358775,0.311475,0.511245,11,0
+2026,13,Italian Grand Prix,2026-09-06,albon,Alexander Albon,williams,Williams,16.134141,0.262238,0.363636,0.485554,12,0
+2026,13,Italian Grand Prix,2026-09-06,ocon,Esteban Ocon,haas,Haas F1 Team,14.495173,0.212551,0.363636,0.447312,13,0
+2026,13,Italian Grand Prix,2026-09-06,alonso,Fernando Alonso,aston_martin,Aston Martin,16.612926,0.069409,0.166667,0.437635,14,0
+2026,13,Italian Grand Prix,2026-09-06,bearman,Oliver Bearman,haas,Haas F1 Team,12.996400,0.257887,0.363636,0.412340,15,0
+2026,13,Italian Grand Prix,2026-09-06,colapinto,Franco Colapinto,alpine,Alpine F1 Team,13.211893,0.447527,0.310345,0.401381,16,0
+2026,13,Italian Grand Prix,2026-09-06,stroll,Lance Stroll,aston_martin,Aston Martin,12.738863,0.038753,0.166667,0.347240,17,0
+2026,13,Italian Grand Prix,2026-09-06,bottas,Valtteri Bottas,cadillac,Cadillac F1 Team,11.604595,0.034081,0.166667,0.320774,18,0
+2026,13,Italian Grand Prix,2026-09-06,hulkenberg,Nico Hülkenberg,audi,Audi,10.288468,0.094618,0.166667,0.290064,19,0
+2026,13,Italian Grand Prix,2026-09-06,perez,Sergio Pérez,cadillac,Cadillac F1 Team,10.018239,0.033266,0.166667,0.283759,20,0
+2026,13,Italian Grand Prix,2026-09-06,bortoleto,Gabriel Bortoleto,audi,Audi,7.579394,0.110807,0.190476,0.233995,21,0
+2026,13,Italian Grand Prix,2026-09-06,arvid_lindblad,Arvid Lindblad,rb,RB F1 Team,3.692386,0.275964,0.363636,0.195247,22,0
+2026,14,Spanish Grand Prix,2026-09-13,hamilton,Lewis Hamilton,ferrari,Ferrari,30.000000,0.925140,0.875000,0.962500,1,25
+2026,14,Spanish Grand Prix,2026-09-13,russell,George Russell,mercedes,Mercedes,30.000000,0.766023,0.837838,0.951351,2,18
+2026,14,Spanish Grand Prix,2026-09-13,antonelli,Andrea Kimi Antonelli,mercedes,Mercedes,30.000000,0.866055,0.823529,0.947059,3,15
+2026,14,Spanish Grand Prix,2026-09-13,leclerc,Charles Leclerc,ferrari,Ferrari,30.000000,0.826761,0.823529,0.947059,4,12
+2026,14,Spanish Grand Prix,2026-09-13,max_verstappen,Max Verstappen,red_bull,Red Bull,29.483284,0.756902,0.837838,0.939295,5,10
+2026,14,Spanish Grand Prix,2026-09-13,norris,Lando Norris,mclaren,McLaren,27.684220,0.742069,0.837838,0.897316,6,8
+2026,14,Spanish Grand Prix,2026-09-13,piastri,Oscar Piastri,mclaren,McLaren,26.857089,0.735153,0.837838,0.878017,7,6
+2026,14,Spanish Grand Prix,2026-09-13,hadjar,Isack Hadjar,red_bull,Red Bull,23.266114,0.666212,0.545455,0.706512,8,4
+2026,14,Spanish Grand Prix,2026-09-13,gasly,Pierre Gasly,alpine,Alpine F1 Team,20.979465,0.542816,0.400000,0.609521,9,2
+2026,14,Spanish Grand Prix,2026-09-13,sainz,Carlos Sainz,williams,Williams,20.934431,0.272632,0.363636,0.597561,10,1
+2026,14,Spanish Grand Prix,2026-09-13,lawson,Liam Lawson,rb,RB F1 Team,20.778498,0.442156,0.310345,0.577935,11,0
+2026,14,Spanish Grand Prix,2026-09-13,albon,Alexander Albon,williams,Williams,19.153384,0.221721,0.363636,0.556003,12,0
+2026,14,Spanish Grand Prix,2026-09-13,alonso,Fernando Alonso,aston_martin,Aston Martin,19.677317,0.077347,0.166667,0.509137,13,0
+2026,14,Spanish Grand Prix,2026-09-13,ocon,Esteban Ocon,haas,Haas F1 Team,17.092219,0.234869,0.363636,0.507909,14,0
+2026,14,Spanish Grand Prix,2026-09-13,bearman,Oliver Bearman,haas,Haas F1 Team,15.356441,0.205596,0.363636,0.467408,15,0
+2026,14,Spanish Grand Prix,2026-09-13,colapinto,Franco Colapinto,alpine,Alpine F1 Team,15.299436,0.486244,0.310345,0.450090,16,0
+2026,14,Spanish Grand Prix,2026-09-13,stroll,Lance Stroll,aston_martin,Aston Martin,15.473404,0.052435,0.166667,0.411046,17,0
+2026,14,Spanish Grand Prix,2026-09-13,bottas,Valtteri Bottas,cadillac,Cadillac F1 Team,13.882938,0.052042,0.166667,0.373935,18,0
+2026,14,Spanish Grand Prix,2026-09-13,perez,Sergio Pérez,cadillac,Cadillac F1 Team,12.566669,0.050598,0.166667,0.343222,19,0
+2026,14,Spanish Grand Prix,2026-09-13,hulkenberg,Nico Hülkenberg,audi,Audi,11.811033,0.114899,0.190476,0.332734,20,0
+2026,14,Spanish Grand Prix,2026-09-13,bortoleto,Gabriel Bortoleto,audi,Audi,9.384439,0.143582,0.190476,0.276113,21,0
+2026,14,Spanish Grand Prix,2026-09-13,arvid_lindblad,Arvid Lindblad,rb,RB F1 Team,4.530527,0.359084,0.311475,0.199155,22,0
+2026,15,Azerbaijan Grand Prix,2026-09-26,hamilton,Lewis Hamilton,ferrari,Ferrari,30.000000,0.932167,0.875000,0.962500,1,25
+2026,15,Azerbaijan Grand Prix,2026-09-26,antonelli,Andrea Kimi Antonelli,mercedes,Mercedes,30.000000,0.907755,0.875000,0.962500,2,18
+2026,15,Azerbaijan Grand Prix,2026-09-26,max_verstappen,Max Verstappen,red_bull,Red Bull,30.000000,0.772518,0.837838,0.951351,3,15
+2026,15,Azerbaijan Grand Prix,2026-09-26,russell,George Russell,mercedes,Mercedes,30.000000,0.870425,0.823529,0.947059,4,12
+2026,15,Azerbaijan Grand Prix,2026-09-26,leclerc,Charles Leclerc,ferrari,Ferrari,30.000000,0.824261,0.823529,0.947059,5,10
+2026,15,Azerbaijan Grand Prix,2026-09-26,norris,Lando Norris,mclaren,McLaren,29.056766,0.837988,0.823529,0.925050,6,8
+2026,15,Azerbaijan Grand Prix,2026-09-26,piastri,Oscar Piastri,mclaren,McLaren,28.691125,0.785854,0.837838,0.920811,7,6
+2026,15,Azerbaijan Grand Prix,2026-09-26,hadjar,Isack Hadjar,red_bull,Red Bull,25.178601,0.702316,0.837838,0.838852,8,4
+2026,15,Azerbaijan Grand Prix,2026-09-26,gasly,Pierre Gasly,alpine,Alpine F1 Team,23.063112,0.551383,0.400000,0.658139,9,2
+2026,15,Azerbaijan Grand Prix,2026-09-26,lawson,Liam Lawson,rb,RB F1 Team,22.761207,0.324226,0.311475,0.624537,10,1
+2026,15,Azerbaijan Grand Prix,2026-09-26,sainz,Carlos Sainz,williams,Williams,22.614802,0.303351,0.311475,0.621121,11,0
+2026,15,Azerbaijan Grand Prix,2026-09-26,albon,Alexander Albon,williams,Williams,21.248730,0.228981,0.363636,0.604895,12,0
+2026,15,Azerbaijan Grand Prix,2026-09-26,alonso,Fernando Alonso,aston_martin,Aston Martin,21.566220,0.078808,0.166667,0.553212,13,0
+2026,15,Azerbaijan Grand Prix,2026-09-26,ocon,Esteban Ocon,haas,Haas F1 Team,19.006958,0.259203,0.363636,0.552587,14,0
+2026,15,Azerbaijan Grand Prix,2026-09-26,bearman,Oliver Bearman,haas,Haas F1 Team,17.852138,0.234068,0.363636,0.525641,15,0
+2026,15,Azerbaijan Grand Prix,2026-09-26,colapinto,Franco Colapinto,alpine,Alpine F1 Team,17.748170,0.486437,0.310345,0.507227,16,0
+2026,15,Azerbaijan Grand Prix,2026-09-26,stroll,Lance Stroll,aston_martin,Aston Martin,17.561882,0.034866,0.166667,0.459777,17,0
+2026,15,Azerbaijan Grand Prix,2026-09-26,bottas,Valtteri Bottas,cadillac,Cadillac F1 Team,14.819470,0.031950,0.166667,0.395788,18,0
+2026,15,Azerbaijan Grand Prix,2026-09-26,perez,Sergio Pérez,cadillac,Cadillac F1 Team,13.856227,0.031039,0.166667,0.373312,19,0
+2026,15,Azerbaijan Grand Prix,2026-09-26,hulkenberg,Nico Hülkenberg,audi,Audi,12.882879,0.086673,0.166667,0.350601,20,0
+2026,15,Azerbaijan Grand Prix,2026-09-26,bortoleto,Gabriel Bortoleto,audi,Audi,10.657140,0.108188,0.190476,0.305809,21,0
+2026,15,Azerbaijan Grand Prix,2026-09-26,arvid_lindblad,Arvid Lindblad,rb,RB F1 Team,6.631534,0.228819,0.363636,0.263827,22,0
+2026,16,Singapore Grand Prix,2026-10-11,hamilton,Lewis Hamilton,ferrari,Ferrari,30.000000,0.944955,0.875000,0.962500,1,25
+2026,16,Singapore Grand Prix,2026-10-11,norris,Lando Norris,mclaren,McLaren,30.000000,0.796397,0.837838,0.951351,2,18
+2026,16,Singapore Grand Prix,2026-10-11,antonelli,Andrea Kimi Antonelli,mercedes,Mercedes,30.000000,0.883600,0.823529,0.947059,3,15
+2026,16,Singapore Grand Prix,2026-10-11,russell,George Russell,mercedes,Mercedes,30.000000,0.868107,0.823529,0.947059,4,12
+2026,16,Singapore Grand Prix,2026-10-11,leclerc,Charles Leclerc,ferrari,Ferrari,30.000000,0.857994,0.823529,0.947059,5,10
+2026,16,Singapore Grand Prix,2026-10-11,max_verstappen,Max Verstappen,red_bull,Red Bull,30.000000,0.832159,0.823529,0.947059,6,8
+2026,16,Singapore Grand Prix,2026-10-11,piastri,Oscar Piastri,mclaren,McLaren,29.461279,0.765177,0.837838,0.938781,7,6
+2026,16,Singapore Grand Prix,2026-10-11,hadjar,Isack Hadjar,red_bull,Red Bull,27.320115,0.721041,0.837838,0.888821,8,4
+2026,16,Singapore Grand Prix,2026-10-11,gasly,Pierre Gasly,alpine,Alpine F1 Team,24.688322,0.555763,0.400000,0.696061,9,2
+2026,16,Singapore Grand Prix,2026-10-11,lawson,Liam Lawson,rb,RB F1 Team,24.075456,0.338891,0.311475,0.655203,10,1
+2026,16,Singapore Grand Prix,2026-10-11,sainz,Carlos Sainz,williams,Williams,23.339702,0.328488,0.311475,0.638036,11,0
+2026,16,Singapore Grand Prix,2026-10-11,albon,Alexander Albon,williams,Williams,20.989668,0.207183,0.363636,0.598850,12,0
+2026,16,Singapore Grand Prix,2026-10-11,alonso,Fernando Alonso,aston_martin,Aston Martin,22.391019,0.066839,0.166667,0.572457,13,0
+2026,16,Singapore Grand Prix,2026-10-11,bearman,Oliver Bearman,haas,Haas F1 Team,18.311307,0.226723,0.363636,0.536355,14,0
+2026,16,Singapore Grand Prix,2026-10-11,colapinto,Franco Colapinto,alpine,Alpine F1 Team,18.588615,0.471569,0.310345,0.526838,15,0
+2026,16,Singapore Grand Prix,2026-10-11,ocon,Esteban Ocon,haas,Haas F1 Team,19.719433,0.193960,0.190476,0.517263,16,0
+2026,16,Singapore Grand Prix,2026-10-11,stroll,Lance Stroll,aston_martin,Aston Martin,17.904185,0.033067,0.166667,0.467764,17,0
+2026,16,Singapore Grand Prix,2026-10-11,bottas,Valtteri Bottas,cadillac,Cadillac F1 Team,16.001407,0.029269,0.166667,0.423366,18,0
+2026,16,Singapore Grand Prix,2026-10-11,perez,Sergio Pérez,cadillac,Cadillac F1 Team,14.791867,0.029631,0.166667,0.395144,19,0
+2026,16,Singapore Grand Prix,2026-10-11,hulkenberg,Nico Hülkenberg,audi,Audi,14.018330,0.078869,0.166667,0.377094,20,0
+2026,16,Singapore Grand Prix,2026-10-11,bortoleto,Gabriel Bortoleto,audi,Audi,11.393877,0.091754,0.166667,0.315857,21,0
+2026,16,Singapore Grand Prix,2026-10-11,arvid_lindblad,Arvid Lindblad,rb,RB F1 Team,6.708656,0.221640,0.363636,0.265626,22,0
+2026,17,United States Grand Prix,2026-10-25,hamilton,Lewis Hamilton,ferrari,Ferrari,30.000000,0.948920,0.875000,0.962500,1,25
+2026,17,United States Grand Prix,2026-10-25,russell,George Russell,mercedes,Mercedes,30.000000,0.914158,0.875000,0.962500,2,18
+2026,17,United States Grand Prix,2026-10-25,piastri,Oscar Piastri,mclaren,McLaren,30.000000,0.779443,0.837838,0.951351,3,15
+2026,17,United States Grand Prix,2026-10-25,antonelli,Andrea Kimi Antonelli,mercedes,Mercedes,30.000000,0.885892,0.823529,0.947059,4,12
+2026,17,United States Grand Prix,2026-10-25,norris,Lando Norris,mclaren,McLaren,30.000000,0.835642,0.823529,0.947059,5,10
+2026,17,United States Grand Prix,2026-10-25,max_verstappen,Max Verstappen,red_bull,Red Bull,30.000000,0.832640,0.823529,0.947059,6,8
+2026,17,United States Grand Prix,2026-10-25,leclerc,Charles Leclerc,ferrari,Ferrari,30.000000,0.818972,0.823529,0.947059,7,6
+2026,17,United States Grand Prix,2026-10-25,hadjar,Isack Hadjar,red_bull,Red Bull,28.612598,0.734595,0.837838,0.918979,8,4
+2026,17,United States Grand Prix,2026-10-25,gasly,Pierre Gasly,alpine,Alpine F1 Team,26.128785,0.541793,0.400000,0.729672,9,2
+2026,17,United States Grand Prix,2026-10-25,lawson,Liam Lawson,rb,RB F1 Team,25.892774,0.316892,0.311475,0.697607,10,1
+2026,17,United States Grand Prix,2026-10-25,sainz,Carlos Sainz,williams,Williams,25.433473,0.346094,0.311475,0.686890,11,0
+2026,17,United States Grand Prix,2026-10-25,albon,Alexander Albon,williams,Williams,23.363973,0.212331,0.363636,0.654250,12,0
+2026,17,United States Grand Prix,2026-10-25,alonso,Fernando Alonso,aston_martin,Aston Martin,24.489013,0.065423,0.166667,0.621410,13,0
+2026,17,United States Grand Prix,2026-10-25,ocon,Esteban Ocon,haas,Haas F1 Team,21.890642,0.200285,0.363636,0.619873,14,0
+2026,17,United States Grand Prix,2026-10-25,bearman,Oliver Bearman,haas,Haas F1 Team,19.970615,0.264267,0.363636,0.575072,15,0
+2026,17,United States Grand Prix,2026-10-25,colapinto,Franco Colapinto,alpine,Alpine F1 Team,20.359671,0.471186,0.310345,0.568162,16,0
+2026,17,United States Grand Prix,2026-10-25,stroll,Lance Stroll,aston_martin,Aston Martin,20.304765,0.031984,0.166667,0.523778,17,0
+2026,17,United States Grand Prix,2026-10-25,bottas,Valtteri Bottas,cadillac,Cadillac F1 Team,17.448015,0.028307,0.166667,0.457120,18,0
+2026,17,United States Grand Prix,2026-10-25,perez,Sergio Pérez,cadillac,Cadillac F1 Team,16.268346,0.026978,0.166667,0.429595,19,0
+2026,17,United States Grand Prix,2026-10-25,hulkenberg,Nico Hülkenberg,audi,Audi,16.243784,0.085805,0.166667,0.429022,20,0
+2026,17,United States Grand Prix,2026-10-25,bortoleto,Gabriel Bortoleto,audi,Audi,13.785629,0.091567,0.166667,0.371665,21,0
+2026,17,United States Grand Prix,2026-10-25,arvid_lindblad,Arvid Lindblad,rb,RB F1 Team,7.927003,0.228349,0.363636,0.294054,22,0
+2026,18,Mexico City Grand Prix,2026-11-01,hamilton,Lewis Hamilton,ferrari,Ferrari,30.000000,0.923922,0.875000,0.962500,1,25
+2026,18,Mexico City Grand Prix,2026-11-01,antonelli,Andrea Kimi Antonelli,mercedes,Mercedes,30.000000,0.919236,0.875000,0.962500,2,18
+2026,18,Mexico City Grand Prix,2026-11-01,russell,George Russell,mercedes,Mercedes,30.000000,0.914224,0.875000,0.962500,3,15
+2026,18,Mexico City Grand Prix,2026-11-01,piastri,Oscar Piastri,mclaren,McLaren,30.000000,0.773089,0.837838,0.951351,4,12
+2026,18,Mexico City Grand Prix,2026-11-01,leclerc,Charles Leclerc,ferrari,Ferrari,30.000000,0.753701,0.837838,0.951351,5,10
+2026,18,Mexico City Grand Prix,2026-11-01,norris,Lando Norris,mclaren,McLaren,30.000000,0.816708,0.823529,0.947059,6,8
+2026,18,Mexico City Grand Prix,2026-11-01,max_verstappen,Max Verstappen,red_bull,Red Bull,30.000000,0.816622,0.823529,0.947059,7,6
+2026,18,Mexico City Grand Prix,2026-11-01,hadjar,Isack Hadjar,red_bull,Red Bull,30.000000,0.675453,0.545455,0.863636,8,4
+2026,18,Mexico City Grand Prix,2026-11-01,gasly,Pierre Gasly,alpine,Alpine F1 Team,28.418120,0.573314,0.400000,0.783089,9,2
+2026,18,Mexico City Grand Prix,2026-11-01,sainz,Carlos Sainz,williams,Williams,27.328482,0.286730,0.363636,0.746755,10,1
+2026,18,Mexico City Grand Prix,2026-11-01,lawson,Liam Lawson,rb,RB F1 Team,27.623652,0.438625,0.310345,0.737655,11,0
+2026,18,Mexico City Grand Prix,2026-11-01,alonso,Fernando Alonso,aston_martin,Aston Martin,26.626842,0.060874,0.166667,0.671293,12,0
+2026,18,Mexico City Grand Prix,2026-11-01,albon,Alexander Albon,williams,Williams,25.821012,0.196369,0.190476,0.659633,13,0
+2026,18,Mexico City Grand Prix,2026-11-01,ocon,Esteban Ocon,haas,Haas F1 Team,23.534483,0.214816,0.363636,0.658229,14,0
+2026,18,Mexico City Grand Prix,2026-11-01,bearman,Oliver Bearman,haas,Haas F1 Team,22.226550,0.251787,0.363636,0.627710,15,0
+2026,18,Mexico City Grand Prix,2026-11-01,colapinto,Franco Colapinto,alpine,Alpine F1 Team,22.073981,0.479322,0.310345,0.608163,16,0
+2026,18,Mexico City Grand Prix,2026-11-01,stroll,Lance Stroll,aston_martin,Aston Martin,22.394455,0.033005,0.166667,0.572537,17,0
+2026,18,Mexico City Grand Prix,2026-11-01,bottas,Valtteri Bottas,cadillac,Cadillac F1 Team,19.505755,0.031080,0.166667,0.505134,18,0
+2026,18,Mexico City Grand Prix,2026-11-01,perez,Sergio Pérez,cadillac,Cadillac F1 Team,18.357303,0.032890,0.166667,0.478337,19,0
+2026,18,Mexico City Grand Prix,2026-11-01,hulkenberg,Nico Hülkenberg,audi,Audi,18.015929,0.088436,0.166667,0.470372,20,0
+2026,18,Mexico City Grand Prix,2026-11-01,bortoleto,Gabriel Bortoleto,audi,Audi,15.077623,0.104942,0.190476,0.408954,21,0
+2026,18,Mexico City Grand Prix,2026-11-01,arvid_lindblad,Arvid Lindblad,rb,RB F1 Team,10.062128,0.292232,0.363636,0.343874,22,0
+2026,19,Brazilian Grand Prix,2026-11-08,antonelli,Andrea Kimi Antonelli,mercedes,Mercedes,30.000000,0.936327,0.875000,0.962500,1,25
+2026,19,Brazilian Grand Prix,2026-11-08,russell,George Russell,mercedes,Mercedes,30.000000,0.920611,0.875000,0.962500,2,18
+2026,19,Brazilian Grand Prix,2026-11-08,hamilton,Lewis Hamilton,ferrari,Ferrari,30.000000,0.916958,0.875000,0.962500,3,15
+2026,19,Brazilian Grand Prix,2026-11-08,norris,Lando Norris,mclaren,McLaren,30.000000,0.789928,0.837838,0.951351,4,12
+2026,19,Brazilian Grand Prix,2026-11-08,leclerc,Charles Leclerc,ferrari,Ferrari,30.000000,0.756639,0.837838,0.951351,5,10
+2026,19,Brazilian Grand Prix,2026-11-08,piastri,Oscar Piastri,mclaren,McLaren,30.000000,0.745630,0.837838,0.951351,6,8
+2026,19,Brazilian Grand Prix,2026-11-08,max_verstappen,Max Verstappen,red_bull,Red Bull,30.000000,0.824900,0.823529,0.947059,7,6
+2026,19,Brazilian Grand Prix,2026-11-08,hadjar,Isack Hadjar,red_bull,Red Bull,30.000000,0.638944,0.545455,0.863636,8,4
+2026,19,Brazilian Grand Prix,2026-11-08,gasly,Pierre Gasly,alpine,Alpine F1 Team,30.000000,0.538040,0.400000,0.820000,9,2
+2026,19,Brazilian Grand Prix,2026-11-08,sainz,Carlos Sainz,williams,Williams,30.000000,0.341627,0.311475,0.793443,10,1
+2026,19,Brazilian Grand Prix,2026-11-08,lawson,Liam Lawson,rb,RB F1 Team,30.000000,0.338653,0.311475,0.793443,11,0
+2026,19,Brazilian Grand Prix,2026-11-08,albon,Alexander Albon,williams,Williams,28.234521,0.209456,0.363636,0.767896,12,0
+2026,19,Brazilian Grand Prix,2026-11-08,alonso,Fernando Alonso,aston_martin,Aston Martin,29.058627,0.086383,0.166667,0.728035,13,0
+2026,19,Brazilian Grand Prix,2026-11-08,bearman,Oliver Bearman,haas,Haas F1 Team,24.730703,0.286510,0.363636,0.686141,14,0
+2026,19,Brazilian Grand Prix,2026-11-08,ocon,Esteban Ocon,haas,Haas F1 Team,26.357279,0.195508,0.190476,0.672146,15,0
+2026,19,Brazilian Grand Prix,2026-11-08,colapinto,Franco Colapinto,alpine,Alpine F1 Team,24.757768,0.458705,0.310345,0.670785,16,0
+2026,19,Brazilian Grand Prix,2026-11-08,stroll,Lance Stroll,aston_martin,Aston Martin,25.000092,0.053915,0.166667,0.633335,17,0
+2026,19,Brazilian Grand Prix,2026-11-08,bottas,Valtteri Bottas,cadillac,Cadillac F1 Team,21.304100,0.049370,0.166667,0.547096,18,0
+2026,19,Brazilian Grand Prix,2026-11-08,hulkenberg,Nico Hülkenberg,audi,Audi,20.119100,0.096875,0.166667,0.519446,19,0
+2026,19,Brazilian Grand Prix,2026-11-08,perez,Sergio Pérez,cadillac,Cadillac F1 Team,20.022264,0.044657,0.166667,0.517186,20,0
+2026,19,Brazilian Grand Prix,2026-11-08,bortoleto,Gabriel Bortoleto,audi,Audi,17.749617,0.117116,0.190476,0.471301,21,0
+2026,19,Brazilian Grand Prix,2026-11-08,arvid_lindblad,Arvid Lindblad,rb,RB F1 Team,12.900947,0.232563,0.363636,0.410113,22,0
+2026,20,Las Vegas Grand Prix,2026-11-22,antonelli,Andrea Kimi Antonelli,mercedes,Mercedes,30.000000,0.918576,0.875000,0.962500,1,25
+2026,20,Las Vegas Grand Prix,2026-11-22,norris,Lando Norris,mclaren,McLaren,30.000000,0.765224,0.837838,0.951351,2,18
+2026,20,Las Vegas Grand Prix,2026-11-22,piastri,Oscar Piastri,mclaren,McLaren,30.000000,0.735488,0.837838,0.951351,3,15
+2026,20,Las Vegas Grand Prix,2026-11-22,hadjar,Isack Hadjar,red_bull,Red Bull,30.000000,0.700595,0.837838,0.951351,4,12
+2026,20,Las Vegas Grand Prix,2026-11-22,russell,George Russell,mercedes,Mercedes,30.000000,0.881901,0.823529,0.947059,5,10
+2026,20,Las Vegas Grand Prix,2026-11-22,hamilton,Lewis Hamilton,ferrari,Ferrari,30.000000,0.865340,0.823529,0.947059,6,8
+2026,20,Las Vegas Grand Prix,2026-11-22,max_verstappen,Max Verstappen,red_bull,Red Bull,30.000000,0.825946,0.823529,0.947059,7,6
+2026,20,Las Vegas Grand Prix,2026-11-22,leclerc,Charles Leclerc,ferrari,Ferrari,30.000000,0.816686,0.823529,0.947059,8,4
+2026,20,Las Vegas Grand Prix,2026-11-22,gasly,Pierre Gasly,alpine,Alpine F1 Team,30.000000,0.570158,0.400000,0.820000,9,2
+2026,20,Las Vegas Grand Prix,2026-11-22,albon,Alexander Albon,williams,Williams,30.000000,0.221426,0.363636,0.809091,10,1
+2026,20,Las Vegas Grand Prix,2026-11-22,lawson,Liam Lawson,rb,RB F1 Team,30.000000,0.373858,0.311475,0.793443,11,0
+2026,20,Las Vegas Grand Prix,2026-11-22,sainz,Carlos Sainz,williams,Williams,30.000000,0.364622,0.311475,0.793443,12,0
+2026,20,Las Vegas Grand Prix,2026-11-22,bearman,Oliver Bearman,haas,Haas F1 Team,27.621104,0.237214,0.363636,0.753583,13,0
+2026,20,Las Vegas Grand Prix,2026-11-22,alonso,Fernando Alonso,aston_martin,Aston Martin,30.000000,0.066308,0.166667,0.750000,14,0
+2026,20,Las Vegas Grand Prix,2026-11-22,ocon,Esteban Ocon,haas,Haas F1 Team,29.168976,0.188724,0.190476,0.737752,15,0
+2026,20,Las Vegas Grand Prix,2026-11-22,colapinto,Franco Colapinto,alpine,Alpine F1 Team,27.290316,0.465180,0.310345,0.729877,16,0
+2026,20,Las Vegas Grand Prix,2026-11-22,stroll,Lance Stroll,aston_martin,Aston Martin,26.991731,0.033731,0.166667,0.679807,17,0
+2026,20,Las Vegas Grand Prix,2026-11-22,bottas,Valtteri Bottas,cadillac,Cadillac F1 Team,23.061019,0.029612,0.166667,0.588090,18,0
+2026,20,Las Vegas Grand Prix,2026-11-22,hulkenberg,Nico Hülkenberg,audi,Audi,22.034164,0.083960,0.166667,0.564130,19,0
+2026,20,Las Vegas Grand Prix,2026-11-22,perez,Sergio Pérez,cadillac,Cadillac F1 Team,21.944442,0.027509,0.166667,0.562037,20,0
+2026,20,Las Vegas Grand Prix,2026-11-22,bortoleto,Gabriel Bortoleto,audi,Audi,18.632349,0.106623,0.190476,0.491898,21,0
+2026,20,Las Vegas Grand Prix,2026-11-22,arvid_lindblad,Arvid Lindblad,rb,RB F1 Team,14.433326,0.258971,0.363636,0.445869,22,0
+2026,21,Qatar Grand Prix,2026-11-29,russell,George Russell,mercedes,Mercedes,30.000000,0.957630,0.875000,0.962500,1,25
+2026,21,Qatar Grand Prix,2026-11-29,antonelli,Andrea Kimi Antonelli,mercedes,Mercedes,30.000000,0.939489,0.875000,0.962500,2,18
+2026,21,Qatar Grand Prix,2026-11-29,hamilton,Lewis Hamilton,ferrari,Ferrari,30.000000,0.928308,0.875000,0.962500,3,15
+2026,21,Qatar Grand Prix,2026-11-29,piastri,Oscar Piastri,mclaren,McLaren,30.000000,0.791987,0.837838,0.951351,4,12
+2026,21,Qatar Grand Prix,2026-11-29,norris,Lando Norris,mclaren,McLaren,30.000000,0.784763,0.837838,0.951351,5,10
+2026,21,Qatar Grand Prix,2026-11-29,hadjar,Isack Hadjar,red_bull,Red Bull,30.000000,0.765146,0.837838,0.951351,6,8
+2026,21,Qatar Grand Prix,2026-11-29,max_verstappen,Max Verstappen,red_bull,Red Bull,30.000000,0.848833,0.823529,0.947059,7,6
+2026,21,Qatar Grand Prix,2026-11-29,leclerc,Charles Leclerc,ferrari,Ferrari,30.000000,0.814797,0.823529,0.947059,8,4
+2026,21,Qatar Grand Prix,2026-11-29,gasly,Pierre Gasly,alpine,Alpine F1 Team,30.000000,0.563232,0.400000,0.820000,9,2
+2026,21,Qatar Grand Prix,2026-11-29,lawson,Liam Lawson,rb,RB F1 Team,30.000000,0.316378,0.311475,0.793443,10,1
+2026,21,Qatar Grand Prix,2026-11-29,albon,Alexander Albon,williams,Williams,30.000000,0.309301,0.311475,0.793443,11,0
+2026,21,Qatar Grand Prix,2026-11-29,sainz,Carlos Sainz,williams,Williams,30.000000,0.417647,0.310345,0.793103,12,0
+2026,21,Qatar Grand Prix,2026-11-29,bearman,Oliver Bearman,haas,Haas F1 Team,27.901499,0.259228,0.363636,0.760126,13,0
+2026,21,Qatar Grand Prix,2026-11-29,alonso,Fernando Alonso,aston_martin,Aston Martin,30.000000,0.067288,0.166667,0.750000,14,0
+2026,21,Qatar Grand Prix,2026-11-29,ocon,Esteban Ocon,haas,Haas F1 Team,29.404463,0.188579,0.190476,0.743247,15,0
+2026,21,Qatar Grand Prix,2026-11-29,colapinto,Franco Colapinto,alpine,Alpine F1 Team,27.699152,0.455449,0.310345,0.739417,16,0
+2026,21,Qatar Grand Prix,2026-11-29,stroll,Lance Stroll,aston_martin,Aston Martin,27.841520,0.034316,0.166667,0.699635,17,0
+2026,21,Qatar Grand Prix,2026-11-29,bottas,Valtteri Bottas,cadillac,Cadillac F1 Team,25.606920,0.030128,0.166667,0.647495,18,0
+2026,21,Qatar Grand Prix,2026-11-29,perez,Sergio Pérez,cadillac,Cadillac F1 Team,23.916322,0.028987,0.166667,0.608048,19,0
+2026,21,Qatar Grand Prix,2026-11-29,hulkenberg,Nico Hülkenberg,audi,Audi,23.236361,0.082191,0.166667,0.592182,20,0
+2026,21,Qatar Grand Prix,2026-11-29,bortoleto,Gabriel Bortoleto,audi,Audi,21.459697,0.087083,0.166667,0.550726,21,0
+2026,21,Qatar Grand Prix,2026-11-29,arvid_lindblad,Arvid Lindblad,rb,RB F1 Team,15.061520,0.207523,0.363636,0.460526,22,0
+2026,22,Abu Dhabi Grand Prix,2026-12-06,hamilton,Lewis Hamilton,ferrari,Ferrari,30.000000,0.926866,0.875000,0.962500,1,25
+2026,22,Abu Dhabi Grand Prix,2026-12-06,norris,Lando Norris,mclaren,McLaren,30.000000,0.796096,0.837838,0.951351,2,18
+2026,22,Abu Dhabi Grand Prix,2026-12-06,piastri,Oscar Piastri,mclaren,McLaren,30.000000,0.769191,0.837838,0.951351,3,15
+2026,22,Abu Dhabi Grand Prix,2026-12-06,hadjar,Isack Hadjar,red_bull,Red Bull,30.000000,0.725337,0.837838,0.951351,4,12
+2026,22,Abu Dhabi Grand Prix,2026-12-06,russell,George Russell,mercedes,Mercedes,30.000000,0.893506,0.823529,0.947059,5,10
+2026,22,Abu Dhabi Grand Prix,2026-12-06,antonelli,Andrea Kimi Antonelli,mercedes,Mercedes,30.000000,0.846670,0.823529,0.947059,6,8
+2026,22,Abu Dhabi Grand Prix,2026-12-06,leclerc,Charles Leclerc,ferrari,Ferrari,30.000000,0.837365,0.823529,0.947059,7,6
+2026,22,Abu Dhabi Grand Prix,2026-12-06,max_verstappen,Max Verstappen,red_bull,Red Bull,30.000000,0.810098,0.823529,0.947059,8,4
+2026,22,Abu Dhabi Grand Prix,2026-12-06,gasly,Pierre Gasly,alpine,Alpine F1 Team,30.000000,0.569119,0.400000,0.820000,9,2
+2026,22,Abu Dhabi Grand Prix,2026-12-06,sainz,Carlos Sainz,williams,Williams,30.000000,0.281067,0.363636,0.809091,10,1
+2026,22,Abu Dhabi Grand Prix,2026-12-06,lawson,Liam Lawson,rb,RB F1 Team,30.000000,0.270957,0.363636,0.809091,11,0
+2026,22,Abu Dhabi Grand Prix,2026-12-06,albon,Alexander Albon,williams,Williams,30.000000,0.242596,0.363636,0.809091,12,0
+2026,22,Abu Dhabi Grand Prix,2026-12-06,bearman,Oliver Bearman,haas,Haas F1 Team,30.000000,0.231656,0.363636,0.809091,13,0
+2026,22,Abu Dhabi Grand Prix,2026-12-06,colapinto,Franco Colapinto,alpine,Alpine F1 Team,30.000000,0.482782,0.310345,0.793103,14,0
+2026,22,Abu Dhabi Grand Prix,2026-12-06,ocon,Esteban Ocon,haas,Haas F1 Team,30.000000,0.168255,0.190476,0.757143,15,0
+2026,22,Abu Dhabi Grand Prix,2026-12-06,alonso,Fernando Alonso,aston_martin,Aston Martin,30.000000,0.063054,0.166667,0.750000,16,0
+2026,22,Abu Dhabi Grand Prix,2026-12-06,stroll,Lance Stroll,aston_martin,Aston Martin,30.000000,0.031326,0.166667,0.750000,17,0
+2026,22,Abu Dhabi Grand Prix,2026-12-06,bottas,Valtteri Bottas,cadillac,Cadillac F1 Team,26.278680,0.028697,0.166667,0.663169,18,0
+2026,22,Abu Dhabi Grand Prix,2026-12-06,hulkenberg,Nico Hülkenberg,audi,Audi,25.457487,0.071068,0.166667,0.644008,19,0
+2026,22,Abu Dhabi Grand Prix,2026-12-06,perez,Sergio Pérez,cadillac,Cadillac F1 Team,25.045732,0.031229,0.166667,0.634400,20,0
+2026,22,Abu Dhabi Grand Prix,2026-12-06,bortoleto,Gabriel Bortoleto,audi,Audi,23.181850,0.070023,0.166667,0.590910,21,0
+2026,22,Abu Dhabi Grand Prix,2026-12-06,arvid_lindblad,Arvid Lindblad,rb,RB F1 Team,16.862941,0.186960,0.190476,0.450611,22,0

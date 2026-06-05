@@ -1,7 +1,7 @@
 ﻿scenario_rank,entity_type,simulation_count,feature_mode,top10_model_rank,top10_model,top10_metric_name,top10_metric_value,points_model_rank,points_model,points_metric_name,points_metric_value,predicted_champion,predicted_champion_probability,runner_up,runner_up_probability,champion_probability_margin,deterministic_champion
-1,driver,5000,pre_race,1,xgboost_classifier,f1,0.708861,1,mlp_regressor,mae,3.617885,Andrea Kimi Antonelli,0.445600,Lewis Hamilton,0.233000,0.212600,Lewis Hamilton
-1,constructor,5000,pre_race,1,xgboost_classifier,f1,0.708861,1,mlp_regressor,mae,3.617885,Mercedes,0.654800,Ferrari,0.313800,0.341000,Ferrari
-2,driver,5000,pre_race,2,lightgbm_classifier,f1,0.708595,2,ridge_regression,mae,3.623049,Andrea Kimi Antonelli,0.775400,Lewis Hamilton,0.085400,0.690000,Andrea Kimi Antonelli
-2,constructor,5000,pre_race,2,lightgbm_classifier,f1,0.708595,2,ridge_regression,mae,3.623049,Mercedes,0.833200,Ferrari,0.151400,0.681800,Mercedes
-3,driver,5000,pre_race,3,hist_gradient_boosting,f1,0.708075,3,catboost_regressor,mae,3.717629,Andrea Kimi Antonelli,0.822200,George Russell,0.100600,0.721600,Andrea Kimi Antonelli
-3,constructor,5000,pre_race,3,hist_gradient_boosting,f1,0.708075,3,catboost_regressor,mae,3.717629,Mercedes,0.931200,Ferrari,0.068000,0.863200,Mercedes
+1,driver,5000,pre_race,1,xgboost_classifier,f1,0.708861,1,mlp_regressor,mae,3.617885,Andrea Kimi Antonelli,0.528400,Lewis Hamilton,0.157400,0.371000,Andrea Kimi Antonelli
+1,constructor,5000,pre_race,1,xgboost_classifier,f1,0.708861,1,mlp_regressor,mae,3.617885,Mercedes,0.676200,Ferrari,0.258800,0.417400,Mercedes
+2,driver,5000,pre_race,2,lightgbm_classifier,f1,0.708595,2,ridge_regression,mae,3.623049,Andrea Kimi Antonelli,0.813000,George Russell,0.084600,0.728400,Andrea Kimi Antonelli
+2,constructor,5000,pre_race,2,lightgbm_classifier,f1,0.708595,2,ridge_regression,mae,3.623049,Mercedes,0.912600,Ferrari,0.082600,0.830000,Mercedes
+3,driver,5000,pre_race,3,hist_gradient_boosting,f1,0.708075,3,catboost_regressor,mae,3.717629,Andrea Kimi Antonelli,0.869200,George Russell,0.077400,0.791800,Andrea Kimi Antonelli
+3,constructor,5000,pre_race,3,hist_gradient_boosting,f1,0.708075,3,catboost_regressor,mae,3.717629,Mercedes,0.953400,Ferrari,0.044600,0.908800,Mercedes

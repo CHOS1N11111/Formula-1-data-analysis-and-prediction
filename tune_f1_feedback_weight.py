@@ -19,6 +19,7 @@ import matplotlib.pyplot as plt
 
 from predict_f1_2026_championship import (
     BASE_DIR,
+    CURRENT_SEASON_ONLINE_REPEAT,
     FEATURE_MODE,
     FIGURE_DIR,
     MODEL_DIR,
@@ -97,11 +98,17 @@ SUMMARY_FIELDS = [
 
 
 def train_backtest_models(rows, test_season):
-    """Train pre-race Top 10 and points models using seasons before test season."""
+    """Train models with the same current-season online strategy as 2026."""
     train_rows = [
         row for row in rows
         if 2003 <= to_int(row["season"]) < test_season
     ]
+    known_rows = [
+        row for row in rows
+        if to_int(row["season"]) == test_season
+        and to_int(row["round"]) <= KNOWN_RACE_COUNT
+    ]
+    train_rows = train_rows + known_rows * CURRENT_SEASON_ONLINE_REPEAT
     top10_model = build_top10_models()[TOP10_MODEL_NAME]
     points_model = build_points_models()[POINTS_MODEL_NAME]
     top10_model.fit(build_x(train_rows, FEATURE_MODE), build_binary_y(train_rows, "is_top10"))
@@ -383,6 +390,7 @@ def main():
             "candidate_weights": CANDIDATE_WEIGHTS,
             "top10_model": TOP10_MODEL_NAME,
             "points_model": POINTS_MODEL_NAME,
+            "current_season_online_repeat": CURRENT_SEASON_ONLINE_REPEAT,
             "top10_calibration_method": "Empirical decile mapping using the season immediately before each backtest season.",
             "best_feedback_weight": best_row["feedback_weight"],
             "selection_metric": "avg_combined_points_mae",
@@ -396,6 +404,7 @@ def main():
             "notes": [
                 "Lower combined MAE is preferred.",
                 "If several weights are close, use the lower weight to reduce positive-feedback amplification.",
+                "Model training repeats the known current-season rows using the same online-repeat setting as the final 2026 predictor.",
                 "Backtest features use only past seasons plus the first known races of the test season, avoiding future same-season leakage.",
             ],
         },

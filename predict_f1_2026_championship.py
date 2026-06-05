@@ -72,7 +72,7 @@ SIMULATION_COUNT = 5000
 RANDOM_SEED = 42
 FEATURE_MODE = "pre_race"
 MODEL_SCENARIO_COUNT = 3
-FUTURE_FEATURE_FEEDBACK_WEIGHT = 0.50
+FUTURE_FEATURE_FEEDBACK_WEIGHT = 1.00
 CURRENT_SEASON_ONLINE_REPEAT = 1
 CURRENT_SEASON_FORM_BOOST_ALPHA = 0.0
 FINAL_TRAIN_START_SEASON = 2003
@@ -679,6 +679,9 @@ def build_deterministic_race_predictions(prediction_rows):
 
 
 def update_state_after_damped_projected_race(state, race_rows, feedback_weight):
+    if feedback_weight <= 0:
+        return
+
     """Apply damped projected race outcomes to future-race feature state."""
     race_constructor_points = defaultdict(float)
     race_constructor_has_podium = defaultdict(int)
@@ -715,6 +718,9 @@ def update_state_after_damped_projected_race(state, race_rows, feedback_weight):
 
 
 def build_projected_history_rows(race_predictions, race_deterministic_rows, feedback_weight):
+    if feedback_weight <= 0:
+        return []
+
     """Create damped projected history rows for circuit-history features."""
     deterministic_by_driver = {
         row["driver_id"]: row for row in race_deterministic_rows
@@ -1505,8 +1511,8 @@ def main():
             "figures": [str(path.relative_to(BASE_DIR)) for path in figure_paths],
             "notes": [
                 "Completed 2026 races are converted from finishing positions to the current Grand Prix points table as the starting point.",
-                "Remaining 2026 predictions use damped feedback: projected future results partially update later pre-race features rather than being written back at full weight.",
-                "The feedback weight is selected by tune_f1_feedback_weight.py using 2022-2025 historical backtests and average combined driver/constructor points MAE.",
+                "Remaining 2026 predictions support future-feature feedback between not-yet-run races; the selected feedback weight is 1.00, so projected future race results are written into later pre-race rolling features with full weight.",
+                "The feedback weight is selected by tune_f1_feedback_weight.py using 2022-2025 historical backtests aligned with current-season online training, a corrected zero-feedback branch, and average combined driver/constructor points MAE.",
                 "Completed 2026 rows are repeated once in final model training. This conservative online-training setting was selected by tune_f1_current_form_boost.py because it improves short-history driver MAE without using an unstable explicit ranking boost.",
                 "Race ranking uses the 2025-best rule-mapped strategy: 70% normalized predicted points plus 30% calibrated Top 10 probability.",
                 "Monte Carlo simulations sample from pre-race prediction signals generated for the remaining races.",

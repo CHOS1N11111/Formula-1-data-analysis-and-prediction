@@ -1,5 +1,5 @@
 {
-  "built_at": "2026-06-05T09:43:35.533587+00:00",
+  "built_at": "2026-06-05T11:34:57.063901+00:00",
   "backtest_seasons": [
     2022,
     2023,
@@ -17,19 +17,20 @@
   ],
   "top10_model": "xgboost_classifier",
   "points_model": "mlp_regressor",
+  "current_season_online_repeat": 1,
   "top10_calibration_method": "Empirical decile mapping using the season immediately before each backtest season.",
-  "best_feedback_weight": "0.50",
+  "best_feedback_weight": "1.00",
   "selection_metric": "avg_combined_points_mae",
   "best_row": {
-    "feedback_weight": "0.50",
+    "feedback_weight": "1.00",
     "season_count": 4,
-    "avg_driver_points_mae": "37.663961",
-    "avg_constructor_points_mae": "75.150000",
-    "avg_combined_points_mae": "56.406980",
+    "avg_driver_points_mae": "35.067911",
+    "avg_constructor_points_mae": "73.300000",
+    "avg_combined_points_mae": "54.183956",
     "driver_champion_hit_rate": "0.750000",
     "constructor_champion_hit_rate": "0.750000",
     "avg_driver_top3_overlap": "2.500000",
-    "avg_constructor_top3_overlap": "2.500000"
+    "avg_constructor_top3_overlap": "2.750000"
   },
   "outputs": [
     "data\\modeling\\feedback_weight_tuning_metrics.csv",
@@ -40,6 +41,7 @@
   "notes": [
     "Lower combined MAE is preferred.",
     "If several weights are close, use the lower weight to reduce positive-feedback amplification.",
+    "Model training repeats the known current-season rows using the same online-repeat setting as the final 2026 predictor.",
     "Backtest features use only past seasons plus the first known races of the test season, avoiding future same-season leakage."
   ]
 }

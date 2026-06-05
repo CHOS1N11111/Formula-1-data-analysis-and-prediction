@@ -287,9 +287,9 @@ The model inputs include:
 
 This design is appropriate for a true pre-race championship forecast because it avoids using unavailable future qualifying or grid information.
 
-Remaining-race predictions use damped future-feature feedback. The selected feedback weight is `0.50`, chosen by `tune_f1_feedback_weight.py` using 2022-2025 historical backtests and average combined driver/constructor final-points MAE after Top 10 probability calibration is applied. The purpose is to let projected future race results influence later pre-race features without allowing full-feedback positive amplification.
+Remaining-race predictions support future-feature feedback between not-yet-run races. After aligning the feedback backtest with current-season online training and fixing the zero-feedback branch so it does not create projected history rows, the selected feedback weight is `1.00`, chosen by `tune_f1_feedback_weight.py` using 2022-2025 historical backtests and average combined driver/constructor final-points MAE after Top 10 probability calibration is applied. This means projected future race results are written back into later pre-race rolling features with full weight in the official forecast.
 
-The final models also use conservative current-season online training. Completed 2026 race rows are repeated once in the final model training set. This setting was selected by `tune_f1_current_form_boost.py`: in 2022-2025 backtests, the `online1_boost0.00` configuration improved short-history driver MAE from `33.159524` to `24.448214`, while keeping the overall combined MAE close to the baseline. Explicit ranking-score form boosts were kept out of the official prediction because they were unstable on short-history strong-form samples.
+The final models also use conservative current-season online training. Completed 2026 race rows are repeated once in the final model training set. This setting was selected by `tune_f1_current_form_boost.py`: in 2022-2025 backtests, the `online1_boost0.00` configuration improved short-history driver MAE by `14.491071`, while keeping the overall combined MAE close to the baseline. Explicit ranking-score form boosts were kept out of the official prediction because they were unstable on short-history strong-form samples.
 
 Main limitations:
 

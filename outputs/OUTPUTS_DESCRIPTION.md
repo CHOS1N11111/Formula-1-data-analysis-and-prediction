@@ -560,9 +560,9 @@ Use in report: probabilistic championship prediction method.
 
 ![Feedback Weight Tuning](figures/feedback_weight_tuning_2022_2025.png)
 
-Compares candidate future-feature feedback weights on 2022-2025 historical backtests. The selected weight is `0.50` after Top 10 probability calibration is applied, which gives the lowest average combined driver/constructor final-points MAE among the tested candidates.
+Compares candidate future-feature feedback weights on 2022-2025 historical backtests. After aligning the feedback backtest with current-season online training and fixing the zero-feedback branch so it does not create projected history rows, the selected weight is `1.00`, which means the official 2026 predictor writes projected future race results back into later pre-race rolling features with full weight.
 
-Use in report: technical justification for damped feedback in the final 2026 championship prediction.
+Use in report: technical justification for feeding projected future-race outcomes into later 2026 championship-prediction rolling features.
 
 #### [`figures/current_form_boost_backtest_2022_2025.png`](figures/current_form_boost_backtest_2022_2025.png)
 
