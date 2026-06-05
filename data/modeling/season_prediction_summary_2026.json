@@ -1,5 +1,5 @@
 {
-  "built_at": "2026-06-05T05:26:12.578019+00:00",
+  "built_at": "2026-06-05T08:30:46.664081+00:00",
   "feature_mode": "pre_race",
   "simulation_count": 5000,
   "random_seed": 42,
@@ -76,6 +76,7 @@
       "points_mae": 3.717629
     }
   ],
+  "future_feature_feedback_weight": 0.35,
   "remaining_race_count": 17,
   "driver_count": 22,
   "outputs": [
@@ -86,7 +87,8 @@
     "data\\modeling\\season_prediction_driver_standings_2026_by_model.csv",
     "data\\modeling\\season_prediction_constructor_standings_2026_by_model.csv",
     "data\\modeling\\season_prediction_race_points_2026_by_model.csv",
-    "data\\modeling\\season_prediction_model_scenarios_2026.csv"
+    "data\\modeling\\season_prediction_model_scenarios_2026.csv",
+    "data\\modeling\\season_prediction_model_scenario_diagnostics_2026.csv"
   ],
   "figures": [
     "outputs\\figures\\season_prediction_driver_champion_2026.png",
@@ -109,8 +111,9 @@
   ],
   "notes": [
     "Completed 2026 races are converted from finishing positions to the current Grand Prix points table as the starting point.",
-    "Remaining 2026 deterministic predictions are generated race by race, updating projected pre-race points and recent form after each future race.",
-    "Monte Carlo simulations sample from the rolling pre-race prediction signals generated for the remaining races.",
+    "Remaining 2026 predictions use damped feedback: projected future results partially update later pre-race features rather than being written back at full weight.",
+    "The feedback weight is selected by tune_f1_feedback_weight.py using 2022-2025 historical backtests and average combined driver/constructor points MAE.",
+    "Monte Carlo simulations sample from pre-race prediction signals generated for the remaining races.",
     "Remaining 2026 races use pre-race features only; qualifying and grid data are not used.",
     "Sprint points and fastest-lap bonus points are outside this project scope.",
     "Each simulated race maps the ranked top 10 to the current Grand Prix points table.",

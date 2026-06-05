@@ -1,0 +1,44 @@
+{
+  "built_at": "2026-06-05T07:55:14.847430+00:00",
+  "backtest_seasons": [
+    2022,
+    2023,
+    2024,
+    2025
+  ],
+  "known_race_count": 5,
+  "candidate_weights": [
+    0.0,
+    0.2,
+    0.35,
+    0.5,
+    0.75,
+    1.0
+  ],
+  "top10_model": "xgboost_classifier",
+  "points_model": "mlp_regressor",
+  "best_feedback_weight": "0.35",
+  "selection_metric": "avg_combined_points_mae",
+  "best_row": {
+    "feedback_weight": "0.35",
+    "season_count": 4,
+    "avg_driver_points_mae": "38.220779",
+    "avg_constructor_points_mae": "74.950000",
+    "avg_combined_points_mae": "56.585389",
+    "driver_champion_hit_rate": "0.750000",
+    "constructor_champion_hit_rate": "0.750000",
+    "avg_driver_top3_overlap": "2.500000",
+    "avg_constructor_top3_overlap": "2.500000"
+  },
+  "outputs": [
+    "data\\modeling\\feedback_weight_tuning_metrics.csv",
+    "data\\modeling\\feedback_weight_tuning_summary.csv",
+    "data\\modeling\\feedback_weight_tuning_summary.json",
+    "outputs\\figures\\feedback_weight_tuning_2022_2025.png"
+  ],
+  "notes": [
+    "Lower combined MAE is preferred.",
+    "If several weights are close, use the lower weight to reduce positive-feedback amplification.",
+    "Backtest features use only past seasons plus the first known races of the test season, avoiding future same-season leakage."
+  ]
+}

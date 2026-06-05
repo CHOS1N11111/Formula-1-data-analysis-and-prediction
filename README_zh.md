@@ -47,6 +47,7 @@
 |-- score_f1_podium_models.py
 |-- visualize_f1_model_results.py
 |-- simulate_f1_season_uncertainty.py
+|-- tune_f1_feedback_weight.py
 |-- predict_f1_2026_championship.py
 |-- requirements.txt
 |-- data/
@@ -119,6 +120,7 @@ python score_f1_podium_models.py
 python train_f1_points_model.py
 python visualize_f1_model_results.py
 python simulate_f1_season_uncertainty.py
+python tune_f1_feedback_weight.py
 python predict_f1_2026_championship.py
 ```
 
@@ -212,6 +214,15 @@ outputs/videos/video_manifest.json
 - 原始 `points` 仍然用于历史分析和可视化。建模阶段的积分型特征，例如赛前积分和近期平均积分，会根据当前积分表从完赛名次重新计算。
 - 最终 2026 预测从已完成比赛积分榜出发，剩余比赛只使用赛前特征，不使用未来排位或发车位数据。
 
+最终 2026 预测输入合理性：
+
+- 最终冠军预测采用 `pre_race` 特征模式，因为未来比赛发生前无法获得真实排位名次和发车位。
+- 模型输入主要包括车手当前实力、车队当前实力、近期状态、赛道历史信号，以及 `driver_id`、`constructor_id`、`circuit_id` 这类实体标识。
+- 这种设计符合真实赛前预测场景，可以避免使用未来不可获得的排位或发车位信息。
+- 主要局限是数据集中没有天气、练习赛速度、赛车升级、罚退、伤病、换人、轮胎分配、安全车概率等现实赛周信息。
+- 车手和车队标识能帮助模型学习历史强弱关系，但如果新赛季竞争格局突然变化，模型反应可能偏慢。
+- 赛道历史特征能表达排位重要性、位置变化和超车波动等技术背景，但还不能完整表示赛道布局、轮胎退化、温度和车队赛车与赛道的匹配程度。
+
 历史分析包括：
 
 - 历史数据集概况
@@ -219,6 +230,10 @@ outputs/videos/video_manifest.json
 - 历史车手胜场
 - 历史车队胜场
 - 历史发车位影响
+
+## 2026 预测反馈权重
+
+`tune_f1_feedback_weight.py` 用 2022-2025 历史赛季回测未来特征反馈权重。当前最终预测采用 `0.35`，含义是未来比赛预测结果会以降低后的权重写回后续赛前特征，避免 full-feedback 带来的正反馈放大。
 
 ## 备注
 

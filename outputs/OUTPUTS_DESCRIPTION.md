@@ -556,6 +556,14 @@ Shows driver and constructor champion probabilities from the Monte Carlo 2025 ba
 
 Use in report: probabilistic championship prediction method.
 
+#### [`figures/feedback_weight_tuning_2022_2025.png`](figures/feedback_weight_tuning_2022_2025.png)
+
+![Feedback Weight Tuning](figures/feedback_weight_tuning_2022_2025.png)
+
+Compares candidate future-feature feedback weights on 2022-2025 historical backtests. The selected weight is `0.35`, which gives the lowest average combined driver/constructor final-points MAE among the tested candidates.
+
+Use in report: technical justification for damped feedback in the final 2026 championship prediction.
+
 #### [`figures/season_prediction_driver_champion_2026.png`](figures/season_prediction_driver_champion_2026.png)
 
 ![2026 Driver Champion Probability](figures/season_prediction_driver_champion_2026.png)

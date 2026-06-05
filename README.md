@@ -21,6 +21,7 @@ The project covers:
 - Animated standings videos
 - Podium, Top 10, and race-points prediction models
 - F1 rule-mapped points strategy comparison
+- Future-feature feedback-weight tuning for season prediction
 - 2025 Monte Carlo season uncertainty backtest
 - 2026 driver and constructor championship probability prediction
 
@@ -47,6 +48,7 @@ For report-oriented historical analysis figures, the visualizations intentionall
 |-- score_f1_podium_models.py
 |-- visualize_f1_model_results.py
 |-- simulate_f1_season_uncertainty.py
+|-- tune_f1_feedback_weight.py
 |-- predict_f1_2026_championship.py
 |-- requirements.txt
 |-- data/
@@ -119,6 +121,7 @@ python score_f1_podium_models.py
 python train_f1_points_model.py
 python visualize_f1_model_results.py
 python simulate_f1_season_uncertainty.py
+python tune_f1_feedback_weight.py
 python predict_f1_2026_championship.py
 ```
 
@@ -199,6 +202,7 @@ Machine learning includes:
 - Rule-mapped points strategy comparison for race-level F1 scoring
 - Leave-one-race-out Top 10 probability calibration for season simulation
 - Monte Carlo 2025 season uncertainty backtest before final 2026 championship prediction
+- Historical feedback-weight tuning from 2022 to 2025 for deciding how strongly projected future races should update later pre-race features
 - 2026 driver and constructor championship prediction using pre-race models only, with top-three model-scenario comparison
 
 Points-modeling rule scope:
@@ -211,6 +215,16 @@ Points-modeling rule scope:
 - Final standings and championship-simulation outputs should use `rule_mapped_points` as the primary points result. Continuous `predicted_points` is retained as an auxiliary expected-value signal.
 - Raw `points` remain available for historical analysis and visualization. Modeling-stage point features such as pre-race points and recent average points are recalculated from finish position with the current scoring table.
 - The final 2026 prediction starts from completed-race standings, predicts remaining races with pre-race features only, and does not use future qualifying or grid data.
+- Remaining-race predictions use damped future-feature feedback. The selected feedback weight is `0.35`, chosen by a 2022-2025 historical backtest that minimizes average combined driver/constructor points MAE.
+
+Final 2026 prediction input rationale:
+
+- The final championship prediction uses the `pre_race` feature mode because future qualifying positions and starting grids are not available before the remaining races happen.
+- The model input focuses on current driver strength, current constructor strength, recent form, circuit-history signals, and entity identifiers: `driver_id`, `constructor_id`, and `circuit_id`.
+- This design is appropriate for a true pre-race championship forecast because it avoids using unavailable future qualifying or grid information.
+- The main limitation is that the dataset does not include external real-world race-week information such as weather, practice-session pace, car upgrades, penalties, injuries, driver substitutions, tire allocation, and safety-car likelihood.
+- Driver and constructor identifiers help the model learn historical strength patterns, but they may react slowly when a new season has a sudden competitive shift.
+- Circuit-history features provide technical context such as grid importance and overtaking volatility, but they do not fully represent detailed track layout, tire degradation, temperature, or team-specific car-track compatibility.
 
 Historical analysis includes:
 

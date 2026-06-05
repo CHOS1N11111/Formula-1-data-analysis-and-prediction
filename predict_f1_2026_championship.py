@@ -65,11 +65,13 @@ DRIVER_SCENARIO_OUTPUT_PATH = MODEL_DIR / "season_prediction_driver_standings_20
 CONSTRUCTOR_SCENARIO_OUTPUT_PATH = MODEL_DIR / "season_prediction_constructor_standings_2026_by_model.csv"
 RACE_SCENARIO_OUTPUT_PATH = MODEL_DIR / "season_prediction_race_points_2026_by_model.csv"
 SCENARIO_SUMMARY_OUTPUT_PATH = MODEL_DIR / "season_prediction_model_scenarios_2026.csv"
+SCENARIO_DIAGNOSTICS_OUTPUT_PATH = MODEL_DIR / "season_prediction_model_scenario_diagnostics_2026.csv"
 
 SIMULATION_COUNT = 5000
 RANDOM_SEED = 42
 FEATURE_MODE = "pre_race"
 MODEL_SCENARIO_COUNT = 3
+FUTURE_FEATURE_FEEDBACK_WEIGHT = 0.35
 
 DRIVER_OUTPUT_FIELDS = [
     "driver_id",
@@ -132,6 +134,9 @@ SUMMARY_FIELDS = [
     "points_model",
     "predicted_champion",
     "predicted_champion_probability",
+    "runner_up",
+    "runner_up_probability",
+    "champion_probability_margin",
     "deterministic_champion",
 ]
 
@@ -158,12 +163,33 @@ SCENARIO_SUMMARY_FIELDS = [
     "points_metric_value",
     "predicted_champion",
     "predicted_champion_probability",
+    "runner_up",
+    "runner_up_probability",
+    "champion_probability_margin",
     "deterministic_champion",
 ]
 
 DRIVER_SCENARIO_FIELDS = SCENARIO_PREFIX_FIELDS + DRIVER_OUTPUT_FIELDS
 CONSTRUCTOR_SCENARIO_FIELDS = SCENARIO_PREFIX_FIELDS + CONSTRUCTOR_OUTPUT_FIELDS
 RACE_SCENARIO_FIELDS = SCENARIO_PREFIX_FIELDS + RACE_PREDICTION_FIELDS
+SCENARIO_DIAGNOSTICS_FIELDS = [
+    "scenario_rank",
+    "top10_model",
+    "points_model",
+    "remaining_race_count",
+    "deterministic_driver_winner_count",
+    "deterministic_driver_winner_distribution",
+    "driver_champion",
+    "driver_champion_probability",
+    "driver_runner_up",
+    "driver_runner_up_probability",
+    "driver_probability_margin",
+    "constructor_champion",
+    "constructor_champion_probability",
+    "constructor_runner_up",
+    "constructor_runner_up_probability",
+    "constructor_probability_margin",
+]
 
 
 def load_csv(path):
@@ -313,7 +339,7 @@ def build_driver_pool(state):
 
 
 def clone_prediction_state(state):
-    """Copy mutable season state before deterministic rolling projection."""
+    """Copy mutable season state before building future-race features."""
     return {
         "driver_points": defaultdict(float, state["driver_points"]),
         "constructor_points": defaultdict(float, state["constructor_points"]),
@@ -514,27 +540,29 @@ def build_deterministic_race_predictions(prediction_rows):
     return output_rows
 
 
-def update_state_after_projected_race(state, race_rows):
-    """Update rolling projected standings and recent-form state after one race."""
+def update_state_after_damped_projected_race(state, race_rows, feedback_weight):
+    """Apply damped projected race outcomes to future-race feature state."""
     race_constructor_points = defaultdict(float)
     race_constructor_has_podium = defaultdict(int)
     race_constructor_ids = set()
     for row in race_rows:
         driver_id = row["driver_id"]
         constructor_id = row["constructor_id"]
-        points = to_float(row["deterministic_rule_mapped_points"])
+        full_points = to_float(row["deterministic_rule_mapped_points"])
+        damped_points = full_points * feedback_weight
         rank = to_int(row["deterministic_rank"], 20)
-        is_podium = 1 if 1 <= rank <= 3 else 0
+        damped_finish = 20.0 - feedback_weight * (20.0 - rank)
+        is_podium_signal = feedback_weight if 1 <= rank <= 3 else 0.0
 
-        state["driver_points"][driver_id] += points
-        state["constructor_points"][constructor_id] += points
-        state["driver_recent_points"][driver_id].append(points)
-        state["driver_finishes"][driver_id].append(rank)
-        state["driver_recent_podiums"][driver_id].append(is_podium)
-        state["driver_history_count"][driver_id] += 1
-        race_constructor_points[constructor_id] += points
+        state["driver_points"][driver_id] += damped_points
+        state["constructor_points"][constructor_id] += damped_points
+        state["driver_recent_points"][driver_id].append(damped_points)
+        state["driver_finishes"][driver_id].append(damped_finish)
+        state["driver_recent_podiums"][driver_id].append(is_podium_signal)
+        state["driver_history_count"][driver_id] += feedback_weight
+        race_constructor_points[constructor_id] += damped_points
         race_constructor_has_podium[constructor_id] = max(
-            race_constructor_has_podium[constructor_id], is_podium
+            race_constructor_has_podium[constructor_id], is_podium_signal
         )
         race_constructor_ids.add(constructor_id)
 
@@ -545,38 +573,58 @@ def update_state_after_projected_race(state, race_rows):
         state["constructor_recent_podiums"][constructor_id].append(
             race_constructor_has_podium[constructor_id]
         )
-        state["constructor_history_count"][constructor_id] += 1
+        state["constructor_history_count"][constructor_id] += feedback_weight
 
 
-def build_rolling_future_predictions(schedule_rows, driver_pool, state, history_rows, top10_model, points_model):
-    """Predict remaining races sequentially and update projected pre-race state."""
+def build_projected_history_rows(race_predictions, race_deterministic_rows, feedback_weight):
+    """Create damped projected history rows for circuit-history features."""
+    deterministic_by_driver = {
+        row["driver_id"]: row for row in race_deterministic_rows
+    }
+    projected_history_rows = []
+    for prediction_row in race_predictions:
+        deterministic_row = deterministic_by_driver[prediction_row["driver_id"]]
+        projected_row = dict(prediction_row)
+        rank = to_int(deterministic_row["deterministic_rank"], 20)
+        points = to_float(deterministic_row["deterministic_rule_mapped_points"])
+        projected_row["finish_position"] = 20.0 - feedback_weight * (20.0 - rank)
+        projected_row["points"] = points * feedback_weight
+        projected_row["is_podium"] = feedback_weight if rank <= 3 else 0
+        projected_row["is_top10"] = feedback_weight if rank <= 10 else 0
+        projected_history_rows.append(projected_row)
+    return projected_history_rows
+
+
+def build_future_predictions_with_damped_feedback(schedule_rows, driver_pool, state, history_rows, top10_model, points_model):
+    """Predict remaining races while softly feeding projected trends into later features."""
     rolling_state = clone_prediction_state(state)
     rolling_history_rows = list(history_rows)
     prediction_rows = []
     deterministic_rows = []
     for race in sorted(schedule_rows, key=lambda row: to_int(row["round"])):
         race_predictions = predict_one_future_race(
-            race, driver_pool, rolling_state, rolling_history_rows, top10_model, points_model
+            race,
+            driver_pool,
+            rolling_state,
+            rolling_history_rows,
+            top10_model,
+            points_model,
         )
         race_deterministic_rows = build_deterministic_race_predictions(race_predictions)
         prediction_rows.extend(race_predictions)
         deterministic_rows.extend(race_deterministic_rows)
-
-        deterministic_by_driver = {
-            row["driver_id"]: row for row in race_deterministic_rows
-        }
-        projected_history_rows = []
-        for prediction_row in race_predictions:
-            deterministic_row = deterministic_by_driver[prediction_row["driver_id"]]
-            projected_row = dict(prediction_row)
-            projected_row["finish_position"] = deterministic_row["deterministic_rank"]
-            projected_row["points"] = deterministic_row["deterministic_rule_mapped_points"]
-            projected_row["is_podium"] = 1 if to_int(projected_row["finish_position"]) <= 3 else 0
-            projected_row["is_top10"] = 1 if to_int(projected_row["finish_position"]) <= 10 else 0
-            projected_history_rows.append(projected_row)
-
-        rolling_history_rows.extend(projected_history_rows)
-        update_state_after_projected_race(rolling_state, race_deterministic_rows)
+        rolling_history_rows.extend(
+            build_projected_history_rows(
+                race_predictions,
+                race_deterministic_rows,
+                FUTURE_FEATURE_FEEDBACK_WEIGHT,
+            )
+        )
+        update_state_after_damped_projected_race(
+            rolling_state,
+            race_deterministic_rows,
+            FUTURE_FEATURE_FEEDBACK_WEIGHT,
+        )
     return prediction_rows, deterministic_rows
 
 
@@ -587,9 +635,9 @@ def stochastic_race_points(race_rows, rng):
         [max(0.02, min(0.98, to_float(row["top10_probability"]))) for row in race_rows],
         dtype=float,
     )
-    noise_scale = max(0.05, float(np.std(scores)) * 0.75)
+    noise_scale = max(0.12, float(np.std(scores)) * 1.35)
     utilities = scores + rng.normal(0.0, noise_scale, size=len(race_rows))
-    utilities += rng.normal(0.0, 0.10, size=len(race_rows)) * probabilities
+    utilities += rng.normal(0.0, 0.18, size=len(race_rows)) * probabilities
     ordered_indices = list(np.argsort(utilities)[::-1])
 
     points_by_driver = {}
@@ -597,6 +645,31 @@ def stochastic_race_points(race_rows, rng):
         points = F1_POINTS_TABLE[rank_index - 1] if rank_index <= len(F1_POINTS_TABLE) else 0
         points_by_driver[race_rows[row_index]["driver_id"]] = float(points)
     return points_by_driver
+
+
+def build_season_random_effects(driver_ids, constructor_ids, rng):
+    """Create simulation-level random form effects for drivers and constructors."""
+    driver_effects = {
+        driver_id: float(rng.normal(0.0, 0.11)) for driver_id in driver_ids
+    }
+    constructor_effects = {
+        constructor_id: float(rng.normal(0.0, 0.08)) for constructor_id in constructor_ids
+    }
+    return driver_effects, constructor_effects
+
+
+def apply_season_random_effects(race_rows, driver_effects, constructor_effects):
+    """Adjust race ranking scores with simulation-level form uncertainty."""
+    adjusted_rows = []
+    for row in race_rows:
+        adjusted_row = dict(row)
+        adjusted_row["ranking_score"] = (
+            to_float(row["ranking_score"])
+            + driver_effects.get(row["driver_id"], 0.0)
+            + constructor_effects.get(row["constructor_id"], 0.0)
+        )
+        adjusted_rows.append(adjusted_row)
+    return adjusted_rows
 
 
 def deterministic_projected_points(current_driver_points, current_constructor_points, race_rows):
@@ -629,8 +702,14 @@ def run_monte_carlo(prediction_rows, current_driver_points, current_constructor_
             constructor_id: current_constructor_points.get(constructor_id, 0.0)
             for constructor_id in constructor_ids
         }
+        driver_effects, constructor_effects = build_season_random_effects(
+            driver_ids, constructor_ids, rng
+        )
         for race_rows in race_groups.values():
-            race_points = stochastic_race_points(race_rows, rng)
+            adjusted_race_rows = apply_season_random_effects(
+                race_rows, driver_effects, constructor_effects
+            )
+            race_points = stochastic_race_points(adjusted_race_rows, rng)
             for row in race_rows:
                 driver_id = row["driver_id"]
                 constructor_id = row["constructor_id"]
@@ -851,17 +930,31 @@ def save_model_scenario_comparison_chart(scenario_summary_rows):
 
 def update_model_figure_manifest(source_files, figure_paths):
     """Append 2026 prediction figures to the model figure manifest."""
-    if MODEL_FIGURE_MANIFEST_PATH.exists():
-        payload = json.loads(MODEL_FIGURE_MANIFEST_PATH.read_text(encoding="utf-8"))
-    else:
+    try:
+        if MODEL_FIGURE_MANIFEST_PATH.exists():
+            payload = json.loads(MODEL_FIGURE_MANIFEST_PATH.read_text(encoding="utf-8"))
+        else:
+            payload = {"source_files": [], "figures": []}
+    except json.JSONDecodeError:
         payload = {"source_files": [], "figures": []}
+
+    def manifest_path_text(path_like):
+        """Convert path-like values to stable project-relative manifest text."""
+        if isinstance(path_like, Path):
+            try:
+                return str(path_like.relative_to(BASE_DIR))
+            except ValueError:
+                return str(path_like)
+        return str(path_like)
+
     existing_sources = list(payload.get("source_files", []))
     existing_figures = list(payload.get("figures", []))
     for source_file in source_files:
-        if source_file not in existing_sources:
-            existing_sources.append(source_file)
+        source_text = manifest_path_text(source_file)
+        if source_text not in existing_sources:
+            existing_sources.append(source_text)
     for figure_path in figure_paths:
-        figure_text = str(figure_path.relative_to(BASE_DIR))
+        figure_text = manifest_path_text(figure_path)
         if figure_text not in existing_figures:
             existing_figures.append(figure_text)
     payload["built_at"] = datetime.now(timezone.utc).isoformat()
@@ -873,7 +966,9 @@ def update_model_figure_manifest(source_files, figure_paths):
 def build_summary_rows(driver_rows, constructor_rows, scenario):
     """Build compact champion prediction summary rows."""
     driver_champion = driver_rows[0]
+    driver_runner_up = driver_rows[1] if len(driver_rows) > 1 else driver_rows[0]
     constructor_champion = constructor_rows[0]
+    constructor_runner_up = constructor_rows[1] if len(constructor_rows) > 1 else constructor_rows[0]
     deterministic_driver = min(driver_rows, key=lambda row: to_int(row["deterministic_projected_rank"]))
     deterministic_constructor = min(
         constructor_rows, key=lambda row: to_int(row["deterministic_projected_rank"])
@@ -887,6 +982,12 @@ def build_summary_rows(driver_rows, constructor_rows, scenario):
             "points_model": scenario["points_model"],
             "predicted_champion": driver_champion["driver_name"],
             "predicted_champion_probability": driver_champion["champion_probability"],
+            "runner_up": driver_runner_up["driver_name"],
+            "runner_up_probability": driver_runner_up["champion_probability"],
+            "champion_probability_margin": format_float(
+                to_float(driver_champion["champion_probability"])
+                - to_float(driver_runner_up["champion_probability"])
+            ),
             "deterministic_champion": deterministic_driver["driver_name"],
         },
         {
@@ -897,6 +998,12 @@ def build_summary_rows(driver_rows, constructor_rows, scenario):
             "points_model": scenario["points_model"],
             "predicted_champion": constructor_champion["constructor_name"],
             "predicted_champion_probability": constructor_champion["champion_probability"],
+            "runner_up": constructor_runner_up["constructor_name"],
+            "runner_up_probability": constructor_runner_up["champion_probability"],
+            "champion_probability_margin": format_float(
+                to_float(constructor_champion["champion_probability"])
+                - to_float(constructor_runner_up["champion_probability"])
+            ),
             "deterministic_champion": deterministic_constructor["constructor_name"],
         },
     ]
@@ -918,6 +1025,51 @@ def build_scenario_summary_rows(driver_rows, constructor_rows, scenario):
         }
         for row in base_rows
     ]
+
+
+def build_scenario_diagnostics_row(scenario, deterministic_race_rows, driver_rows, constructor_rows):
+    """Build diagnostics that explain scenario-level certainty and deterministic ranking."""
+    deterministic_winners = [
+        row["driver_name"]
+        for row in deterministic_race_rows
+        if to_int(row["deterministic_rank"]) == 1
+    ]
+    winner_distribution = {
+        name: deterministic_winners.count(name)
+        for name in sorted(set(deterministic_winners))
+    }
+    driver_champion = driver_rows[0]
+    driver_runner_up = driver_rows[1] if len(driver_rows) > 1 else driver_rows[0]
+    constructor_champion = constructor_rows[0]
+    constructor_runner_up = (
+        constructor_rows[1] if len(constructor_rows) > 1 else constructor_rows[0]
+    )
+    return {
+        "scenario_rank": scenario["scenario_rank"],
+        "top10_model": scenario["top10_model"],
+        "points_model": scenario["points_model"],
+        "remaining_race_count": len(group_by_race(deterministic_race_rows)),
+        "deterministic_driver_winner_count": len(winner_distribution),
+        "deterministic_driver_winner_distribution": json.dumps(
+            winner_distribution, ensure_ascii=False, sort_keys=True
+        ),
+        "driver_champion": driver_champion["driver_name"],
+        "driver_champion_probability": driver_champion["champion_probability"],
+        "driver_runner_up": driver_runner_up["driver_name"],
+        "driver_runner_up_probability": driver_runner_up["champion_probability"],
+        "driver_probability_margin": format_float(
+            to_float(driver_champion["champion_probability"])
+            - to_float(driver_runner_up["champion_probability"])
+        ),
+        "constructor_champion": constructor_champion["constructor_name"],
+        "constructor_champion_probability": constructor_champion["champion_probability"],
+        "constructor_runner_up": constructor_runner_up["constructor_name"],
+        "constructor_runner_up_probability": constructor_runner_up["champion_probability"],
+        "constructor_probability_margin": format_float(
+            to_float(constructor_champion["champion_probability"])
+            - to_float(constructor_runner_up["champion_probability"])
+        ),
+    }
 
 
 def main():
@@ -956,6 +1108,7 @@ def main():
     scenario_constructor_rows = []
     scenario_race_rows = []
     scenario_summary_rows = []
+    scenario_diagnostics_rows = []
     scenario_results = []
     primary_result = None
 
@@ -968,7 +1121,7 @@ def main():
         top10_model, points_model = train_selected_models(
             feature_rows, scenario["top10_model"], scenario["points_model"]
         )
-        prediction_rows, deterministic_race_rows = build_rolling_future_predictions(
+        prediction_rows, deterministic_race_rows = build_future_predictions_with_damped_feedback(
             schedule_rows, driver_pool, state, feature_rows, top10_model, points_model
         )
         deterministic_driver_points, deterministic_constructor_points = deterministic_projected_points(
@@ -992,6 +1145,11 @@ def main():
         scenario_race_rows.extend(add_scenario_fields(deterministic_race_rows, scenario))
         scenario_summary_rows.extend(
             build_scenario_summary_rows(driver_rows, constructor_rows, scenario)
+        )
+        scenario_diagnostics_rows.append(
+            build_scenario_diagnostics_row(
+                scenario, deterministic_race_rows, driver_rows, constructor_rows
+            )
         )
         scenario_results.append(
             {
@@ -1031,6 +1189,11 @@ def main():
     )
     write_csv(RACE_SCENARIO_OUTPUT_PATH, RACE_SCENARIO_FIELDS, scenario_race_rows)
     write_csv(SCENARIO_SUMMARY_OUTPUT_PATH, SCENARIO_SUMMARY_FIELDS, scenario_summary_rows)
+    write_csv(
+        SCENARIO_DIAGNOSTICS_OUTPUT_PATH,
+        SCENARIO_DIAGNOSTICS_FIELDS,
+        scenario_diagnostics_rows,
+    )
 
     figure_paths = [
         save_champion_probability_chart(
@@ -1108,6 +1271,7 @@ def main():
             str(CONSTRUCTOR_SCENARIO_OUTPUT_PATH.relative_to(BASE_DIR)),
             str(RACE_SCENARIO_OUTPUT_PATH.relative_to(BASE_DIR)),
             str(SCENARIO_SUMMARY_OUTPUT_PATH.relative_to(BASE_DIR)),
+            str(SCENARIO_DIAGNOSTICS_OUTPUT_PATH.relative_to(BASE_DIR)),
         ],
         figure_paths,
     )
@@ -1136,6 +1300,7 @@ def main():
                 }
                 for scenario in scenarios
             ],
+            "future_feature_feedback_weight": FUTURE_FEATURE_FEEDBACK_WEIGHT,
             "remaining_race_count": len(schedule_rows),
             "driver_count": len(driver_pool),
             "outputs": [
@@ -1147,12 +1312,14 @@ def main():
                 str(CONSTRUCTOR_SCENARIO_OUTPUT_PATH.relative_to(BASE_DIR)),
                 str(RACE_SCENARIO_OUTPUT_PATH.relative_to(BASE_DIR)),
                 str(SCENARIO_SUMMARY_OUTPUT_PATH.relative_to(BASE_DIR)),
+                str(SCENARIO_DIAGNOSTICS_OUTPUT_PATH.relative_to(BASE_DIR)),
             ],
             "figures": [str(path.relative_to(BASE_DIR)) for path in figure_paths],
             "notes": [
                 "Completed 2026 races are converted from finishing positions to the current Grand Prix points table as the starting point.",
-                "Remaining 2026 deterministic predictions are generated race by race, updating projected pre-race points and recent form after each future race.",
-                "Monte Carlo simulations sample from the rolling pre-race prediction signals generated for the remaining races.",
+                "Remaining 2026 predictions use damped feedback: projected future results partially update later pre-race features rather than being written back at full weight.",
+                "The feedback weight is selected by tune_f1_feedback_weight.py using 2022-2025 historical backtests and average combined driver/constructor points MAE.",
+                "Monte Carlo simulations sample from pre-race prediction signals generated for the remaining races.",
                 "Remaining 2026 races use pre-race features only; qualifying and grid data are not used.",
                 "Sprint points and fastest-lap bonus points are outside this project scope.",
                 "Each simulated race maps the ranked top 10 to the current Grand Prix points table.",
