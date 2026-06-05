@@ -1,5 +1,5 @@
 {
-  "built_at": "2026-06-05T08:30:46.664081+00:00",
+  "built_at": "2026-06-05T10:40:23.604830+00:00",
   "feature_mode": "pre_race",
   "simulation_count": 5000,
   "random_seed": 42,
@@ -47,6 +47,15 @@
     "total_actual_points": "2424.000000",
     "total_predicted_points": "2147.647587"
   },
+  "ranking_strategy": "points_calibrated_top10_hybrid",
+  "ranking_points_weight": 0.7,
+  "ranking_top10_weight": 0.3,
+  "top10_calibration": {
+    "method": "Empirical decile mapping from a 2025 holdout season.",
+    "train_seasons": "2003-2024",
+    "calibration_season": 2025,
+    "bin_count": 10
+  },
   "model_scenarios": [
     {
       "scenario_rank": 1,
@@ -76,7 +85,9 @@
       "points_mae": 3.717629
     }
   ],
-  "future_feature_feedback_weight": 0.35,
+  "future_feature_feedback_weight": 0.5,
+  "current_season_online_repeat": 1,
+  "current_season_form_boost_alpha": 0.0,
   "remaining_race_count": 17,
   "driver_count": 22,
   "outputs": [
@@ -88,6 +99,7 @@
     "data\\modeling\\season_prediction_constructor_standings_2026_by_model.csv",
     "data\\modeling\\season_prediction_race_points_2026_by_model.csv",
     "data\\modeling\\season_prediction_model_scenarios_2026.csv",
+    "data\\modeling\\season_prediction_top10_calibration_2026.csv",
     "data\\modeling\\season_prediction_model_scenario_diagnostics_2026.csv"
   ],
   "figures": [
@@ -113,6 +125,8 @@
     "Completed 2026 races are converted from finishing positions to the current Grand Prix points table as the starting point.",
     "Remaining 2026 predictions use damped feedback: projected future results partially update later pre-race features rather than being written back at full weight.",
     "The feedback weight is selected by tune_f1_feedback_weight.py using 2022-2025 historical backtests and average combined driver/constructor points MAE.",
+    "Completed 2026 rows are repeated once in final model training. This conservative online-training setting was selected by tune_f1_current_form_boost.py because it improves short-history driver MAE without using an unstable explicit ranking boost.",
+    "Race ranking uses the 2025-best rule-mapped strategy: 70% normalized predicted points plus 30% calibrated Top 10 probability.",
     "Monte Carlo simulations sample from pre-race prediction signals generated for the remaining races.",
     "Remaining 2026 races use pre-race features only; qualifying and grid data are not used.",
     "Sprint points and fastest-lap bonus points are outside this project scope.",

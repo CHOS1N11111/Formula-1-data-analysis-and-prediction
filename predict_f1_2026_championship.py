@@ -66,12 +66,23 @@ CONSTRUCTOR_SCENARIO_OUTPUT_PATH = MODEL_DIR / "season_prediction_constructor_st
 RACE_SCENARIO_OUTPUT_PATH = MODEL_DIR / "season_prediction_race_points_2026_by_model.csv"
 SCENARIO_SUMMARY_OUTPUT_PATH = MODEL_DIR / "season_prediction_model_scenarios_2026.csv"
 SCENARIO_DIAGNOSTICS_OUTPUT_PATH = MODEL_DIR / "season_prediction_model_scenario_diagnostics_2026.csv"
+TOP10_CALIBRATION_OUTPUT_PATH = MODEL_DIR / "season_prediction_top10_calibration_2026.csv"
 
 SIMULATION_COUNT = 5000
 RANDOM_SEED = 42
 FEATURE_MODE = "pre_race"
 MODEL_SCENARIO_COUNT = 3
-FUTURE_FEATURE_FEEDBACK_WEIGHT = 0.35
+FUTURE_FEATURE_FEEDBACK_WEIGHT = 0.50
+CURRENT_SEASON_ONLINE_REPEAT = 1
+CURRENT_SEASON_FORM_BOOST_ALPHA = 0.0
+FINAL_TRAIN_START_SEASON = 2003
+FINAL_TRAIN_END_SEASON = 2025
+TOP10_CALIBRATION_TRAIN_END_SEASON = 2024
+TOP10_CALIBRATION_SEASON = 2025
+TOP10_CALIBRATION_BIN_COUNT = 10
+RANKING_STRATEGY = "points_calibrated_top10_hybrid"
+RANKING_POINTS_WEIGHT = 0.7
+RANKING_TOP10_WEIGHT = 0.3
 
 DRIVER_OUTPUT_FIELDS = [
     "driver_id",
@@ -121,6 +132,7 @@ RACE_PREDICTION_FIELDS = [
     "constructor_name",
     "predicted_points",
     "top10_probability",
+    "calibrated_top10_probability",
     "ranking_score",
     "deterministic_rank",
     "deterministic_rule_mapped_points",
@@ -190,6 +202,19 @@ SCENARIO_DIAGNOSTICS_FIELDS = [
     "constructor_runner_up_probability",
     "constructor_probability_margin",
 ]
+TOP10_CALIBRATION_FIELDS = [
+    "scenario_rank",
+    "top10_model",
+    "calibration_train_seasons",
+    "calibration_season",
+    "probability_bin",
+    "bin_sort",
+    "records",
+    "mean_raw_probability",
+    "actual_top10_rate",
+    "calibrated_top10_probability",
+    "calibration_error",
+]
 
 
 def load_csv(path):
@@ -210,6 +235,97 @@ def select_top_model_rows(metrics_path, metric_name, lower_is_better=False, limi
     else:
         ordered_rows = sorted(rows, key=lambda row: to_float(row[metric_name]), reverse=True)
     return ordered_rows[:limit]
+
+
+def probability_bin_index(probability):
+    """Map a probability to a decile bin index."""
+    clipped = max(0.0, min(0.999999, float(probability)))
+    return int(clipped * TOP10_CALIBRATION_BIN_COUNT)
+
+
+def probability_bin_label(bin_index):
+    """Return a stable text label for a probability decile."""
+    lower = bin_index / TOP10_CALIBRATION_BIN_COUNT
+    upper = (bin_index + 1) / TOP10_CALIBRATION_BIN_COUNT
+    return f"{lower:.1f}-{upper:.1f}"
+
+
+def build_top10_calibration_map(calibration_rows, probabilities):
+    """Build empirical 2025 Top 10 probability calibration by decile."""
+    bin_stats = {
+        bin_index: {"records": 0, "probability_sum": 0.0, "actual_top10_sum": 0.0}
+        for bin_index in range(TOP10_CALIBRATION_BIN_COUNT)
+    }
+    for row, probability in zip(calibration_rows, probabilities):
+        bin_index = probability_bin_index(probability)
+        bin_stats[bin_index]["records"] += 1
+        bin_stats[bin_index]["probability_sum"] += float(probability)
+        bin_stats[bin_index]["actual_top10_sum"] += to_float(row[TOP10_TARGET])
+
+    calibration_map = {}
+    output_rows = []
+    for bin_index in range(TOP10_CALIBRATION_BIN_COUNT):
+        stats = bin_stats[bin_index]
+        records = stats["records"]
+        if records > 0:
+            mean_raw_probability = stats["probability_sum"] / records
+            actual_top10_rate = stats["actual_top10_sum"] / records
+            calibration_map[bin_index] = actual_top10_rate
+            output_rows.append(
+                {
+                    "probability_bin": probability_bin_label(bin_index),
+                    "bin_sort": bin_index,
+                    "records": records,
+                    "mean_raw_probability": format_float(mean_raw_probability),
+                    "actual_top10_rate": format_float(actual_top10_rate),
+                    "calibrated_top10_probability": format_float(actual_top10_rate),
+                    "calibration_error": format_float(
+                        abs(mean_raw_probability - actual_top10_rate)
+                    ),
+                }
+            )
+        else:
+            output_rows.append(
+                {
+                    "probability_bin": probability_bin_label(bin_index),
+                    "bin_sort": bin_index,
+                    "records": records,
+                    "mean_raw_probability": "",
+                    "actual_top10_rate": "",
+                    "calibrated_top10_probability": "",
+                    "calibration_error": "",
+                }
+            )
+    return calibration_map, output_rows
+
+
+def train_top10_probability_calibration(rows, top10_model_name, train_end_season, calibration_season):
+    """Train a holdout Top 10 model and build an empirical calibration map."""
+    train_rows = [
+        row for row in rows
+        if FINAL_TRAIN_START_SEASON <= to_int(row["season"]) <= train_end_season
+    ]
+    calibration_rows = [
+        row for row in rows
+        if to_int(row["season"]) == calibration_season
+    ]
+    if not train_rows or not calibration_rows:
+        return {}, []
+
+    calibration_model = build_top10_models()[top10_model_name]
+    calibration_model.fit(
+        build_x(train_rows, FEATURE_MODE),
+        build_binary_y(train_rows, TOP10_TARGET),
+    )
+    probabilities = calibration_model.predict_proba(
+        build_x(calibration_rows, FEATURE_MODE)
+    )[:, 1]
+    return build_top10_calibration_map(calibration_rows, probabilities)
+
+
+def calibrate_top10_probability(probability, calibration_map):
+    """Apply decile calibration, falling back to the raw probability if a bin is empty."""
+    return float(calibration_map.get(probability_bin_index(probability), probability))
 
 
 def add_scenario_fields(rows, scenario):
@@ -457,8 +573,19 @@ def train_selected_models(rows, top10_model_name, points_model_name):
     """Train the selected pre-race Top 10 and points models on seasons through 2025."""
     train_rows = [
         row for row in rows
-        if 2003 <= to_int(row["season"]) <= 2025
+        if FINAL_TRAIN_START_SEASON <= to_int(row["season"]) <= FINAL_TRAIN_END_SEASON
     ]
+    current_season_rows = [
+        row for row in rows
+        if to_int(row["season"]) == 2026 and to_int(row.get("finish_position"), 0) > 0
+    ]
+    train_rows = train_rows + current_season_rows * CURRENT_SEASON_ONLINE_REPEAT
+    calibration_map, calibration_rows = train_top10_probability_calibration(
+        rows,
+        top10_model_name,
+        TOP10_CALIBRATION_TRAIN_END_SEASON,
+        TOP10_CALIBRATION_SEASON,
+    )
     top10_models = build_top10_models()
     points_models = build_points_models()
     top10_model = top10_models[top10_model_name]
@@ -466,10 +593,10 @@ def train_selected_models(rows, top10_model_name, points_model_name):
 
     top10_model.fit(build_x(train_rows, FEATURE_MODE), build_binary_y(train_rows, TOP10_TARGET))
     points_model.fit(build_x(train_rows, FEATURE_MODE), build_points_y(train_rows))
-    return top10_model, points_model
+    return top10_model, points_model, calibration_map, calibration_rows
 
 
-def predict_future_races(future_rows, top10_model, points_model):
+def predict_future_races(future_rows, top10_model, points_model, calibration_map):
     """Predict Top 10 probabilities and expected points for future 2026 race rows."""
     x_rows = [build_feature_dict(row, FEATURE_MODE) for row in future_rows]
     top10_probabilities = top10_model.predict_proba(x_rows)[:, 1]
@@ -480,21 +607,28 @@ def predict_future_races(future_rows, top10_model, points_model):
     for row, top10_probability, predicted_point in zip(
         future_rows, top10_probabilities, predicted_points
     ):
+        calibrated_probability = calibrate_top10_probability(
+            top10_probability, calibration_map
+        )
         normalized_points = predicted_point / max_points if max_points else 0.0
-        ranking_score = 0.7 * normalized_points + 0.3 * float(top10_probability)
+        ranking_score = (
+            RANKING_POINTS_WEIGHT * normalized_points
+            + RANKING_TOP10_WEIGHT * calibrated_probability
+        )
         enriched = dict(row)
         enriched["top10_probability"] = float(top10_probability)
+        enriched["calibrated_top10_probability"] = float(calibrated_probability)
         enriched["predicted_points"] = float(predicted_point)
         enriched["ranking_score"] = float(ranking_score)
         output_rows.append(enriched)
     return output_rows
 
 
-def predict_one_future_race(race, driver_pool, state, history_rows, top10_model, points_model):
+def predict_one_future_race(race, driver_pool, state, history_rows, top10_model, points_model, calibration_map):
     """Build and predict one future race using the current projected state."""
     raw_rows = build_future_race_rows_for_race(race, driver_pool, state)
     enriched_rows = add_circuit_history_features(history_rows + raw_rows)[len(history_rows):]
-    return predict_future_races(enriched_rows, top10_model, points_model)
+    return predict_future_races(enriched_rows, top10_model, points_model, calibration_map)
 
 
 def group_by_race(rows):
@@ -514,6 +648,7 @@ def build_deterministic_race_predictions(prediction_rows):
             key=lambda row: (
                 -to_float(row["ranking_score"]),
                 -to_float(row["predicted_points"]),
+                -to_float(row["calibrated_top10_probability"]),
                 -to_float(row["top10_probability"]),
                 row["driver_id"],
             ),
@@ -532,6 +667,9 @@ def build_deterministic_race_predictions(prediction_rows):
                     "constructor_name": row["constructor_name"],
                     "predicted_points": format_float(row["predicted_points"]),
                     "top10_probability": format_float(row["top10_probability"]),
+                    "calibrated_top10_probability": format_float(
+                        row["calibrated_top10_probability"]
+                    ),
                     "ranking_score": format_float(row["ranking_score"]),
                     "deterministic_rank": index + 1,
                     "deterministic_rule_mapped_points": mapped_points,
@@ -595,7 +733,7 @@ def build_projected_history_rows(race_predictions, race_deterministic_rows, feed
     return projected_history_rows
 
 
-def build_future_predictions_with_damped_feedback(schedule_rows, driver_pool, state, history_rows, top10_model, points_model):
+def build_future_predictions_with_damped_feedback(schedule_rows, driver_pool, state, history_rows, top10_model, points_model, calibration_map):
     """Predict remaining races while softly feeding projected trends into later features."""
     rolling_state = clone_prediction_state(state)
     rolling_history_rows = list(history_rows)
@@ -609,6 +747,7 @@ def build_future_predictions_with_damped_feedback(schedule_rows, driver_pool, st
             rolling_history_rows,
             top10_model,
             points_model,
+            calibration_map,
         )
         race_deterministic_rows = build_deterministic_race_predictions(race_predictions)
         prediction_rows.extend(race_predictions)
@@ -632,7 +771,10 @@ def stochastic_race_points(race_rows, rng):
     """Sample one race result from predicted score and probability uncertainty."""
     scores = np.array([to_float(row["ranking_score"]) for row in race_rows], dtype=float)
     probabilities = np.array(
-        [max(0.02, min(0.98, to_float(row["top10_probability"]))) for row in race_rows],
+        [
+            max(0.02, min(0.98, to_float(row.get("calibrated_top10_probability", row["top10_probability"]))))
+            for row in race_rows
+        ],
         dtype=float,
     )
     noise_scale = max(0.12, float(np.std(scores)) * 1.35)
@@ -1072,6 +1214,22 @@ def build_scenario_diagnostics_row(scenario, deterministic_race_rows, driver_row
     }
 
 
+def add_calibration_scenario_fields(calibration_rows, scenario):
+    """Attach scenario metadata to Top 10 calibration rows."""
+    return [
+        {
+            "scenario_rank": scenario["scenario_rank"],
+            "top10_model": scenario["top10_model"],
+            "calibration_train_seasons": (
+                f"{FINAL_TRAIN_START_SEASON}-{TOP10_CALIBRATION_TRAIN_END_SEASON}"
+            ),
+            "calibration_season": TOP10_CALIBRATION_SEASON,
+            **row,
+        }
+        for row in calibration_rows
+    ]
+
+
 def main():
     """Train pre-race models, simulate 2026, and write championship predictions."""
     feature_rows = add_circuit_history_features(read_csv(get_training_features_path()))
@@ -1109,6 +1267,7 @@ def main():
     scenario_race_rows = []
     scenario_summary_rows = []
     scenario_diagnostics_rows = []
+    scenario_calibration_rows = []
     scenario_results = []
     primary_result = None
 
@@ -1118,11 +1277,17 @@ def main():
             f"{scenario['scenario_rank']}: "
             f"{scenario['top10_model']} + {scenario['points_model']}"
         )
-        top10_model, points_model = train_selected_models(
+        top10_model, points_model, calibration_map, calibration_rows = train_selected_models(
             feature_rows, scenario["top10_model"], scenario["points_model"]
         )
         prediction_rows, deterministic_race_rows = build_future_predictions_with_damped_feedback(
-            schedule_rows, driver_pool, state, feature_rows, top10_model, points_model
+            schedule_rows,
+            driver_pool,
+            state,
+            feature_rows,
+            top10_model,
+            points_model,
+            calibration_map,
         )
         deterministic_driver_points, deterministic_constructor_points = deterministic_projected_points(
             current_driver_points, current_constructor_points, deterministic_race_rows
@@ -1150,6 +1315,9 @@ def main():
             build_scenario_diagnostics_row(
                 scenario, deterministic_race_rows, driver_rows, constructor_rows
             )
+        )
+        scenario_calibration_rows.extend(
+            add_calibration_scenario_fields(calibration_rows, scenario)
         )
         scenario_results.append(
             {
@@ -1189,6 +1357,11 @@ def main():
     )
     write_csv(RACE_SCENARIO_OUTPUT_PATH, RACE_SCENARIO_FIELDS, scenario_race_rows)
     write_csv(SCENARIO_SUMMARY_OUTPUT_PATH, SCENARIO_SUMMARY_FIELDS, scenario_summary_rows)
+    write_csv(
+        TOP10_CALIBRATION_OUTPUT_PATH,
+        TOP10_CALIBRATION_FIELDS,
+        scenario_calibration_rows,
+    )
     write_csv(
         SCENARIO_DIAGNOSTICS_OUTPUT_PATH,
         SCENARIO_DIAGNOSTICS_FIELDS,
@@ -1271,6 +1444,7 @@ def main():
             str(CONSTRUCTOR_SCENARIO_OUTPUT_PATH.relative_to(BASE_DIR)),
             str(RACE_SCENARIO_OUTPUT_PATH.relative_to(BASE_DIR)),
             str(SCENARIO_SUMMARY_OUTPUT_PATH.relative_to(BASE_DIR)),
+            str(TOP10_CALIBRATION_OUTPUT_PATH.relative_to(BASE_DIR)),
             str(SCENARIO_DIAGNOSTICS_OUTPUT_PATH.relative_to(BASE_DIR)),
         ],
         figure_paths,
@@ -1288,6 +1462,17 @@ def main():
             "top10_model_2025_metric": primary_scenario["top10_metric_row"],
             "points_model": primary_scenario["points_model"],
             "points_model_2025_metric": primary_scenario["points_metric_row"],
+            "ranking_strategy": RANKING_STRATEGY,
+            "ranking_points_weight": RANKING_POINTS_WEIGHT,
+            "ranking_top10_weight": RANKING_TOP10_WEIGHT,
+            "top10_calibration": {
+                "method": "Empirical decile mapping from a 2025 holdout season.",
+                "train_seasons": (
+                    f"{FINAL_TRAIN_START_SEASON}-{TOP10_CALIBRATION_TRAIN_END_SEASON}"
+                ),
+                "calibration_season": TOP10_CALIBRATION_SEASON,
+                "bin_count": TOP10_CALIBRATION_BIN_COUNT,
+            },
             "model_scenarios": [
                 {
                     "scenario_rank": scenario["scenario_rank"],
@@ -1301,6 +1486,8 @@ def main():
                 for scenario in scenarios
             ],
             "future_feature_feedback_weight": FUTURE_FEATURE_FEEDBACK_WEIGHT,
+            "current_season_online_repeat": CURRENT_SEASON_ONLINE_REPEAT,
+            "current_season_form_boost_alpha": CURRENT_SEASON_FORM_BOOST_ALPHA,
             "remaining_race_count": len(schedule_rows),
             "driver_count": len(driver_pool),
             "outputs": [
@@ -1312,6 +1499,7 @@ def main():
                 str(CONSTRUCTOR_SCENARIO_OUTPUT_PATH.relative_to(BASE_DIR)),
                 str(RACE_SCENARIO_OUTPUT_PATH.relative_to(BASE_DIR)),
                 str(SCENARIO_SUMMARY_OUTPUT_PATH.relative_to(BASE_DIR)),
+                str(TOP10_CALIBRATION_OUTPUT_PATH.relative_to(BASE_DIR)),
                 str(SCENARIO_DIAGNOSTICS_OUTPUT_PATH.relative_to(BASE_DIR)),
             ],
             "figures": [str(path.relative_to(BASE_DIR)) for path in figure_paths],
@@ -1319,6 +1507,8 @@ def main():
                 "Completed 2026 races are converted from finishing positions to the current Grand Prix points table as the starting point.",
                 "Remaining 2026 predictions use damped feedback: projected future results partially update later pre-race features rather than being written back at full weight.",
                 "The feedback weight is selected by tune_f1_feedback_weight.py using 2022-2025 historical backtests and average combined driver/constructor points MAE.",
+                "Completed 2026 rows are repeated once in final model training. This conservative online-training setting was selected by tune_f1_current_form_boost.py because it improves short-history driver MAE without using an unstable explicit ranking boost.",
+                "Race ranking uses the 2025-best rule-mapped strategy: 70% normalized predicted points plus 30% calibrated Top 10 probability.",
                 "Monte Carlo simulations sample from pre-race prediction signals generated for the remaining races.",
                 "Remaining 2026 races use pre-race features only; qualifying and grid data are not used.",
                 "Sprint points and fastest-lap bonus points are outside this project scope.",

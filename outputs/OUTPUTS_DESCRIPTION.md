@@ -560,9 +560,17 @@ Use in report: probabilistic championship prediction method.
 
 ![Feedback Weight Tuning](figures/feedback_weight_tuning_2022_2025.png)
 
-Compares candidate future-feature feedback weights on 2022-2025 historical backtests. The selected weight is `0.35`, which gives the lowest average combined driver/constructor final-points MAE among the tested candidates.
+Compares candidate future-feature feedback weights on 2022-2025 historical backtests. The selected weight is `0.50` after Top 10 probability calibration is applied, which gives the lowest average combined driver/constructor final-points MAE among the tested candidates.
 
 Use in report: technical justification for damped feedback in the final 2026 championship prediction.
+
+#### [`figures/current_form_boost_backtest_2022_2025.png`](figures/current_form_boost_backtest_2022_2025.png)
+
+![Current-Season Form Boost Backtest](figures/current_form_boost_backtest_2022_2025.png)
+
+Compares current-season online training and short-history form-boost configurations on 2022-2025 historical backtests. The official final predictor adopts the conservative `online1_boost0.00` setting: completed current-season rows are repeated once in training, while explicit ranking-score boosts are not used because they were unstable on short-history strong-form samples.
+
+Use in report: justification for handling drivers with limited historical samples but strong current-season form.
 
 #### [`figures/season_prediction_driver_champion_2026.png`](figures/season_prediction_driver_champion_2026.png)
 

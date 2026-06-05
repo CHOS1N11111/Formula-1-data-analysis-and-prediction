@@ -1,8 +1,8 @@
-# Formula 1 数据分析与预测项目
+# Formula 1 数据分析与预测
 
-本项目构建了一个可复现的 Formula 1 数据工程、数据分析、可视化与预测流程。项目从历史数据集和 Jolpica-F1 API 数据出发，构建可用于建模的比赛宽表，生成统计分析结果和图表，训练多种机器学习与深度学习模型，并模拟 2026 赛季车手和车队总冠军。
+本项目构建了一个可复现的 Formula 1 数据工程、数据分析、可视化与预测流程。项目从历史数据集和 Jolpica-F1 API 数据出发，构建可用于建模的比赛表，生成统计分析结果和图表，训练多种机器学习与深度学习模型，并模拟 2026 赛季车手和车队总冠军。
 
-本项目关注完整的数据流程，而不是单一模型：数据获取、数据验证、数据库检查、特征工程、统计分析、可视化、模型评估、概率校准、积分规则映射、Monte Carlo 赛季模拟，以及最终 2026 冠军预测。
+项目关注完整的数据流程，而不是单一模型：数据获取、数据验证、数据库检查、特征工程、统计分析、可视化、模型评估、概率校准、积分规则映射、Monte Carlo 赛季模拟，以及最终 2026 冠军预测。
 
 ## 项目目标
 
@@ -40,6 +40,7 @@
 |-- visualize_f1_model_results.py
 |-- simulate_f1_season_uncertainty.py
 |-- tune_f1_feedback_weight.py
+|-- tune_f1_current_form_boost.py
 |-- predict_f1_2026_championship.py
 |-- requirements.txt
 |-- data/
@@ -70,7 +71,7 @@ formula1-data-1950-2022/
 
 - Kaggle Formula 1 数据集，用于历史比赛记录和 SQLite 数据检查。
 - `Formula1.sqlite`，用于更早历史背景分析。
-- Jolpica-F1 Ergast 兼容 API，用于现代 Formula 1 比赛、结果、排位、积分榜、车手和车队数据。
+- Jolpica-F1 Ergast 兼容 API，用于现代 Formula 1 比赛、排位、积分榜、车手和车队数据。
 - 项目生成的处理后数据表，用于 2019-2026 现代数据和 2003-2026 扩展建模数据。
 
 处理后数据表和建模表保证数据流程可复现。原始比赛 `points` 会保留用于描述性分析，而建模阶段的积分会根据完赛名次统一换算为当前 Grand Prix 积分规则。
@@ -114,6 +115,7 @@ python train_f1_points_model.py
 python visualize_f1_model_results.py
 python simulate_f1_season_uncertainty.py
 python tune_f1_feedback_weight.py
+python tune_f1_current_form_boost.py
 python predict_f1_2026_championship.py
 ```
 
@@ -178,7 +180,7 @@ SQLite 历史分析提供背景参考：
 
 ### 领奖台预测
 
-领奖台任务预测某位车手是否进入前三。该任务比较传统机器学习、高级 Boosting、Stacking 和深度学习模型：
+领奖台任务预测某位车手是否进入前三。该任务比较传统机器学习、高级 boosting、stacking 和深度学习模型：
 
 - Logistic Regression
 - Random Forest
@@ -197,7 +199,7 @@ SQLite 历史分析提供背景参考：
 
 Top 10 任务预测某位车手是否进入积分区。该任务作为单站排序和赛季模拟的概率信号。
 
-项目还包含 Top 10 概率校准，用于检查预测概率是否接近真实事件概率。这个步骤在 Monte Carlo 赛季模拟前很重要。
+项目还包含 Top 10 概率校准，用于检查预测概率是否接近真实事件概率。这一步在 Monte Carlo 赛季模拟前很重要。
 
 ### 单站积分预测
 
@@ -285,7 +287,9 @@ Top 10 任务预测某位车手是否进入积分区。该任务作为单站排�
 
 这种设计符合真实赛前冠军预测场景，因为它避免使用未来不可获得的排位或发车位信息。
 
-剩余比赛预测使用阻尼式未来特征反馈。当前反馈权重为 `0.35`，由 `tune_f1_feedback_weight.py` 使用 2022-2025 历史回测和车手/车队最终积分综合 MAE 选出。这样可以让未来比赛预测结果影响后续赛前特征，同时避免 full-feedback 带来的正反馈放大。
+剩余比赛预测使用阻尼式未来特征反馈。当前反馈权重为 `0.50`，由 `tune_f1_feedback_weight.py` 在应用 Top 10 概率校准后，使用 2022-2025 历史回测和车手/车队最终积分综合 MAE 选出。这样可以让未来比赛预测结果影响后续赛前特征，同时避免 full-feedback 带来的正反馈放大。
+
+最终模型还使用保守的当前赛季在线训练。已完成的 2026 比赛样本会在最终模型训练集中重复加入一次。该设置由 `tune_f1_current_form_boost.py` 通过 2022-2025 回测选出：`online1_boost0.00` 将短历史车手 MAE 从 `33.159524` 降低到 `24.448214`，同时让整体综合 MAE 基本接近 baseline。显式 `ranking_score` form boost 没有放入正式预测，因为它在短历史强状态样本上表现不稳定。
 
 主要局限：
 
@@ -326,6 +330,8 @@ data/modeling/season_prediction_race_points_2026.csv
 data/modeling/season_prediction_model_scenarios_2026.csv
 data/modeling/season_prediction_model_scenario_diagnostics_2026.csv
 data/modeling/season_prediction_summary_2026.json
+data/modeling/current_form_boost_backtest_summary.csv
+data/modeling/current_form_boost_backtest_summary.json
 ```
 
 图表：

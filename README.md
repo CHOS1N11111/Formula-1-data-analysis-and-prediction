@@ -40,6 +40,7 @@ Static historical figures intentionally exclude 2026 data. The 2026 data is used
 |-- visualize_f1_model_results.py
 |-- simulate_f1_season_uncertainty.py
 |-- tune_f1_feedback_weight.py
+|-- tune_f1_current_form_boost.py
 |-- predict_f1_2026_championship.py
 |-- requirements.txt
 |-- data/
@@ -114,6 +115,7 @@ python train_f1_points_model.py
 python visualize_f1_model_results.py
 python simulate_f1_season_uncertainty.py
 python tune_f1_feedback_weight.py
+python tune_f1_current_form_boost.py
 python predict_f1_2026_championship.py
 ```
 
@@ -285,7 +287,9 @@ The model inputs include:
 
 This design is appropriate for a true pre-race championship forecast because it avoids using unavailable future qualifying or grid information.
 
-Remaining-race predictions use damped future-feature feedback. The selected feedback weight is `0.35`, chosen by `tune_f1_feedback_weight.py` using 2022-2025 historical backtests and average combined driver/constructor final-points MAE. The purpose is to let projected future race results influence later pre-race features without allowing full-feedback positive amplification.
+Remaining-race predictions use damped future-feature feedback. The selected feedback weight is `0.50`, chosen by `tune_f1_feedback_weight.py` using 2022-2025 historical backtests and average combined driver/constructor final-points MAE after Top 10 probability calibration is applied. The purpose is to let projected future race results influence later pre-race features without allowing full-feedback positive amplification.
+
+The final models also use conservative current-season online training. Completed 2026 race rows are repeated once in the final model training set. This setting was selected by `tune_f1_current_form_boost.py`: in 2022-2025 backtests, the `online1_boost0.00` configuration improved short-history driver MAE from `33.159524` to `24.448214`, while keeping the overall combined MAE close to the baseline. Explicit ranking-score form boosts were kept out of the official prediction because they were unstable on short-history strong-form samples.
 
 Main limitations:
 
@@ -326,6 +330,8 @@ data/modeling/season_prediction_race_points_2026.csv
 data/modeling/season_prediction_model_scenarios_2026.csv
 data/modeling/season_prediction_model_scenario_diagnostics_2026.csv
 data/modeling/season_prediction_summary_2026.json
+data/modeling/current_form_boost_backtest_summary.csv
+data/modeling/current_form_boost_backtest_summary.json
 ```
 
 Figures:

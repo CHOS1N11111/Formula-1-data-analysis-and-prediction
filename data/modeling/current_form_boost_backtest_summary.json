@@ -1,0 +1,70 @@
+{
+  "built_at": "2026-06-05T10:57:39.116000+00:00",
+  "backtest_seasons": [
+    2022,
+    2023,
+    2024,
+    2025
+  ],
+  "known_race_count": 5,
+  "top10_model": "xgboost_classifier",
+  "points_model": "mlp_regressor",
+  "feedback_weight": 0.5,
+  "short_history_sample_threshold": 60,
+  "strong_form_score_threshold": 0.45,
+  "best_experiment": {
+    "experiment_id": "online3_boost0.10",
+    "online_repeat_count": 3,
+    "form_boost_alpha": "0.1000",
+    "adoption_candidate": 0,
+    "adoption_reason": "",
+    "season_count": 4,
+    "avg_driver_points_mae": "36.570617",
+    "avg_constructor_points_mae": "75.200000",
+    "avg_combined_points_mae": "55.885309",
+    "combined_mae_improvement_vs_baseline": "0.521672",
+    "avg_short_history_driver_mae": "25.727976",
+    "short_history_mae_improvement_vs_baseline": "7.431548",
+    "avg_short_form_driver_mae": "186.000000",
+    "short_form_mae_improvement_vs_baseline": "-142.000000",
+    "driver_champion_hit_rate": "0.750000",
+    "constructor_champion_hit_rate": "0.750000",
+    "avg_driver_top3_overlap": "2.500000",
+    "avg_constructor_top3_overlap": "2.500000"
+  },
+  "recommended_experiment": {
+    "experiment_id": "online1_boost0.00",
+    "online_repeat_count": 1,
+    "form_boost_alpha": "0.0000",
+    "adoption_candidate": 1,
+    "adoption_reason": "Conservative choice: improves short-history driver MAE, keeps overall combined MAE within 0.75 points of baseline, and avoids explicit ranking-score boost because boost variants were unstable on short-form samples.",
+    "season_count": 4,
+    "avg_driver_points_mae": "36.965909",
+    "avg_constructor_points_mae": "76.250000",
+    "avg_combined_points_mae": "56.607955",
+    "combined_mae_improvement_vs_baseline": "-0.200974",
+    "avg_short_history_driver_mae": "24.448214",
+    "short_history_mae_improvement_vs_baseline": "8.711310",
+    "avg_short_form_driver_mae": "51.000000",
+    "short_form_mae_improvement_vs_baseline": "-7.000000",
+    "driver_champion_hit_rate": "0.750000",
+    "constructor_champion_hit_rate": "0.750000",
+    "avg_driver_top3_overlap": "2.500000",
+    "avg_constructor_top3_overlap": "2.750000"
+  },
+  "outputs": [
+    "data\\modeling\\current_form_boost_backtest_metrics.csv",
+    "data\\modeling\\current_form_boost_backtest_summary.csv",
+    "data\\modeling\\current_form_boost_backtest_driver_focus.csv",
+    "data\\modeling\\current_form_boost_backtest_summary.json"
+  ],
+  "figures": [
+    "outputs\\figures\\current_form_boost_backtest_2022_2025.png"
+  ],
+  "notes": [
+    "Positive improvement fields mean lower MAE than the baseline.",
+    "Online repeat count repeats the known current-season rows in model training.",
+    "Form boost is a generic ranking-score adjustment for short-history drivers with strong pre-race current form.",
+    "The experiment does not change the official 2026 predictor unless the selected configuration is adopted separately."
+  ]
+}

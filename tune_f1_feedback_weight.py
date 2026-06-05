@@ -36,6 +36,7 @@ from predict_f1_2026_championship import (
     get_training_features_path,
     predict_one_future_race,
     read_csv,
+    train_top10_probability_calibration,
     to_float,
     to_int,
     update_state_after_damped_projected_race,
@@ -55,6 +56,12 @@ KNOWN_RACE_COUNT = 5
 CANDIDATE_WEIGHTS = [0.0, 0.2, 0.35, 0.5, 0.75, 1.0]
 TOP10_MODEL_NAME = "xgboost_classifier"
 POINTS_MODEL_NAME = "mlp_regressor"
+CALIBRATION_SEASONS = {
+    2022: {"train_end_season": 2020, "calibration_season": 2021},
+    2023: {"train_end_season": 2021, "calibration_season": 2022},
+    2024: {"train_end_season": 2022, "calibration_season": 2023},
+    2025: {"train_end_season": 2023, "calibration_season": 2024},
+}
 
 DETAIL_FIELDS = [
     "season",
@@ -72,6 +79,8 @@ DETAIL_FIELDS = [
     "constructor_champion_hit",
     "driver_top3_overlap",
     "constructor_top3_overlap",
+    "calibration_train_end_season",
+    "calibration_season",
 ]
 
 SUMMARY_FIELDS = [
@@ -97,7 +106,14 @@ def train_backtest_models(rows, test_season):
     points_model = build_points_models()[POINTS_MODEL_NAME]
     top10_model.fit(build_x(train_rows, FEATURE_MODE), build_binary_y(train_rows, "is_top10"))
     points_model.fit(build_x(train_rows, FEATURE_MODE), build_points_y(train_rows))
-    return top10_model, points_model
+    calibration_config = CALIBRATION_SEASONS[test_season]
+    calibration_map, _ = train_top10_probability_calibration(
+        rows,
+        TOP10_MODEL_NAME,
+        calibration_config["train_end_season"],
+        calibration_config["calibration_season"],
+    )
+    return top10_model, points_model, calibration_map, calibration_config
 
 
 def build_season_state(rows, season, known_race_count):
@@ -146,14 +162,20 @@ def build_remaining_schedule(rows, season, known_race_count):
     return sorted(schedule_rows, key=lambda row: to_int(row["round"]))
 
 
-def predict_with_feedback_weight(schedule_rows, driver_pool, state, history_rows, top10_model, points_model, feedback_weight):
+def predict_with_feedback_weight(schedule_rows, driver_pool, state, history_rows, top10_model, points_model, calibration_map, feedback_weight):
     """Predict remaining races using a candidate feedback weight."""
     rolling_state = clone_prediction_state(state)
     rolling_history_rows = list(history_rows)
     deterministic_rows = []
     for race in schedule_rows:
         race_predictions = predict_one_future_race(
-            race, driver_pool, rolling_state, rolling_history_rows, top10_model, points_model
+            race,
+            driver_pool,
+            rolling_state,
+            rolling_history_rows,
+            top10_model,
+            points_model,
+            calibration_map,
         )
         race_deterministic_rows = build_deterministic_race_predictions(race_predictions)
         deterministic_rows.extend(race_deterministic_rows)
@@ -232,7 +254,7 @@ def build_backtest_history_rows(rows, season, known_race_count):
     ]
 
 
-def evaluate_weight(rows, season, feedback_weight, top10_model, points_model):
+def evaluate_weight(rows, season, feedback_weight, top10_model, points_model, calibration_map, calibration_config):
     """Evaluate one feedback weight on one backtest season."""
     state = build_season_state(rows, season, KNOWN_RACE_COUNT)
     driver_pool = build_driver_pool_from_state(state)
@@ -245,6 +267,7 @@ def evaluate_weight(rows, season, feedback_weight, top10_model, points_model):
         history_rows,
         top10_model,
         points_model,
+        calibration_map,
         feedback_weight,
     )
     actual_driver, actual_constructor, driver_names, constructor_names = actual_final_points(rows, season)
@@ -273,6 +296,8 @@ def evaluate_weight(rows, season, feedback_weight, top10_model, points_model):
         "constructor_champion_hit": 1 if actual_constructor_champion == predicted_constructor_champion else 0,
         "driver_top3_overlap": len(set(top_n_ids(actual_driver)) & set(top_n_ids(predicted_driver))),
         "constructor_top3_overlap": len(set(top_n_ids(actual_constructor)) & set(top_n_ids(predicted_constructor))),
+        "calibration_train_end_season": calibration_config["train_end_season"],
+        "calibration_season": calibration_config["calibration_season"],
     }
 
 
@@ -325,10 +350,20 @@ def main():
     rows = read_csv(get_training_features_path())
     detail_rows = []
     for season in BACKTEST_SEASONS:
-        top10_model, points_model = train_backtest_models(rows, season)
+        top10_model, points_model, calibration_map, calibration_config = train_backtest_models(rows, season)
         for weight in CANDIDATE_WEIGHTS:
             print(f"Backtesting season={season}, feedback_weight={weight}")
-            detail_rows.append(evaluate_weight(rows, season, weight, top10_model, points_model))
+            detail_rows.append(
+                evaluate_weight(
+                    rows,
+                    season,
+                    weight,
+                    top10_model,
+                    points_model,
+                    calibration_map,
+                    calibration_config,
+                )
+            )
 
     summary_rows = summarize_metrics(detail_rows)
     best_row = summary_rows[0]
@@ -348,6 +383,7 @@ def main():
             "candidate_weights": CANDIDATE_WEIGHTS,
             "top10_model": TOP10_MODEL_NAME,
             "points_model": POINTS_MODEL_NAME,
+            "top10_calibration_method": "Empirical decile mapping using the season immediately before each backtest season.",
             "best_feedback_weight": best_row["feedback_weight"],
             "selection_metric": "avg_combined_points_mae",
             "best_row": best_row,

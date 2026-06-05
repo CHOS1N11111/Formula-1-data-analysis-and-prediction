@@ -1,5 +1,5 @@
 {
-  "built_at": "2026-06-05T07:55:14.847430+00:00",
+  "built_at": "2026-06-05T09:43:35.533587+00:00",
   "backtest_seasons": [
     2022,
     2023,
@@ -17,14 +17,15 @@
   ],
   "top10_model": "xgboost_classifier",
   "points_model": "mlp_regressor",
-  "best_feedback_weight": "0.35",
+  "top10_calibration_method": "Empirical decile mapping using the season immediately before each backtest season.",
+  "best_feedback_weight": "0.50",
   "selection_metric": "avg_combined_points_mae",
   "best_row": {
-    "feedback_weight": "0.35",
+    "feedback_weight": "0.50",
     "season_count": 4,
-    "avg_driver_points_mae": "38.220779",
-    "avg_constructor_points_mae": "74.950000",
-    "avg_combined_points_mae": "56.585389",
+    "avg_driver_points_mae": "37.663961",
+    "avg_constructor_points_mae": "75.150000",
+    "avg_combined_points_mae": "56.406980",
     "driver_champion_hit_rate": "0.750000",
     "constructor_champion_hit_rate": "0.750000",
     "avg_driver_top3_overlap": "2.500000",
