@@ -595,3 +595,24 @@ Use in report: final constructor standings uncertainty analysis.
 Compares 2026 driver and constructor champion probabilities across the top three pre-race model scenarios. Each scenario pairs the same-rank Top 10 classifier and points regressor from prior validation metrics.
 
 Use in report: robustness comparison of final championship predictions under different high-performing model choices.
+
+#### Per-Scenario 2026 Prediction Figures
+
+The following figures repeat the same four final-prediction views for each top-three model scenario:
+
+- [`figures/season_prediction_s1_driver_champion_2026.png`](figures/season_prediction_s1_driver_champion_2026.png)
+- [`figures/season_prediction_s1_constructor_champion_2026.png`](figures/season_prediction_s1_constructor_champion_2026.png)
+- [`figures/season_prediction_s1_driver_points_uncertainty_2026.png`](figures/season_prediction_s1_driver_points_uncertainty_2026.png)
+- [`figures/season_prediction_s1_constructor_points_uncertainty_2026.png`](figures/season_prediction_s1_constructor_points_uncertainty_2026.png)
+- [`figures/season_prediction_s2_driver_champion_2026.png`](figures/season_prediction_s2_driver_champion_2026.png)
+- [`figures/season_prediction_s2_constructor_champion_2026.png`](figures/season_prediction_s2_constructor_champion_2026.png)
+- [`figures/season_prediction_s2_driver_points_uncertainty_2026.png`](figures/season_prediction_s2_driver_points_uncertainty_2026.png)
+- [`figures/season_prediction_s2_constructor_points_uncertainty_2026.png`](figures/season_prediction_s2_constructor_points_uncertainty_2026.png)
+- [`figures/season_prediction_s3_driver_champion_2026.png`](figures/season_prediction_s3_driver_champion_2026.png)
+- [`figures/season_prediction_s3_constructor_champion_2026.png`](figures/season_prediction_s3_constructor_champion_2026.png)
+- [`figures/season_prediction_s3_driver_points_uncertainty_2026.png`](figures/season_prediction_s3_driver_points_uncertainty_2026.png)
+- [`figures/season_prediction_s3_constructor_points_uncertainty_2026.png`](figures/season_prediction_s3_constructor_points_uncertainty_2026.png)
+
+Scenario 1 uses `xgboost_classifier + mlp_regressor`, Scenario 2 uses `lightgbm_classifier + ridge_regression`, and Scenario 3 uses `hist_gradient_boosting + catboost_regressor`.
+
+Use in report: detailed per-model comparison of champion probabilities and final-points uncertainty.

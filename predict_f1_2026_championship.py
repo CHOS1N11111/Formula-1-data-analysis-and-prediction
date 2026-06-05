@@ -773,6 +773,12 @@ def save_points_uncertainty_chart(rows, label_field, filename, title):
     ax.scatter(current, labels, color="#DC2626", marker="D", s=24, label="Current points")
     ax.set_xlabel("Season points")
     ax.set_title(title)
+    upper_limit = max(float(np.max(p95)) if len(p95) else 0.0, float(np.max(means)) if len(means) else 0.0)
+    tick_max = int(np.ceil(upper_limit / 100.0) * 100)
+    if tick_max >= 100:
+        ax.set_xticks(np.arange(0, tick_max + 100, 100))
+    ax.grid(axis="x", color="#D1D5DB", linewidth=0.8, alpha=0.9)
+    ax.set_axisbelow(True)
     ax.legend(loc="lower right")
     fig.tight_layout()
     output_path = FIGURE_DIR / filename
@@ -950,6 +956,7 @@ def main():
     scenario_constructor_rows = []
     scenario_race_rows = []
     scenario_summary_rows = []
+    scenario_results = []
     primary_result = None
 
     for scenario in scenarios:
@@ -985,6 +992,13 @@ def main():
         scenario_race_rows.extend(add_scenario_fields(deterministic_race_rows, scenario))
         scenario_summary_rows.extend(
             build_scenario_summary_rows(driver_rows, constructor_rows, scenario)
+        )
+        scenario_results.append(
+            {
+                "scenario": scenario,
+                "driver_rows": driver_rows,
+                "constructor_rows": constructor_rows,
+            }
         )
 
         if scenario["scenario_rank"] == 1:
@@ -1047,6 +1061,43 @@ def main():
         ),
         save_model_scenario_comparison_chart(scenario_summary_rows),
     ]
+    for result in scenario_results:
+        scenario = result["scenario"]
+        scenario_rank = scenario["scenario_rank"]
+        scenario_label = (
+            f"Scenario {scenario_rank}: "
+            f"{scenario['top10_model']} + {scenario['points_model']}"
+        )
+        figure_paths.extend(
+            [
+                save_champion_probability_chart(
+                    result["driver_rows"],
+                    "driver_name",
+                    "champion_probability",
+                    f"season_prediction_s{scenario_rank}_driver_champion_2026.png",
+                    f"2026 Driver Champion Probability - {scenario_label}",
+                ),
+                save_champion_probability_chart(
+                    result["constructor_rows"],
+                    "constructor_name",
+                    "champion_probability",
+                    f"season_prediction_s{scenario_rank}_constructor_champion_2026.png",
+                    f"2026 Constructor Champion Probability - {scenario_label}",
+                ),
+                save_points_uncertainty_chart(
+                    result["driver_rows"],
+                    "driver_name",
+                    f"season_prediction_s{scenario_rank}_driver_points_uncertainty_2026.png",
+                    f"2026 Driver Points Projection - {scenario_label}",
+                ),
+                save_points_uncertainty_chart(
+                    result["constructor_rows"],
+                    "constructor_name",
+                    f"season_prediction_s{scenario_rank}_constructor_points_uncertainty_2026.png",
+                    f"2026 Constructor Points Projection - {scenario_label}",
+                ),
+            ]
+        )
     update_model_figure_manifest(
         [
             str(DRIVER_OUTPUT_PATH.relative_to(BASE_DIR)),

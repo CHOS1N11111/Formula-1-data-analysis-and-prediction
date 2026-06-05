@@ -1,5 +1,5 @@
 {
-  "built_at": "2026-06-05T05:03:40.881657+00:00",
+  "built_at": "2026-06-05T05:26:12.578019+00:00",
   "feature_mode": "pre_race",
   "simulation_count": 5000,
   "random_seed": 42,
@@ -93,7 +93,19 @@
     "outputs\\figures\\season_prediction_constructor_champion_2026.png",
     "outputs\\figures\\season_prediction_driver_points_uncertainty_2026.png",
     "outputs\\figures\\season_prediction_constructor_points_uncertainty_2026.png",
-    "outputs\\figures\\season_prediction_model_scenarios_2026.png"
+    "outputs\\figures\\season_prediction_model_scenarios_2026.png",
+    "outputs\\figures\\season_prediction_s1_driver_champion_2026.png",
+    "outputs\\figures\\season_prediction_s1_constructor_champion_2026.png",
+    "outputs\\figures\\season_prediction_s1_driver_points_uncertainty_2026.png",
+    "outputs\\figures\\season_prediction_s1_constructor_points_uncertainty_2026.png",
+    "outputs\\figures\\season_prediction_s2_driver_champion_2026.png",
+    "outputs\\figures\\season_prediction_s2_constructor_champion_2026.png",
+    "outputs\\figures\\season_prediction_s2_driver_points_uncertainty_2026.png",
+    "outputs\\figures\\season_prediction_s2_constructor_points_uncertainty_2026.png",
+    "outputs\\figures\\season_prediction_s3_driver_champion_2026.png",
+    "outputs\\figures\\season_prediction_s3_constructor_champion_2026.png",
+    "outputs\\figures\\season_prediction_s3_driver_points_uncertainty_2026.png",
+    "outputs\\figures\\season_prediction_s3_constructor_points_uncertainty_2026.png"
   ],
   "notes": [
     "Completed 2026 races are converted from finishing positions to the current Grand Prix points table as the starting point.",
