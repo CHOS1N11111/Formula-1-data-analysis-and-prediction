@@ -1,0 +1,1123 @@
+﻿scenario_rank,top10_model_rank,top10_model,points_model_rank,points_model,season,round,race_name,race_date,driver_id,driver_name,constructor_id,constructor_name,predicted_points,top10_probability,ranking_score,deterministic_rank,deterministic_rule_mapped_points
+1,1,xgboost_classifier,1,mlp_regressor,2026,6,Monaco Grand Prix,2026-06-07,russell,George Russell,mercedes,Mercedes,13.272956,0.821224,0.946367,1,25
+1,1,xgboost_classifier,1,mlp_regressor,2026,6,Monaco Grand Prix,2026-06-07,max_verstappen,Max Verstappen,red_bull,Red Bull,13.168653,0.803220,0.935465,2,18
+1,1,xgboost_classifier,1,mlp_regressor,2026,6,Monaco Grand Prix,2026-06-07,hamilton,Lewis Hamilton,ferrari,Ferrari,11.937766,0.858542,0.887146,3,15
+1,1,xgboost_classifier,1,mlp_regressor,2026,6,Monaco Grand Prix,2026-06-07,piastri,Oscar Piastri,mclaren,McLaren,11.562286,0.825710,0.857494,4,12
+1,1,xgboost_classifier,1,mlp_regressor,2026,6,Monaco Grand Prix,2026-06-07,leclerc,Charles Leclerc,ferrari,Ferrari,11.164237,0.782391,0.823506,5,10
+1,1,xgboost_classifier,1,mlp_regressor,2026,6,Monaco Grand Prix,2026-06-07,norris,Lando Norris,mclaren,McLaren,10.385184,0.864579,0.807076,6,8
+1,1,xgboost_classifier,1,mlp_regressor,2026,6,Monaco Grand Prix,2026-06-07,antonelli,Andrea Kimi Antonelli,mercedes,Mercedes,8.453418,0.791496,0.683272,7,6
+1,1,xgboost_classifier,1,mlp_regressor,2026,6,Monaco Grand Prix,2026-06-07,hadjar,Isack Hadjar,red_bull,Red Bull,4.889024,0.558772,0.425473,8,4
+1,1,xgboost_classifier,1,mlp_regressor,2026,6,Monaco Grand Prix,2026-06-07,gasly,Pierre Gasly,alpine,Alpine F1 Team,3.458911,0.498644,0.332012,9,2
+1,1,xgboost_classifier,1,mlp_regressor,2026,6,Monaco Grand Prix,2026-06-07,bortoleto,Gabriel Bortoleto,audi,Audi,2.747647,0.245221,0.218474,10,1
+1,1,xgboost_classifier,1,mlp_regressor,2026,6,Monaco Grand Prix,2026-06-07,sainz,Carlos Sainz,williams,Williams,1.658815,0.412097,0.211113,11,0
+1,1,xgboost_classifier,1,mlp_regressor,2026,6,Monaco Grand Prix,2026-06-07,lawson,Liam Lawson,rb,RB F1 Team,1.521322,0.436069,0.211054,12,0
+1,1,xgboost_classifier,1,mlp_regressor,2026,6,Monaco Grand Prix,2026-06-07,ocon,Esteban Ocon,haas,Haas F1 Team,2.355009,0.222456,0.190937,13,0
+1,1,xgboost_classifier,1,mlp_regressor,2026,6,Monaco Grand Prix,2026-06-07,albon,Alexander Albon,williams,Williams,2.064019,0.266097,0.188683,14,0
+1,1,xgboost_classifier,1,mlp_regressor,2026,6,Monaco Grand Prix,2026-06-07,bearman,Oliver Bearman,haas,Haas F1 Team,1.939400,0.268462,0.182820,15,0
+1,1,xgboost_classifier,1,mlp_regressor,2026,6,Monaco Grand Prix,2026-06-07,colapinto,Franco Colapinto,alpine,Alpine F1 Team,0.549214,0.489861,0.175923,16,0
+1,1,xgboost_classifier,1,mlp_regressor,2026,6,Monaco Grand Prix,2026-06-07,alonso,Fernando Alonso,aston_martin,Aston Martin,2.829405,0.071475,0.170662,17,0
+1,1,xgboost_classifier,1,mlp_regressor,2026,6,Monaco Grand Prix,2026-06-07,arvid_lindblad,Arvid Lindblad,rb,RB F1 Team,1.166447,0.336079,0.162341,18,0
+1,1,xgboost_classifier,1,mlp_regressor,2026,6,Monaco Grand Prix,2026-06-07,hulkenberg,Nico Hülkenberg,audi,Audi,2.044658,0.159130,0.155572,19,0
+1,1,xgboost_classifier,1,mlp_regressor,2026,6,Monaco Grand Prix,2026-06-07,perez,Sergio Pérez,cadillac,Cadillac F1 Team,2.218154,0.056771,0.134014,20,0
+1,1,xgboost_classifier,1,mlp_regressor,2026,6,Monaco Grand Prix,2026-06-07,stroll,Lance Stroll,aston_martin,Aston Martin,1.382777,0.055717,0.089641,21,0
+1,1,xgboost_classifier,1,mlp_regressor,2026,6,Monaco Grand Prix,2026-06-07,bottas,Valtteri Bottas,cadillac,Cadillac F1 Team,1.294922,0.047702,0.082603,22,0
+1,1,xgboost_classifier,1,mlp_regressor,2026,7,Barcelona Grand Prix,2026-06-14,max_verstappen,Max Verstappen,red_bull,Red Bull,17.517496,0.855846,0.956754,1,25
+1,1,xgboost_classifier,1,mlp_regressor,2026,7,Barcelona Grand Prix,2026-06-14,hamilton,Lewis Hamilton,ferrari,Ferrari,15.461439,0.847502,0.872090,2,18
+1,1,xgboost_classifier,1,mlp_regressor,2026,7,Barcelona Grand Prix,2026-06-14,russell,George Russell,mercedes,Mercedes,14.936032,0.855856,0.853601,3,15
+1,1,xgboost_classifier,1,mlp_regressor,2026,7,Barcelona Grand Prix,2026-06-14,leclerc,Charles Leclerc,ferrari,Ferrari,14.380368,0.807259,0.816818,4,12
+1,1,xgboost_classifier,1,mlp_regressor,2026,7,Barcelona Grand Prix,2026-06-14,norris,Lando Norris,mclaren,McLaren,11.075146,0.865202,0.702124,5,10
+1,1,xgboost_classifier,1,mlp_regressor,2026,7,Barcelona Grand Prix,2026-06-14,piastri,Oscar Piastri,mclaren,McLaren,10.669975,0.824215,0.673637,6,8
+1,1,xgboost_classifier,1,mlp_regressor,2026,7,Barcelona Grand Prix,2026-06-14,antonelli,Andrea Kimi Antonelli,mercedes,Mercedes,9.958777,0.739900,0.619923,7,6
+1,1,xgboost_classifier,1,mlp_regressor,2026,7,Barcelona Grand Prix,2026-06-14,hadjar,Isack Hadjar,red_bull,Red Bull,6.432583,0.689637,0.463937,8,4
+1,1,xgboost_classifier,1,mlp_regressor,2026,7,Barcelona Grand Prix,2026-06-14,gasly,Pierre Gasly,alpine,Alpine F1 Team,3.998036,0.497028,0.308870,9,2
+1,1,xgboost_classifier,1,mlp_regressor,2026,7,Barcelona Grand Prix,2026-06-14,sainz,Carlos Sainz,williams,Williams,2.636417,0.396863,0.224410,10,1
+1,1,xgboost_classifier,1,mlp_regressor,2026,7,Barcelona Grand Prix,2026-06-14,ocon,Esteban Ocon,haas,Haas F1 Team,2.688546,0.320217,0.203500,11,0
+1,1,xgboost_classifier,1,mlp_regressor,2026,7,Barcelona Grand Prix,2026-06-14,bortoleto,Gabriel Bortoleto,audi,Audi,3.068453,0.257128,0.199754,12,0
+1,1,xgboost_classifier,1,mlp_regressor,2026,7,Barcelona Grand Prix,2026-06-14,lawson,Liam Lawson,rb,RB F1 Team,1.470252,0.425667,0.186451,13,0
+1,1,xgboost_classifier,1,mlp_regressor,2026,7,Barcelona Grand Prix,2026-06-14,albon,Alexander Albon,williams,Williams,2.845317,0.241303,0.186090,14,0
+1,1,xgboost_classifier,1,mlp_regressor,2026,7,Barcelona Grand Prix,2026-06-14,arvid_lindblad,Arvid Lindblad,rb,RB F1 Team,2.199824,0.313647,0.181999,15,0
+1,1,xgboost_classifier,1,mlp_regressor,2026,7,Barcelona Grand Prix,2026-06-14,alonso,Fernando Alonso,aston_martin,Aston Martin,3.836620,0.078358,0.176819,16,0
+1,1,xgboost_classifier,1,mlp_regressor,2026,7,Barcelona Grand Prix,2026-06-14,colapinto,Franco Colapinto,alpine,Alpine F1 Team,0.886676,0.444342,0.168734,17,0
+1,1,xgboost_classifier,1,mlp_regressor,2026,7,Barcelona Grand Prix,2026-06-14,bearman,Oliver Bearman,haas,Haas F1 Team,2.049398,0.286044,0.167707,18,0
+1,1,xgboost_classifier,1,mlp_regressor,2026,7,Barcelona Grand Prix,2026-06-14,hulkenberg,Nico Hülkenberg,audi,Audi,2.888029,0.138622,0.156992,19,0
+1,1,xgboost_classifier,1,mlp_regressor,2026,7,Barcelona Grand Prix,2026-06-14,bottas,Valtteri Bottas,cadillac,Cadillac F1 Team,2.612585,0.044738,0.117821,20,0
+1,1,xgboost_classifier,1,mlp_regressor,2026,7,Barcelona Grand Prix,2026-06-14,perez,Sergio Pérez,cadillac,Cadillac F1 Team,2.492241,0.049905,0.114562,21,0
+1,1,xgboost_classifier,1,mlp_regressor,2026,7,Barcelona Grand Prix,2026-06-14,stroll,Lance Stroll,aston_martin,Aston Martin,2.355983,0.054119,0.110381,22,0
+1,1,xgboost_classifier,1,mlp_regressor,2026,8,Austrian Grand Prix,2026-06-28,max_verstappen,Max Verstappen,red_bull,Red Bull,19.992668,0.867321,0.960196,1,25
+1,1,xgboost_classifier,1,mlp_regressor,2026,8,Austrian Grand Prix,2026-06-28,hamilton,Lewis Hamilton,ferrari,Ferrari,17.404898,0.850577,0.864568,2,18
+1,1,xgboost_classifier,1,mlp_regressor,2026,8,Austrian Grand Prix,2026-06-28,leclerc,Charles Leclerc,ferrari,Ferrari,16.705175,0.817846,0.830249,3,15
+1,1,xgboost_classifier,1,mlp_regressor,2026,8,Austrian Grand Prix,2026-06-28,russell,George Russell,mercedes,Mercedes,16.077222,0.867026,0.823017,4,12
+1,1,xgboost_classifier,1,mlp_regressor,2026,8,Austrian Grand Prix,2026-06-28,norris,Lando Norris,mclaren,McLaren,10.521751,0.847734,0.622716,5,10
+1,1,xgboost_classifier,1,mlp_regressor,2026,8,Austrian Grand Prix,2026-06-28,piastri,Oscar Piastri,mclaren,McLaren,10.492486,0.799765,0.607301,6,8
+1,1,xgboost_classifier,1,mlp_regressor,2026,8,Austrian Grand Prix,2026-06-28,antonelli,Andrea Kimi Antonelli,mercedes,Mercedes,10.410973,0.686138,0.570359,7,6
+1,1,xgboost_classifier,1,mlp_regressor,2026,8,Austrian Grand Prix,2026-06-28,hadjar,Isack Hadjar,red_bull,Red Bull,9.196993,0.745036,0.545524,8,4
+1,1,xgboost_classifier,1,mlp_regressor,2026,8,Austrian Grand Prix,2026-06-28,gasly,Pierre Gasly,alpine,Alpine F1 Team,5.071406,0.515958,0.332352,9,2
+1,1,xgboost_classifier,1,mlp_regressor,2026,8,Austrian Grand Prix,2026-06-28,bortoleto,Gabriel Bortoleto,audi,Audi,5.587799,0.209920,0.258621,10,1
+1,1,xgboost_classifier,1,mlp_regressor,2026,8,Austrian Grand Prix,2026-06-28,sainz,Carlos Sainz,williams,Williams,3.777328,0.385802,0.247996,11,0
+1,1,xgboost_classifier,1,mlp_regressor,2026,8,Austrian Grand Prix,2026-06-28,albon,Alexander Albon,williams,Williams,4.126267,0.242424,0.217199,12,0
+1,1,xgboost_classifier,1,mlp_regressor,2026,8,Austrian Grand Prix,2026-06-28,lawson,Liam Lawson,rb,RB F1 Team,2.362517,0.428698,0.211328,13,0
+1,1,xgboost_classifier,1,mlp_regressor,2026,8,Austrian Grand Prix,2026-06-28,ocon,Esteban Ocon,haas,Haas F1 Team,3.472403,0.294423,0.209906,14,0
+1,1,xgboost_classifier,1,mlp_regressor,2026,8,Austrian Grand Prix,2026-06-28,colapinto,Franco Colapinto,alpine,Alpine F1 Team,1.478438,0.469164,0.192514,15,0
+1,1,xgboost_classifier,1,mlp_regressor,2026,8,Austrian Grand Prix,2026-06-28,arvid_lindblad,Arvid Lindblad,rb,RB F1 Team,2.743351,0.307349,0.188257,16,0
+1,1,xgboost_classifier,1,mlp_regressor,2026,8,Austrian Grand Prix,2026-06-28,bearman,Oliver Bearman,haas,Haas F1 Team,2.780174,0.299702,0.187252,17,0
+1,1,xgboost_classifier,1,mlp_regressor,2026,8,Austrian Grand Prix,2026-06-28,alonso,Fernando Alonso,aston_martin,Aston Martin,4.645929,0.050659,0.177865,18,0
+1,1,xgboost_classifier,1,mlp_regressor,2026,8,Austrian Grand Prix,2026-06-28,hulkenberg,Nico Hülkenberg,audi,Audi,3.998082,0.119718,0.175900,19,0
+1,1,xgboost_classifier,1,mlp_regressor,2026,8,Austrian Grand Prix,2026-06-28,bottas,Valtteri Bottas,cadillac,Cadillac F1 Team,4.562096,0.029690,0.168639,20,0
+1,1,xgboost_classifier,1,mlp_regressor,2026,8,Austrian Grand Prix,2026-06-28,perez,Sergio Pérez,cadillac,Cadillac F1 Team,3.479579,0.032030,0.131439,21,0
+1,1,xgboost_classifier,1,mlp_regressor,2026,8,Austrian Grand Prix,2026-06-28,stroll,Lance Stroll,aston_martin,Aston Martin,3.228856,0.038058,0.124469,22,0
+1,1,xgboost_classifier,1,mlp_regressor,2026,9,British Grand Prix,2026-07-05,max_verstappen,Max Verstappen,red_bull,Red Bull,20.740255,0.889276,0.966783,1,25
+1,1,xgboost_classifier,1,mlp_regressor,2026,9,British Grand Prix,2026-07-05,hamilton,Lewis Hamilton,ferrari,Ferrari,17.631643,0.838623,0.846669,2,18
+1,1,xgboost_classifier,1,mlp_regressor,2026,9,British Grand Prix,2026-07-05,leclerc,Charles Leclerc,ferrari,Ferrari,16.375948,0.812062,0.796320,3,15
+1,1,xgboost_classifier,1,mlp_regressor,2026,9,British Grand Prix,2026-07-05,russell,George Russell,mercedes,Mercedes,15.930751,0.829092,0.786403,4,12
+1,1,xgboost_classifier,1,mlp_regressor,2026,9,British Grand Prix,2026-07-05,piastri,Oscar Piastri,mclaren,McLaren,11.817243,0.819019,0.644547,5,10
+1,1,xgboost_classifier,1,mlp_regressor,2026,9,British Grand Prix,2026-07-05,norris,Lando Norris,mclaren,McLaren,11.316932,0.844824,0.635402,6,8
+1,1,xgboost_classifier,1,mlp_regressor,2026,9,British Grand Prix,2026-07-05,hadjar,Isack Hadjar,red_bull,Red Bull,8.770447,0.712716,0.509824,7,6
+1,1,xgboost_classifier,1,mlp_regressor,2026,9,British Grand Prix,2026-07-05,antonelli,Andrea Kimi Antonelli,mercedes,Mercedes,7.962578,0.722141,0.485386,8,4
+1,1,xgboost_classifier,1,mlp_regressor,2026,9,British Grand Prix,2026-07-05,gasly,Pierre Gasly,alpine,Alpine F1 Team,5.512419,0.488477,0.332591,9,2
+1,1,xgboost_classifier,1,mlp_regressor,2026,9,British Grand Prix,2026-07-05,bortoleto,Gabriel Bortoleto,audi,Audi,5.616290,0.274695,0.271963,10,1
+1,1,xgboost_classifier,1,mlp_regressor,2026,9,British Grand Prix,2026-07-05,sainz,Carlos Sainz,williams,Williams,4.528861,0.305661,0.244551,11,0
+1,1,xgboost_classifier,1,mlp_regressor,2026,9,British Grand Prix,2026-07-05,albon,Alexander Albon,williams,Williams,4.314832,0.196001,0.204429,12,0
+1,1,xgboost_classifier,1,mlp_regressor,2026,9,British Grand Prix,2026-07-05,hulkenberg,Nico Hülkenberg,audi,Audi,4.682810,0.151047,0.203363,13,0
+1,1,xgboost_classifier,1,mlp_regressor,2026,9,British Grand Prix,2026-07-05,alonso,Fernando Alonso,aston_martin,Aston Martin,5.355589,0.072945,0.202639,14,0
+1,1,xgboost_classifier,1,mlp_regressor,2026,9,British Grand Prix,2026-07-05,ocon,Esteban Ocon,haas,Haas F1 Team,3.922653,0.192958,0.190280,15,0
+1,1,xgboost_classifier,1,mlp_regressor,2026,9,British Grand Prix,2026-07-05,arvid_lindblad,Arvid Lindblad,rb,RB F1 Team,3.409920,0.244120,0.188324,16,0
+1,1,xgboost_classifier,1,mlp_regressor,2026,9,British Grand Prix,2026-07-05,bearman,Oliver Bearman,haas,Haas F1 Team,3.001709,0.263353,0.180316,17,0
+1,1,xgboost_classifier,1,mlp_regressor,2026,9,British Grand Prix,2026-07-05,colapinto,Franco Colapinto,alpine,Alpine F1 Team,1.365069,0.388562,0.162641,18,0
+1,1,xgboost_classifier,1,mlp_regressor,2026,9,British Grand Prix,2026-07-05,lawson,Liam Lawson,rb,RB F1 Team,2.318194,0.274869,0.160701,19,0
+1,1,xgboost_classifier,1,mlp_regressor,2026,9,British Grand Prix,2026-07-05,bottas,Valtteri Bottas,cadillac,Cadillac F1 Team,4.391071,0.041384,0.160617,20,0
+1,1,xgboost_classifier,1,mlp_regressor,2026,9,British Grand Prix,2026-07-05,perez,Sergio Pérez,cadillac,Cadillac F1 Team,3.817726,0.044603,0.142232,21,0
+1,1,xgboost_classifier,1,mlp_regressor,2026,9,British Grand Prix,2026-07-05,stroll,Lance Stroll,aston_martin,Aston Martin,3.515594,0.043867,0.131814,22,0
+1,1,xgboost_classifier,1,mlp_regressor,2026,10,Belgian Grand Prix,2026-07-19,max_verstappen,Max Verstappen,red_bull,Red Bull,22.632629,0.876374,0.962912,1,25
+1,1,xgboost_classifier,1,mlp_regressor,2026,10,Belgian Grand Prix,2026-07-19,hamilton,Lewis Hamilton,ferrari,Ferrari,19.984662,0.827979,0.866495,2,18
+1,1,xgboost_classifier,1,mlp_regressor,2026,10,Belgian Grand Prix,2026-07-19,leclerc,Charles Leclerc,ferrari,Ferrari,19.494344,0.801654,0.843433,3,15
+1,1,xgboost_classifier,1,mlp_regressor,2026,10,Belgian Grand Prix,2026-07-19,russell,George Russell,mercedes,Mercedes,16.372867,0.845144,0.759936,4,12
+1,1,xgboost_classifier,1,mlp_regressor,2026,10,Belgian Grand Prix,2026-07-19,norris,Lando Norris,mclaren,McLaren,13.560282,0.824517,0.666758,5,10
+1,1,xgboost_classifier,1,mlp_regressor,2026,10,Belgian Grand Prix,2026-07-19,piastri,Oscar Piastri,mclaren,McLaren,13.181457,0.737607,0.628969,6,8
+1,1,xgboost_classifier,1,mlp_regressor,2026,10,Belgian Grand Prix,2026-07-19,antonelli,Andrea Kimi Antonelli,mercedes,Mercedes,10.729064,0.711658,0.545335,7,6
+1,1,xgboost_classifier,1,mlp_regressor,2026,10,Belgian Grand Prix,2026-07-19,hadjar,Isack Hadjar,red_bull,Red Bull,10.427900,0.679672,0.526424,8,4
+1,1,xgboost_classifier,1,mlp_regressor,2026,10,Belgian Grand Prix,2026-07-19,gasly,Pierre Gasly,alpine,Alpine F1 Team,7.106377,0.539194,0.381550,9,2
+1,1,xgboost_classifier,1,mlp_regressor,2026,10,Belgian Grand Prix,2026-07-19,bortoleto,Gabriel Bortoleto,audi,Audi,7.496935,0.329416,0.330696,10,1
+1,1,xgboost_classifier,1,mlp_regressor,2026,10,Belgian Grand Prix,2026-07-19,sainz,Carlos Sainz,williams,Williams,6.257632,0.376678,0.306544,11,0
+1,1,xgboost_classifier,1,mlp_regressor,2026,10,Belgian Grand Prix,2026-07-19,albon,Alexander Albon,williams,Williams,6.279836,0.204819,0.255673,12,0
+1,1,xgboost_classifier,1,mlp_regressor,2026,10,Belgian Grand Prix,2026-07-19,hulkenberg,Nico Hülkenberg,audi,Audi,6.656392,0.139094,0.247602,13,0
+1,1,xgboost_classifier,1,mlp_regressor,2026,10,Belgian Grand Prix,2026-07-19,alonso,Fernando Alonso,aston_martin,Aston Martin,7.137545,0.081611,0.245239,14,0
+1,1,xgboost_classifier,1,mlp_regressor,2026,10,Belgian Grand Prix,2026-07-19,ocon,Esteban Ocon,haas,Haas F1 Team,5.295333,0.267923,0.244155,15,0
+1,1,xgboost_classifier,1,mlp_regressor,2026,10,Belgian Grand Prix,2026-07-19,arvid_lindblad,Arvid Lindblad,rb,RB F1 Team,5.021483,0.258011,0.232712,16,0
+1,1,xgboost_classifier,1,mlp_regressor,2026,10,Belgian Grand Prix,2026-07-19,lawson,Liam Lawson,rb,RB F1 Team,4.272283,0.314646,0.226530,17,0
+1,1,xgboost_classifier,1,mlp_regressor,2026,10,Belgian Grand Prix,2026-07-19,colapinto,Franco Colapinto,alpine,Alpine F1 Team,3.026301,0.433944,0.223783,18,0
+1,1,xgboost_classifier,1,mlp_regressor,2026,10,Belgian Grand Prix,2026-07-19,bottas,Valtteri Bottas,cadillac,Cadillac F1 Team,6.339836,0.044876,0.209546,19,0
+1,1,xgboost_classifier,1,mlp_regressor,2026,10,Belgian Grand Prix,2026-07-19,bearman,Oliver Bearman,haas,Haas F1 Team,3.751160,0.277394,0.199237,20,0
+1,1,xgboost_classifier,1,mlp_regressor,2026,10,Belgian Grand Prix,2026-07-19,perez,Sergio Pérez,cadillac,Cadillac F1 Team,6.042747,0.034894,0.197363,21,0
+1,1,xgboost_classifier,1,mlp_regressor,2026,10,Belgian Grand Prix,2026-07-19,stroll,Lance Stroll,aston_martin,Aston Martin,5.488393,0.039612,0.181633,22,0
+1,1,xgboost_classifier,1,mlp_regressor,2026,11,Hungarian Grand Prix,2026-07-26,max_verstappen,Max Verstappen,red_bull,Red Bull,24.714180,0.904859,0.971458,1,25
+1,1,xgboost_classifier,1,mlp_regressor,2026,11,Hungarian Grand Prix,2026-07-26,hamilton,Lewis Hamilton,ferrari,Ferrari,21.438054,0.860395,0.865326,2,18
+1,1,xgboost_classifier,1,mlp_regressor,2026,11,Hungarian Grand Prix,2026-07-26,leclerc,Charles Leclerc,ferrari,Ferrari,21.001048,0.809385,0.837645,3,15
+1,1,xgboost_classifier,1,mlp_regressor,2026,11,Hungarian Grand Prix,2026-07-26,russell,George Russell,mercedes,Mercedes,17.058507,0.835762,0.733891,4,12
+1,1,xgboost_classifier,1,mlp_regressor,2026,11,Hungarian Grand Prix,2026-07-26,piastri,Oscar Piastri,mclaren,McLaren,15.186567,0.813150,0.674087,5,10
+1,1,xgboost_classifier,1,mlp_regressor,2026,11,Hungarian Grand Prix,2026-07-26,norris,Lando Norris,mclaren,McLaren,14.888874,0.816160,0.666558,6,8
+1,1,xgboost_classifier,1,mlp_regressor,2026,11,Hungarian Grand Prix,2026-07-26,antonelli,Andrea Kimi Antonelli,mercedes,Mercedes,12.019680,0.770494,0.571591,7,6
+1,1,xgboost_classifier,1,mlp_regressor,2026,11,Hungarian Grand Prix,2026-07-26,hadjar,Isack Hadjar,red_bull,Red Bull,12.376887,0.736437,0.571492,8,4
+1,1,xgboost_classifier,1,mlp_regressor,2026,11,Hungarian Grand Prix,2026-07-26,gasly,Pierre Gasly,alpine,Alpine F1 Team,8.842766,0.474607,0.392843,9,2
+1,1,xgboost_classifier,1,mlp_regressor,2026,11,Hungarian Grand Prix,2026-07-26,bortoleto,Gabriel Bortoleto,audi,Audi,9.009838,0.323070,0.352114,10,1
+1,1,xgboost_classifier,1,mlp_regressor,2026,11,Hungarian Grand Prix,2026-07-26,sainz,Carlos Sainz,williams,Williams,8.114982,0.287630,0.316136,11,0
+1,1,xgboost_classifier,1,mlp_regressor,2026,11,Hungarian Grand Prix,2026-07-26,hulkenberg,Nico Hülkenberg,audi,Audi,7.896855,0.181516,0.278124,12,0
+1,1,xgboost_classifier,1,mlp_regressor,2026,11,Hungarian Grand Prix,2026-07-26,alonso,Fernando Alonso,aston_martin,Aston Martin,8.706711,0.096936,0.275688,13,0
+1,1,xgboost_classifier,1,mlp_regressor,2026,11,Hungarian Grand Prix,2026-07-26,albon,Alexander Albon,williams,Williams,7.375795,0.205508,0.270563,14,0
+1,1,xgboost_classifier,1,mlp_regressor,2026,11,Hungarian Grand Prix,2026-07-26,ocon,Esteban Ocon,haas,Haas F1 Team,6.931410,0.208861,0.258982,15,0
+1,1,xgboost_classifier,1,mlp_regressor,2026,11,Hungarian Grand Prix,2026-07-26,lawson,Liam Lawson,rb,RB F1 Team,6.021370,0.279581,0.254422,16,0
+1,1,xgboost_classifier,1,mlp_regressor,2026,11,Hungarian Grand Prix,2026-07-26,colapinto,Franco Colapinto,alpine,Alpine F1 Team,4.421987,0.420708,0.251460,17,0
+1,1,xgboost_classifier,1,mlp_regressor,2026,11,Hungarian Grand Prix,2026-07-26,bottas,Valtteri Bottas,cadillac,Cadillac F1 Team,8.029699,0.044402,0.240752,18,0
+1,1,xgboost_classifier,1,mlp_regressor,2026,11,Hungarian Grand Prix,2026-07-26,bearman,Oliver Bearman,haas,Haas F1 Team,5.723530,0.239502,0.233963,19,0
+1,1,xgboost_classifier,1,mlp_regressor,2026,11,Hungarian Grand Prix,2026-07-26,arvid_lindblad,Arvid Lindblad,rb,RB F1 Team,5.864827,0.225647,0.233808,20,0
+1,1,xgboost_classifier,1,mlp_regressor,2026,11,Hungarian Grand Prix,2026-07-26,perez,Sergio Pérez,cadillac,Cadillac F1 Team,7.598922,0.038642,0.226823,21,0
+1,1,xgboost_classifier,1,mlp_regressor,2026,11,Hungarian Grand Prix,2026-07-26,stroll,Lance Stroll,aston_martin,Aston Martin,6.902534,0.044200,0.208766,22,0
+1,1,xgboost_classifier,1,mlp_regressor,2026,12,Dutch Grand Prix,2026-08-23,max_verstappen,Max Verstappen,red_bull,Red Bull,26.206023,0.867979,0.960394,1,25
+1,1,xgboost_classifier,1,mlp_regressor,2026,12,Dutch Grand Prix,2026-08-23,hamilton,Lewis Hamilton,ferrari,Ferrari,23.365784,0.801463,0.864572,2,18
+1,1,xgboost_classifier,1,mlp_regressor,2026,12,Dutch Grand Prix,2026-08-23,leclerc,Charles Leclerc,ferrari,Ferrari,23.037926,0.788514,0.851930,3,15
+1,1,xgboost_classifier,1,mlp_regressor,2026,12,Dutch Grand Prix,2026-08-23,russell,George Russell,mercedes,Mercedes,18.058298,0.799914,0.722337,4,12
+1,1,xgboost_classifier,1,mlp_regressor,2026,12,Dutch Grand Prix,2026-08-23,norris,Lando Norris,mclaren,McLaren,15.563803,0.861904,0.674302,5,10
+1,1,xgboost_classifier,1,mlp_regressor,2026,12,Dutch Grand Prix,2026-08-23,piastri,Oscar Piastri,mclaren,McLaren,15.084633,0.805703,0.644643,6,8
+1,1,xgboost_classifier,1,mlp_regressor,2026,12,Dutch Grand Prix,2026-08-23,hadjar,Isack Hadjar,red_bull,Red Bull,13.329697,0.745230,0.579624,7,6
+1,1,xgboost_classifier,1,mlp_regressor,2026,12,Dutch Grand Prix,2026-08-23,antonelli,Andrea Kimi Antonelli,mercedes,Mercedes,12.246471,0.689492,0.533968,8,4
+1,1,xgboost_classifier,1,mlp_regressor,2026,12,Dutch Grand Prix,2026-08-23,gasly,Pierre Gasly,alpine,Alpine F1 Team,9.494936,0.580340,0.427725,9,2
+1,1,xgboost_classifier,1,mlp_regressor,2026,12,Dutch Grand Prix,2026-08-23,bortoleto,Gabriel Bortoleto,audi,Audi,9.368572,0.314034,0.344458,10,1
+1,1,xgboost_classifier,1,mlp_regressor,2026,12,Dutch Grand Prix,2026-08-23,sainz,Carlos Sainz,williams,Williams,7.652400,0.260266,0.282486,11,0
+1,1,xgboost_classifier,1,mlp_regressor,2026,12,Dutch Grand Prix,2026-08-23,alonso,Fernando Alonso,aston_martin,Aston Martin,9.201722,0.092196,0.273450,12,0
+1,1,xgboost_classifier,1,mlp_regressor,2026,12,Dutch Grand Prix,2026-08-23,albon,Alexander Albon,williams,Williams,7.987096,0.177366,0.266556,13,0
+1,1,xgboost_classifier,1,mlp_regressor,2026,12,Dutch Grand Prix,2026-08-23,hulkenberg,Nico Hülkenberg,audi,Audi,7.896754,0.175635,0.263624,14,0
+1,1,xgboost_classifier,1,mlp_regressor,2026,12,Dutch Grand Prix,2026-08-23,ocon,Esteban Ocon,haas,Haas F1 Team,6.949210,0.242718,0.258439,15,0
+1,1,xgboost_classifier,1,mlp_regressor,2026,12,Dutch Grand Prix,2026-08-23,colapinto,Franco Colapinto,alpine,Alpine F1 Team,4.568061,0.424157,0.249266,16,0
+1,1,xgboost_classifier,1,mlp_regressor,2026,12,Dutch Grand Prix,2026-08-23,lawson,Liam Lawson,rb,RB F1 Team,6.302161,0.211504,0.231791,17,0
+1,1,xgboost_classifier,1,mlp_regressor,2026,12,Dutch Grand Prix,2026-08-23,bearman,Oliver Bearman,haas,Haas F1 Team,5.985260,0.212829,0.223724,18,0
+1,1,xgboost_classifier,1,mlp_regressor,2026,12,Dutch Grand Prix,2026-08-23,bottas,Valtteri Bottas,cadillac,Cadillac F1 Team,7.917912,0.027208,0.219661,19,0
+1,1,xgboost_classifier,1,mlp_regressor,2026,12,Dutch Grand Prix,2026-08-23,arvid_lindblad,Arvid Lindblad,rb,RB F1 Team,6.197443,0.174144,0.217786,20,0
+1,1,xgboost_classifier,1,mlp_regressor,2026,12,Dutch Grand Prix,2026-08-23,perez,Sergio Pérez,cadillac,Cadillac F1 Team,7.573157,0.024471,0.209631,21,0
+1,1,xgboost_classifier,1,mlp_regressor,2026,12,Dutch Grand Prix,2026-08-23,stroll,Lance Stroll,aston_martin,Aston Martin,6.678155,0.029119,0.187119,22,0
+1,1,xgboost_classifier,1,mlp_regressor,2026,13,Italian Grand Prix,2026-09-06,max_verstappen,Max Verstappen,red_bull,Red Bull,28.207579,0.911199,0.973360,1,25
+1,1,xgboost_classifier,1,mlp_regressor,2026,13,Italian Grand Prix,2026-09-06,hamilton,Lewis Hamilton,ferrari,Ferrari,24.907816,0.845140,0.871655,2,18
+1,1,xgboost_classifier,1,mlp_regressor,2026,13,Italian Grand Prix,2026-09-06,leclerc,Charles Leclerc,ferrari,Ferrari,25.217903,0.813592,0.869886,3,15
+1,1,xgboost_classifier,1,mlp_regressor,2026,13,Italian Grand Prix,2026-09-06,russell,George Russell,mercedes,Mercedes,20.162134,0.843150,0.753289,4,12
+1,1,xgboost_classifier,1,mlp_regressor,2026,13,Italian Grand Prix,2026-09-06,norris,Lando Norris,mclaren,McLaren,17.646640,0.863860,0.697078,5,10
+1,1,xgboost_classifier,1,mlp_regressor,2026,13,Italian Grand Prix,2026-09-06,piastri,Oscar Piastri,mclaren,McLaren,17.317813,0.828260,0.678237,6,8
+1,1,xgboost_classifier,1,mlp_regressor,2026,13,Italian Grand Prix,2026-09-06,antonelli,Andrea Kimi Antonelli,mercedes,Mercedes,15.774913,0.782467,0.626211,7,6
+1,1,xgboost_classifier,1,mlp_regressor,2026,13,Italian Grand Prix,2026-09-06,hadjar,Isack Hadjar,red_bull,Red Bull,15.580578,0.741283,0.609033,8,4
+1,1,xgboost_classifier,1,mlp_regressor,2026,13,Italian Grand Prix,2026-09-06,gasly,Pierre Gasly,alpine,Alpine F1 Team,11.230170,0.523161,0.435636,9,2
+1,1,xgboost_classifier,1,mlp_regressor,2026,13,Italian Grand Prix,2026-09-06,bortoleto,Gabriel Bortoleto,audi,Audi,11.741959,0.343966,0.394579,10,1
+1,1,xgboost_classifier,1,mlp_regressor,2026,13,Italian Grand Prix,2026-09-06,sainz,Carlos Sainz,williams,Williams,10.139144,0.292783,0.339448,11,0
+1,1,xgboost_classifier,1,mlp_regressor,2026,13,Italian Grand Prix,2026-09-06,hulkenberg,Nico Hülkenberg,audi,Audi,10.666012,0.211550,0.328153,12,0
+1,1,xgboost_classifier,1,mlp_regressor,2026,13,Italian Grand Prix,2026-09-06,alonso,Fernando Alonso,aston_martin,Aston Martin,10.985262,0.089875,0.299573,13,0
+1,1,xgboost_classifier,1,mlp_regressor,2026,13,Italian Grand Prix,2026-09-06,ocon,Esteban Ocon,haas,Haas F1 Team,9.057767,0.223490,0.291825,14,0
+1,1,xgboost_classifier,1,mlp_regressor,2026,13,Italian Grand Prix,2026-09-06,albon,Alexander Albon,williams,Williams,9.435375,0.185939,0.289930,15,0
+1,1,xgboost_classifier,1,mlp_regressor,2026,13,Italian Grand Prix,2026-09-06,colapinto,Franco Colapinto,alpine,Alpine F1 Team,6.514410,0.405098,0.283191,16,0
+1,1,xgboost_classifier,1,mlp_regressor,2026,13,Italian Grand Prix,2026-09-06,lawson,Liam Lawson,rb,RB F1 Team,7.839720,0.290810,0.281794,17,0
+1,1,xgboost_classifier,1,mlp_regressor,2026,13,Italian Grand Prix,2026-09-06,arvid_lindblad,Arvid Lindblad,rb,RB F1 Team,8.017820,0.243924,0.272147,18,0
+1,1,xgboost_classifier,1,mlp_regressor,2026,13,Italian Grand Prix,2026-09-06,bearman,Oliver Bearman,haas,Haas F1 Team,7.775253,0.260127,0.270989,19,0
+1,1,xgboost_classifier,1,mlp_regressor,2026,13,Italian Grand Prix,2026-09-06,bottas,Valtteri Bottas,cadillac,Cadillac F1 Team,10.271820,0.047822,0.269252,20,0
+1,1,xgboost_classifier,1,mlp_regressor,2026,13,Italian Grand Prix,2026-09-06,perez,Sergio Pérez,cadillac,Cadillac F1 Team,9.815377,0.042003,0.256180,21,0
+1,1,xgboost_classifier,1,mlp_regressor,2026,13,Italian Grand Prix,2026-09-06,stroll,Lance Stroll,aston_martin,Aston Martin,8.668415,0.045582,0.228790,22,0
+1,1,xgboost_classifier,1,mlp_regressor,2026,14,Spanish Grand Prix,2026-09-13,max_verstappen,Max Verstappen,red_bull,Red Bull,30.000000,0.905594,0.971678,1,25
+1,1,xgboost_classifier,1,mlp_regressor,2026,14,Spanish Grand Prix,2026-09-13,hamilton,Lewis Hamilton,ferrari,Ferrari,28.051037,0.824190,0.901781,2,18
+1,1,xgboost_classifier,1,mlp_regressor,2026,14,Spanish Grand Prix,2026-09-13,leclerc,Charles Leclerc,ferrari,Ferrari,27.478233,0.796817,0.880204,3,15
+1,1,xgboost_classifier,1,mlp_regressor,2026,14,Spanish Grand Prix,2026-09-13,russell,George Russell,mercedes,Mercedes,22.543102,0.795145,0.764549,4,12
+1,1,xgboost_classifier,1,mlp_regressor,2026,14,Spanish Grand Prix,2026-09-13,piastri,Oscar Piastri,mclaren,McLaren,19.904073,0.732036,0.684039,5,10
+1,1,xgboost_classifier,1,mlp_regressor,2026,14,Spanish Grand Prix,2026-09-13,norris,Lando Norris,mclaren,McLaren,19.285977,0.714279,0.664290,6,8
+1,1,xgboost_classifier,1,mlp_regressor,2026,14,Spanish Grand Prix,2026-09-13,antonelli,Andrea Kimi Antonelli,mercedes,Mercedes,17.417760,0.749348,0.631219,7,6
+1,1,xgboost_classifier,1,mlp_regressor,2026,14,Spanish Grand Prix,2026-09-13,hadjar,Isack Hadjar,red_bull,Red Bull,17.833361,0.702215,0.626776,8,4
+1,1,xgboost_classifier,1,mlp_regressor,2026,14,Spanish Grand Prix,2026-09-13,gasly,Pierre Gasly,alpine,Alpine F1 Team,12.039397,0.512900,0.434789,9,2
+1,1,xgboost_classifier,1,mlp_regressor,2026,14,Spanish Grand Prix,2026-09-13,bortoleto,Gabriel Bortoleto,audi,Audi,12.866507,0.383716,0.415333,10,1
+1,1,xgboost_classifier,1,mlp_regressor,2026,14,Spanish Grand Prix,2026-09-13,hulkenberg,Nico Hülkenberg,audi,Audi,11.929471,0.263760,0.357482,11,0
+1,1,xgboost_classifier,1,mlp_regressor,2026,14,Spanish Grand Prix,2026-09-13,sainz,Carlos Sainz,williams,Williams,11.994078,0.233093,0.349790,12,0
+1,1,xgboost_classifier,1,mlp_regressor,2026,14,Spanish Grand Prix,2026-09-13,ocon,Esteban Ocon,haas,Haas F1 Team,11.018474,0.296466,0.346037,13,0
+1,1,xgboost_classifier,1,mlp_regressor,2026,14,Spanish Grand Prix,2026-09-13,alonso,Fernando Alonso,aston_martin,Aston Martin,12.930888,0.079107,0.325453,14,0
+1,1,xgboost_classifier,1,mlp_regressor,2026,14,Spanish Grand Prix,2026-09-13,lawson,Liam Lawson,rb,RB F1 Team,9.865848,0.259173,0.307955,15,0
+1,1,xgboost_classifier,1,mlp_regressor,2026,14,Spanish Grand Prix,2026-09-13,arvid_lindblad,Arvid Lindblad,rb,RB F1 Team,10.103590,0.237733,0.307070,16,0
+1,1,xgboost_classifier,1,mlp_regressor,2026,14,Spanish Grand Prix,2026-09-13,bearman,Oliver Bearman,haas,Haas F1 Team,9.587479,0.275455,0.306344,17,0
+1,1,xgboost_classifier,1,mlp_regressor,2026,14,Spanish Grand Prix,2026-09-13,albon,Alexander Albon,williams,Williams,10.892056,0.163030,0.303057,18,0
+1,1,xgboost_classifier,1,mlp_regressor,2026,14,Spanish Grand Prix,2026-09-13,bottas,Valtteri Bottas,cadillac,Cadillac F1 Team,11.847683,0.047743,0.290769,19,0
+1,1,xgboost_classifier,1,mlp_regressor,2026,14,Spanish Grand Prix,2026-09-13,colapinto,Franco Colapinto,alpine,Alpine F1 Team,6.668056,0.447808,0.289930,20,0
+1,1,xgboost_classifier,1,mlp_regressor,2026,14,Spanish Grand Prix,2026-09-13,perez,Sergio Pérez,cadillac,Cadillac F1 Team,11.732764,0.043031,0.286674,21,0
+1,1,xgboost_classifier,1,mlp_regressor,2026,14,Spanish Grand Prix,2026-09-13,stroll,Lance Stroll,aston_martin,Aston Martin,9.718011,0.050750,0.241979,22,0
+1,1,xgboost_classifier,1,mlp_regressor,2026,15,Azerbaijan Grand Prix,2026-09-26,max_verstappen,Max Verstappen,red_bull,Red Bull,30.000000,0.919831,0.975949,1,25
+1,1,xgboost_classifier,1,mlp_regressor,2026,15,Azerbaijan Grand Prix,2026-09-26,hamilton,Lewis Hamilton,ferrari,Ferrari,28.449224,0.839327,0.915613,2,18
+1,1,xgboost_classifier,1,mlp_regressor,2026,15,Azerbaijan Grand Prix,2026-09-26,leclerc,Charles Leclerc,ferrari,Ferrari,28.077561,0.794652,0.893539,3,15
+1,1,xgboost_classifier,1,mlp_regressor,2026,15,Azerbaijan Grand Prix,2026-09-26,russell,George Russell,mercedes,Mercedes,22.867871,0.837839,0.784935,4,12
+1,1,xgboost_classifier,1,mlp_regressor,2026,15,Azerbaijan Grand Prix,2026-09-26,norris,Lando Norris,mclaren,McLaren,19.286597,0.834154,0.700267,5,10
+1,1,xgboost_classifier,1,mlp_regressor,2026,15,Azerbaijan Grand Prix,2026-09-26,piastri,Oscar Piastri,mclaren,McLaren,20.002148,0.765858,0.696474,6,8
+1,1,xgboost_classifier,1,mlp_regressor,2026,15,Azerbaijan Grand Prix,2026-09-26,hadjar,Isack Hadjar,red_bull,Red Bull,18.459533,0.713549,0.644787,7,6
+1,1,xgboost_classifier,1,mlp_regressor,2026,15,Azerbaijan Grand Prix,2026-09-26,antonelli,Andrea Kimi Antonelli,mercedes,Mercedes,18.015217,0.700266,0.630435,8,4
+1,1,xgboost_classifier,1,mlp_regressor,2026,15,Azerbaijan Grand Prix,2026-09-26,gasly,Pierre Gasly,alpine,Alpine F1 Team,12.316094,0.540343,0.449478,9,2
+1,1,xgboost_classifier,1,mlp_regressor,2026,15,Azerbaijan Grand Prix,2026-09-26,bortoleto,Gabriel Bortoleto,audi,Audi,12.847240,0.356671,0.406770,10,1
+1,1,xgboost_classifier,1,mlp_regressor,2026,15,Azerbaijan Grand Prix,2026-09-26,hulkenberg,Nico Hülkenberg,audi,Audi,12.097575,0.282692,0.367084,11,0
+1,1,xgboost_classifier,1,mlp_regressor,2026,15,Azerbaijan Grand Prix,2026-09-26,sainz,Carlos Sainz,williams,Williams,12.152143,0.266041,0.363362,12,0
+1,1,xgboost_classifier,1,mlp_regressor,2026,15,Azerbaijan Grand Prix,2026-09-26,ocon,Esteban Ocon,haas,Haas F1 Team,10.673849,0.358732,0.356676,13,0
+1,1,xgboost_classifier,1,mlp_regressor,2026,15,Azerbaijan Grand Prix,2026-09-26,alonso,Fernando Alonso,aston_martin,Aston Martin,13.133419,0.082473,0.331188,14,0
+1,1,xgboost_classifier,1,mlp_regressor,2026,15,Azerbaijan Grand Prix,2026-09-26,lawson,Liam Lawson,rb,RB F1 Team,10.020624,0.224105,0.301046,15,0
+1,1,xgboost_classifier,1,mlp_regressor,2026,15,Azerbaijan Grand Prix,2026-09-26,albon,Alexander Albon,williams,Williams,10.734799,0.134446,0.290813,16,0
+1,1,xgboost_classifier,1,mlp_regressor,2026,15,Azerbaijan Grand Prix,2026-09-26,arvid_lindblad,Arvid Lindblad,rb,RB F1 Team,9.924852,0.194203,0.289841,17,0
+1,1,xgboost_classifier,1,mlp_regressor,2026,15,Azerbaijan Grand Prix,2026-09-26,perez,Sergio Pérez,cadillac,Cadillac F1 Team,11.999904,0.027671,0.288299,18,0
+1,1,xgboost_classifier,1,mlp_regressor,2026,15,Azerbaijan Grand Prix,2026-09-26,bearman,Oliver Bearman,haas,Haas F1 Team,9.113868,0.240830,0.284906,19,0
+1,1,xgboost_classifier,1,mlp_regressor,2026,15,Azerbaijan Grand Prix,2026-09-26,bottas,Valtteri Bottas,cadillac,Cadillac F1 Team,11.682588,0.030755,0.281820,20,0
+1,1,xgboost_classifier,1,mlp_regressor,2026,15,Azerbaijan Grand Prix,2026-09-26,colapinto,Franco Colapinto,alpine,Alpine F1 Team,6.330589,0.446948,0.281798,21,0
+1,1,xgboost_classifier,1,mlp_regressor,2026,15,Azerbaijan Grand Prix,2026-09-26,stroll,Lance Stroll,aston_martin,Aston Martin,10.228678,0.033595,0.248748,22,0
+1,1,xgboost_classifier,1,mlp_regressor,2026,16,Singapore Grand Prix,2026-10-11,max_verstappen,Max Verstappen,red_bull,Red Bull,30.000000,0.942614,0.982784,1,25
+1,1,xgboost_classifier,1,mlp_regressor,2026,16,Singapore Grand Prix,2026-10-11,hamilton,Lewis Hamilton,ferrari,Ferrari,29.996794,0.843884,0.953090,2,18
+1,1,xgboost_classifier,1,mlp_regressor,2026,16,Singapore Grand Prix,2026-10-11,leclerc,Charles Leclerc,ferrari,Ferrari,29.022764,0.797080,0.916322,3,15
+1,1,xgboost_classifier,1,mlp_regressor,2026,16,Singapore Grand Prix,2026-10-11,russell,George Russell,mercedes,Mercedes,24.253558,0.815680,0.810620,4,12
+1,1,xgboost_classifier,1,mlp_regressor,2026,16,Singapore Grand Prix,2026-10-11,norris,Lando Norris,mclaren,McLaren,21.831549,0.795483,0.748048,5,10
+1,1,xgboost_classifier,1,mlp_regressor,2026,16,Singapore Grand Prix,2026-10-11,piastri,Oscar Piastri,mclaren,McLaren,21.253594,0.798302,0.735408,6,8
+1,1,xgboost_classifier,1,mlp_regressor,2026,16,Singapore Grand Prix,2026-10-11,antonelli,Andrea Kimi Antonelli,mercedes,Mercedes,19.379854,0.771310,0.683590,7,6
+1,1,xgboost_classifier,1,mlp_regressor,2026,16,Singapore Grand Prix,2026-10-11,hadjar,Isack Hadjar,red_bull,Red Bull,19.294862,0.730322,0.669310,8,4
+1,1,xgboost_classifier,1,mlp_regressor,2026,16,Singapore Grand Prix,2026-10-11,gasly,Pierre Gasly,alpine,Alpine F1 Team,14.142320,0.565977,0.499781,9,2
+1,1,xgboost_classifier,1,mlp_regressor,2026,16,Singapore Grand Prix,2026-10-11,bortoleto,Gabriel Bortoleto,audi,Audi,14.576294,0.351397,0.445533,10,1
+1,1,xgboost_classifier,1,mlp_regressor,2026,16,Singapore Grand Prix,2026-10-11,hulkenberg,Nico Hülkenberg,audi,Audi,13.601243,0.310458,0.410500,11,0
+1,1,xgboost_classifier,1,mlp_regressor,2026,16,Singapore Grand Prix,2026-10-11,sainz,Carlos Sainz,williams,Williams,13.128921,0.248791,0.380979,12,0
+1,1,xgboost_classifier,1,mlp_regressor,2026,16,Singapore Grand Prix,2026-10-11,alonso,Fernando Alonso,aston_martin,Aston Martin,14.402269,0.088325,0.362551,13,0
+1,1,xgboost_classifier,1,mlp_regressor,2026,16,Singapore Grand Prix,2026-10-11,ocon,Esteban Ocon,haas,Haas F1 Team,11.969382,0.227513,0.347540,14,0
+1,1,xgboost_classifier,1,mlp_regressor,2026,16,Singapore Grand Prix,2026-10-11,lawson,Liam Lawson,rb,RB F1 Team,11.259547,0.243953,0.335909,15,0
+1,1,xgboost_classifier,1,mlp_regressor,2026,16,Singapore Grand Prix,2026-10-11,colapinto,Franco Colapinto,alpine,Alpine F1 Team,8.423744,0.433232,0.326524,16,0
+1,1,xgboost_classifier,1,mlp_regressor,2026,16,Singapore Grand Prix,2026-10-11,arvid_lindblad,Arvid Lindblad,rb,RB F1 Team,11.470847,0.195262,0.326232,17,0
+1,1,xgboost_classifier,1,mlp_regressor,2026,16,Singapore Grand Prix,2026-10-11,bearman,Oliver Bearman,haas,Haas F1 Team,10.937893,0.228295,0.323706,18,0
+1,1,xgboost_classifier,1,mlp_regressor,2026,16,Singapore Grand Prix,2026-10-11,bottas,Valtteri Bottas,cadillac,Cadillac F1 Team,13.408320,0.032215,0.322525,19,0
+1,1,xgboost_classifier,1,mlp_regressor,2026,16,Singapore Grand Prix,2026-10-11,albon,Alexander Albon,williams,Williams,12.244595,0.102434,0.316437,20,0
+1,1,xgboost_classifier,1,mlp_regressor,2026,16,Singapore Grand Prix,2026-10-11,perez,Sergio Pérez,cadillac,Cadillac F1 Team,12.960723,0.033648,0.312511,21,0
+1,1,xgboost_classifier,1,mlp_regressor,2026,16,Singapore Grand Prix,2026-10-11,stroll,Lance Stroll,aston_martin,Aston Martin,11.870555,0.030520,0.286136,22,0
+1,1,xgboost_classifier,1,mlp_regressor,2026,17,United States Grand Prix,2026-10-25,max_verstappen,Max Verstappen,red_bull,Red Bull,30.000000,0.960019,0.988006,1,25
+1,1,xgboost_classifier,1,mlp_regressor,2026,17,United States Grand Prix,2026-10-25,hamilton,Lewis Hamilton,ferrari,Ferrari,30.000000,0.864957,0.959487,2,18
+1,1,xgboost_classifier,1,mlp_regressor,2026,17,United States Grand Prix,2026-10-25,leclerc,Charles Leclerc,ferrari,Ferrari,30.000000,0.838237,0.951471,3,15
+1,1,xgboost_classifier,1,mlp_regressor,2026,17,United States Grand Prix,2026-10-25,russell,George Russell,mercedes,Mercedes,25.790686,0.886122,0.867619,4,12
+1,1,xgboost_classifier,1,mlp_regressor,2026,17,United States Grand Prix,2026-10-25,norris,Lando Norris,mclaren,McLaren,23.333959,0.859744,0.802382,5,10
+1,1,xgboost_classifier,1,mlp_regressor,2026,17,United States Grand Prix,2026-10-25,piastri,Oscar Piastri,mclaren,McLaren,22.703379,0.797936,0.769126,6,8
+1,1,xgboost_classifier,1,mlp_regressor,2026,17,United States Grand Prix,2026-10-25,hadjar,Isack Hadjar,red_bull,Red Bull,20.342553,0.738957,0.696347,7,6
+1,1,xgboost_classifier,1,mlp_regressor,2026,17,United States Grand Prix,2026-10-25,antonelli,Andrea Kimi Antonelli,mercedes,Mercedes,20.617745,0.688970,0.687772,8,4
+1,1,xgboost_classifier,1,mlp_regressor,2026,17,United States Grand Prix,2026-10-25,gasly,Pierre Gasly,alpine,Alpine F1 Team,15.016553,0.564842,0.519839,9,2
+1,1,xgboost_classifier,1,mlp_regressor,2026,17,United States Grand Prix,2026-10-25,bortoleto,Gabriel Bortoleto,audi,Audi,15.533260,0.358782,0.470077,10,1
+1,1,xgboost_classifier,1,mlp_regressor,2026,17,United States Grand Prix,2026-10-25,hulkenberg,Nico Hülkenberg,audi,Audi,14.972109,0.335943,0.450132,11,0
+1,1,xgboost_classifier,1,mlp_regressor,2026,17,United States Grand Prix,2026-10-25,sainz,Carlos Sainz,williams,Williams,14.761939,0.213699,0.408555,12,0
+1,1,xgboost_classifier,1,mlp_regressor,2026,17,United States Grand Prix,2026-10-25,alonso,Fernando Alonso,aston_martin,Aston Martin,15.950658,0.066936,0.392263,13,0
+1,1,xgboost_classifier,1,mlp_regressor,2026,17,United States Grand Prix,2026-10-25,ocon,Esteban Ocon,haas,Haas F1 Team,13.454165,0.241481,0.386375,14,0
+1,1,xgboost_classifier,1,mlp_regressor,2026,17,United States Grand Prix,2026-10-25,bottas,Valtteri Bottas,cadillac,Cadillac F1 Team,15.321166,0.027479,0.365738,15,0
+1,1,xgboost_classifier,1,mlp_regressor,2026,17,United States Grand Prix,2026-10-25,lawson,Liam Lawson,rb,RB F1 Team,12.529275,0.223593,0.359428,16,0
+1,1,xgboost_classifier,1,mlp_regressor,2026,17,United States Grand Prix,2026-10-25,arvid_lindblad,Arvid Lindblad,rb,RB F1 Team,12.883927,0.178035,0.354035,17,0
+1,1,xgboost_classifier,1,mlp_regressor,2026,17,United States Grand Prix,2026-10-25,perez,Sergio Pérez,cadillac,Cadillac F1 Team,14.786237,0.028709,0.353625,18,0
+1,1,xgboost_classifier,1,mlp_regressor,2026,17,United States Grand Prix,2026-10-25,colapinto,Franco Colapinto,alpine,Alpine F1 Team,9.177056,0.441401,0.346552,19,0
+1,1,xgboost_classifier,1,mlp_regressor,2026,17,United States Grand Prix,2026-10-25,albon,Alexander Albon,williams,Williams,13.381823,0.110260,0.345321,20,0
+1,1,xgboost_classifier,1,mlp_regressor,2026,17,United States Grand Prix,2026-10-25,bearman,Oliver Bearman,haas,Haas F1 Team,11.707369,0.216550,0.338137,21,0
+1,1,xgboost_classifier,1,mlp_regressor,2026,17,United States Grand Prix,2026-10-25,stroll,Lance Stroll,aston_martin,Aston Martin,13.227211,0.028648,0.317229,22,0
+1,1,xgboost_classifier,1,mlp_regressor,2026,18,Mexico City Grand Prix,2026-11-01,max_verstappen,Max Verstappen,red_bull,Red Bull,30.000000,0.946288,0.983886,1,25
+1,1,xgboost_classifier,1,mlp_regressor,2026,18,Mexico City Grand Prix,2026-11-01,hamilton,Lewis Hamilton,ferrari,Ferrari,30.000000,0.891546,0.967464,2,18
+1,1,xgboost_classifier,1,mlp_regressor,2026,18,Mexico City Grand Prix,2026-11-01,leclerc,Charles Leclerc,ferrari,Ferrari,30.000000,0.835135,0.950541,3,15
+1,1,xgboost_classifier,1,mlp_regressor,2026,18,Mexico City Grand Prix,2026-11-01,russell,George Russell,mercedes,Mercedes,26.566460,0.886886,0.885950,4,12
+1,1,xgboost_classifier,1,mlp_regressor,2026,18,Mexico City Grand Prix,2026-11-01,norris,Lando Norris,mclaren,McLaren,24.058738,0.795570,0.800042,5,10
+1,1,xgboost_classifier,1,mlp_regressor,2026,18,Mexico City Grand Prix,2026-11-01,piastri,Oscar Piastri,mclaren,McLaren,23.177047,0.815464,0.785437,6,8
+1,1,xgboost_classifier,1,mlp_regressor,2026,18,Mexico City Grand Prix,2026-11-01,hadjar,Isack Hadjar,red_bull,Red Bull,22.339054,0.692235,0.728915,7,6
+1,1,xgboost_classifier,1,mlp_regressor,2026,18,Mexico City Grand Prix,2026-11-01,antonelli,Andrea Kimi Antonelli,mercedes,Mercedes,22.692584,0.659366,0.727303,8,4
+1,1,xgboost_classifier,1,mlp_regressor,2026,18,Mexico City Grand Prix,2026-11-01,gasly,Pierre Gasly,alpine,Alpine F1 Team,16.996175,0.575656,0.569274,9,2
+1,1,xgboost_classifier,1,mlp_regressor,2026,18,Mexico City Grand Prix,2026-11-01,bortoleto,Gabriel Bortoleto,audi,Audi,17.946444,0.359488,0.526597,10,1
+1,1,xgboost_classifier,1,mlp_regressor,2026,18,Mexico City Grand Prix,2026-11-01,hulkenberg,Nico Hülkenberg,audi,Audi,16.710172,0.307012,0.482008,11,0
+1,1,xgboost_classifier,1,mlp_regressor,2026,18,Mexico City Grand Prix,2026-11-01,sainz,Carlos Sainz,williams,Williams,16.223268,0.222984,0.445438,12,0
+1,1,xgboost_classifier,1,mlp_regressor,2026,18,Mexico City Grand Prix,2026-11-01,ocon,Esteban Ocon,haas,Haas F1 Team,14.534651,0.314835,0.433592,13,0
+1,1,xgboost_classifier,1,mlp_regressor,2026,18,Mexico City Grand Prix,2026-11-01,alonso,Fernando Alonso,aston_martin,Aston Martin,17.050306,0.061671,0.416342,14,0
+1,1,xgboost_classifier,1,mlp_regressor,2026,18,Mexico City Grand Prix,2026-11-01,bottas,Valtteri Bottas,cadillac,Cadillac F1 Team,16.841668,0.031929,0.402551,15,0
+1,1,xgboost_classifier,1,mlp_regressor,2026,18,Mexico City Grand Prix,2026-11-01,colapinto,Franco Colapinto,alpine,Alpine F1 Team,11.015167,0.432871,0.386882,16,0
+1,1,xgboost_classifier,1,mlp_regressor,2026,18,Mexico City Grand Prix,2026-11-01,albon,Alexander Albon,williams,Williams,15.035089,0.118414,0.386343,17,0
+1,1,xgboost_classifier,1,mlp_regressor,2026,18,Mexico City Grand Prix,2026-11-01,arvid_lindblad,Arvid Lindblad,rb,RB F1 Team,14.126653,0.176394,0.382540,18,0
+1,1,xgboost_classifier,1,mlp_regressor,2026,18,Mexico City Grand Prix,2026-11-01,perez,Sergio Pérez,cadillac,Cadillac F1 Team,15.893521,0.033247,0.380823,19,0
+1,1,xgboost_classifier,1,mlp_regressor,2026,18,Mexico City Grand Prix,2026-11-01,lawson,Liam Lawson,rb,RB F1 Team,13.376606,0.221569,0.378592,20,0
+1,1,xgboost_classifier,1,mlp_regressor,2026,18,Mexico City Grand Prix,2026-11-01,bearman,Oliver Bearman,haas,Haas F1 Team,12.874648,0.233758,0.370536,21,0
+1,1,xgboost_classifier,1,mlp_regressor,2026,18,Mexico City Grand Prix,2026-11-01,stroll,Lance Stroll,aston_martin,Aston Martin,14.693608,0.032977,0.352744,22,0
+1,1,xgboost_classifier,1,mlp_regressor,2026,19,Brazilian Grand Prix,2026-11-08,max_verstappen,Max Verstappen,red_bull,Red Bull,30.000000,0.960348,0.988104,1,25
+1,1,xgboost_classifier,1,mlp_regressor,2026,19,Brazilian Grand Prix,2026-11-08,hamilton,Lewis Hamilton,ferrari,Ferrari,30.000000,0.900649,0.970195,2,18
+1,1,xgboost_classifier,1,mlp_regressor,2026,19,Brazilian Grand Prix,2026-11-08,leclerc,Charles Leclerc,ferrari,Ferrari,30.000000,0.864984,0.959495,3,15
+1,1,xgboost_classifier,1,mlp_regressor,2026,19,Brazilian Grand Prix,2026-11-08,russell,George Russell,mercedes,Mercedes,27.055654,0.894767,0.899729,4,12
+1,1,xgboost_classifier,1,mlp_regressor,2026,19,Brazilian Grand Prix,2026-11-08,norris,Lando Norris,mclaren,McLaren,24.749989,0.778793,0.811138,5,10
+1,1,xgboost_classifier,1,mlp_regressor,2026,19,Brazilian Grand Prix,2026-11-08,piastri,Oscar Piastri,mclaren,McLaren,23.355271,0.792302,0.782647,6,8
+1,1,xgboost_classifier,1,mlp_regressor,2026,19,Brazilian Grand Prix,2026-11-08,antonelli,Andrea Kimi Antonelli,mercedes,Mercedes,22.784090,0.760546,0.759793,7,6
+1,1,xgboost_classifier,1,mlp_regressor,2026,19,Brazilian Grand Prix,2026-11-08,hadjar,Isack Hadjar,red_bull,Red Bull,22.474077,0.750042,0.749408,8,4
+1,1,xgboost_classifier,1,mlp_regressor,2026,19,Brazilian Grand Prix,2026-11-08,gasly,Pierre Gasly,alpine,Alpine F1 Team,16.842827,0.553032,0.558909,9,2
+1,1,xgboost_classifier,1,mlp_regressor,2026,19,Brazilian Grand Prix,2026-11-08,bortoleto,Gabriel Bortoleto,audi,Audi,17.866964,0.435551,0.547561,10,1
+1,1,xgboost_classifier,1,mlp_regressor,2026,19,Brazilian Grand Prix,2026-11-08,hulkenberg,Nico Hülkenberg,audi,Audi,17.039431,0.326890,0.495654,11,0
+1,1,xgboost_classifier,1,mlp_regressor,2026,19,Brazilian Grand Prix,2026-11-08,sainz,Carlos Sainz,williams,Williams,16.437970,0.289971,0.470544,12,0
+1,1,xgboost_classifier,1,mlp_regressor,2026,19,Brazilian Grand Prix,2026-11-08,alonso,Fernando Alonso,aston_martin,Aston Martin,17.375619,0.139954,0.447417,13,0
+1,1,xgboost_classifier,1,mlp_regressor,2026,19,Brazilian Grand Prix,2026-11-08,lawson,Liam Lawson,rb,RB F1 Team,13.684607,0.363831,0.428457,14,0
+1,1,xgboost_classifier,1,mlp_regressor,2026,19,Brazilian Grand Prix,2026-11-08,arvid_lindblad,Arvid Lindblad,rb,RB F1 Team,14.478534,0.290408,0.424955,15,0
+1,1,xgboost_classifier,1,mlp_regressor,2026,19,Brazilian Grand Prix,2026-11-08,bottas,Valtteri Bottas,cadillac,Cadillac F1 Team,17.220234,0.076343,0.424708,16,0
+1,1,xgboost_classifier,1,mlp_regressor,2026,19,Brazilian Grand Prix,2026-11-08,ocon,Esteban Ocon,haas,Haas F1 Team,14.644069,0.211181,0.405049,17,0
+1,1,xgboost_classifier,1,mlp_regressor,2026,19,Brazilian Grand Prix,2026-11-08,colapinto,Franco Colapinto,alpine,Alpine F1 Team,11.293404,0.443720,0.396629,18,0
+1,1,xgboost_classifier,1,mlp_regressor,2026,19,Brazilian Grand Prix,2026-11-08,perez,Sergio Pérez,cadillac,Cadillac F1 Team,16.130162,0.062996,0.395269,19,0
+1,1,xgboost_classifier,1,mlp_regressor,2026,19,Brazilian Grand Prix,2026-11-08,albon,Alexander Albon,williams,Williams,15.164612,0.136100,0.394671,20,0
+1,1,xgboost_classifier,1,mlp_regressor,2026,19,Brazilian Grand Prix,2026-11-08,bearman,Oliver Bearman,haas,Haas F1 Team,12.684086,0.318956,0.391649,21,0
+1,1,xgboost_classifier,1,mlp_regressor,2026,19,Brazilian Grand Prix,2026-11-08,stroll,Lance Stroll,aston_martin,Aston Martin,15.248021,0.053227,0.371755,22,0
+1,1,xgboost_classifier,1,mlp_regressor,2026,20,Las Vegas Grand Prix,2026-11-22,max_verstappen,Max Verstappen,red_bull,Red Bull,30.000000,0.942998,0.982899,1,25
+1,1,xgboost_classifier,1,mlp_regressor,2026,20,Las Vegas Grand Prix,2026-11-22,russell,George Russell,mercedes,Mercedes,30.000000,0.882262,0.964679,2,18
+1,1,xgboost_classifier,1,mlp_regressor,2026,20,Las Vegas Grand Prix,2026-11-22,leclerc,Charles Leclerc,ferrari,Ferrari,30.000000,0.858997,0.957699,3,15
+1,1,xgboost_classifier,1,mlp_regressor,2026,20,Las Vegas Grand Prix,2026-11-22,hamilton,Lewis Hamilton,ferrari,Ferrari,30.000000,0.841735,0.952521,4,12
+1,1,xgboost_classifier,1,mlp_regressor,2026,20,Las Vegas Grand Prix,2026-11-22,norris,Lando Norris,mclaren,McLaren,27.598883,0.765433,0.873604,5,10
+1,1,xgboost_classifier,1,mlp_regressor,2026,20,Las Vegas Grand Prix,2026-11-22,piastri,Oscar Piastri,mclaren,McLaren,26.746568,0.780084,0.858112,6,8
+1,1,xgboost_classifier,1,mlp_regressor,2026,20,Las Vegas Grand Prix,2026-11-22,antonelli,Andrea Kimi Antonelli,mercedes,Mercedes,25.966989,0.793511,0.843950,7,6
+1,1,xgboost_classifier,1,mlp_regressor,2026,20,Las Vegas Grand Prix,2026-11-22,hadjar,Isack Hadjar,red_bull,Red Bull,26.659908,0.717155,0.837211,8,4
+1,1,xgboost_classifier,1,mlp_regressor,2026,20,Las Vegas Grand Prix,2026-11-22,gasly,Pierre Gasly,alpine,Alpine F1 Team,20.140326,0.581921,0.644517,9,2
+1,1,xgboost_classifier,1,mlp_regressor,2026,20,Las Vegas Grand Prix,2026-11-22,bortoleto,Gabriel Bortoleto,audi,Audi,20.388330,0.439668,0.607628,10,1
+1,1,xgboost_classifier,1,mlp_regressor,2026,20,Las Vegas Grand Prix,2026-11-22,hulkenberg,Nico Hülkenberg,audi,Audi,18.726668,0.324068,0.534176,11,0
+1,1,xgboost_classifier,1,mlp_regressor,2026,20,Las Vegas Grand Prix,2026-11-22,sainz,Carlos Sainz,williams,Williams,19.268184,0.234437,0.519922,12,0
+1,1,xgboost_classifier,1,mlp_regressor,2026,20,Las Vegas Grand Prix,2026-11-22,ocon,Esteban Ocon,haas,Haas F1 Team,17.798437,0.241768,0.487827,13,0
+1,1,xgboost_classifier,1,mlp_regressor,2026,20,Las Vegas Grand Prix,2026-11-22,alonso,Fernando Alonso,aston_martin,Aston Martin,19.648196,0.069991,0.479455,14,0
+1,1,xgboost_classifier,1,mlp_regressor,2026,20,Las Vegas Grand Prix,2026-11-22,colapinto,Franco Colapinto,alpine,Alpine F1 Team,14.031725,0.464702,0.466818,15,0
+1,1,xgboost_classifier,1,mlp_regressor,2026,20,Las Vegas Grand Prix,2026-11-22,lawson,Liam Lawson,rb,RB F1 Team,16.720353,0.249686,0.465047,16,0
+1,1,xgboost_classifier,1,mlp_regressor,2026,20,Las Vegas Grand Prix,2026-11-22,arvid_lindblad,Arvid Lindblad,rb,RB F1 Team,16.901267,0.211002,0.457663,17,0
+1,1,xgboost_classifier,1,mlp_regressor,2026,20,Las Vegas Grand Prix,2026-11-22,albon,Alexander Albon,williams,Williams,18.058677,0.105049,0.452884,18,0
+1,1,xgboost_classifier,1,mlp_regressor,2026,20,Las Vegas Grand Prix,2026-11-22,bottas,Valtteri Bottas,cadillac,Cadillac F1 Team,18.833328,0.034977,0.449937,19,0
+1,1,xgboost_classifier,1,mlp_regressor,2026,20,Las Vegas Grand Prix,2026-11-22,perez,Sergio Pérez,cadillac,Cadillac F1 Team,18.877688,0.029270,0.449261,20,0
+1,1,xgboost_classifier,1,mlp_regressor,2026,20,Las Vegas Grand Prix,2026-11-22,bearman,Oliver Bearman,haas,Haas F1 Team,15.577251,0.197410,0.422692,21,0
+1,1,xgboost_classifier,1,mlp_regressor,2026,20,Las Vegas Grand Prix,2026-11-22,stroll,Lance Stroll,aston_martin,Aston Martin,16.935208,0.030860,0.404413,22,0
+1,1,xgboost_classifier,1,mlp_regressor,2026,21,Qatar Grand Prix,2026-11-29,max_verstappen,Max Verstappen,red_bull,Red Bull,30.000000,0.947613,0.984284,1,25
+1,1,xgboost_classifier,1,mlp_regressor,2026,21,Qatar Grand Prix,2026-11-29,russell,George Russell,mercedes,Mercedes,30.000000,0.919318,0.975795,2,18
+1,1,xgboost_classifier,1,mlp_regressor,2026,21,Qatar Grand Prix,2026-11-29,leclerc,Charles Leclerc,ferrari,Ferrari,30.000000,0.910330,0.973099,3,15
+1,1,xgboost_classifier,1,mlp_regressor,2026,21,Qatar Grand Prix,2026-11-29,hamilton,Lewis Hamilton,ferrari,Ferrari,30.000000,0.886627,0.965988,4,12
+1,1,xgboost_classifier,1,mlp_regressor,2026,21,Qatar Grand Prix,2026-11-29,norris,Lando Norris,mclaren,McLaren,29.852904,0.778203,0.930029,5,10
+1,1,xgboost_classifier,1,mlp_regressor,2026,21,Qatar Grand Prix,2026-11-29,piastri,Oscar Piastri,mclaren,McLaren,28.862762,0.814811,0.917908,6,8
+1,1,xgboost_classifier,1,mlp_regressor,2026,21,Qatar Grand Prix,2026-11-29,antonelli,Andrea Kimi Antonelli,mercedes,Mercedes,28.069338,0.773167,0.886901,7,6
+1,1,xgboost_classifier,1,mlp_regressor,2026,21,Qatar Grand Prix,2026-11-29,hadjar,Isack Hadjar,red_bull,Red Bull,27.132000,0.718189,0.848537,8,4
+1,1,xgboost_classifier,1,mlp_regressor,2026,21,Qatar Grand Prix,2026-11-29,gasly,Pierre Gasly,alpine,Alpine F1 Team,20.914707,0.567938,0.658391,9,2
+1,1,xgboost_classifier,1,mlp_regressor,2026,21,Qatar Grand Prix,2026-11-29,bortoleto,Gabriel Bortoleto,audi,Audi,21.627488,0.438076,0.636064,10,1
+1,1,xgboost_classifier,1,mlp_regressor,2026,21,Qatar Grand Prix,2026-11-29,hulkenberg,Nico Hülkenberg,audi,Audi,20.162724,0.317022,0.565570,11,0
+1,1,xgboost_classifier,1,mlp_regressor,2026,21,Qatar Grand Prix,2026-11-29,sainz,Carlos Sainz,williams,Williams,20.525945,0.224110,0.546172,12,0
+1,1,xgboost_classifier,1,mlp_regressor,2026,21,Qatar Grand Prix,2026-11-29,alonso,Fernando Alonso,aston_martin,Aston Martin,20.811154,0.072113,0.507228,13,0
+1,1,xgboost_classifier,1,mlp_regressor,2026,21,Qatar Grand Prix,2026-11-29,ocon,Esteban Ocon,haas,Haas F1 Team,18.366188,0.217070,0.493665,14,0
+1,1,xgboost_classifier,1,mlp_regressor,2026,21,Qatar Grand Prix,2026-11-29,colapinto,Franco Colapinto,alpine,Alpine F1 Team,15.511737,0.436182,0.492795,15,0
+1,1,xgboost_classifier,1,mlp_regressor,2026,21,Qatar Grand Prix,2026-11-29,bottas,Valtteri Bottas,cadillac,Cadillac F1 Team,20.574300,0.032953,0.489953,16,0
+1,1,xgboost_classifier,1,mlp_regressor,2026,21,Qatar Grand Prix,2026-11-29,lawson,Liam Lawson,rb,RB F1 Team,17.787344,0.225975,0.482830,17,0
+1,1,xgboost_classifier,1,mlp_regressor,2026,21,Qatar Grand Prix,2026-11-29,perez,Sergio Pérez,cadillac,Cadillac F1 Team,20.131683,0.032158,0.479387,18,0
+1,1,xgboost_classifier,1,mlp_regressor,2026,21,Qatar Grand Prix,2026-11-29,arvid_lindblad,Arvid Lindblad,rb,RB F1 Team,18.032593,0.190033,0.477770,19,0
+1,1,xgboost_classifier,1,mlp_regressor,2026,21,Qatar Grand Prix,2026-11-29,albon,Alexander Albon,williams,Williams,18.680002,0.107456,0.468104,20,0
+1,1,xgboost_classifier,1,mlp_regressor,2026,21,Qatar Grand Prix,2026-11-29,bearman,Oliver Bearman,haas,Haas F1 Team,17.357918,0.191528,0.462477,21,0
+1,1,xgboost_classifier,1,mlp_regressor,2026,21,Qatar Grand Prix,2026-11-29,stroll,Lance Stroll,aston_martin,Aston Martin,18.118386,0.031074,0.432084,22,0
+1,1,xgboost_classifier,1,mlp_regressor,2026,22,Abu Dhabi Grand Prix,2026-12-06,max_verstappen,Max Verstappen,red_bull,Red Bull,30.000000,0.945697,0.983709,1,25
+1,1,xgboost_classifier,1,mlp_regressor,2026,22,Abu Dhabi Grand Prix,2026-12-06,hamilton,Lewis Hamilton,ferrari,Ferrari,30.000000,0.929111,0.978733,2,18
+1,1,xgboost_classifier,1,mlp_regressor,2026,22,Abu Dhabi Grand Prix,2026-12-06,leclerc,Charles Leclerc,ferrari,Ferrari,30.000000,0.923715,0.977115,3,15
+1,1,xgboost_classifier,1,mlp_regressor,2026,22,Abu Dhabi Grand Prix,2026-12-06,russell,George Russell,mercedes,Mercedes,30.000000,0.920723,0.976217,4,12
+1,1,xgboost_classifier,1,mlp_regressor,2026,22,Abu Dhabi Grand Prix,2026-12-06,norris,Lando Norris,mclaren,McLaren,29.832969,0.849632,0.950992,5,10
+1,1,xgboost_classifier,1,mlp_regressor,2026,22,Abu Dhabi Grand Prix,2026-12-06,piastri,Oscar Piastri,mclaren,McLaren,28.995141,0.840938,0.928835,6,8
+1,1,xgboost_classifier,1,mlp_regressor,2026,22,Abu Dhabi Grand Prix,2026-12-06,antonelli,Andrea Kimi Antonelli,mercedes,Mercedes,28.896658,0.685458,0.879893,7,6
+1,1,xgboost_classifier,1,mlp_regressor,2026,22,Abu Dhabi Grand Prix,2026-12-06,hadjar,Isack Hadjar,red_bull,Red Bull,27.397792,0.650621,0.834468,8,4
+1,1,xgboost_classifier,1,mlp_regressor,2026,22,Abu Dhabi Grand Prix,2026-12-06,gasly,Pierre Gasly,alpine,Alpine F1 Team,21.311018,0.593539,0.675319,9,2
+1,1,xgboost_classifier,1,mlp_regressor,2026,22,Abu Dhabi Grand Prix,2026-12-06,bortoleto,Gabriel Bortoleto,audi,Audi,22.388265,0.435860,0.653151,10,1
+1,1,xgboost_classifier,1,mlp_regressor,2026,22,Abu Dhabi Grand Prix,2026-12-06,hulkenberg,Nico Hülkenberg,audi,Audi,21.273036,0.301254,0.586747,11,0
+1,1,xgboost_classifier,1,mlp_regressor,2026,22,Abu Dhabi Grand Prix,2026-12-06,alonso,Fernando Alonso,aston_martin,Aston Martin,21.852334,0.098725,0.539505,12,0
+1,1,xgboost_classifier,1,mlp_regressor,2026,22,Abu Dhabi Grand Prix,2026-12-06,sainz,Carlos Sainz,williams,Williams,20.470230,0.195666,0.536339,13,0
+1,1,xgboost_classifier,1,mlp_regressor,2026,22,Abu Dhabi Grand Prix,2026-12-06,ocon,Esteban Ocon,haas,Haas F1 Team,19.210219,0.238521,0.519795,14,0
+1,1,xgboost_classifier,1,mlp_regressor,2026,22,Abu Dhabi Grand Prix,2026-12-06,bottas,Valtteri Bottas,cadillac,Cadillac F1 Team,21.225970,0.037970,0.506664,15,0
+1,1,xgboost_classifier,1,mlp_regressor,2026,22,Abu Dhabi Grand Prix,2026-12-06,colapinto,Franco Colapinto,alpine,Alpine F1 Team,16.071663,0.418620,0.500591,16,0
+1,1,xgboost_classifier,1,mlp_regressor,2026,22,Abu Dhabi Grand Prix,2026-12-06,perez,Sergio Pérez,cadillac,Cadillac F1 Team,20.785459,0.039090,0.496721,17,0
+1,1,xgboost_classifier,1,mlp_regressor,2026,22,Abu Dhabi Grand Prix,2026-12-06,arvid_lindblad,Arvid Lindblad,rb,RB F1 Team,19.082071,0.159000,0.492948,18,0
+1,1,xgboost_classifier,1,mlp_regressor,2026,22,Abu Dhabi Grand Prix,2026-12-06,lawson,Liam Lawson,rb,RB F1 Team,18.306608,0.197220,0.486320,19,0
+1,1,xgboost_classifier,1,mlp_regressor,2026,22,Abu Dhabi Grand Prix,2026-12-06,albon,Alexander Albon,williams,Williams,19.187493,0.103176,0.478661,20,0
+1,1,xgboost_classifier,1,mlp_regressor,2026,22,Abu Dhabi Grand Prix,2026-12-06,bearman,Oliver Bearman,haas,Haas F1 Team,17.636219,0.164060,0.460730,21,0
+1,1,xgboost_classifier,1,mlp_regressor,2026,22,Abu Dhabi Grand Prix,2026-12-06,stroll,Lance Stroll,aston_martin,Aston Martin,19.164128,0.035447,0.457797,22,0
+2,2,lightgbm_classifier,2,ridge_regression,2026,6,Monaco Grand Prix,2026-06-07,antonelli,Andrea Kimi Antonelli,mercedes,Mercedes,13.272227,0.829228,0.948768,1,25
+2,2,lightgbm_classifier,2,ridge_regression,2026,6,Monaco Grand Prix,2026-06-07,russell,George Russell,mercedes,Mercedes,11.731437,0.826189,0.866593,2,18
+2,2,lightgbm_classifier,2,ridge_regression,2026,6,Monaco Grand Prix,2026-06-07,hamilton,Lewis Hamilton,ferrari,Ferrari,11.191312,0.850295,0.845338,3,15
+2,2,lightgbm_classifier,2,ridge_regression,2026,6,Monaco Grand Prix,2026-06-07,max_verstappen,Max Verstappen,red_bull,Red Bull,10.856983,0.836148,0.823460,4,12
+2,2,lightgbm_classifier,2,ridge_regression,2026,6,Monaco Grand Prix,2026-06-07,leclerc,Charles Leclerc,ferrari,Ferrari,10.391808,0.813959,0.792270,5,10
+2,2,lightgbm_classifier,2,ridge_regression,2026,6,Monaco Grand Prix,2026-06-07,piastri,Oscar Piastri,mclaren,McLaren,9.895206,0.827537,0.770151,6,8
+2,2,lightgbm_classifier,2,ridge_regression,2026,6,Monaco Grand Prix,2026-06-07,norris,Lando Norris,mclaren,McLaren,9.545521,0.857239,0.760619,7,6
+2,2,lightgbm_classifier,2,ridge_regression,2026,6,Monaco Grand Prix,2026-06-07,hadjar,Isack Hadjar,red_bull,Red Bull,6.277936,0.543731,0.494228,8,4
+2,2,lightgbm_classifier,2,ridge_regression,2026,6,Monaco Grand Prix,2026-06-07,gasly,Pierre Gasly,alpine,Alpine F1 Team,3.543461,0.525423,0.344515,9,2
+2,2,lightgbm_classifier,2,ridge_regression,2026,6,Monaco Grand Prix,2026-06-07,colapinto,Franco Colapinto,alpine,Alpine F1 Team,3.572748,0.501063,0.338752,10,1
+2,2,lightgbm_classifier,2,ridge_regression,2026,6,Monaco Grand Prix,2026-06-07,lawson,Liam Lawson,rb,RB F1 Team,2.137828,0.437134,0.243893,11,0
+2,2,lightgbm_classifier,2,ridge_regression,2026,6,Monaco Grand Prix,2026-06-07,arvid_lindblad,Arvid Lindblad,rb,RB F1 Team,2.337404,0.362705,0.232090,12,0
+2,2,lightgbm_classifier,2,ridge_regression,2026,6,Monaco Grand Prix,2026-06-07,bearman,Oliver Bearman,haas,Haas F1 Team,2.435451,0.320866,0.224710,13,0
+2,2,lightgbm_classifier,2,ridge_regression,2026,6,Monaco Grand Prix,2026-06-07,sainz,Carlos Sainz,williams,Williams,1.748833,0.431598,0.221716,14,0
+2,2,lightgbm_classifier,2,ridge_regression,2026,6,Monaco Grand Prix,2026-06-07,albon,Alexander Albon,williams,Williams,1.593558,0.270230,0.165116,15,0
+2,2,lightgbm_classifier,2,ridge_regression,2026,6,Monaco Grand Prix,2026-06-07,ocon,Esteban Ocon,haas,Haas F1 Team,1.804449,0.218390,0.160687,16,0
+2,2,lightgbm_classifier,2,ridge_regression,2026,6,Monaco Grand Prix,2026-06-07,alonso,Fernando Alonso,aston_martin,Aston Martin,1.951461,0.092947,0.130807,17,0
+2,2,lightgbm_classifier,2,ridge_regression,2026,6,Monaco Grand Prix,2026-06-07,bortoleto,Gabriel Bortoleto,audi,Audi,0.908020,0.241650,0.120386,18,0
+2,2,lightgbm_classifier,2,ridge_regression,2026,6,Monaco Grand Prix,2026-06-07,bottas,Valtteri Bottas,cadillac,Cadillac F1 Team,1.529244,0.068343,0.101158,19,0
+2,2,lightgbm_classifier,2,ridge_regression,2026,6,Monaco Grand Prix,2026-06-07,hulkenberg,Nico Hülkenberg,audi,Audi,0.496801,0.169705,0.077114,20,0
+2,2,lightgbm_classifier,2,ridge_regression,2026,6,Monaco Grand Prix,2026-06-07,perez,Sergio Pérez,cadillac,Cadillac F1 Team,0.450667,0.069504,0.044620,21,0
+2,2,lightgbm_classifier,2,ridge_regression,2026,6,Monaco Grand Prix,2026-06-07,stroll,Lance Stroll,aston_martin,Aston Martin,0.070563,0.072774,0.025554,22,0
+2,2,lightgbm_classifier,2,ridge_regression,2026,7,Barcelona Grand Prix,2026-06-14,antonelli,Andrea Kimi Antonelli,mercedes,Mercedes,13.940135,0.879403,0.963821,1,25
+2,2,lightgbm_classifier,2,ridge_regression,2026,7,Barcelona Grand Prix,2026-06-14,russell,George Russell,mercedes,Mercedes,12.707093,0.894086,0.906309,2,18
+2,2,lightgbm_classifier,2,ridge_regression,2026,7,Barcelona Grand Prix,2026-06-14,max_verstappen,Max Verstappen,red_bull,Red Bull,12.085916,0.878219,0.870357,3,15
+2,2,lightgbm_classifier,2,ridge_regression,2026,7,Barcelona Grand Prix,2026-06-14,hamilton,Lewis Hamilton,ferrari,Ferrari,12.024820,0.850880,0.859087,4,12
+2,2,lightgbm_classifier,2,ridge_regression,2026,7,Barcelona Grand Prix,2026-06-14,leclerc,Charles Leclerc,ferrari,Ferrari,10.258422,0.817233,0.760294,5,10
+2,2,lightgbm_classifier,2,ridge_regression,2026,7,Barcelona Grand Prix,2026-06-14,norris,Lando Norris,mclaren,McLaren,8.807084,0.863342,0.701248,6,8
+2,2,lightgbm_classifier,2,ridge_regression,2026,7,Barcelona Grand Prix,2026-06-14,piastri,Oscar Piastri,mclaren,McLaren,8.748687,0.830861,0.688571,7,6
+2,2,lightgbm_classifier,2,ridge_regression,2026,7,Barcelona Grand Prix,2026-06-14,hadjar,Isack Hadjar,red_bull,Red Bull,7.071688,0.703576,0.566176,8,4
+2,2,lightgbm_classifier,2,ridge_regression,2026,7,Barcelona Grand Prix,2026-06-14,gasly,Pierre Gasly,alpine,Alpine F1 Team,3.328861,0.509513,0.320012,9,2
+2,2,lightgbm_classifier,2,ridge_regression,2026,7,Barcelona Grand Prix,2026-06-14,colapinto,Franco Colapinto,alpine,Alpine F1 Team,3.281830,0.445648,0.298491,10,1
+2,2,lightgbm_classifier,2,ridge_regression,2026,7,Barcelona Grand Prix,2026-06-14,lawson,Liam Lawson,rb,RB F1 Team,2.087900,0.422960,0.231731,11,0
+2,2,lightgbm_classifier,2,ridge_regression,2026,7,Barcelona Grand Prix,2026-06-14,arvid_lindblad,Arvid Lindblad,rb,RB F1 Team,2.228370,0.339399,0.213717,12,0
+2,2,lightgbm_classifier,2,ridge_regression,2026,7,Barcelona Grand Prix,2026-06-14,bearman,Oliver Bearman,haas,Haas F1 Team,2.032694,0.365190,0.211628,13,0
+2,2,lightgbm_classifier,2,ridge_regression,2026,7,Barcelona Grand Prix,2026-06-14,sainz,Carlos Sainz,williams,Williams,1.793312,0.393782,0.208185,14,0
+2,2,lightgbm_classifier,2,ridge_regression,2026,7,Barcelona Grand Prix,2026-06-14,ocon,Esteban Ocon,haas,Haas F1 Team,2.069768,0.296704,0.192944,15,0
+2,2,lightgbm_classifier,2,ridge_regression,2026,7,Barcelona Grand Prix,2026-06-14,albon,Alexander Albon,williams,Williams,1.443096,0.256851,0.149520,16,0
+2,2,lightgbm_classifier,2,ridge_regression,2026,7,Barcelona Grand Prix,2026-06-14,alonso,Fernando Alonso,aston_martin,Aston Martin,1.995940,0.090028,0.127234,17,0
+2,2,lightgbm_classifier,2,ridge_regression,2026,7,Barcelona Grand Prix,2026-06-14,bortoleto,Gabriel Bortoleto,audi,Audi,1.244910,0.209557,0.125380,18,0
+2,2,lightgbm_classifier,2,ridge_regression,2026,7,Barcelona Grand Prix,2026-06-14,bottas,Valtteri Bottas,cadillac,Cadillac F1 Team,1.622458,0.061672,0.099973,19,0
+2,2,lightgbm_classifier,2,ridge_regression,2026,7,Barcelona Grand Prix,2026-06-14,hulkenberg,Nico Hülkenberg,audi,Audi,1.028632,0.125567,0.089323,20,0
+2,2,lightgbm_classifier,2,ridge_regression,2026,7,Barcelona Grand Prix,2026-06-14,perez,Sergio Pérez,cadillac,Cadillac F1 Team,0.738822,0.059157,0.054847,21,0
+2,2,lightgbm_classifier,2,ridge_regression,2026,7,Barcelona Grand Prix,2026-06-14,stroll,Lance Stroll,aston_martin,Aston Martin,0.212512,0.065701,0.030381,22,0
+2,2,lightgbm_classifier,2,ridge_regression,2026,8,Austrian Grand Prix,2026-06-28,antonelli,Andrea Kimi Antonelli,mercedes,Mercedes,14.510695,0.883660,0.965098,1,25
+2,2,lightgbm_classifier,2,ridge_regression,2026,8,Austrian Grand Prix,2026-06-28,russell,George Russell,mercedes,Mercedes,13.585402,0.879428,0.919192,2,18
+2,2,lightgbm_classifier,2,ridge_regression,2026,8,Austrian Grand Prix,2026-06-28,max_verstappen,Max Verstappen,red_bull,Red Bull,13.097588,0.912059,0.905449,3,15
+2,2,lightgbm_classifier,2,ridge_regression,2026,8,Austrian Grand Prix,2026-06-28,hamilton,Lewis Hamilton,ferrari,Ferrari,12.835329,0.878087,0.882606,4,12
+2,2,lightgbm_classifier,2,ridge_regression,2026,8,Austrian Grand Prix,2026-06-28,leclerc,Charles Leclerc,ferrari,Ferrari,11.113912,0.829953,0.785124,5,10
+2,2,lightgbm_classifier,2,ridge_regression,2026,8,Austrian Grand Prix,2026-06-28,norris,Lando Norris,mclaren,McLaren,7.301275,0.808443,0.594748,6,8
+2,2,lightgbm_classifier,2,ridge_regression,2026,8,Austrian Grand Prix,2026-06-28,piastri,Oscar Piastri,mclaren,McLaren,7.268677,0.777317,0.583838,7,6
+2,2,lightgbm_classifier,2,ridge_regression,2026,8,Austrian Grand Prix,2026-06-28,hadjar,Isack Hadjar,red_bull,Red Bull,7.053834,0.750690,0.565486,8,4
+2,2,lightgbm_classifier,2,ridge_regression,2026,8,Austrian Grand Prix,2026-06-28,colapinto,Franco Colapinto,alpine,Alpine F1 Team,2.929641,0.502111,0.291960,9,2
+2,2,lightgbm_classifier,2,ridge_regression,2026,8,Austrian Grand Prix,2026-06-28,gasly,Pierre Gasly,alpine,Alpine F1 Team,2.742128,0.526692,0.290289,10,1
+2,2,lightgbm_classifier,2,ridge_regression,2026,8,Austrian Grand Prix,2026-06-28,lawson,Liam Lawson,rb,RB F1 Team,1.645151,0.453394,0.215381,11,0
+2,2,lightgbm_classifier,2,ridge_regression,2026,8,Austrian Grand Prix,2026-06-28,ocon,Esteban Ocon,haas,Haas F1 Team,2.163106,0.354785,0.210784,12,0
+2,2,lightgbm_classifier,2,ridge_regression,2026,8,Austrian Grand Prix,2026-06-28,bearman,Oliver Bearman,haas,Haas F1 Team,2.126032,0.360527,0.210719,13,0
+2,2,lightgbm_classifier,2,ridge_regression,2026,8,Austrian Grand Prix,2026-06-28,arvid_lindblad,Arvid Lindblad,rb,RB F1 Team,2.126767,0.339399,0.204415,14,0
+2,2,lightgbm_classifier,2,ridge_regression,2026,8,Austrian Grand Prix,2026-06-28,sainz,Carlos Sainz,williams,Williams,1.739854,0.294048,0.172145,15,0
+2,2,lightgbm_classifier,2,ridge_regression,2026,8,Austrian Grand Prix,2026-06-28,albon,Alexander Albon,williams,Williams,1.506291,0.188809,0.129307,16,0
+2,2,lightgbm_classifier,2,ridge_regression,2026,8,Austrian Grand Prix,2026-06-28,bortoleto,Gabriel Bortoleto,audi,Audi,1.533188,0.136878,0.115025,17,0
+2,2,lightgbm_classifier,2,ridge_regression,2026,8,Austrian Grand Prix,2026-06-28,alonso,Fernando Alonso,aston_martin,Aston Martin,2.089278,0.047077,0.114911,18,0
+2,2,lightgbm_classifier,2,ridge_regression,2026,8,Austrian Grand Prix,2026-06-28,bottas,Valtteri Bottas,cadillac,Cadillac F1 Team,1.667060,0.037049,0.091534,19,0
+2,2,lightgbm_classifier,2,ridge_regression,2026,8,Austrian Grand Prix,2026-06-28,hulkenberg,Nico Hülkenberg,audi,Audi,1.073234,0.095848,0.080528,20,0
+2,2,lightgbm_classifier,2,ridge_regression,2026,8,Austrian Grand Prix,2026-06-28,perez,Sergio Pérez,cadillac,Cadillac F1 Team,0.978365,0.033391,0.057214,21,0
+2,2,lightgbm_classifier,2,ridge_regression,2026,8,Austrian Grand Prix,2026-06-28,stroll,Lance Stroll,aston_martin,Aston Martin,0.452055,0.037198,0.032967,22,0
+2,2,lightgbm_classifier,2,ridge_regression,2026,9,British Grand Prix,2026-07-05,antonelli,Andrea Kimi Antonelli,mercedes,Mercedes,15.986548,0.895226,0.968568,1,25
+2,2,lightgbm_classifier,2,ridge_regression,2026,9,British Grand Prix,2026-07-05,russell,George Russell,mercedes,Mercedes,15.452985,0.902254,0.947313,2,18
+2,2,lightgbm_classifier,2,ridge_regression,2026,9,British Grand Prix,2026-07-05,max_verstappen,Max Verstappen,red_bull,Red Bull,13.254055,0.865902,0.840123,3,15
+2,2,lightgbm_classifier,2,ridge_regression,2026,9,British Grand Prix,2026-07-05,hamilton,Lewis Hamilton,ferrari,Ferrari,12.391350,0.868290,0.803065,4,12
+2,2,lightgbm_classifier,2,ridge_regression,2026,9,British Grand Prix,2026-07-05,leclerc,Charles Leclerc,ferrari,Ferrari,10.995879,0.823428,0.728503,5,10
+2,2,lightgbm_classifier,2,ridge_regression,2026,9,British Grand Prix,2026-07-05,norris,Lando Norris,mclaren,McLaren,8.347560,0.871102,0.626844,6,8
+2,2,lightgbm_classifier,2,ridge_regression,2026,9,British Grand Prix,2026-07-05,piastri,Oscar Piastri,mclaren,McLaren,8.526889,0.834555,0.623732,7,6
+2,2,lightgbm_classifier,2,ridge_regression,2026,9,British Grand Prix,2026-07-05,hadjar,Isack Hadjar,red_bull,Red Bull,6.722311,0.719985,0.510344,8,4
+2,2,lightgbm_classifier,2,ridge_regression,2026,9,British Grand Prix,2026-07-05,colapinto,Franco Colapinto,alpine,Alpine F1 Team,2.497858,0.492981,0.257267,9,2
+2,2,lightgbm_classifier,2,ridge_regression,2026,9,British Grand Prix,2026-07-05,gasly,Pierre Gasly,alpine,Alpine F1 Team,2.434371,0.497669,0.255894,10,1
+2,2,lightgbm_classifier,2,ridge_regression,2026,9,British Grand Prix,2026-07-05,bearman,Oliver Bearman,haas,Haas F1 Team,2.419462,0.308344,0.198444,11,0
+2,2,lightgbm_classifier,2,ridge_regression,2026,9,British Grand Prix,2026-07-05,arvid_lindblad,Arvid Lindblad,rb,RB F1 Team,1.695050,0.346752,0.178246,12,0
+2,2,lightgbm_classifier,2,ridge_regression,2026,9,British Grand Prix,2026-07-05,sainz,Carlos Sainz,williams,Williams,2.064149,0.275568,0.173053,13,0
+2,2,lightgbm_classifier,2,ridge_regression,2026,9,British Grand Prix,2026-07-05,lawson,Liam Lawson,rb,RB F1 Team,1.390751,0.336816,0.161941,14,0
+2,2,lightgbm_classifier,2,ridge_regression,2026,9,British Grand Prix,2026-07-05,ocon,Esteban Ocon,haas,Haas F1 Team,2.285743,0.186962,0.156174,15,0
+2,2,lightgbm_classifier,2,ridge_regression,2026,9,British Grand Prix,2026-07-05,bortoleto,Gabriel Bortoleto,audi,Audi,2.000625,0.200239,0.147673,16,0
+2,2,lightgbm_classifier,2,ridge_regression,2026,9,British Grand Prix,2026-07-05,alonso,Fernando Alonso,aston_martin,Aston Martin,2.264303,0.081446,0.123580,17,0
+2,2,lightgbm_classifier,2,ridge_regression,2026,9,British Grand Prix,2026-07-05,albon,Alexander Albon,williams,Williams,1.430334,0.184233,0.117900,18,0
+2,2,lightgbm_classifier,2,ridge_regression,2026,9,British Grand Prix,2026-07-05,bottas,Valtteri Bottas,cadillac,Cadillac F1 Team,2.085762,0.055020,0.107835,19,0
+2,2,lightgbm_classifier,2,ridge_regression,2026,9,British Grand Prix,2026-07-05,hulkenberg,Nico Hülkenberg,audi,Audi,1.735611,0.094568,0.104367,20,0
+2,2,lightgbm_classifier,2,ridge_regression,2026,9,British Grand Prix,2026-07-05,perez,Sergio Pérez,cadillac,Cadillac F1 Team,1.445802,0.032253,0.072983,21,0
+2,2,lightgbm_classifier,2,ridge_regression,2026,9,British Grand Prix,2026-07-05,stroll,Lance Stroll,aston_martin,Aston Martin,1.065697,0.035935,0.057444,22,0
+2,2,lightgbm_classifier,2,ridge_regression,2026,10,Belgian Grand Prix,2026-07-19,antonelli,Andrea Kimi Antonelli,mercedes,Mercedes,16.517426,0.901192,0.970357,1,25
+2,2,lightgbm_classifier,2,ridge_regression,2026,10,Belgian Grand Prix,2026-07-19,russell,George Russell,mercedes,Mercedes,15.836446,0.869979,0.932134,2,18
+2,2,lightgbm_classifier,2,ridge_regression,2026,10,Belgian Grand Prix,2026-07-19,max_verstappen,Max Verstappen,red_bull,Red Bull,14.138945,0.876527,0.862159,3,15
+2,2,lightgbm_classifier,2,ridge_regression,2026,10,Belgian Grand Prix,2026-07-19,hamilton,Lewis Hamilton,ferrari,Ferrari,12.362351,0.822126,0.770548,4,12
+2,2,lightgbm_classifier,2,ridge_regression,2026,10,Belgian Grand Prix,2026-07-19,leclerc,Charles Leclerc,ferrari,Ferrari,11.224909,0.766940,0.705788,5,10
+2,2,lightgbm_classifier,2,ridge_regression,2026,10,Belgian Grand Prix,2026-07-19,norris,Lando Norris,mclaren,McLaren,8.787006,0.839883,0.624354,6,8
+2,2,lightgbm_classifier,2,ridge_regression,2026,10,Belgian Grand Prix,2026-07-19,piastri,Oscar Piastri,mclaren,McLaren,8.750017,0.733511,0.590875,7,6
+2,2,lightgbm_classifier,2,ridge_regression,2026,10,Belgian Grand Prix,2026-07-19,hadjar,Isack Hadjar,red_bull,Red Bull,7.075398,0.654780,0.496286,8,4
+2,2,lightgbm_classifier,2,ridge_regression,2026,10,Belgian Grand Prix,2026-07-19,colapinto,Franco Colapinto,alpine,Alpine F1 Team,2.811109,0.499683,0.269038,9,2
+2,2,lightgbm_classifier,2,ridge_regression,2026,10,Belgian Grand Prix,2026-07-19,gasly,Pierre Gasly,alpine,Alpine F1 Team,2.688197,0.494995,0.262423,10,1
+2,2,lightgbm_classifier,2,ridge_regression,2026,10,Belgian Grand Prix,2026-07-19,sainz,Carlos Sainz,williams,Williams,2.285930,0.384951,0.212362,11,0
+2,2,lightgbm_classifier,2,ridge_regression,2026,10,Belgian Grand Prix,2026-07-19,bearman,Oliver Bearman,haas,Haas F1 Team,2.592507,0.322850,0.206724,12,0
+2,2,lightgbm_classifier,2,ridge_regression,2026,10,Belgian Grand Prix,2026-07-19,arvid_lindblad,Arvid Lindblad,rb,RB F1 Team,1.965566,0.407238,0.205471,13,0
+2,2,lightgbm_classifier,2,ridge_regression,2026,10,Belgian Grand Prix,2026-07-19,lawson,Liam Lawson,rb,RB F1 Team,1.807472,0.396622,0.195586,14,0
+2,2,lightgbm_classifier,2,ridge_regression,2026,10,Belgian Grand Prix,2026-07-19,ocon,Esteban Ocon,haas,Haas F1 Team,2.507524,0.194741,0.164690,15,0
+2,2,lightgbm_classifier,2,ridge_regression,2026,10,Belgian Grand Prix,2026-07-19,bortoleto,Gabriel Bortoleto,audi,Audi,2.173671,0.189518,0.148974,16,0
+2,2,lightgbm_classifier,2,ridge_regression,2026,10,Belgian Grand Prix,2026-07-19,albon,Alexander Albon,williams,Williams,1.847056,0.177372,0.131489,17,0
+2,2,lightgbm_classifier,2,ridge_regression,2026,10,Belgian Grand Prix,2026-07-19,alonso,Fernando Alonso,aston_martin,Aston Martin,2.534819,0.063610,0.126507,18,0
+2,2,lightgbm_classifier,2,ridge_regression,2026,10,Belgian Grand Prix,2026-07-19,bottas,Valtteri Bottas,cadillac,Cadillac F1 Team,2.356278,0.042702,0.112669,19,0
+2,2,lightgbm_classifier,2,ridge_regression,2026,10,Belgian Grand Prix,2026-07-19,hulkenberg,Nico Hülkenberg,audi,Audi,2.006128,0.083720,0.110135,20,0
+2,2,lightgbm_classifier,2,ridge_regression,2026,10,Belgian Grand Prix,2026-07-19,perez,Sergio Pérez,cadillac,Cadillac F1 Team,1.716318,0.021977,0.079330,21,0
+2,2,lightgbm_classifier,2,ridge_regression,2026,10,Belgian Grand Prix,2026-07-19,stroll,Lance Stroll,aston_martin,Aston Martin,1.336213,0.024516,0.063983,22,0
+2,2,lightgbm_classifier,2,ridge_regression,2026,11,Hungarian Grand Prix,2026-07-26,antonelli,Andrea Kimi Antonelli,mercedes,Mercedes,17.031540,0.916155,0.974846,1,25
+2,2,lightgbm_classifier,2,ridge_regression,2026,11,Hungarian Grand Prix,2026-07-26,russell,George Russell,mercedes,Mercedes,16.203143,0.882159,0.930601,2,18
+2,2,lightgbm_classifier,2,ridge_regression,2026,11,Hungarian Grand Prix,2026-07-26,max_verstappen,Max Verstappen,red_bull,Red Bull,14.863227,0.880694,0.875090,3,15
+2,2,lightgbm_classifier,2,ridge_regression,2026,11,Hungarian Grand Prix,2026-07-26,hamilton,Lewis Hamilton,ferrari,Ferrari,12.732660,0.833672,0.773417,4,12
+2,2,lightgbm_classifier,2,ridge_regression,2026,11,Hungarian Grand Prix,2026-07-26,leclerc,Charles Leclerc,ferrari,Ferrari,11.548133,0.836784,0.725666,5,10
+2,2,lightgbm_classifier,2,ridge_regression,2026,11,Hungarian Grand Prix,2026-07-26,norris,Lando Norris,mclaren,McLaren,8.855327,0.836288,0.614842,6,8
+2,2,lightgbm_classifier,2,ridge_regression,2026,11,Hungarian Grand Prix,2026-07-26,piastri,Oscar Piastri,mclaren,McLaren,8.776218,0.818704,0.606316,7,6
+2,2,lightgbm_classifier,2,ridge_regression,2026,11,Hungarian Grand Prix,2026-07-26,hadjar,Isack Hadjar,red_bull,Red Bull,7.563059,0.727772,0.529175,8,4
+2,2,lightgbm_classifier,2,ridge_regression,2026,11,Hungarian Grand Prix,2026-07-26,colapinto,Franco Colapinto,alpine,Alpine F1 Team,3.107595,0.502145,0.278366,9,2
+2,2,lightgbm_classifier,2,ridge_regression,2026,11,Hungarian Grand Prix,2026-07-26,gasly,Pierre Gasly,alpine,Alpine F1 Team,2.925260,0.497456,0.269466,10,1
+2,2,lightgbm_classifier,2,ridge_regression,2026,11,Hungarian Grand Prix,2026-07-26,bearman,Oliver Bearman,haas,Haas F1 Team,2.797524,0.318461,0.210517,11,0
+2,2,lightgbm_classifier,2,ridge_regression,2026,11,Hungarian Grand Prix,2026-07-26,arvid_lindblad,Arvid Lindblad,rb,RB F1 Team,2.268053,0.340859,0.195475,12,0
+2,2,lightgbm_classifier,2,ridge_regression,2026,11,Hungarian Grand Prix,2026-07-26,sainz,Carlos Sainz,williams,Williams,2.393476,0.314658,0.192770,13,0
+2,2,lightgbm_classifier,2,ridge_regression,2026,11,Hungarian Grand Prix,2026-07-26,lawson,Liam Lawson,rb,RB F1 Team,2.207430,0.331007,0.190028,14,0
+2,2,lightgbm_classifier,2,ridge_regression,2026,11,Hungarian Grand Prix,2026-07-26,ocon,Esteban Ocon,haas,Haas F1 Team,2.761276,0.210317,0.176584,15,0
+2,2,lightgbm_classifier,2,ridge_regression,2026,11,Hungarian Grand Prix,2026-07-26,bortoleto,Gabriel Bortoleto,audi,Audi,2.329952,0.190008,0.152764,16,0
+2,2,lightgbm_classifier,2,ridge_regression,2026,11,Hungarian Grand Prix,2026-07-26,albon,Alexander Albon,williams,Williams,2.149543,0.184519,0.143702,17,0
+2,2,lightgbm_classifier,2,ridge_regression,2026,11,Hungarian Grand Prix,2026-07-26,alonso,Fernando Alonso,aston_martin,Aston Martin,2.837307,0.077583,0.139889,18,0
+2,2,lightgbm_classifier,2,ridge_regression,2026,11,Hungarian Grand Prix,2026-07-26,bottas,Valtteri Bottas,cadillac,Cadillac F1 Team,2.610030,0.054371,0.123584,19,0
+2,2,lightgbm_classifier,2,ridge_regression,2026,11,Hungarian Grand Prix,2026-07-26,hulkenberg,Nico Hülkenberg,audi,Audi,2.259880,0.089604,0.119763,20,0
+2,2,lightgbm_classifier,2,ridge_regression,2026,11,Hungarian Grand Prix,2026-07-26,perez,Sergio Pérez,cadillac,Cadillac F1 Team,1.970070,0.031864,0.090529,21,0
+2,2,lightgbm_classifier,2,ridge_regression,2026,11,Hungarian Grand Prix,2026-07-26,stroll,Lance Stroll,aston_martin,Aston Martin,1.589965,0.035503,0.075999,22,0
+2,2,lightgbm_classifier,2,ridge_regression,2026,12,Dutch Grand Prix,2026-08-23,antonelli,Andrea Kimi Antonelli,mercedes,Mercedes,17.613468,0.881965,0.964589,1,25
+2,2,lightgbm_classifier,2,ridge_regression,2026,12,Dutch Grand Prix,2026-08-23,russell,George Russell,mercedes,Mercedes,16.637654,0.804945,0.902702,2,18
+2,2,lightgbm_classifier,2,ridge_regression,2026,12,Dutch Grand Prix,2026-08-23,max_verstappen,Max Verstappen,red_bull,Red Bull,15.383096,0.736077,0.832183,3,15
+2,2,lightgbm_classifier,2,ridge_regression,2026,12,Dutch Grand Prix,2026-08-23,hamilton,Lewis Hamilton,ferrari,Ferrari,13.170782,0.757584,0.750713,4,12
+2,2,lightgbm_classifier,2,ridge_regression,2026,12,Dutch Grand Prix,2026-08-23,leclerc,Charles Leclerc,ferrari,Ferrari,11.944137,0.760073,0.702710,5,10
+2,2,lightgbm_classifier,2,ridge_regression,2026,12,Dutch Grand Prix,2026-08-23,norris,Lando Norris,mclaren,McLaren,9.258723,0.848364,0.622472,6,8
+2,2,lightgbm_classifier,2,ridge_regression,2026,12,Dutch Grand Prix,2026-08-23,piastri,Oscar Piastri,mclaren,McLaren,9.137495,0.792627,0.600933,7,6
+2,2,lightgbm_classifier,2,ridge_regression,2026,12,Dutch Grand Prix,2026-08-23,hadjar,Isack Hadjar,red_bull,Red Bull,7.851272,0.762021,0.540634,8,4
+2,2,lightgbm_classifier,2,ridge_regression,2026,12,Dutch Grand Prix,2026-08-23,colapinto,Franco Colapinto,alpine,Alpine F1 Team,3.452714,0.514714,0.291633,9,2
+2,2,lightgbm_classifier,2,ridge_regression,2026,12,Dutch Grand Prix,2026-08-23,gasly,Pierre Gasly,alpine,Alpine F1 Team,3.249319,0.510028,0.282144,10,1
+2,2,lightgbm_classifier,2,ridge_regression,2026,12,Dutch Grand Prix,2026-08-23,bearman,Oliver Bearman,haas,Haas F1 Team,3.021620,0.398098,0.239515,11,0
+2,2,lightgbm_classifier,2,ridge_regression,2026,12,Dutch Grand Prix,2026-08-23,lawson,Liam Lawson,rb,RB F1 Team,2.675202,0.391807,0.223861,12,0
+2,2,lightgbm_classifier,2,ridge_regression,2026,12,Dutch Grand Prix,2026-08-23,ocon,Esteban Ocon,haas,Haas F1 Team,3.229048,0.242438,0.201061,13,0
+2,2,lightgbm_classifier,2,ridge_regression,2026,12,Dutch Grand Prix,2026-08-23,sainz,Carlos Sainz,williams,Williams,2.617572,0.308257,0.196506,14,0
+2,2,lightgbm_classifier,2,ridge_regression,2026,12,Dutch Grand Prix,2026-08-23,arvid_lindblad,Arvid Lindblad,rb,RB F1 Team,2.492149,0.324423,0.196371,15,0
+2,2,lightgbm_classifier,2,ridge_regression,2026,12,Dutch Grand Prix,2026-08-23,alonso,Fernando Alonso,aston_martin,Aston Martin,3.158873,0.080744,0.149764,16,0
+2,2,lightgbm_classifier,2,ridge_regression,2026,12,Dutch Grand Prix,2026-08-23,bortoleto,Gabriel Bortoleto,audi,Audi,2.602783,0.136878,0.144504,17,0
+2,2,lightgbm_classifier,2,ridge_regression,2026,12,Dutch Grand Prix,2026-08-23,albon,Alexander Albon,williams,Williams,2.519845,0.145115,0.143679,18,0
+2,2,lightgbm_classifier,2,ridge_regression,2026,12,Dutch Grand Prix,2026-08-23,bottas,Valtteri Bottas,cadillac,Cadillac F1 Team,2.931596,0.031706,0.126020,19,0
+2,2,lightgbm_classifier,2,ridge_regression,2026,12,Dutch Grand Prix,2026-08-23,hulkenberg,Nico Hülkenberg,audi,Audi,2.581446,0.066395,0.122511,20,0
+2,2,lightgbm_classifier,2,ridge_regression,2026,12,Dutch Grand Prix,2026-08-23,perez,Sergio Pérez,cadillac,Cadillac F1 Team,2.291636,0.018345,0.096579,21,0
+2,2,lightgbm_classifier,2,ridge_regression,2026,12,Dutch Grand Prix,2026-08-23,stroll,Lance Stroll,aston_martin,Aston Martin,1.911532,0.020473,0.082111,22,0
+2,2,lightgbm_classifier,2,ridge_regression,2026,13,Italian Grand Prix,2026-09-06,antonelli,Andrea Kimi Antonelli,mercedes,Mercedes,17.998877,0.909750,0.972925,1,25
+2,2,lightgbm_classifier,2,ridge_regression,2026,13,Italian Grand Prix,2026-09-06,russell,George Russell,mercedes,Mercedes,16.875647,0.838266,0.907796,2,18
+2,2,lightgbm_classifier,2,ridge_regression,2026,13,Italian Grand Prix,2026-09-06,max_verstappen,Max Verstappen,red_bull,Red Bull,15.706446,0.869530,0.871703,3,15
+2,2,lightgbm_classifier,2,ridge_regression,2026,13,Italian Grand Prix,2026-09-06,hamilton,Lewis Hamilton,ferrari,Ferrari,13.412387,0.857298,0.778815,4,12
+2,2,lightgbm_classifier,2,ridge_regression,2026,13,Italian Grand Prix,2026-09-06,leclerc,Charles Leclerc,ferrari,Ferrari,12.143622,0.780629,0.706470,5,10
+2,2,lightgbm_classifier,2,ridge_regression,2026,13,Italian Grand Prix,2026-09-06,norris,Lando Norris,mclaren,McLaren,9.465602,0.876405,0.631051,6,8
+2,2,lightgbm_classifier,2,ridge_regression,2026,13,Italian Grand Prix,2026-09-06,piastri,Oscar Piastri,mclaren,McLaren,9.302255,0.850881,0.617041,7,6
+2,2,lightgbm_classifier,2,ridge_regression,2026,13,Italian Grand Prix,2026-09-06,hadjar,Isack Hadjar,red_bull,Red Bull,7.942967,0.722584,0.525688,8,4
+2,2,lightgbm_classifier,2,ridge_regression,2026,13,Italian Grand Prix,2026-09-06,colapinto,Franco Colapinto,alpine,Alpine F1 Team,3.601314,0.487699,0.286369,9,2
+2,2,lightgbm_classifier,2,ridge_regression,2026,13,Italian Grand Prix,2026-09-06,gasly,Pierre Gasly,alpine,Alpine F1 Team,3.376859,0.483014,0.276235,10,1
+2,2,lightgbm_classifier,2,ridge_regression,2026,13,Italian Grand Prix,2026-09-06,bearman,Oliver Bearman,haas,Haas F1 Team,3.146668,0.314579,0.216752,11,0
+2,2,lightgbm_classifier,2,ridge_regression,2026,13,Italian Grand Prix,2026-09-06,arvid_lindblad,Arvid Lindblad,rb,RB F1 Team,2.763403,0.346907,0.211544,12,0
+2,2,lightgbm_classifier,2,ridge_regression,2026,13,Italian Grand Prix,2026-09-06,sainz,Carlos Sainz,williams,Williams,2.791355,0.323278,0.205543,13,0
+2,2,lightgbm_classifier,2,ridge_regression,2026,13,Italian Grand Prix,2026-09-06,lawson,Liam Lawson,rb,RB F1 Team,2.702779,0.329250,0.203890,14,0
+2,2,lightgbm_classifier,2,ridge_regression,2026,13,Italian Grand Prix,2026-09-06,ocon,Esteban Ocon,haas,Haas F1 Team,3.256626,0.189487,0.183501,15,0
+2,2,lightgbm_classifier,2,ridge_regression,2026,13,Italian Grand Prix,2026-09-06,bortoleto,Gabriel Bortoleto,audi,Audi,2.776567,0.194876,0.166447,16,0
+2,2,lightgbm_classifier,2,ridge_regression,2026,13,Italian Grand Prix,2026-09-06,albon,Alexander Albon,williams,Williams,2.644893,0.189372,0.159675,17,0
+2,2,lightgbm_classifier,2,ridge_regression,2026,13,Italian Grand Prix,2026-09-06,alonso,Fernando Alonso,aston_martin,Aston Martin,3.235186,0.077432,0.149050,18,0
+2,2,lightgbm_classifier,2,ridge_regression,2026,13,Italian Grand Prix,2026-09-06,bottas,Valtteri Bottas,cadillac,Cadillac F1 Team,3.056644,0.053567,0.134947,19,0
+2,2,lightgbm_classifier,2,ridge_regression,2026,13,Italian Grand Prix,2026-09-06,hulkenberg,Nico Hülkenberg,audi,Audi,2.706494,0.094568,0.133630,20,0
+2,2,lightgbm_classifier,2,ridge_regression,2026,13,Italian Grand Prix,2026-09-06,perez,Sergio Pérez,cadillac,Cadillac F1 Team,2.416684,0.031382,0.103403,21,0
+2,2,lightgbm_classifier,2,ridge_regression,2026,13,Italian Grand Prix,2026-09-06,stroll,Lance Stroll,aston_martin,Aston Martin,2.036580,0.034968,0.089696,22,0
+2,2,lightgbm_classifier,2,ridge_regression,2026,14,Spanish Grand Prix,2026-09-13,antonelli,Andrea Kimi Antonelli,mercedes,Mercedes,21.220615,0.907584,0.972275,1,25
+2,2,lightgbm_classifier,2,ridge_regression,2026,14,Spanish Grand Prix,2026-09-13,russell,George Russell,mercedes,Mercedes,19.949968,0.831962,0.907674,2,18
+2,2,lightgbm_classifier,2,ridge_regression,2026,14,Spanish Grand Prix,2026-09-13,max_verstappen,Max Verstappen,red_bull,Red Bull,18.866125,0.802017,0.862938,3,15
+2,2,lightgbm_classifier,2,ridge_regression,2026,14,Spanish Grand Prix,2026-09-13,hamilton,Lewis Hamilton,ferrari,Ferrari,16.490320,0.798750,0.783588,4,12
+2,2,lightgbm_classifier,2,ridge_regression,2026,14,Spanish Grand Prix,2026-09-13,leclerc,Charles Leclerc,ferrari,Ferrari,15.179436,0.721409,0.717144,5,10
+2,2,lightgbm_classifier,2,ridge_regression,2026,14,Spanish Grand Prix,2026-09-13,norris,Lando Norris,mclaren,McLaren,12.508808,0.767305,0.642817,6,8
+2,2,lightgbm_classifier,2,ridge_regression,2026,14,Spanish Grand Prix,2026-09-13,piastri,Oscar Piastri,mclaren,McLaren,12.303342,0.768046,0.636261,7,6
+2,2,lightgbm_classifier,2,ridge_regression,2026,14,Spanish Grand Prix,2026-09-13,hadjar,Isack Hadjar,red_bull,Red Bull,10.870991,0.708133,0.571039,8,4
+2,2,lightgbm_classifier,2,ridge_regression,2026,14,Spanish Grand Prix,2026-09-13,colapinto,Franco Colapinto,alpine,Alpine F1 Team,6.591207,0.515811,0.372166,9,2
+2,2,lightgbm_classifier,2,ridge_regression,2026,14,Spanish Grand Prix,2026-09-13,gasly,Pierre Gasly,alpine,Alpine F1 Team,6.335762,0.511126,0.362334,10,1
+2,2,lightgbm_classifier,2,ridge_regression,2026,14,Spanish Grand Prix,2026-09-13,bearman,Oliver Bearman,haas,Haas F1 Team,6.059309,0.297254,0.289053,11,0
+2,2,lightgbm_classifier,2,ridge_regression,2026,14,Spanish Grand Prix,2026-09-13,ocon,Esteban Ocon,haas,Haas F1 Team,6.218002,0.254442,0.281444,12,0
+2,2,lightgbm_classifier,2,ridge_regression,2026,14,Spanish Grand Prix,2026-09-13,lawson,Liam Lawson,rb,RB F1 Team,5.664156,0.301047,0.277156,13,0
+2,2,lightgbm_classifier,2,ridge_regression,2026,14,Spanish Grand Prix,2026-09-13,sainz,Carlos Sainz,williams,Williams,5.850202,0.271971,0.274571,14,0
+2,2,lightgbm_classifier,2,ridge_regression,2026,14,Spanish Grand Prix,2026-09-13,arvid_lindblad,Arvid Lindblad,rb,RB F1 Team,5.676044,0.275709,0.269947,15,0
+2,2,lightgbm_classifier,2,ridge_regression,2026,14,Spanish Grand Prix,2026-09-13,albon,Alexander Albon,williams,Williams,5.606269,0.217772,0.250264,16,0
+2,2,lightgbm_classifier,2,ridge_regression,2026,14,Spanish Grand Prix,2026-09-13,bortoleto,Gabriel Bortoleto,audi,Audi,5.737943,0.169743,0.240199,17,0
+2,2,lightgbm_classifier,2,ridge_regression,2026,14,Spanish Grand Prix,2026-09-13,alonso,Fernando Alonso,aston_martin,Aston Martin,6.196562,0.057617,0.221690,18,0
+2,2,lightgbm_classifier,2,ridge_regression,2026,14,Spanish Grand Prix,2026-09-13,hulkenberg,Nico Hülkenberg,audi,Audi,5.667870,0.107402,0.219185,19,0
+2,2,lightgbm_classifier,2,ridge_regression,2026,14,Spanish Grand Prix,2026-09-13,bottas,Valtteri Bottas,cadillac,Cadillac F1 Team,6.018021,0.045958,0.212303,20,0
+2,2,lightgbm_classifier,2,ridge_regression,2026,14,Spanish Grand Prix,2026-09-13,perez,Sergio Pérez,cadillac,Cadillac F1 Team,5.378060,0.026835,0.185455,21,0
+2,2,lightgbm_classifier,2,ridge_regression,2026,14,Spanish Grand Prix,2026-09-13,stroll,Lance Stroll,aston_martin,Aston Martin,4.997956,0.029917,0.173842,22,0
+2,2,lightgbm_classifier,2,ridge_regression,2026,15,Azerbaijan Grand Prix,2026-09-26,antonelli,Andrea Kimi Antonelli,mercedes,Mercedes,19.291480,0.878899,0.963670,1,25
+2,2,lightgbm_classifier,2,ridge_regression,2026,15,Azerbaijan Grand Prix,2026-09-26,russell,George Russell,mercedes,Mercedes,17.873415,0.832893,0.898413,2,18
+2,2,lightgbm_classifier,2,ridge_regression,2026,15,Azerbaijan Grand Prix,2026-09-26,max_verstappen,Max Verstappen,red_bull,Red Bull,16.874930,0.791811,0.849858,3,15
+2,2,lightgbm_classifier,2,ridge_regression,2026,15,Azerbaijan Grand Prix,2026-09-26,hamilton,Lewis Hamilton,ferrari,Ferrari,14.417379,0.816467,0.768081,4,12
+2,2,lightgbm_classifier,2,ridge_regression,2026,15,Azerbaijan Grand Prix,2026-09-26,leclerc,Charles Leclerc,ferrari,Ferrari,13.064376,0.811197,0.717406,5,10
+2,2,lightgbm_classifier,2,ridge_regression,2026,15,Azerbaijan Grand Prix,2026-09-26,norris,Lando Norris,mclaren,McLaren,10.401142,0.877525,0.640668,6,8
+2,2,lightgbm_classifier,2,ridge_regression,2026,15,Azerbaijan Grand Prix,2026-09-26,piastri,Oscar Piastri,mclaren,McLaren,10.153556,0.771789,0.599963,7,6
+2,2,lightgbm_classifier,2,ridge_regression,2026,15,Azerbaijan Grand Prix,2026-09-26,hadjar,Isack Hadjar,red_bull,Red Bull,8.648141,0.758483,0.541347,8,4
+2,2,lightgbm_classifier,2,ridge_regression,2026,15,Azerbaijan Grand Prix,2026-09-26,colapinto,Franco Colapinto,alpine,Alpine F1 Team,4.425262,0.516074,0.315395,9,2
+2,2,lightgbm_classifier,2,ridge_regression,2026,15,Azerbaijan Grand Prix,2026-09-26,gasly,Pierre Gasly,alpine,Alpine F1 Team,4.148758,0.510028,0.303548,10,1
+2,2,lightgbm_classifier,2,ridge_regression,2026,15,Azerbaijan Grand Prix,2026-09-26,bearman,Oliver Bearman,haas,Haas F1 Team,3.869812,0.352113,0.246052,11,0
+2,2,lightgbm_classifier,2,ridge_regression,2026,15,Azerbaijan Grand Prix,2026-09-26,ocon,Esteban Ocon,haas,Haas F1 Team,3.882299,0.303567,0.231941,12,0
+2,2,lightgbm_classifier,2,ridge_regression,2026,15,Azerbaijan Grand Prix,2026-09-26,arvid_lindblad,Arvid Lindblad,rb,RB F1 Team,3.632752,0.330770,0.231047,13,0
+2,2,lightgbm_classifier,2,ridge_regression,2026,15,Azerbaijan Grand Prix,2026-09-26,lawson,Liam Lawson,rb,RB F1 Team,3.425923,0.344259,0.227589,14,0
+2,2,lightgbm_classifier,2,ridge_regression,2026,15,Azerbaijan Grand Prix,2026-09-26,sainz,Carlos Sainz,williams,Williams,3.709440,0.293032,0.222508,15,0
+2,2,lightgbm_classifier,2,ridge_regression,2026,15,Azerbaijan Grand Prix,2026-09-26,bortoleto,Gabriel Bortoleto,audi,Audi,3.597181,0.142498,0.173275,16,0
+2,2,lightgbm_classifier,2,ridge_regression,2026,15,Azerbaijan Grand Prix,2026-09-26,albon,Alexander Albon,williams,Williams,3.368037,0.156193,0.169068,17,0
+2,2,lightgbm_classifier,2,ridge_regression,2026,15,Azerbaijan Grand Prix,2026-09-26,alonso,Fernando Alonso,aston_martin,Aston Martin,4.007065,0.031378,0.154811,18,0
+2,2,lightgbm_classifier,2,ridge_regression,2026,15,Azerbaijan Grand Prix,2026-09-26,bottas,Valtteri Bottas,cadillac,Cadillac F1 Team,3.877259,0.034820,0.151134,19,0
+2,2,lightgbm_classifier,2,ridge_regression,2026,15,Azerbaijan Grand Prix,2026-09-26,hulkenberg,Nico Hülkenberg,audi,Audi,3.429638,0.088215,0.150910,20,0
+2,2,lightgbm_classifier,2,ridge_regression,2026,15,Azerbaijan Grand Prix,2026-09-26,perez,Sergio Pérez,cadillac,Cadillac F1 Team,3.188563,0.020233,0.121768,21,0
+2,2,lightgbm_classifier,2,ridge_regression,2026,15,Azerbaijan Grand Prix,2026-09-26,stroll,Lance Stroll,aston_martin,Aston Martin,2.808459,0.022574,0.108678,22,0
+2,2,lightgbm_classifier,2,ridge_regression,2026,16,Singapore Grand Prix,2026-10-11,antonelli,Andrea Kimi Antonelli,mercedes,Mercedes,19.651122,0.909064,0.972719,1,25
+2,2,lightgbm_classifier,2,ridge_regression,2026,16,Singapore Grand Prix,2026-10-11,russell,George Russell,mercedes,Mercedes,18.085641,0.856054,0.901052,2,18
+2,2,lightgbm_classifier,2,ridge_regression,2026,16,Singapore Grand Prix,2026-10-11,max_verstappen,Max Verstappen,red_bull,Red Bull,17.172513,0.888651,0.878304,3,15
+2,2,lightgbm_classifier,2,ridge_regression,2026,16,Singapore Grand Prix,2026-10-11,hamilton,Lewis Hamilton,ferrari,Ferrari,14.633216,0.826954,0.769342,4,12
+2,2,lightgbm_classifier,2,ridge_regression,2026,16,Singapore Grand Prix,2026-10-11,leclerc,Charles Leclerc,ferrari,Ferrari,13.238094,0.802662,0.712358,5,10
+2,2,lightgbm_classifier,2,ridge_regression,2026,16,Singapore Grand Prix,2026-10-11,norris,Lando Norris,mclaren,McLaren,10.582253,0.822123,0.623591,6,8
+2,2,lightgbm_classifier,2,ridge_regression,2026,16,Singapore Grand Prix,2026-10-11,piastri,Oscar Piastri,mclaren,McLaren,10.292548,0.851816,0.622179,7,6
+2,2,lightgbm_classifier,2,ridge_regression,2026,16,Singapore Grand Prix,2026-10-11,hadjar,Isack Hadjar,red_bull,Red Bull,8.714068,0.765665,0.540107,8,4
+2,2,lightgbm_classifier,2,ridge_regression,2026,16,Singapore Grand Prix,2026-10-11,colapinto,Franco Colapinto,alpine,Alpine F1 Team,4.548095,0.522898,0.318879,9,2
+2,2,lightgbm_classifier,2,ridge_regression,2026,16,Singapore Grand Prix,2026-10-11,gasly,Pierre Gasly,alpine,Alpine F1 Team,4.250531,0.522490,0.308157,10,1
+2,2,lightgbm_classifier,2,ridge_regression,2026,16,Singapore Grand Prix,2026-10-11,bearman,Oliver Bearman,haas,Haas F1 Team,3.969093,0.339928,0.243363,11,0
+2,2,lightgbm_classifier,2,ridge_regression,2026,16,Singapore Grand Prix,2026-10-11,sainz,Carlos Sainz,williams,Williams,3.857456,0.299943,0.227391,12,0
+2,2,lightgbm_classifier,2,ridge_regression,2026,16,Singapore Grand Prix,2026-10-11,arvid_lindblad,Arvid Lindblad,rb,RB F1 Team,3.634563,0.321210,0.225831,13,0
+2,2,lightgbm_classifier,2,ridge_regression,2026,16,Singapore Grand Prix,2026-10-11,lawson,Liam Lawson,rb,RB F1 Team,3.622674,0.304252,0.220320,14,0
+2,2,lightgbm_classifier,2,ridge_regression,2026,16,Singapore Grand Prix,2026-10-11,ocon,Esteban Ocon,haas,Haas F1 Team,3.932845,0.265705,0.219805,15,0
+2,2,lightgbm_classifier,2,ridge_regression,2026,16,Singapore Grand Prix,2026-10-11,alonso,Fernando Alonso,aston_martin,Aston Martin,4.203816,0.064832,0.169195,16,0
+2,2,lightgbm_classifier,2,ridge_regression,2026,16,Singapore Grand Prix,2026-10-11,bortoleto,Gabriel Bortoleto,audi,Audi,3.647726,0.130842,0.169189,17,0
+2,2,lightgbm_classifier,2,ridge_regression,2026,16,Singapore Grand Prix,2026-10-11,albon,Alexander Albon,williams,Williams,3.418582,0.150136,0.166815,18,0
+2,2,lightgbm_classifier,2,ridge_regression,2026,16,Singapore Grand Prix,2026-10-11,bottas,Valtteri Bottas,cadillac,Cadillac F1 Team,3.976539,0.036291,0.152537,19,0
+2,2,lightgbm_classifier,2,ridge_regression,2026,16,Singapore Grand Prix,2026-10-11,hulkenberg,Nico Hülkenberg,audi,Audi,3.528919,0.086903,0.151776,20,0
+2,2,lightgbm_classifier,2,ridge_regression,2026,16,Singapore Grand Prix,2026-10-11,perez,Sergio Pérez,cadillac,Cadillac F1 Team,3.287844,0.018617,0.122703,21,0
+2,2,lightgbm_classifier,2,ridge_regression,2026,16,Singapore Grand Prix,2026-10-11,stroll,Lance Stroll,aston_martin,Aston Martin,2.907739,0.020776,0.109810,22,0
+2,2,lightgbm_classifier,2,ridge_regression,2026,17,United States Grand Prix,2026-10-25,antonelli,Andrea Kimi Antonelli,mercedes,Mercedes,19.961835,0.916243,0.974873,1,25
+2,2,lightgbm_classifier,2,ridge_regression,2026,17,United States Grand Prix,2026-10-25,russell,George Russell,mercedes,Mercedes,18.248936,0.868376,0.900447,2,18
+2,2,lightgbm_classifier,2,ridge_regression,2026,17,United States Grand Prix,2026-10-25,max_verstappen,Max Verstappen,red_bull,Red Bull,17.426132,0.887681,0.877385,3,15
+2,2,lightgbm_classifier,2,ridge_regression,2026,17,United States Grand Prix,2026-10-25,hamilton,Lewis Hamilton,ferrari,Ferrari,14.795158,0.801780,0.759354,4,12
+2,2,lightgbm_classifier,2,ridge_regression,2026,17,United States Grand Prix,2026-10-25,leclerc,Charles Leclerc,ferrari,Ferrari,13.362883,0.796484,0.707540,5,10
+2,2,lightgbm_classifier,2,ridge_regression,2026,17,United States Grand Prix,2026-10-25,norris,Lando Norris,mclaren,McLaren,10.714434,0.866122,0.635559,6,8
+2,2,lightgbm_classifier,2,ridge_regression,2026,17,United States Grand Prix,2026-10-25,piastri,Oscar Piastri,mclaren,McLaren,10.382610,0.820583,0.610261,7,6
+2,2,lightgbm_classifier,2,ridge_regression,2026,17,United States Grand Prix,2026-10-25,hadjar,Isack Hadjar,red_bull,Red Bull,8.731066,0.771500,0.537621,8,4
+2,2,lightgbm_classifier,2,ridge_regression,2026,17,United States Grand Prix,2026-10-25,colapinto,Franco Colapinto,alpine,Alpine F1 Team,4.621998,0.522898,0.318949,9,2
+2,2,lightgbm_classifier,2,ridge_regression,2026,17,United States Grand Prix,2026-10-25,gasly,Pierre Gasly,alpine,Alpine F1 Team,4.303374,0.518217,0.306371,10,1
+2,2,lightgbm_classifier,2,ridge_regression,2026,17,United States Grand Prix,2026-10-25,bearman,Oliver Bearman,haas,Haas F1 Team,4.019444,0.349993,0.245947,11,0
+2,2,lightgbm_classifier,2,ridge_regression,2026,17,United States Grand Prix,2026-10-25,sainz,Carlos Sainz,williams,Williams,3.859072,0.342424,0.238053,12,0
+2,2,lightgbm_classifier,2,ridge_regression,2026,17,United States Grand Prix,2026-10-25,arvid_lindblad,Arvid Lindblad,rb,RB F1 Team,3.733649,0.350834,0.236178,13,0
+2,2,lightgbm_classifier,2,ridge_regression,2026,17,United States Grand Prix,2026-10-25,lawson,Liam Lawson,rb,RB F1 Team,3.673025,0.356682,0.235806,14,0
+2,2,lightgbm_classifier,2,ridge_regression,2026,17,United States Grand Prix,2026-10-25,ocon,Esteban Ocon,haas,Haas F1 Team,3.983196,0.216347,0.204583,15,0
+2,2,lightgbm_classifier,2,ridge_regression,2026,17,United States Grand Prix,2026-10-25,bortoleto,Gabriel Bortoleto,audi,Audi,3.746812,0.147254,0.175565,16,0
+2,2,lightgbm_classifier,2,ridge_regression,2026,17,United States Grand Prix,2026-10-25,albon,Alexander Albon,williams,Williams,3.517668,0.164132,0.172593,17,0
+2,2,lightgbm_classifier,2,ridge_regression,2026,17,United States Grand Prix,2026-10-25,alonso,Fernando Alonso,aston_martin,Aston Martin,4.156696,0.046352,0.159668,18,0
+2,2,lightgbm_classifier,2,ridge_regression,2026,17,United States Grand Prix,2026-10-25,hulkenberg,Nico Hülkenberg,audi,Audi,3.579269,0.095668,0.154214,19,0
+2,2,lightgbm_classifier,2,ridge_regression,2026,17,United States Grand Prix,2026-10-25,bottas,Valtteri Bottas,cadillac,Cadillac F1 Team,4.026890,0.030929,0.150489,20,0
+2,2,lightgbm_classifier,2,ridge_regression,2026,17,United States Grand Prix,2026-10-25,perez,Sergio Pérez,cadillac,Cadillac F1 Team,3.338195,0.017942,0.122443,21,0
+2,2,lightgbm_classifier,2,ridge_regression,2026,17,United States Grand Prix,2026-10-25,stroll,Lance Stroll,aston_martin,Aston Martin,2.958090,0.020023,0.109738,22,0
+2,2,lightgbm_classifier,2,ridge_regression,2026,18,Mexico City Grand Prix,2026-11-01,antonelli,Andrea Kimi Antonelli,mercedes,Mercedes,20.353055,0.877819,0.963346,1,25
+2,2,lightgbm_classifier,2,ridge_regression,2026,18,Mexico City Grand Prix,2026-11-01,russell,George Russell,mercedes,Mercedes,18.492740,0.913241,0.909991,2,18
+2,2,lightgbm_classifier,2,ridge_regression,2026,18,Mexico City Grand Prix,2026-11-01,max_verstappen,Max Verstappen,red_bull,Red Bull,17.755293,0.909270,0.883436,3,15
+2,2,lightgbm_classifier,2,ridge_regression,2026,18,Mexico City Grand Prix,2026-11-01,hamilton,Lewis Hamilton,ferrari,Ferrari,15.042574,0.845437,0.770988,4,12
+2,2,lightgbm_classifier,2,ridge_regression,2026,18,Mexico City Grand Prix,2026-11-01,leclerc,Charles Leclerc,ferrari,Ferrari,13.568179,0.786138,0.702490,5,10
+2,2,lightgbm_classifier,2,ridge_regression,2026,18,Mexico City Grand Prix,2026-11-01,norris,Lando Norris,mclaren,McLaren,10.927123,0.799447,0.615649,6,8
+2,2,lightgbm_classifier,2,ridge_regression,2026,18,Mexico City Grand Prix,2026-11-01,piastri,Oscar Piastri,mclaren,McLaren,10.553180,0.775545,0.595618,7,6
+2,2,lightgbm_classifier,2,ridge_regression,2026,18,Mexico City Grand Prix,2026-11-01,hadjar,Isack Hadjar,red_bull,Red Bull,8.828572,0.738916,0.525315,8,4
+2,2,lightgbm_classifier,2,ridge_regression,2026,18,Mexico City Grand Prix,2026-11-01,colapinto,Franco Colapinto,alpine,Alpine F1 Team,4.776409,0.511797,0.317813,9,2
+2,2,lightgbm_classifier,2,ridge_regression,2026,18,Mexico City Grand Prix,2026-11-01,gasly,Pierre Gasly,alpine,Alpine F1 Team,4.436725,0.507110,0.304725,10,1
+2,2,lightgbm_classifier,2,ridge_regression,2026,18,Mexico City Grand Prix,2026-11-01,ocon,Esteban Ocon,haas,Haas F1 Team,4.260260,0.353690,0.252630,11,0
+2,2,lightgbm_classifier,2,ridge_regression,2026,18,Mexico City Grand Prix,2026-11-01,bearman,Oliver Bearman,haas,Haas F1 Team,4.150302,0.328341,0.241243,12,0
+2,2,lightgbm_classifier,2,ridge_regression,2026,18,Mexico City Grand Prix,2026-11-01,lawson,Liam Lawson,rb,RB F1 Team,3.852619,0.322562,0.229271,13,0
+2,2,lightgbm_classifier,2,ridge_regression,2026,18,Mexico City Grand Prix,2026-11-01,arvid_lindblad,Arvid Lindblad,rb,RB F1 Team,3.767037,0.296180,0.218413,14,0
+2,2,lightgbm_classifier,2,ridge_regression,2026,18,Mexico City Grand Prix,2026-11-01,sainz,Carlos Sainz,williams,Williams,3.892460,0.280836,0.218124,15,0
+2,2,lightgbm_classifier,2,ridge_regression,2026,18,Mexico City Grand Prix,2026-11-01,bortoleto,Gabriel Bortoleto,audi,Audi,3.828936,0.136878,0.172751,16,0
+2,2,lightgbm_classifier,2,ridge_regression,2026,18,Mexico City Grand Prix,2026-11-01,albon,Alexander Albon,williams,Williams,3.697262,0.148472,0.171701,17,0
+2,2,lightgbm_classifier,2,ridge_regression,2026,18,Mexico City Grand Prix,2026-11-01,alonso,Fernando Alonso,aston_martin,Aston Martin,4.287555,0.036852,0.158517,18,0
+2,2,lightgbm_classifier,2,ridge_regression,2026,18,Mexico City Grand Prix,2026-11-01,bottas,Valtteri Bottas,cadillac,Cadillac F1 Team,4.157749,0.040869,0.155258,19,0
+2,2,lightgbm_classifier,2,ridge_regression,2026,18,Mexico City Grand Prix,2026-11-01,hulkenberg,Nico Hülkenberg,audi,Audi,3.710128,0.083522,0.152658,20,0
+2,2,lightgbm_classifier,2,ridge_regression,2026,18,Mexico City Grand Prix,2026-11-01,perez,Sergio Pérez,cadillac,Cadillac F1 Team,3.469053,0.023810,0.126454,21,0
+2,2,lightgbm_classifier,2,ridge_regression,2026,18,Mexico City Grand Prix,2026-11-01,stroll,Lance Stroll,aston_martin,Aston Martin,3.088949,0.026555,0.114204,22,0
+2,2,lightgbm_classifier,2,ridge_regression,2026,19,Brazilian Grand Prix,2026-11-08,antonelli,Andrea Kimi Antonelli,mercedes,Mercedes,21.009291,0.890087,0.967026,1,25
+2,2,lightgbm_classifier,2,ridge_regression,2026,19,Brazilian Grand Prix,2026-11-08,russell,George Russell,mercedes,Mercedes,19.001558,0.911083,0.906430,2,18
+2,2,lightgbm_classifier,2,ridge_regression,2026,19,Brazilian Grand Prix,2026-11-08,max_verstappen,Max Verstappen,red_bull,Red Bull,18.349469,0.919663,0.887277,3,15
+2,2,lightgbm_classifier,2,ridge_regression,2026,19,Brazilian Grand Prix,2026-11-08,hamilton,Lewis Hamilton,ferrari,Ferrari,15.555004,0.832210,0.767934,4,12
+2,2,lightgbm_classifier,2,ridge_regression,2026,19,Brazilian Grand Prix,2026-11-08,leclerc,Charles Leclerc,ferrari,Ferrari,14.038490,0.724121,0.684979,5,10
+2,2,lightgbm_classifier,2,ridge_regression,2026,19,Brazilian Grand Prix,2026-11-08,norris,Lando Norris,mclaren,McLaren,11.404827,0.803886,0.621159,6,8
+2,2,lightgbm_classifier,2,ridge_regression,2026,19,Brazilian Grand Prix,2026-11-08,piastri,Oscar Piastri,mclaren,McLaren,10.988766,0.810208,0.609193,7,6
+2,2,lightgbm_classifier,2,ridge_regression,2026,19,Brazilian Grand Prix,2026-11-08,hadjar,Isack Hadjar,red_bull,Red Bull,9.191093,0.722919,0.523110,8,4
+2,2,lightgbm_classifier,2,ridge_regression,2026,19,Brazilian Grand Prix,2026-11-08,colapinto,Franco Colapinto,alpine,Alpine F1 Team,5.195835,0.537895,0.334486,9,2
+2,2,lightgbm_classifier,2,ridge_regression,2026,19,Brazilian Grand Prix,2026-11-08,gasly,Pierre Gasly,alpine,Alpine F1 Team,4.835092,0.511791,0.314636,10,1
+2,2,lightgbm_classifier,2,ridge_regression,2026,19,Brazilian Grand Prix,2026-11-08,bearman,Oliver Bearman,haas,Haas F1 Team,4.594912,0.345537,0.256757,11,0
+2,2,lightgbm_classifier,2,ridge_regression,2026,19,Brazilian Grand Prix,2026-11-08,arvid_lindblad,Arvid Lindblad,rb,RB F1 Team,4.211646,0.335896,0.241095,12,0
+2,2,lightgbm_classifier,2,ridge_regression,2026,19,Brazilian Grand Prix,2026-11-08,sainz,Carlos Sainz,williams,Williams,4.288334,0.309897,0.235850,13,0
+2,2,lightgbm_classifier,2,ridge_regression,2026,19,Brazilian Grand Prix,2026-11-08,lawson,Liam Lawson,rb,RB F1 Team,4.199758,0.318526,0.235488,14,0
+2,2,lightgbm_classifier,2,ridge_regression,2026,19,Brazilian Grand Prix,2026-11-08,ocon,Esteban Ocon,haas,Haas F1 Team,4.607399,0.243609,0.226595,15,0
+2,2,lightgbm_classifier,2,ridge_regression,2026,19,Brazilian Grand Prix,2026-11-08,bortoleto,Gabriel Bortoleto,audi,Audi,4.224810,0.177992,0.194162,16,0
+2,2,lightgbm_classifier,2,ridge_regression,2026,19,Brazilian Grand Prix,2026-11-08,albon,Alexander Albon,williams,Williams,4.093136,0.180177,0.190431,17,0
+2,2,lightgbm_classifier,2,ridge_regression,2026,19,Brazilian Grand Prix,2026-11-08,alonso,Fernando Alonso,aston_martin,Aston Martin,4.683429,0.090514,0.183199,18,0
+2,2,lightgbm_classifier,2,ridge_regression,2026,19,Brazilian Grand Prix,2026-11-08,bottas,Valtteri Bottas,cadillac,Cadillac F1 Team,4.553623,0.061342,0.170123,19,0
+2,2,lightgbm_classifier,2,ridge_regression,2026,19,Brazilian Grand Prix,2026-11-08,hulkenberg,Nico Hülkenberg,audi,Audi,4.106002,0.104988,0.168303,20,0
+2,2,lightgbm_classifier,2,ridge_regression,2026,19,Brazilian Grand Prix,2026-11-08,perez,Sergio Pérez,cadillac,Cadillac F1 Team,3.864928,0.031872,0.138336,21,0
+2,2,lightgbm_classifier,2,ridge_regression,2026,19,Brazilian Grand Prix,2026-11-08,stroll,Lance Stroll,aston_martin,Aston Martin,3.484823,0.035512,0.126763,22,0
+2,2,lightgbm_classifier,2,ridge_regression,2026,20,Las Vegas Grand Prix,2026-11-22,antonelli,Andrea Kimi Antonelli,mercedes,Mercedes,21.410857,0.858446,0.957534,1,25
+2,2,lightgbm_classifier,2,ridge_regression,2026,20,Las Vegas Grand Prix,2026-11-22,russell,George Russell,mercedes,Mercedes,19.255707,0.892739,0.897362,2,18
+2,2,lightgbm_classifier,2,ridge_regression,2026,20,Las Vegas Grand Prix,2026-11-22,max_verstappen,Max Verstappen,red_bull,Red Bull,18.688976,0.911910,0.884585,3,15
+2,2,lightgbm_classifier,2,ridge_regression,2026,20,Las Vegas Grand Prix,2026-11-22,hamilton,Lewis Hamilton,ferrari,Ferrari,15.812765,0.854963,0.773467,4,12
+2,2,lightgbm_classifier,2,ridge_regression,2026,20,Las Vegas Grand Prix,2026-11-22,leclerc,Charles Leclerc,ferrari,Ferrari,14.254132,0.756980,0.693114,5,10
+2,2,lightgbm_classifier,2,ridge_regression,2026,20,Las Vegas Grand Prix,2026-11-22,norris,Lando Norris,mclaren,McLaren,11.627862,0.765165,0.609707,6,8
+2,2,lightgbm_classifier,2,ridge_regression,2026,20,Las Vegas Grand Prix,2026-11-22,piastri,Oscar Piastri,mclaren,McLaren,11.169681,0.724184,0.582433,7,6
+2,2,lightgbm_classifier,2,ridge_regression,2026,20,Las Vegas Grand Prix,2026-11-22,hadjar,Isack Hadjar,red_bull,Red Bull,9.298944,0.725353,0.521623,8,4
+2,2,lightgbm_classifier,2,ridge_regression,2026,20,Las Vegas Grand Prix,2026-11-22,colapinto,Franco Colapinto,alpine,Alpine F1 Team,5.360592,0.559222,0.343024,9,2
+2,2,lightgbm_classifier,2,ridge_regression,2026,20,Las Vegas Grand Prix,2026-11-22,gasly,Pierre Gasly,alpine,Alpine F1 Team,4.978789,0.533277,0.322758,10,1
+2,2,lightgbm_classifier,2,ridge_regression,2026,20,Las Vegas Grand Prix,2026-11-22,bearman,Oliver Bearman,haas,Haas F1 Team,4.736116,0.432680,0.284645,11,0
+2,2,lightgbm_classifier,2,ridge_regression,2026,20,Las Vegas Grand Prix,2026-11-22,ocon,Esteban Ocon,haas,Haas F1 Team,4.748603,0.364699,0.264659,12,0
+2,2,lightgbm_classifier,2,ridge_regression,2026,20,Las Vegas Grand Prix,2026-11-22,lawson,Liam Lawson,rb,RB F1 Team,4.340963,0.394206,0.260184,13,0
+2,2,lightgbm_classifier,2,ridge_regression,2026,20,Las Vegas Grand Prix,2026-11-22,arvid_lindblad,Arvid Lindblad,rb,RB F1 Team,4.304115,0.335536,0.241378,14,0
+2,2,lightgbm_classifier,2,ridge_regression,2026,20,Las Vegas Grand Prix,2026-11-22,sainz,Carlos Sainz,williams,Williams,4.478274,0.294869,0.234872,15,0
+2,2,lightgbm_classifier,2,ridge_regression,2026,20,Las Vegas Grand Prix,2026-11-22,bortoleto,Gabriel Bortoleto,audi,Audi,4.317279,0.151374,0.186560,16,0
+2,2,lightgbm_classifier,2,ridge_regression,2026,20,Las Vegas Grand Prix,2026-11-22,albon,Alexander Albon,williams,Williams,4.185605,0.159546,0.184707,17,0
+2,2,lightgbm_classifier,2,ridge_regression,2026,20,Las Vegas Grand Prix,2026-11-22,alonso,Fernando Alonso,aston_martin,Aston Martin,4.922104,0.043749,0.174046,18,0
+2,2,lightgbm_classifier,2,ridge_regression,2026,20,Las Vegas Grand Prix,2026-11-22,hulkenberg,Nico Hülkenberg,audi,Audi,4.247207,0.089811,0.165800,19,0
+2,2,lightgbm_classifier,2,ridge_regression,2026,20,Las Vegas Grand Prix,2026-11-22,bottas,Valtteri Bottas,cadillac,Cadillac F1 Team,4.694827,0.028289,0.161978,20,0
+2,2,lightgbm_classifier,2,ridge_regression,2026,20,Las Vegas Grand Prix,2026-11-22,perez,Sergio Pérez,cadillac,Cadillac F1 Team,4.006132,0.014454,0.135311,21,0
+2,2,lightgbm_classifier,2,ridge_regression,2026,20,Las Vegas Grand Prix,2026-11-22,stroll,Lance Stroll,aston_martin,Aston Martin,3.626027,0.016796,0.123587,22,0
+2,2,lightgbm_classifier,2,ridge_regression,2026,21,Qatar Grand Prix,2026-11-29,antonelli,Andrea Kimi Antonelli,mercedes,Mercedes,21.895982,0.885030,0.965509,1,25
+2,2,lightgbm_classifier,2,ridge_regression,2026,21,Qatar Grand Prix,2026-11-29,russell,George Russell,mercedes,Mercedes,19.593415,0.896563,0.895357,2,18
+2,2,lightgbm_classifier,2,ridge_regression,2026,21,Qatar Grand Prix,2026-11-29,max_verstappen,Max Verstappen,red_bull,Red Bull,19.112041,0.894816,0.879444,3,15
+2,2,lightgbm_classifier,2,ridge_regression,2026,21,Qatar Grand Prix,2026-11-29,hamilton,Lewis Hamilton,ferrari,Ferrari,16.154085,0.874110,0.778668,4,12
+2,2,lightgbm_classifier,2,ridge_regression,2026,21,Qatar Grand Prix,2026-11-29,leclerc,Charles Leclerc,ferrari,Ferrari,14.553333,0.820223,0.711327,5,10
+2,2,lightgbm_classifier,2,ridge_regression,2026,21,Qatar Grand Prix,2026-11-29,norris,Lando Norris,mclaren,McLaren,11.934456,0.841850,0.634092,6,8
+2,2,lightgbm_classifier,2,ridge_regression,2026,21,Qatar Grand Prix,2026-11-29,piastri,Oscar Piastri,mclaren,McLaren,11.434155,0.735140,0.586084,7,6
+2,2,lightgbm_classifier,2,ridge_regression,2026,21,Qatar Grand Prix,2026-11-29,hadjar,Isack Hadjar,red_bull,Red Bull,9.490354,0.774928,0.535879,8,4
+2,2,lightgbm_classifier,2,ridge_regression,2026,21,Qatar Grand Prix,2026-11-29,colapinto,Franco Colapinto,alpine,Alpine F1 Team,5.608907,0.550030,0.344322,9,2
+2,2,lightgbm_classifier,2,ridge_regression,2026,21,Qatar Grand Prix,2026-11-29,gasly,Pierre Gasly,alpine,Alpine F1 Team,5.206045,0.518217,0.321899,10,1
+2,2,lightgbm_classifier,2,ridge_regression,2026,21,Qatar Grand Prix,2026-11-29,bearman,Oliver Bearman,haas,Haas F1 Team,4.960879,0.407076,0.280719,11,0
+2,2,lightgbm_classifier,2,ridge_regression,2026,21,Qatar Grand Prix,2026-11-29,lawson,Liam Lawson,rb,RB F1 Team,4.516990,0.354812,0.250849,12,0
+2,2,lightgbm_classifier,2,ridge_regression,2026,21,Qatar Grand Prix,2026-11-29,arvid_lindblad,Arvid Lindblad,rb,RB F1 Team,4.577614,0.299111,0.236077,13,0
+2,2,lightgbm_classifier,2,ridge_regression,2026,21,Qatar Grand Prix,2026-11-29,ocon,Esteban Ocon,haas,Haas F1 Team,4.827161,0.246959,0.228409,14,0
+2,2,lightgbm_classifier,2,ridge_regression,2026,21,Qatar Grand Prix,2026-11-29,sainz,Carlos Sainz,williams,Williams,4.849242,0.226375,0.222940,15,0
+2,2,lightgbm_classifier,2,ridge_regression,2026,21,Qatar Grand Prix,2026-11-29,albon,Alexander Albon,williams,Williams,4.410368,0.152296,0.186685,16,0
+2,2,lightgbm_classifier,2,ridge_regression,2026,21,Qatar Grand Prix,2026-11-29,bortoleto,Gabriel Bortoleto,audi,Audi,4.542042,0.135223,0.185773,17,0
+2,2,lightgbm_classifier,2,ridge_regression,2026,21,Qatar Grand Prix,2026-11-29,alonso,Fernando Alonso,aston_martin,Aston Martin,5.146867,0.054973,0.181034,18,0
+2,2,lightgbm_classifier,2,ridge_regression,2026,21,Qatar Grand Prix,2026-11-29,hulkenberg,Nico Hülkenberg,audi,Audi,4.471970,0.090158,0.170013,19,0
+2,2,lightgbm_classifier,2,ridge_regression,2026,21,Qatar Grand Prix,2026-11-29,bottas,Valtteri Bottas,cadillac,Cadillac F1 Team,4.919590,0.036884,0.168341,20,0
+2,2,lightgbm_classifier,2,ridge_regression,2026,21,Qatar Grand Prix,2026-11-29,perez,Sergio Pérez,cadillac,Cadillac F1 Team,4.230895,0.021451,0.141694,21,0
+2,2,lightgbm_classifier,2,ridge_regression,2026,21,Qatar Grand Prix,2026-11-29,stroll,Lance Stroll,aston_martin,Aston Martin,3.850791,0.023930,0.130286,22,0
+2,2,lightgbm_classifier,2,ridge_regression,2026,22,Abu Dhabi Grand Prix,2026-12-06,antonelli,Andrea Kimi Antonelli,mercedes,Mercedes,22.344978,0.926718,0.978015,1,25
+2,2,lightgbm_classifier,2,ridge_regression,2026,22,Abu Dhabi Grand Prix,2026-12-06,russell,George Russell,mercedes,Mercedes,19.894994,0.943814,0.906394,2,18
+2,2,lightgbm_classifier,2,ridge_regression,2026,22,Abu Dhabi Grand Prix,2026-12-06,max_verstappen,Max Verstappen,red_bull,Red Bull,19.498978,0.973596,0.902922,3,15
+2,2,lightgbm_classifier,2,ridge_regression,2026,22,Abu Dhabi Grand Prix,2026-12-06,hamilton,Lewis Hamilton,ferrari,Ferrari,16.459276,0.846803,0.769660,4,12
+2,2,lightgbm_classifier,2,ridge_regression,2026,22,Abu Dhabi Grand Prix,2026-12-06,leclerc,Charles Leclerc,ferrari,Ferrari,14.816404,0.810638,0.707344,5,10
+2,2,lightgbm_classifier,2,ridge_regression,2026,22,Abu Dhabi Grand Prix,2026-12-06,norris,Lando Norris,mclaren,McLaren,12.204920,0.883863,0.647502,6,8
+2,2,lightgbm_classifier,2,ridge_regression,2026,22,Abu Dhabi Grand Prix,2026-12-06,piastri,Oscar Piastri,mclaren,McLaren,11.662501,0.801500,0.605800,7,6
+2,2,lightgbm_classifier,2,ridge_regression,2026,22,Abu Dhabi Grand Prix,2026-12-06,hadjar,Isack Hadjar,red_bull,Red Bull,9.645635,0.756002,0.528969,8,4
+2,2,lightgbm_classifier,2,ridge_regression,2026,22,Abu Dhabi Grand Prix,2026-12-06,colapinto,Franco Colapinto,alpine,Alpine F1 Team,5.821093,0.509821,0.335304,9,2
+2,2,lightgbm_classifier,2,ridge_regression,2026,22,Abu Dhabi Grand Prix,2026-12-06,gasly,Pierre Gasly,alpine,Alpine F1 Team,5.397171,0.484396,0.314396,10,1
+2,2,lightgbm_classifier,2,ridge_regression,2026,22,Abu Dhabi Grand Prix,2026-12-06,ocon,Esteban Ocon,haas,Haas F1 Team,5.162000,0.254513,0.238063,11,0
+2,2,lightgbm_classifier,2,ridge_regression,2026,22,Abu Dhabi Grand Prix,2026-12-06,bearman,Oliver Bearman,haas,Haas F1 Team,5.100778,0.228616,0.228377,12,0
+2,2,lightgbm_classifier,2,ridge_regression,2026,22,Abu Dhabi Grand Prix,2026-12-06,arvid_lindblad,Arvid Lindblad,rb,RB F1 Team,4.717513,0.220035,0.213796,13,0
+2,2,lightgbm_classifier,2,ridge_regression,2026,22,Abu Dhabi Grand Prix,2026-12-06,lawson,Liam Lawson,rb,RB F1 Team,4.656889,0.224150,0.213131,14,0
+2,2,lightgbm_classifier,2,ridge_regression,2026,22,Abu Dhabi Grand Prix,2026-12-06,sainz,Carlos Sainz,williams,Williams,5.037876,0.171393,0.209239,15,0
+2,2,lightgbm_classifier,2,ridge_regression,2026,22,Abu Dhabi Grand Prix,2026-12-06,alonso,Fernando Alonso,aston_martin,Aston Martin,5.335501,0.031496,0.176594,16,0
+2,2,lightgbm_classifier,2,ridge_regression,2026,22,Abu Dhabi Grand Prix,2026-12-06,albon,Alexander Albon,williams,Williams,4.550267,0.106190,0.174403,17,0
+2,2,lightgbm_classifier,2,ridge_regression,2026,22,Abu Dhabi Grand Prix,2026-12-06,bortoleto,Gabriel Bortoleto,audi,Audi,4.779412,0.079642,0.173617,18,0
+2,2,lightgbm_classifier,2,ridge_regression,2026,22,Abu Dhabi Grand Prix,2026-12-06,bottas,Valtteri Bottas,cadillac,Cadillac F1 Team,5.156960,0.028095,0.169980,19,0
+2,2,lightgbm_classifier,2,ridge_regression,2026,22,Abu Dhabi Grand Prix,2026-12-06,hulkenberg,Nico Hülkenberg,audi,Audi,4.611868,0.059234,0.162246,20,0
+2,2,lightgbm_classifier,2,ridge_regression,2026,22,Abu Dhabi Grand Prix,2026-12-06,perez,Sergio Pérez,cadillac,Cadillac F1 Team,4.419529,0.016966,0.143540,21,0
+2,2,lightgbm_classifier,2,ridge_regression,2026,22,Abu Dhabi Grand Prix,2026-12-06,stroll,Lance Stroll,aston_martin,Aston Martin,4.039425,0.018937,0.132224,22,0
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,6,Monaco Grand Prix,2026-06-07,antonelli,Andrea Kimi Antonelli,mercedes,Mercedes,18.051705,0.800087,0.940026,1,25
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,6,Monaco Grand Prix,2026-06-07,russell,George Russell,mercedes,Mercedes,12.299551,0.799928,0.716924,2,18
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,6,Monaco Grand Prix,2026-06-07,hamilton,Lewis Hamilton,ferrari,Ferrari,10.629523,0.876588,0.675163,3,15
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,6,Monaco Grand Prix,2026-06-07,norris,Lando Norris,mclaren,McLaren,10.112646,0.883690,0.657250,4,12
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,6,Monaco Grand Prix,2026-06-07,max_verstappen,Max Verstappen,red_bull,Red Bull,9.877900,0.837367,0.634250,5,10
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,6,Monaco Grand Prix,2026-06-07,piastri,Oscar Piastri,mclaren,McLaren,9.772210,0.820716,0.625157,6,8
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,6,Monaco Grand Prix,2026-06-07,leclerc,Charles Leclerc,ferrari,Ferrari,9.838170,0.811915,0.625074,7,6
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,6,Monaco Grand Prix,2026-06-07,hadjar,Isack Hadjar,red_bull,Red Bull,4.511272,0.558713,0.342550,8,4
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,6,Monaco Grand Prix,2026-06-07,gasly,Pierre Gasly,alpine,Alpine F1 Team,2.881307,0.504516,0.263085,9,2
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,6,Monaco Grand Prix,2026-06-07,colapinto,Franco Colapinto,alpine,Alpine F1 Team,2.869417,0.455390,0.247886,10,1
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,6,Monaco Grand Prix,2026-06-07,lawson,Liam Lawson,rb,RB F1 Team,1.652860,0.476674,0.207096,11,0
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,6,Monaco Grand Prix,2026-06-07,sainz,Carlos Sainz,williams,Williams,1.319332,0.476376,0.194073,12,0
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,6,Monaco Grand Prix,2026-06-07,arvid_lindblad,Arvid Lindblad,rb,RB F1 Team,1.065354,0.419801,0.167252,13,0
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,6,Monaco Grand Prix,2026-06-07,bearman,Oliver Bearman,haas,Haas F1 Team,1.385077,0.302389,0.144427,14,0
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,6,Monaco Grand Prix,2026-06-07,albon,Alexander Albon,williams,Williams,0.634869,0.321506,0.121070,15,0
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,6,Monaco Grand Prix,2026-06-07,bortoleto,Gabriel Bortoleto,audi,Audi,0.513432,0.248051,0.094325,16,0
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,6,Monaco Grand Prix,2026-06-07,ocon,Esteban Ocon,haas,Haas F1 Team,0.776981,0.187865,0.086489,17,0
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,6,Monaco Grand Prix,2026-06-07,hulkenberg,Nico Hülkenberg,audi,Audi,0.264095,0.183712,0.065355,18,0
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,6,Monaco Grand Prix,2026-06-07,alonso,Fernando Alonso,aston_martin,Aston Martin,0.559309,0.086479,0.047632,19,0
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,6,Monaco Grand Prix,2026-06-07,perez,Sergio Pérez,cadillac,Cadillac F1 Team,0.328786,0.091183,0.040104,20,0
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,6,Monaco Grand Prix,2026-06-07,bottas,Valtteri Bottas,cadillac,Cadillac F1 Team,0.101545,0.069831,0.024887,21,0
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,6,Monaco Grand Prix,2026-06-07,stroll,Lance Stroll,aston_martin,Aston Martin,0.024516,0.077262,0.024129,22,0
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,7,Barcelona Grand Prix,2026-06-14,antonelli,Andrea Kimi Antonelli,mercedes,Mercedes,17.788247,0.763858,0.929157,1,25
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,7,Barcelona Grand Prix,2026-06-14,russell,George Russell,mercedes,Mercedes,12.716737,0.866707,0.760439,2,18
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,7,Barcelona Grand Prix,2026-06-14,hamilton,Lewis Hamilton,ferrari,Ferrari,11.579626,0.842502,0.708430,3,15
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,7,Barcelona Grand Prix,2026-06-14,max_verstappen,Max Verstappen,red_bull,Red Bull,10.058680,0.893207,0.663790,4,12
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,7,Barcelona Grand Prix,2026-06-14,norris,Lando Norris,mclaren,McLaren,10.013969,0.879075,0.657790,5,10
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,7,Barcelona Grand Prix,2026-06-14,leclerc,Charles Leclerc,ferrari,Ferrari,8.997835,0.831815,0.603626,6,8
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,7,Barcelona Grand Prix,2026-06-14,piastri,Oscar Piastri,mclaren,McLaren,8.404657,0.820021,0.576745,7,6
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,7,Barcelona Grand Prix,2026-06-14,hadjar,Isack Hadjar,red_bull,Red Bull,5.324052,0.694632,0.417901,8,4
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,7,Barcelona Grand Prix,2026-06-14,gasly,Pierre Gasly,alpine,Alpine F1 Team,2.899510,0.479437,0.257932,9,2
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,7,Barcelona Grand Prix,2026-06-14,colapinto,Franco Colapinto,alpine,Alpine F1 Team,2.795368,0.433025,0.239910,10,1
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,7,Barcelona Grand Prix,2026-06-14,lawson,Liam Lawson,rb,RB F1 Team,1.585102,0.428750,0.191002,11,0
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,7,Barcelona Grand Prix,2026-06-14,sainz,Carlos Sainz,williams,Williams,1.398152,0.444071,0.188241,12,0
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,7,Barcelona Grand Prix,2026-06-14,arvid_lindblad,Arvid Lindblad,rb,RB F1 Team,1.087671,0.334299,0.143092,13,0
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,7,Barcelona Grand Prix,2026-06-14,bearman,Oliver Bearman,haas,Haas F1 Team,1.406939,0.281958,0.139953,14,0
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,7,Barcelona Grand Prix,2026-06-14,ocon,Esteban Ocon,haas,Haas F1 Team,0.635875,0.283209,0.109985,15,0
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,7,Barcelona Grand Prix,2026-06-14,albon,Alexander Albon,williams,Williams,0.731624,0.259302,0.106581,16,0
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,7,Barcelona Grand Prix,2026-06-14,bortoleto,Gabriel Bortoleto,audi,Audi,0.537259,0.243828,0.094291,17,0
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,7,Barcelona Grand Prix,2026-06-14,alonso,Fernando Alonso,aston_martin,Aston Martin,0.570164,0.105460,0.054075,18,0
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,7,Barcelona Grand Prix,2026-06-14,hulkenberg,Nico Hülkenberg,audi,Audi,0.255824,0.137736,0.051388,19,0
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,7,Barcelona Grand Prix,2026-06-14,perez,Sergio Pérez,cadillac,Cadillac F1 Team,0.396601,0.081787,0.040143,20,0
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,7,Barcelona Grand Prix,2026-06-14,stroll,Lance Stroll,aston_martin,Aston Martin,0.092332,0.110529,0.036792,21,0
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,7,Barcelona Grand Prix,2026-06-14,bottas,Valtteri Bottas,cadillac,Cadillac F1 Team,0.169360,0.080045,0.030678,22,0
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,8,Austrian Grand Prix,2026-06-28,antonelli,Andrea Kimi Antonelli,mercedes,Mercedes,18.006739,0.863105,0.958932,1,25
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,8,Austrian Grand Prix,2026-06-28,russell,George Russell,mercedes,Mercedes,13.974645,0.879176,0.807008,2,18
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,8,Austrian Grand Prix,2026-06-28,max_verstappen,Max Verstappen,red_bull,Red Bull,11.117290,0.856192,0.689035,3,15
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,8,Austrian Grand Prix,2026-06-28,hamilton,Lewis Hamilton,ferrari,Ferrari,10.330730,0.834734,0.652021,4,12
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,8,Austrian Grand Prix,2026-06-28,leclerc,Charles Leclerc,ferrari,Ferrari,9.896638,0.822069,0.631346,5,10
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,8,Austrian Grand Prix,2026-06-28,norris,Lando Norris,mclaren,McLaren,7.513047,0.867980,0.552459,6,8
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,8,Austrian Grand Prix,2026-06-28,piastri,Oscar Piastri,mclaren,McLaren,6.149526,0.792698,0.476868,7,6
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,8,Austrian Grand Prix,2026-06-28,hadjar,Isack Hadjar,red_bull,Red Bull,6.054152,0.790997,0.472650,8,4
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,8,Austrian Grand Prix,2026-06-28,gasly,Pierre Gasly,alpine,Alpine F1 Team,2.943258,0.513039,0.268329,9,2
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,8,Austrian Grand Prix,2026-06-28,colapinto,Franco Colapinto,alpine,Alpine F1 Team,2.565031,0.451662,0.235213,10,1
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,8,Austrian Grand Prix,2026-06-28,lawson,Liam Lawson,rb,RB F1 Team,1.618414,0.487341,0.209117,11,0
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,8,Austrian Grand Prix,2026-06-28,bearman,Oliver Bearman,haas,Haas F1 Team,1.373047,0.484971,0.198868,12,0
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,8,Austrian Grand Prix,2026-06-28,ocon,Esteban Ocon,haas,Haas F1 Team,0.555736,0.501343,0.172007,13,0
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,8,Austrian Grand Prix,2026-06-28,sainz,Carlos Sainz,williams,Williams,1.194202,0.403720,0.167540,14,0
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,8,Austrian Grand Prix,2026-06-28,arvid_lindblad,Arvid Lindblad,rb,RB F1 Team,1.052749,0.353009,0.146828,15,0
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,8,Austrian Grand Prix,2026-06-28,albon,Alexander Albon,williams,Williams,0.527404,0.176471,0.073444,16,0
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,8,Austrian Grand Prix,2026-06-28,bortoleto,Gabriel Bortoleto,audi,Audi,0.427763,0.135477,0.057272,17,0
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,8,Austrian Grand Prix,2026-06-28,hulkenberg,Nico Hülkenberg,audi,Audi,0.221294,0.099288,0.038389,18,0
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,8,Austrian Grand Prix,2026-06-28,alonso,Fernando Alonso,aston_martin,Aston Martin,0.542135,0.052959,0.036963,19,0
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,8,Austrian Grand Prix,2026-06-28,perez,Sergio Pérez,cadillac,Cadillac F1 Team,0.361753,0.040783,0.026298,20,0
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,8,Austrian Grand Prix,2026-06-28,bottas,Valtteri Bottas,cadillac,Cadillac F1 Team,0.134512,0.045001,0.018729,21,0
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,8,Austrian Grand Prix,2026-06-28,stroll,Lance Stroll,aston_martin,Aston Martin,0.057484,0.045274,0.015817,22,0
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,9,British Grand Prix,2026-07-05,antonelli,Andrea Kimi Antonelli,mercedes,Mercedes,17.317064,0.845086,0.953526,1,25
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,9,British Grand Prix,2026-07-05,russell,George Russell,mercedes,Mercedes,13.962198,0.876293,0.827276,2,18
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,9,British Grand Prix,2026-07-05,hamilton,Lewis Hamilton,ferrari,Ferrari,12.390277,0.872302,0.762537,3,15
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,9,British Grand Prix,2026-07-05,max_verstappen,Max Verstappen,red_bull,Red Bull,10.543838,0.878151,0.689654,4,12
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,9,British Grand Prix,2026-07-05,leclerc,Charles Leclerc,ferrari,Ferrari,9.555962,0.833386,0.636292,5,10
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,9,British Grand Prix,2026-07-05,norris,Lando Norris,mclaren,McLaren,9.016626,0.887240,0.630647,6,8
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,9,British Grand Prix,2026-07-05,piastri,Oscar Piastri,mclaren,McLaren,7.388813,0.817410,0.543898,7,6
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,9,British Grand Prix,2026-07-05,hadjar,Isack Hadjar,red_bull,Red Bull,5.603924,0.671284,0.427910,8,4
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,9,British Grand Prix,2026-07-05,gasly,Pierre Gasly,alpine,Alpine F1 Team,2.529670,0.500164,0.252305,9,2
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,9,British Grand Prix,2026-07-05,colapinto,Franco Colapinto,alpine,Alpine F1 Team,2.312877,0.440883,0.225757,10,1
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,9,British Grand Prix,2026-07-05,lawson,Liam Lawson,rb,RB F1 Team,1.221113,0.331749,0.148885,11,0
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,9,British Grand Prix,2026-07-05,arvid_lindblad,Arvid Lindblad,rb,RB F1 Team,0.904975,0.304033,0.127791,12,0
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,9,British Grand Prix,2026-07-05,sainz,Carlos Sainz,williams,Williams,0.956194,0.295113,0.127186,13,0
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,9,British Grand Prix,2026-07-05,bearman,Oliver Bearman,haas,Haas F1 Team,1.161996,0.256899,0.124040,14,0
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,9,British Grand Prix,2026-07-05,bortoleto,Gabriel Bortoleto,audi,Audi,0.435910,0.248810,0.092264,15,0
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,9,British Grand Prix,2026-07-05,albon,Alexander Albon,williams,Williams,0.412399,0.180973,0.070962,16,0
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,9,British Grand Prix,2026-07-05,ocon,Esteban Ocon,haas,Haas F1 Team,0.538604,0.145505,0.065423,17,0
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,9,British Grand Prix,2026-07-05,hulkenberg,Nico Hülkenberg,audi,Audi,0.250415,0.175102,0.062653,18,0
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,9,British Grand Prix,2026-07-05,alonso,Fernando Alonso,aston_martin,Aston Martin,0.541026,0.123935,0.059050,19,0
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,9,British Grand Prix,2026-07-05,perez,Sergio Pérez,cadillac,Cadillac F1 Team,0.396382,0.075609,0.038705,20,0
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,9,British Grand Prix,2026-07-05,bottas,Valtteri Bottas,cadillac,Cadillac F1 Team,0.169140,0.048379,0.021351,21,0
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,9,British Grand Prix,2026-07-05,stroll,Lance Stroll,aston_martin,Aston Martin,0.092112,0.053659,0.019821,22,0
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,10,Belgian Grand Prix,2026-07-19,antonelli,Andrea Kimi Antonelli,mercedes,Mercedes,18.468320,0.884483,0.965345,1,25
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,10,Belgian Grand Prix,2026-07-19,russell,George Russell,mercedes,Mercedes,14.656392,0.772645,0.787311,2,18
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,10,Belgian Grand Prix,2026-07-19,hamilton,Lewis Hamilton,ferrari,Ferrari,12.323957,0.800153,0.707158,3,15
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,10,Belgian Grand Prix,2026-07-19,max_verstappen,Max Verstappen,red_bull,Red Bull,10.726249,0.868916,0.667229,4,12
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,10,Belgian Grand Prix,2026-07-19,norris,Lando Norris,mclaren,McLaren,8.923607,0.799219,0.577995,5,10
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,10,Belgian Grand Prix,2026-07-19,leclerc,Charles Leclerc,ferrari,Ferrari,9.058658,0.768853,0.574004,6,8
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,10,Belgian Grand Prix,2026-07-19,piastri,Oscar Piastri,mclaren,McLaren,7.039201,0.733587,0.486881,7,6
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,10,Belgian Grand Prix,2026-07-19,hadjar,Isack Hadjar,red_bull,Red Bull,5.985058,0.593538,0.404912,8,4
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,10,Belgian Grand Prix,2026-07-19,gasly,Pierre Gasly,alpine,Alpine F1 Team,2.386056,0.484414,0.235762,9,2
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,10,Belgian Grand Prix,2026-07-19,colapinto,Franco Colapinto,alpine,Alpine F1 Team,2.172964,0.419405,0.208183,10,1
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,10,Belgian Grand Prix,2026-07-19,lawson,Liam Lawson,rb,RB F1 Team,1.076043,0.386078,0.156609,11,0
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,10,Belgian Grand Prix,2026-07-19,bearman,Oliver Bearman,haas,Haas F1 Team,1.013662,0.342443,0.141153,12,0
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,10,Belgian Grand Prix,2026-07-19,arvid_lindblad,Arvid Lindblad,rb,RB F1 Team,0.821042,0.356243,0.137993,13,0
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,10,Belgian Grand Prix,2026-07-19,sainz,Carlos Sainz,williams,Williams,0.717453,0.325658,0.124891,14,0
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,10,Belgian Grand Prix,2026-07-19,bortoleto,Gabriel Bortoleto,audi,Audi,0.345287,0.199197,0.072846,15,0
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,10,Belgian Grand Prix,2026-07-19,albon,Alexander Albon,williams,Williams,0.265962,0.201318,0.070476,16,0
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,10,Belgian Grand Prix,2026-07-19,ocon,Esteban Ocon,haas,Haas F1 Team,0.399933,0.157764,0.062488,17,0
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,10,Belgian Grand Prix,2026-07-19,hulkenberg,Nico Hülkenberg,audi,Audi,0.154271,0.152316,0.051542,18,0
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,10,Belgian Grand Prix,2026-07-19,alonso,Fernando Alonso,aston_martin,Aston Martin,0.530144,0.093201,0.048054,19,0
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,10,Belgian Grand Prix,2026-07-19,perez,Sergio Pérez,cadillac,Cadillac F1 Team,0.300238,0.058967,0.029070,20,0
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,10,Belgian Grand Prix,2026-07-19,stroll,Lance Stroll,aston_martin,Aston Martin,0.088160,0.053523,0.019399,21,0
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,10,Belgian Grand Prix,2026-07-19,bottas,Valtteri Bottas,cadillac,Cadillac F1 Team,0.072996,0.037487,0.014013,22,0
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,11,Hungarian Grand Prix,2026-07-26,antonelli,Andrea Kimi Antonelli,mercedes,Mercedes,18.519374,0.869519,0.960856,1,25
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,11,Hungarian Grand Prix,2026-07-26,russell,George Russell,mercedes,Mercedes,15.084711,0.771041,0.801488,2,18
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,11,Hungarian Grand Prix,2026-07-26,hamilton,Lewis Hamilton,ferrari,Ferrari,12.308903,0.803820,0.706401,3,15
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,11,Hungarian Grand Prix,2026-07-26,max_verstappen,Max Verstappen,red_bull,Red Bull,10.595608,0.860635,0.658686,4,12
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,11,Hungarian Grand Prix,2026-07-26,leclerc,Charles Leclerc,ferrari,Ferrari,9.052850,0.856544,0.599145,5,10
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,11,Hungarian Grand Prix,2026-07-26,norris,Lando Norris,mclaren,McLaren,8.997041,0.822460,0.586810,6,8
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,11,Hungarian Grand Prix,2026-07-26,piastri,Oscar Piastri,mclaren,McLaren,7.155215,0.784827,0.505903,7,6
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,11,Hungarian Grand Prix,2026-07-26,hadjar,Isack Hadjar,red_bull,Red Bull,5.835690,0.658705,0.418190,8,4
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,11,Hungarian Grand Prix,2026-07-26,gasly,Pierre Gasly,alpine,Alpine F1 Team,2.484931,0.474219,0.236192,9,2
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,11,Hungarian Grand Prix,2026-07-26,colapinto,Franco Colapinto,alpine,Alpine F1 Team,2.274142,0.415458,0.210596,10,1
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,11,Hungarian Grand Prix,2026-07-26,lawson,Liam Lawson,rb,RB F1 Team,1.158300,0.334848,0.144236,11,0
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,11,Hungarian Grand Prix,2026-07-26,arvid_lindblad,Arvid Lindblad,rb,RB F1 Team,0.922186,0.302193,0.125515,12,0
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,11,Hungarian Grand Prix,2026-07-26,bearman,Oliver Bearman,haas,Haas F1 Team,1.124826,0.267245,0.122690,13,0
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,11,Hungarian Grand Prix,2026-07-26,sainz,Carlos Sainz,williams,Williams,0.864847,0.244483,0.106035,14,0
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,11,Hungarian Grand Prix,2026-07-26,bortoleto,Gabriel Bortoleto,audi,Audi,0.432998,0.196201,0.075227,15,0
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,11,Hungarian Grand Prix,2026-07-26,ocon,Esteban Ocon,haas,Haas F1 Team,0.494693,0.177411,0.071922,16,0
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,11,Hungarian Grand Prix,2026-07-26,albon,Alexander Albon,williams,Williams,0.376378,0.191847,0.071781,17,0
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,11,Hungarian Grand Prix,2026-07-26,alonso,Fernando Alonso,aston_martin,Aston Martin,0.603128,0.094662,0.051196,18,0
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,11,Hungarian Grand Prix,2026-07-26,hulkenberg,Nico Hülkenberg,audi,Audi,0.237378,0.115185,0.043528,19,0
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,11,Hungarian Grand Prix,2026-07-26,perez,Sergio Pérez,cadillac,Cadillac F1 Team,0.383345,0.054734,0.030910,20,0
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,11,Hungarian Grand Prix,2026-07-26,bottas,Valtteri Bottas,cadillac,Cadillac F1 Team,0.156103,0.034739,0.016322,21,0
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,11,Hungarian Grand Prix,2026-07-26,stroll,Lance Stroll,aston_martin,Aston Martin,0.079075,0.038591,0.014566,22,0
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,12,Dutch Grand Prix,2026-08-23,antonelli,Andrea Kimi Antonelli,mercedes,Mercedes,18.935979,0.930334,0.979100,1,25
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,12,Dutch Grand Prix,2026-08-23,russell,George Russell,mercedes,Mercedes,14.303180,0.819449,0.774576,2,18
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,12,Dutch Grand Prix,2026-08-23,hamilton,Lewis Hamilton,ferrari,Ferrari,9.956865,0.758492,0.595620,3,15
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,12,Dutch Grand Prix,2026-08-23,max_verstappen,Max Verstappen,red_bull,Red Bull,10.325023,0.678618,0.585267,4,12
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,12,Dutch Grand Prix,2026-08-23,norris,Lando Norris,mclaren,McLaren,8.466838,0.883802,0.578131,5,10
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,12,Dutch Grand Prix,2026-08-23,leclerc,Charles Leclerc,ferrari,Ferrari,9.484872,0.753374,0.576636,6,8
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,12,Dutch Grand Prix,2026-08-23,piastri,Oscar Piastri,mclaren,McLaren,7.218542,0.767322,0.497042,7,6
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,12,Dutch Grand Prix,2026-08-23,hadjar,Isack Hadjar,red_bull,Red Bull,6.336744,0.717722,0.449565,8,4
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,12,Dutch Grand Prix,2026-08-23,gasly,Pierre Gasly,alpine,Alpine F1 Team,2.509734,0.541098,0.255106,9,2
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,12,Dutch Grand Prix,2026-08-23,colapinto,Franco Colapinto,alpine,Alpine F1 Team,2.212453,0.475141,0.224329,10,1
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,12,Dutch Grand Prix,2026-08-23,bearman,Oliver Bearman,haas,Haas F1 Team,1.071624,0.394284,0.157900,11,0
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,12,Dutch Grand Prix,2026-08-23,lawson,Liam Lawson,rb,RB F1 Team,1.128151,0.327035,0.139814,12,0
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,12,Dutch Grand Prix,2026-08-23,arvid_lindblad,Arvid Lindblad,rb,RB F1 Team,0.861969,0.271653,0.113360,13,0
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,12,Dutch Grand Prix,2026-08-23,sainz,Carlos Sainz,williams,Williams,0.760498,0.269836,0.109064,14,0
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,12,Dutch Grand Prix,2026-08-23,ocon,Esteban Ocon,haas,Haas F1 Team,0.422962,0.250754,0.090862,15,0
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,12,Dutch Grand Prix,2026-08-23,albon,Alexander Albon,williams,Williams,0.305379,0.162552,0.060054,16,0
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,12,Dutch Grand Prix,2026-08-23,bortoleto,Gabriel Bortoleto,audi,Audi,0.330737,0.141277,0.054609,17,0
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,12,Dutch Grand Prix,2026-08-23,alonso,Fernando Alonso,aston_martin,Aston Martin,0.488872,0.061349,0.036477,18,0
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,12,Dutch Grand Prix,2026-08-23,perez,Sergio Pérez,cadillac,Cadillac F1 Team,0.428577,0.032350,0.025548,19,0
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,12,Dutch Grand Prix,2026-08-23,hulkenberg,Nico Hülkenberg,audi,Audi,0.124268,0.064614,0.023978,20,0
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,12,Dutch Grand Prix,2026-08-23,bottas,Valtteri Bottas,cadillac,Cadillac F1 Team,0.058244,0.021775,0.008685,21,0
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,12,Dutch Grand Prix,2026-08-23,stroll,Lance Stroll,aston_martin,Aston Martin,0.004221,0.025364,0.007765,22,0
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,13,Italian Grand Prix,2026-09-06,antonelli,Andrea Kimi Antonelli,mercedes,Mercedes,18.164679,0.945259,0.983578,1,25
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,13,Italian Grand Prix,2026-09-06,russell,George Russell,mercedes,Mercedes,14.166173,0.779794,0.779850,2,18
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,13,Italian Grand Prix,2026-09-06,max_verstappen,Max Verstappen,red_bull,Red Bull,10.829312,0.880918,0.681597,3,15
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,13,Italian Grand Prix,2026-09-06,hamilton,Lewis Hamilton,ferrari,Ferrari,11.069249,0.810144,0.669611,4,12
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,13,Italian Grand Prix,2026-09-06,leclerc,Charles Leclerc,ferrari,Ferrari,9.892089,0.856401,0.638125,5,10
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,13,Italian Grand Prix,2026-09-06,norris,Lando Norris,mclaren,McLaren,8.886818,0.880504,0.606616,6,8
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,13,Italian Grand Prix,2026-09-06,piastri,Oscar Piastri,mclaren,McLaren,7.355402,0.815895,0.528219,7,6
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,13,Italian Grand Prix,2026-09-06,hadjar,Isack Hadjar,red_bull,Red Bull,6.234722,0.688149,0.446708,8,4
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,13,Italian Grand Prix,2026-09-06,gasly,Pierre Gasly,alpine,Alpine F1 Team,2.480394,0.461295,0.233974,9,2
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,13,Italian Grand Prix,2026-09-06,colapinto,Franco Colapinto,alpine,Alpine F1 Team,2.225545,0.402908,0.206637,10,1
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,13,Italian Grand Prix,2026-09-06,lawson,Liam Lawson,rb,RB F1 Team,1.064529,0.349879,0.145987,11,0
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,13,Italian Grand Prix,2026-09-06,sainz,Carlos Sainz,williams,Williams,0.772925,0.339400,0.131606,12,0
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,13,Italian Grand Prix,2026-09-06,bearman,Oliver Bearman,haas,Haas F1 Team,1.060810,0.298503,0.130431,13,0
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,13,Italian Grand Prix,2026-09-06,arvid_lindblad,Arvid Lindblad,rb,RB F1 Team,0.877898,0.310132,0.126871,14,0
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,13,Italian Grand Prix,2026-09-06,ocon,Esteban Ocon,haas,Haas F1 Team,0.409558,0.213568,0.079853,15,0
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,13,Italian Grand Prix,2026-09-06,bortoleto,Gabriel Bortoleto,audi,Audi,0.337057,0.184813,0.068433,16,0
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,13,Italian Grand Prix,2026-09-06,albon,Alexander Albon,williams,Williams,0.295116,0.185583,0.067048,17,0
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,13,Italian Grand Prix,2026-09-06,hulkenberg,Nico Hülkenberg,audi,Audi,0.141119,0.145119,0.048974,18,0
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,13,Italian Grand Prix,2026-09-06,alonso,Fernando Alonso,aston_martin,Aston Martin,0.461284,0.075997,0.040575,19,0
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,13,Italian Grand Prix,2026-09-06,perez,Sergio Pérez,cadillac,Cadillac F1 Team,0.287403,0.075021,0.033582,20,0
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,13,Italian Grand Prix,2026-09-06,bottas,Valtteri Bottas,cadillac,Cadillac F1 Team,0.060162,0.043040,0.015230,21,0
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,13,Italian Grand Prix,2026-09-06,stroll,Lance Stroll,aston_martin,Aston Martin,0.000000,0.047767,0.014330,22,0
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,14,Spanish Grand Prix,2026-09-13,antonelli,Andrea Kimi Antonelli,mercedes,Mercedes,18.989138,0.873418,0.962026,1,25
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,14,Spanish Grand Prix,2026-09-13,russell,George Russell,mercedes,Mercedes,15.448048,0.883545,0.834528,2,18
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,14,Spanish Grand Prix,2026-09-13,hamilton,Lewis Hamilton,ferrari,Ferrari,12.186661,0.808883,0.691904,3,15
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,14,Spanish Grand Prix,2026-09-13,max_verstappen,Max Verstappen,red_bull,Red Bull,10.384968,0.809034,0.625533,4,12
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,14,Spanish Grand Prix,2026-09-13,leclerc,Charles Leclerc,ferrari,Ferrari,8.664462,0.703333,0.530400,5,10
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,14,Spanish Grand Prix,2026-09-13,norris,Lando Norris,mclaren,McLaren,7.843271,0.777289,0.522315,6,8
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,14,Spanish Grand Prix,2026-09-13,piastri,Oscar Piastri,mclaren,McLaren,7.113614,0.738054,0.483647,7,6
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,14,Spanish Grand Prix,2026-09-13,hadjar,Isack Hadjar,red_bull,Red Bull,6.276474,0.702709,0.442183,8,4
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,14,Spanish Grand Prix,2026-09-13,gasly,Pierre Gasly,alpine,Alpine F1 Team,2.700076,0.542260,0.262211,9,2
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,14,Spanish Grand Prix,2026-09-13,colapinto,Franco Colapinto,alpine,Alpine F1 Team,2.463223,0.476309,0.233695,10,1
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,14,Spanish Grand Prix,2026-09-13,lawson,Liam Lawson,rb,RB F1 Team,1.318721,0.301024,0.138919,11,0
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,14,Spanish Grand Prix,2026-09-13,sainz,Carlos Sainz,williams,Williams,1.082109,0.298654,0.129486,12,0
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,14,Spanish Grand Prix,2026-09-13,arvid_lindblad,Arvid Lindblad,rb,RB F1 Team,1.121830,0.266894,0.121422,13,0
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,14,Spanish Grand Prix,2026-09-13,bearman,Oliver Bearman,haas,Haas F1 Team,1.337574,0.196027,0.108115,14,0
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,14,Spanish Grand Prix,2026-09-13,albon,Alexander Albon,williams,Williams,0.559061,0.271089,0.101935,15,0
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,14,Spanish Grand Prix,2026-09-13,ocon,Esteban Ocon,haas,Haas F1 Team,0.674427,0.202426,0.085589,16,0
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,14,Spanish Grand Prix,2026-09-13,bortoleto,Gabriel Bortoleto,audi,Audi,0.603388,0.192749,0.080068,17,0
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,14,Spanish Grand Prix,2026-09-13,alonso,Fernando Alonso,aston_martin,Aston Martin,1.162109,0.085942,0.068622,18,0
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,14,Spanish Grand Prix,2026-09-13,hulkenberg,Nico Hülkenberg,audi,Audi,0.424788,0.163971,0.064850,19,0
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,14,Spanish Grand Prix,2026-09-13,perez,Sergio Pérez,cadillac,Cadillac F1 Team,0.565566,0.078944,0.044532,20,0
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,14,Spanish Grand Prix,2026-09-13,stroll,Lance Stroll,aston_martin,Aston Martin,0.261296,0.060079,0.027656,21,0
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,14,Spanish Grand Prix,2026-09-13,bottas,Valtteri Bottas,cadillac,Cadillac F1 Team,0.338324,0.042277,0.025155,22,0
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,15,Azerbaijan Grand Prix,2026-09-26,antonelli,Andrea Kimi Antonelli,mercedes,Mercedes,17.841858,0.897238,0.969171,1,25
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,15,Azerbaijan Grand Prix,2026-09-26,russell,George Russell,mercedes,Mercedes,14.819941,0.856621,0.838426,2,18
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,15,Azerbaijan Grand Prix,2026-09-26,hamilton,Lewis Hamilton,ferrari,Ferrari,12.039111,0.800567,0.712508,3,15
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,15,Azerbaijan Grand Prix,2026-09-26,max_verstappen,Max Verstappen,red_bull,Red Bull,11.491282,0.769554,0.681710,4,12
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,15,Azerbaijan Grand Prix,2026-09-26,norris,Lando Norris,mclaren,McLaren,8.289719,0.889812,0.592179,5,10
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,15,Azerbaijan Grand Prix,2026-09-26,leclerc,Charles Leclerc,ferrari,Ferrari,8.575518,0.734836,0.556899,6,8
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,15,Azerbaijan Grand Prix,2026-09-26,piastri,Oscar Piastri,mclaren,McLaren,7.278831,0.753458,0.511612,7,6
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,15,Azerbaijan Grand Prix,2026-09-26,hadjar,Isack Hadjar,red_bull,Red Bull,6.374003,0.726898,0.468144,8,4
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,15,Azerbaijan Grand Prix,2026-09-26,gasly,Pierre Gasly,alpine,Alpine F1 Team,2.573414,0.534623,0.261351,9,2
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,15,Azerbaijan Grand Prix,2026-09-26,colapinto,Franco Colapinto,alpine,Alpine F1 Team,2.210808,0.475141,0.229280,10,1
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,15,Azerbaijan Grand Prix,2026-09-26,lawson,Liam Lawson,rb,RB F1 Team,1.038173,0.343359,0.143739,11,0
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,15,Azerbaijan Grand Prix,2026-09-26,bearman,Oliver Bearman,haas,Haas F1 Team,1.044162,0.317440,0.136198,12,0
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,15,Azerbaijan Grand Prix,2026-09-26,arvid_lindblad,Arvid Lindblad,rb,RB F1 Team,0.841522,0.313554,0.127082,13,0
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,15,Azerbaijan Grand Prix,2026-09-26,sainz,Carlos Sainz,williams,Williams,0.790926,0.284206,0.116293,14,0
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,15,Azerbaijan Grand Prix,2026-09-26,ocon,Esteban Ocon,haas,Haas F1 Team,0.427782,0.200660,0.076981,15,0
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,15,Azerbaijan Grand Prix,2026-09-26,albon,Alexander Albon,williams,Williams,0.297563,0.164798,0.061114,16,0
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,15,Azerbaijan Grand Prix,2026-09-26,bortoleto,Gabriel Bortoleto,audi,Audi,0.353120,0.116394,0.048772,17,0
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,15,Azerbaijan Grand Prix,2026-09-26,alonso,Fernando Alonso,aston_martin,Aston Martin,0.505793,0.044054,0.033060,18,0
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,15,Azerbaijan Grand Prix,2026-09-26,hulkenberg,Nico Hülkenberg,audi,Audi,0.168129,0.068268,0.027077,19,0
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,15,Azerbaijan Grand Prix,2026-09-26,perez,Sergio Pérez,cadillac,Cadillac F1 Team,0.308907,0.040139,0.024161,20,0
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,15,Azerbaijan Grand Prix,2026-09-26,stroll,Lance Stroll,aston_martin,Aston Martin,0.027642,0.031226,0.010452,21,0
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,15,Azerbaijan Grand Prix,2026-09-26,bottas,Valtteri Bottas,cadillac,Cadillac F1 Team,0.081665,0.021565,0.009674,22,0
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,16,Singapore Grand Prix,2026-10-11,antonelli,Andrea Kimi Antonelli,mercedes,Mercedes,18.518858,0.913644,0.974093,1,25
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,16,Singapore Grand Prix,2026-10-11,russell,George Russell,mercedes,Mercedes,15.564357,0.848318,0.842817,2,18
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,16,Singapore Grand Prix,2026-10-11,max_verstappen,Max Verstappen,red_bull,Red Bull,11.582626,0.906524,0.709773,3,15
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,16,Singapore Grand Prix,2026-10-11,hamilton,Lewis Hamilton,ferrari,Ferrari,11.746329,0.832833,0.693853,4,12
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,16,Singapore Grand Prix,2026-10-11,norris,Lando Norris,mclaren,McLaren,8.711775,0.850032,0.584309,5,10
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,16,Singapore Grand Prix,2026-10-11,leclerc,Charles Leclerc,ferrari,Ferrari,9.362427,0.739745,0.575817,6,8
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,16,Singapore Grand Prix,2026-10-11,piastri,Oscar Piastri,mclaren,McLaren,7.336299,0.812399,0.521027,7,6
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,16,Singapore Grand Prix,2026-10-11,hadjar,Isack Hadjar,red_bull,Red Bull,6.520951,0.741906,0.469059,8,4
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,16,Singapore Grand Prix,2026-10-11,gasly,Pierre Gasly,alpine,Alpine F1 Team,2.640088,0.582927,0.274672,9,2
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,16,Singapore Grand Prix,2026-10-11,colapinto,Franco Colapinto,alpine,Alpine F1 Team,2.247016,0.486932,0.231015,10,1
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,16,Singapore Grand Prix,2026-10-11,bearman,Oliver Bearman,haas,Haas F1 Team,1.064182,0.365524,0.149883,11,0
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,16,Singapore Grand Prix,2026-10-11,lawson,Liam Lawson,rb,RB F1 Team,1.101823,0.341416,0.144073,12,0
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,16,Singapore Grand Prix,2026-10-11,sainz,Carlos Sainz,williams,Williams,0.879191,0.325613,0.130917,13,0
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,16,Singapore Grand Prix,2026-10-11,arvid_lindblad,Arvid Lindblad,rb,RB F1 Team,0.867203,0.282068,0.117400,14,0
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,16,Singapore Grand Prix,2026-10-11,ocon,Esteban Ocon,haas,Haas F1 Team,0.415630,0.275818,0.098456,15,0
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,16,Singapore Grand Prix,2026-10-11,albon,Alexander Albon,williams,Williams,0.273821,0.147863,0.054709,16,0
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,16,Singapore Grand Prix,2026-10-11,bortoleto,Gabriel Bortoleto,audi,Audi,0.353188,0.110014,0.046355,17,0
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,16,Singapore Grand Prix,2026-10-11,alonso,Fernando Alonso,aston_martin,Aston Martin,0.485318,0.047271,0.032526,18,0
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,16,Singapore Grand Prix,2026-10-11,hulkenberg,Nico Hülkenberg,audi,Audi,0.162722,0.078586,0.029727,19,0
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,16,Singapore Grand Prix,2026-10-11,perez,Sergio Pérez,cadillac,Cadillac F1 Team,0.309006,0.032919,0.021556,20,0
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,16,Singapore Grand Prix,2026-10-11,stroll,Lance Stroll,aston_martin,Aston Martin,0.053541,0.031093,0.011352,21,0
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,16,Singapore Grand Prix,2026-10-11,bottas,Valtteri Bottas,cadillac,Cadillac F1 Team,0.081765,0.021624,0.009578,22,0
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,17,United States Grand Prix,2026-10-25,antonelli,Andrea Kimi Antonelli,mercedes,Mercedes,18.516574,0.903129,0.970939,1,25
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,17,United States Grand Prix,2026-10-25,russell,George Russell,mercedes,Mercedes,16.260052,0.797179,0.853848,2,18
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,17,United States Grand Prix,2026-10-25,hamilton,Lewis Hamilton,ferrari,Ferrari,13.374051,0.864259,0.764870,3,15
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,17,United States Grand Prix,2026-10-25,max_verstappen,Max Verstappen,red_bull,Red Bull,11.615119,0.904705,0.710509,4,12
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,17,United States Grand Prix,2026-10-25,leclerc,Charles Leclerc,ferrari,Ferrari,9.706549,0.816065,0.611766,5,10
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,17,United States Grand Prix,2026-10-25,norris,Lando Norris,mclaren,McLaren,8.418999,0.889479,0.585115,6,8
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,17,United States Grand Prix,2026-10-25,piastri,Oscar Piastri,mclaren,McLaren,7.338716,0.811392,0.520850,7,6
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,17,United States Grand Prix,2026-10-25,hadjar,Isack Hadjar,red_bull,Red Bull,6.411291,0.785740,0.478094,8,4
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,17,United States Grand Prix,2026-10-25,gasly,Pierre Gasly,alpine,Alpine F1 Team,2.548647,0.576930,0.269428,9,2
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,17,United States Grand Prix,2026-10-25,colapinto,Franco Colapinto,alpine,Alpine F1 Team,2.180824,0.486932,0.228523,10,1
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,17,United States Grand Prix,2026-10-25,sainz,Carlos Sainz,williams,Williams,0.859301,0.334546,0.132849,11,0
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,17,United States Grand Prix,2026-10-25,lawson,Liam Lawson,rb,RB F1 Team,1.015329,0.306007,0.130186,12,0
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,17,United States Grand Prix,2026-10-25,bearman,Oliver Bearman,haas,Haas F1 Team,1.015294,0.298828,0.128031,13,0
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,17,United States Grand Prix,2026-10-25,arvid_lindblad,Arvid Lindblad,rb,RB F1 Team,0.818678,0.269180,0.111703,14,0
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,17,United States Grand Prix,2026-10-25,ocon,Esteban Ocon,haas,Haas F1 Team,0.403911,0.192626,0.073057,15,0
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,17,United States Grand Prix,2026-10-25,bortoleto,Gabriel Bortoleto,audi,Audi,0.317147,0.147357,0.056197,16,0
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,17,United States Grand Prix,2026-10-25,albon,Alexander Albon,williams,Williams,0.282907,0.144788,0.054131,17,0
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,17,United States Grand Prix,2026-10-25,alonso,Fernando Alonso,aston_martin,Aston Martin,0.473544,0.061794,0.036440,18,0
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,17,United States Grand Prix,2026-10-25,hulkenberg,Nico Hülkenberg,audi,Audi,0.132156,0.086049,0.030811,19,0
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,17,United States Grand Prix,2026-10-25,perez,Sergio Pérez,cadillac,Cadillac F1 Team,0.278441,0.039559,0.022394,20,0
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,17,United States Grand Prix,2026-10-25,bottas,Valtteri Bottas,cadillac,Cadillac F1 Team,0.051199,0.024962,0.009424,21,0
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,17,United States Grand Prix,2026-10-25,stroll,Lance Stroll,aston_martin,Aston Martin,0.000000,0.027761,0.008328,22,0
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,18,Mexico City Grand Prix,2026-11-01,antonelli,Andrea Kimi Antonelli,mercedes,Mercedes,18.347743,0.849901,0.954970,1,25
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,18,Mexico City Grand Prix,2026-11-01,russell,George Russell,mercedes,Mercedes,16.252650,0.905261,0.891647,2,18
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,18,Mexico City Grand Prix,2026-11-01,max_verstappen,Max Verstappen,red_bull,Red Bull,12.255420,0.886476,0.733510,3,15
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,18,Mexico City Grand Prix,2026-11-01,hamilton,Lewis Hamilton,ferrari,Ferrari,12.021128,0.846535,0.712589,4,12
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,18,Mexico City Grand Prix,2026-11-01,leclerc,Charles Leclerc,ferrari,Ferrari,10.133045,0.813571,0.630666,5,10
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,18,Mexico City Grand Prix,2026-11-01,norris,Lando Norris,mclaren,McLaren,8.339358,0.785720,0.553878,6,8
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,18,Mexico City Grand Prix,2026-11-01,piastri,Oscar Piastri,mclaren,McLaren,7.274470,0.746806,0.501576,7,6
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,18,Mexico City Grand Prix,2026-11-01,hadjar,Isack Hadjar,red_bull,Red Bull,6.531656,0.718402,0.464715,8,4
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,18,Mexico City Grand Prix,2026-11-01,gasly,Pierre Gasly,alpine,Alpine F1 Team,2.563756,0.584968,0.273303,9,2
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,18,Mexico City Grand Prix,2026-11-01,colapinto,Franco Colapinto,alpine,Alpine F1 Team,2.179038,0.475141,0.225677,10,1
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,18,Mexico City Grand Prix,2026-11-01,bearman,Oliver Bearman,haas,Haas F1 Team,1.016880,0.415312,0.163389,11,0
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,18,Mexico City Grand Prix,2026-11-01,lawson,Liam Lawson,rb,RB F1 Team,0.997483,0.297633,0.127346,12,0
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,18,Mexico City Grand Prix,2026-11-01,ocon,Esteban Ocon,haas,Haas F1 Team,0.405270,0.360996,0.123761,13,0
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,18,Mexico City Grand Prix,2026-11-01,arvid_lindblad,Arvid Lindblad,rb,RB F1 Team,0.772638,0.250392,0.104595,14,0
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,18,Mexico City Grand Prix,2026-11-01,sainz,Carlos Sainz,williams,Williams,0.765779,0.247383,0.103431,15,0
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,18,Mexico City Grand Prix,2026-11-01,albon,Alexander Albon,williams,Williams,0.267478,0.154304,0.056496,16,0
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,18,Mexico City Grand Prix,2026-11-01,bortoleto,Gabriel Bortoleto,audi,Audi,0.323036,0.102183,0.042979,17,0
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,18,Mexico City Grand Prix,2026-11-01,alonso,Fernando Alonso,aston_martin,Aston Martin,0.482527,0.041842,0.030962,18,0
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,18,Mexico City Grand Prix,2026-11-01,hulkenberg,Nico Hülkenberg,audi,Audi,0.138045,0.064784,0.024702,19,0
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,18,Mexico City Grand Prix,2026-11-01,perez,Sergio Pérez,cadillac,Cadillac F1 Team,0.278822,0.034072,0.020859,20,0
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,18,Mexico City Grand Prix,2026-11-01,stroll,Lance Stroll,aston_martin,Aston Martin,0.000000,0.031613,0.009484,21,0
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,18,Mexico City Grand Prix,2026-11-01,bottas,Valtteri Bottas,cadillac,Cadillac F1 Team,0.051581,0.021835,0.008518,22,0
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,19,Brazilian Grand Prix,2026-11-08,antonelli,Andrea Kimi Antonelli,mercedes,Mercedes,18.365225,0.885141,0.965542,1,25
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,19,Brazilian Grand Prix,2026-11-08,russell,George Russell,mercedes,Mercedes,16.130612,0.885020,0.880333,2,18
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,19,Brazilian Grand Prix,2026-11-08,max_verstappen,Max Verstappen,red_bull,Red Bull,13.105113,0.907557,0.771775,3,15
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,19,Brazilian Grand Prix,2026-11-08,hamilton,Lewis Hamilton,ferrari,Ferrari,12.197105,0.792870,0.702760,4,12
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,19,Brazilian Grand Prix,2026-11-08,norris,Lando Norris,mclaren,McLaren,9.170880,0.800999,0.589852,5,10
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,19,Brazilian Grand Prix,2026-11-08,leclerc,Charles Leclerc,ferrari,Ferrari,9.344395,0.723588,0.573243,6,8
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,19,Brazilian Grand Prix,2026-11-08,piastri,Oscar Piastri,mclaren,McLaren,7.210355,0.785864,0.510586,7,6
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,19,Brazilian Grand Prix,2026-11-08,hadjar,Isack Hadjar,red_bull,Red Bull,6.281378,0.687556,0.445685,8,4
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,19,Brazilian Grand Prix,2026-11-08,gasly,Pierre Gasly,alpine,Alpine F1 Team,2.589950,0.532115,0.258352,9,2
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,19,Brazilian Grand Prix,2026-11-08,colapinto,Franco Colapinto,alpine,Alpine F1 Team,2.195334,0.419405,0.209498,10,1
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,19,Brazilian Grand Prix,2026-11-08,bearman,Oliver Bearman,haas,Haas F1 Team,1.029325,0.439550,0.171098,11,0
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,19,Brazilian Grand Prix,2026-11-08,lawson,Liam Lawson,rb,RB F1 Team,0.992572,0.387463,0.154071,12,0
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,19,Brazilian Grand Prix,2026-11-08,sainz,Carlos Sainz,williams,Williams,0.852935,0.327447,0.130744,13,0
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,19,Brazilian Grand Prix,2026-11-08,arvid_lindblad,Arvid Lindblad,rb,RB F1 Team,0.762059,0.327832,0.127396,14,0
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,19,Brazilian Grand Prix,2026-11-08,ocon,Esteban Ocon,haas,Haas F1 Team,0.442296,0.245937,0.090639,15,0
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,19,Brazilian Grand Prix,2026-11-08,bortoleto,Gabriel Bortoleto,audi,Audi,0.354377,0.242812,0.086351,16,0
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,19,Brazilian Grand Prix,2026-11-08,albon,Alexander Albon,williams,Williams,0.274231,0.216679,0.075456,17,0
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,19,Brazilian Grand Prix,2026-11-08,hulkenberg,Nico Hülkenberg,audi,Audi,0.163132,0.172237,0.057889,18,0
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,19,Brazilian Grand Prix,2026-11-08,alonso,Fernando Alonso,aston_martin,Aston Martin,0.522185,0.089546,0.046767,19,0
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,19,Brazilian Grand Prix,2026-11-08,perez,Sergio Pérez,cadillac,Cadillac F1 Team,0.309416,0.072848,0.033648,20,0
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,19,Brazilian Grand Prix,2026-11-08,stroll,Lance Stroll,aston_martin,Aston Martin,0.097339,0.066213,0.023574,21,0
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,19,Brazilian Grand Prix,2026-11-08,bottas,Valtteri Bottas,cadillac,Cadillac F1 Team,0.082175,0.046562,0.017101,22,0
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,20,Las Vegas Grand Prix,2026-11-22,antonelli,Andrea Kimi Antonelli,mercedes,Mercedes,17.871579,0.827998,0.948399,1,25
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,20,Las Vegas Grand Prix,2026-11-22,russell,George Russell,mercedes,Mercedes,16.602281,0.828540,0.898846,2,18
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,20,Las Vegas Grand Prix,2026-11-22,max_verstappen,Max Verstappen,red_bull,Red Bull,13.941094,0.915527,0.820708,3,15
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,20,Las Vegas Grand Prix,2026-11-22,hamilton,Lewis Hamilton,ferrari,Ferrari,12.226768,0.816749,0.723927,4,12
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,20,Las Vegas Grand Prix,2026-11-22,leclerc,Charles Leclerc,ferrari,Ferrari,9.625363,0.793968,0.615200,5,10
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,20,Las Vegas Grand Prix,2026-11-22,norris,Lando Norris,mclaren,McLaren,8.417341,0.777569,0.562964,6,8
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,20,Las Vegas Grand Prix,2026-11-22,hadjar,Isack Hadjar,red_bull,Red Bull,7.076160,0.743232,0.500131,7,6
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,20,Las Vegas Grand Prix,2026-11-22,piastri,Oscar Piastri,mclaren,McLaren,6.356156,0.722677,0.465763,8,4
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,20,Las Vegas Grand Prix,2026-11-22,gasly,Pierre Gasly,alpine,Alpine F1 Team,2.743668,0.613922,0.291641,9,2
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,20,Las Vegas Grand Prix,2026-11-22,colapinto,Franco Colapinto,alpine,Alpine F1 Team,2.332080,0.502136,0.241985,10,1
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,20,Las Vegas Grand Prix,2026-11-22,bearman,Oliver Bearman,haas,Haas F1 Team,1.132814,0.417618,0.169656,11,0
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,20,Las Vegas Grand Prix,2026-11-22,lawson,Liam Lawson,rb,RB F1 Team,1.102391,0.336914,0.144253,12,0
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,20,Las Vegas Grand Prix,2026-11-22,ocon,Esteban Ocon,haas,Haas F1 Team,0.584606,0.370584,0.134073,13,0
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,20,Las Vegas Grand Prix,2026-11-22,arvid_lindblad,Arvid Lindblad,rb,RB F1 Team,0.910015,0.283905,0.120815,14,0
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,20,Las Vegas Grand Prix,2026-11-22,sainz,Carlos Sainz,williams,Williams,0.984538,0.271981,0.120157,15,0
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,20,Las Vegas Grand Prix,2026-11-22,albon,Alexander Albon,williams,Williams,0.423146,0.196161,0.075422,16,0
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,20,Las Vegas Grand Prix,2026-11-22,bortoleto,Gabriel Bortoleto,audi,Audi,0.451598,0.156108,0.064521,17,0
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,20,Las Vegas Grand Prix,2026-11-22,alonso,Fernando Alonso,aston_martin,Aston Martin,0.651539,0.061654,0.044016,18,0
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,20,Las Vegas Grand Prix,2026-11-22,hulkenberg,Nico Hülkenberg,audi,Audi,0.252442,0.106881,0.041952,19,0
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,20,Las Vegas Grand Prix,2026-11-22,perez,Sergio Pérez,cadillac,Cadillac F1 Team,0.404040,0.046522,0.029782,20,0
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,20,Las Vegas Grand Prix,2026-11-22,stroll,Lance Stroll,aston_martin,Aston Martin,0.218533,0.042176,0.021212,21,0
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,20,Las Vegas Grand Prix,2026-11-22,bottas,Valtteri Bottas,cadillac,Cadillac F1 Team,0.176798,0.027073,0.015047,22,0
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,21,Qatar Grand Prix,2026-11-29,antonelli,Andrea Kimi Antonelli,mercedes,Mercedes,18.316385,0.878662,0.963598,1,25
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,21,Qatar Grand Prix,2026-11-29,russell,George Russell,mercedes,Mercedes,16.887960,0.927759,0.923737,2,18
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,21,Qatar Grand Prix,2026-11-29,max_verstappen,Max Verstappen,red_bull,Red Bull,13.548010,0.882725,0.782584,3,15
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,21,Qatar Grand Prix,2026-11-29,hamilton,Lewis Hamilton,ferrari,Ferrari,12.019810,0.906472,0.731304,4,12
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,21,Qatar Grand Prix,2026-11-29,leclerc,Charles Leclerc,ferrari,Ferrari,9.356725,0.725946,0.575371,5,10
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,21,Qatar Grand Prix,2026-11-29,norris,Lando Norris,mclaren,McLaren,8.393625,0.842153,0.573426,6,8
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,21,Qatar Grand Prix,2026-11-29,hadjar,Isack Hadjar,red_bull,Red Bull,6.983604,0.756711,0.493907,7,6
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,21,Qatar Grand Prix,2026-11-29,piastri,Oscar Piastri,mclaren,McLaren,6.500280,0.752128,0.474060,8,4
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,21,Qatar Grand Prix,2026-11-29,gasly,Pierre Gasly,alpine,Alpine F1 Team,2.832815,0.594276,0.286545,9,2
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,21,Qatar Grand Prix,2026-11-29,colapinto,Franco Colapinto,alpine,Alpine F1 Team,2.290243,0.488102,0.233957,10,1
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,21,Qatar Grand Prix,2026-11-29,bearman,Oliver Bearman,haas,Haas F1 Team,1.213717,0.361624,0.154872,11,0
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,21,Qatar Grand Prix,2026-11-29,lawson,Liam Lawson,rb,RB F1 Team,1.110220,0.316697,0.137438,12,0
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,21,Qatar Grand Prix,2026-11-29,sainz,Carlos Sainz,williams,Williams,0.918199,0.311410,0.128514,13,0
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,21,Qatar Grand Prix,2026-11-29,arvid_lindblad,Arvid Lindblad,rb,RB F1 Team,0.896060,0.281505,0.118696,14,0
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,21,Qatar Grand Prix,2026-11-29,ocon,Esteban Ocon,haas,Haas F1 Team,0.578641,0.235894,0.092882,15,0
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,21,Qatar Grand Prix,2026-11-29,albon,Alexander Albon,williams,Williams,0.413170,0.160280,0.063874,16,0
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,21,Qatar Grand Prix,2026-11-29,bortoleto,Gabriel Bortoleto,audi,Audi,0.442768,0.148326,0.061419,17,0
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,21,Qatar Grand Prix,2026-11-29,alonso,Fernando Alonso,aston_martin,Aston Martin,0.765824,0.065747,0.048992,18,0
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,21,Qatar Grand Prix,2026-11-29,hulkenberg,Nico Hülkenberg,audi,Audi,0.256955,0.100857,0.040077,19,0
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,21,Qatar Grand Prix,2026-11-29,perez,Sergio Pérez,cadillac,Cadillac F1 Team,0.403239,0.046777,0.029444,20,0
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,21,Qatar Grand Prix,2026-11-29,bottas,Valtteri Bottas,cadillac,Cadillac F1 Team,0.175998,0.028548,0.015291,21,0
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,21,Qatar Grand Prix,2026-11-29,stroll,Lance Stroll,aston_martin,Aston Martin,0.098969,0.032899,0.013652,22,0
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,22,Abu Dhabi Grand Prix,2026-12-06,antonelli,Andrea Kimi Antonelli,mercedes,Mercedes,18.534486,0.876226,0.962868,1,25
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,22,Abu Dhabi Grand Prix,2026-12-06,russell,George Russell,mercedes,Mercedes,16.383480,0.917251,0.893937,2,18
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,22,Abu Dhabi Grand Prix,2026-12-06,max_verstappen,Max Verstappen,red_bull,Red Bull,14.558618,0.931266,0.829221,3,15
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,22,Abu Dhabi Grand Prix,2026-12-06,hamilton,Lewis Hamilton,ferrari,Ferrari,11.184688,0.922750,0.699242,4,12
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,22,Abu Dhabi Grand Prix,2026-12-06,norris,Lando Norris,mclaren,McLaren,8.620991,0.892334,0.593293,5,10
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,22,Abu Dhabi Grand Prix,2026-12-06,leclerc,Charles Leclerc,ferrari,Ferrari,9.592240,0.708692,0.574882,6,8
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,22,Abu Dhabi Grand Prix,2026-12-06,piastri,Oscar Piastri,mclaren,McLaren,7.010548,0.798982,0.504465,7,6
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,22,Abu Dhabi Grand Prix,2026-12-06,hadjar,Isack Hadjar,red_bull,Red Bull,7.253758,0.725110,0.491489,8,4
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,22,Abu Dhabi Grand Prix,2026-12-06,gasly,Pierre Gasly,alpine,Alpine F1 Team,2.787168,0.531748,0.264789,9,2
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,22,Abu Dhabi Grand Prix,2026-12-06,colapinto,Franco Colapinto,alpine,Alpine F1 Team,2.236242,0.441577,0.216930,10,1
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,22,Abu Dhabi Grand Prix,2026-12-06,bearman,Oliver Bearman,haas,Haas F1 Team,1.093668,0.204946,0.102789,11,0
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,22,Abu Dhabi Grand Prix,2026-12-06,lawson,Liam Lawson,rb,RB F1 Team,0.971284,0.207596,0.098962,12,0
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,22,Abu Dhabi Grand Prix,2026-12-06,ocon,Esteban Ocon,haas,Haas F1 Team,0.429301,0.254188,0.092470,13,0
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,22,Abu Dhabi Grand Prix,2026-12-06,sainz,Carlos Sainz,williams,Williams,0.697940,0.217968,0.091750,14,0
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,22,Abu Dhabi Grand Prix,2026-12-06,arvid_lindblad,Arvid Lindblad,rb,RB F1 Team,0.740771,0.175548,0.080641,15,0
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,22,Abu Dhabi Grand Prix,2026-12-06,albon,Alexander Albon,williams,Williams,0.242821,0.114006,0.043373,16,0
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,22,Abu Dhabi Grand Prix,2026-12-06,bortoleto,Gabriel Bortoleto,audi,Audi,0.301506,0.086442,0.037320,17,0
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,22,Abu Dhabi Grand Prix,2026-12-06,alonso,Fernando Alonso,aston_martin,Aston Martin,0.465682,0.041645,0.030081,18,0
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,22,Abu Dhabi Grand Prix,2026-12-06,hulkenberg,Nico Hülkenberg,audi,Audi,0.116515,0.055861,0.021159,19,0
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,22,Abu Dhabi Grand Prix,2026-12-06,perez,Sergio Pérez,cadillac,Cadillac F1 Team,0.257293,0.029246,0.018491,20,0
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,22,Abu Dhabi Grand Prix,2026-12-06,stroll,Lance Stroll,aston_martin,Aston Martin,0.000000,0.026485,0.007945,21,0
+3,3,hist_gradient_boosting,3,catboost_regressor,2026,22,Abu Dhabi Grand Prix,2026-12-06,bottas,Valtteri Bottas,cadillac,Cadillac F1 Team,0.030051,0.018263,0.006614,22,0

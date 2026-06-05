@@ -199,7 +199,7 @@ Machine learning includes:
 - Rule-mapped points strategy comparison for race-level F1 scoring
 - Leave-one-race-out Top 10 probability calibration for season simulation
 - Monte Carlo 2025 season uncertainty backtest before final 2026 championship prediction
-- 2026 driver and constructor championship prediction using pre-race models only
+- 2026 driver and constructor championship prediction using pre-race models only, with top-three model-scenario comparison
 
 Points-modeling rule scope:
 

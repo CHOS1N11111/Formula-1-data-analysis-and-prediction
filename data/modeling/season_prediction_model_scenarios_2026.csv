@@ -1,0 +1,7 @@
+﻿scenario_rank,entity_type,simulation_count,feature_mode,top10_model_rank,top10_model,top10_metric_name,top10_metric_value,points_model_rank,points_model,points_metric_name,points_metric_value,predicted_champion,predicted_champion_probability,deterministic_champion
+1,driver,5000,pre_race,1,xgboost_classifier,f1,0.708861,1,mlp_regressor,mae,3.617885,Max Verstappen,0.450200,Max Verstappen
+1,constructor,5000,pre_race,1,xgboost_classifier,f1,0.708861,1,mlp_regressor,mae,3.617885,Ferrari,0.952400,Ferrari
+2,driver,5000,pre_race,2,lightgbm_classifier,f1,0.708595,2,ridge_regression,mae,3.623049,Andrea Kimi Antonelli,0.964400,Andrea Kimi Antonelli
+2,constructor,5000,pre_race,2,lightgbm_classifier,f1,0.708595,2,ridge_regression,mae,3.623049,Mercedes,1.000000,Mercedes
+3,driver,5000,pre_race,3,hist_gradient_boosting,f1,0.708075,3,catboost_regressor,mae,3.717629,Andrea Kimi Antonelli,0.995000,Andrea Kimi Antonelli
+3,constructor,5000,pre_race,3,hist_gradient_boosting,f1,0.708075,3,catboost_regressor,mae,3.717629,Mercedes,1.000000,Mercedes

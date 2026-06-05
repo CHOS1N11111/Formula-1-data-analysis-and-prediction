@@ -9,6 +9,7 @@ probabilities and points uncertainty.
 
 import csv
 import json
+import warnings
 from collections import defaultdict, deque
 from datetime import datetime, timezone
 from pathlib import Path
@@ -18,6 +19,8 @@ import numpy as np
 
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
+
+warnings.filterwarnings("ignore", message="X does not have valid feature names")
 
 from train_f1_points_model import (
     F1_POINTS_TABLE,
@@ -58,10 +61,15 @@ CONSTRUCTOR_OUTPUT_PATH = MODEL_DIR / "season_prediction_constructor_standings_2
 RACE_PREDICTION_OUTPUT_PATH = MODEL_DIR / "season_prediction_race_points_2026.csv"
 SUMMARY_OUTPUT_PATH = MODEL_DIR / "season_prediction_summary_2026.csv"
 SUMMARY_JSON_PATH = MODEL_DIR / "season_prediction_summary_2026.json"
+DRIVER_SCENARIO_OUTPUT_PATH = MODEL_DIR / "season_prediction_driver_standings_2026_by_model.csv"
+CONSTRUCTOR_SCENARIO_OUTPUT_PATH = MODEL_DIR / "season_prediction_constructor_standings_2026_by_model.csv"
+RACE_SCENARIO_OUTPUT_PATH = MODEL_DIR / "season_prediction_race_points_2026_by_model.csv"
+SCENARIO_SUMMARY_OUTPUT_PATH = MODEL_DIR / "season_prediction_model_scenarios_2026.csv"
 
 SIMULATION_COUNT = 5000
 RANDOM_SEED = 42
 FEATURE_MODE = "pre_race"
+MODEL_SCENARIO_COUNT = 3
 
 DRIVER_OUTPUT_FIELDS = [
     "driver_id",
@@ -127,6 +135,36 @@ SUMMARY_FIELDS = [
     "deterministic_champion",
 ]
 
+SCENARIO_PREFIX_FIELDS = [
+    "scenario_rank",
+    "top10_model_rank",
+    "top10_model",
+    "points_model_rank",
+    "points_model",
+]
+
+SCENARIO_SUMMARY_FIELDS = [
+    "scenario_rank",
+    "entity_type",
+    "simulation_count",
+    "feature_mode",
+    "top10_model_rank",
+    "top10_model",
+    "top10_metric_name",
+    "top10_metric_value",
+    "points_model_rank",
+    "points_model",
+    "points_metric_name",
+    "points_metric_value",
+    "predicted_champion",
+    "predicted_champion_probability",
+    "deterministic_champion",
+]
+
+DRIVER_SCENARIO_FIELDS = SCENARIO_PREFIX_FIELDS + DRIVER_OUTPUT_FIELDS
+CONSTRUCTOR_SCENARIO_FIELDS = SCENARIO_PREFIX_FIELDS + CONSTRUCTOR_OUTPUT_FIELDS
+RACE_SCENARIO_FIELDS = SCENARIO_PREFIX_FIELDS + RACE_PREDICTION_FIELDS
+
 
 def load_csv(path):
     """Read a CSV file using UTF-8 with optional BOM support."""
@@ -134,18 +172,35 @@ def load_csv(path):
         return list(csv.DictReader(file))
 
 
-def select_best_model_name(metrics_path, metric_name, lower_is_better=False):
-    """Select the best pre-race model from an existing model metrics CSV."""
+def select_top_model_rows(metrics_path, metric_name, lower_is_better=False, limit=MODEL_SCENARIO_COUNT):
+    """Select top-ranked pre-race model rows from an existing model metrics CSV."""
     rows = [
         row
         for row in load_csv(metrics_path)
         if row.get("feature_mode") == FEATURE_MODE
     ]
     if lower_is_better:
-        best_row = min(rows, key=lambda row: to_float(row[metric_name]))
+        ordered_rows = sorted(rows, key=lambda row: to_float(row[metric_name]))
     else:
-        best_row = max(rows, key=lambda row: to_float(row[metric_name]))
-    return best_row["model"], best_row
+        ordered_rows = sorted(rows, key=lambda row: to_float(row[metric_name]), reverse=True)
+    return ordered_rows[:limit]
+
+
+def add_scenario_fields(rows, scenario):
+    """Attach model-scenario metadata to output rows."""
+    enriched_rows = []
+    for row in rows:
+        enriched_rows.append(
+            {
+                "scenario_rank": scenario["scenario_rank"],
+                "top10_model_rank": scenario["top10_model_rank"],
+                "top10_model": scenario["top10_model"],
+                "points_model_rank": scenario["points_model_rank"],
+                "points_model": scenario["points_model"],
+                **row,
+            }
+        )
+    return enriched_rows
 
 
 def rank_from_points(points_by_id):
@@ -726,6 +781,68 @@ def save_points_uncertainty_chart(rows, label_field, filename, title):
     return output_path
 
 
+def save_model_scenario_comparison_chart(scenario_summary_rows):
+    """Save a chart comparing champion probabilities across model scenarios."""
+    labels = []
+    driver_values = []
+    constructor_values = []
+    for scenario_rank in sorted({to_int(row["scenario_rank"]) for row in scenario_summary_rows}):
+        scenario_rows = [
+            row for row in scenario_summary_rows
+            if to_int(row["scenario_rank"]) == scenario_rank
+        ]
+        driver_row = next(row for row in scenario_rows if row["entity_type"] == "driver")
+        constructor_row = next(row for row in scenario_rows if row["entity_type"] == "constructor")
+        labels.append(
+            f"S{scenario_rank}\n"
+            f"{driver_row['top10_model']}\n"
+            f"{driver_row['points_model']}"
+        )
+        driver_values.append(to_float(driver_row["predicted_champion_probability"]))
+        constructor_values.append(to_float(constructor_row["predicted_champion_probability"]))
+
+    x_positions = np.arange(len(labels))
+    width = 0.36
+    fig, ax = plt.subplots(figsize=(10, 5.8))
+    driver_bars = ax.bar(
+        x_positions - width / 2,
+        driver_values,
+        width,
+        label="Driver champion",
+        color="#2563EB",
+    )
+    constructor_bars = ax.bar(
+        x_positions + width / 2,
+        constructor_values,
+        width,
+        label="Constructor champion",
+        color="#16A34A",
+    )
+    ax.set_ylim(0, 1.08)
+    ax.set_ylabel("Champion probability")
+    ax.set_title("2026 Champion Probability by Top-3 Model Scenario")
+    ax.set_xticks(x_positions)
+    ax.set_xticklabels(labels, fontsize=8)
+    ax.legend(loc="center left", bbox_to_anchor=(1.01, 0.5), borderaxespad=0)
+    for bars in [driver_bars, constructor_bars]:
+        for bar in bars:
+            value = bar.get_height()
+            label = "<0.01" if 0 < value < 0.005 else f"{value:.2f}"
+            ax.text(
+                bar.get_x() + bar.get_width() / 2,
+                value + 0.02,
+                label,
+                ha="center",
+                va="bottom",
+                fontsize=8,
+            )
+    fig.subplots_adjust(bottom=0.27, left=0.09, right=0.78, top=0.90)
+    output_path = FIGURE_DIR / "season_prediction_model_scenarios_2026.png"
+    fig.savefig(output_path, dpi=180)
+    plt.close(fig)
+    return output_path
+
+
 def update_model_figure_manifest(source_files, figure_paths):
     """Append 2026 prediction figures to the model figure manifest."""
     if MODEL_FIGURE_MANIFEST_PATH.exists():
@@ -747,7 +864,7 @@ def update_model_figure_manifest(source_files, figure_paths):
     write_json(MODEL_FIGURE_MANIFEST_PATH, payload)
 
 
-def build_summary_rows(driver_rows, constructor_rows, top10_model_name, points_model_name):
+def build_summary_rows(driver_rows, constructor_rows, scenario):
     """Build compact champion prediction summary rows."""
     driver_champion = driver_rows[0]
     constructor_champion = constructor_rows[0]
@@ -760,8 +877,8 @@ def build_summary_rows(driver_rows, constructor_rows, top10_model_name, points_m
             "entity_type": "driver",
             "simulation_count": SIMULATION_COUNT,
             "feature_mode": FEATURE_MODE,
-            "top10_model": top10_model_name,
-            "points_model": points_model_name,
+            "top10_model": scenario["top10_model"],
+            "points_model": scenario["points_model"],
             "predicted_champion": driver_champion["driver_name"],
             "predicted_champion_probability": driver_champion["champion_probability"],
             "deterministic_champion": deterministic_driver["driver_name"],
@@ -770,12 +887,30 @@ def build_summary_rows(driver_rows, constructor_rows, top10_model_name, points_m
             "entity_type": "constructor",
             "simulation_count": SIMULATION_COUNT,
             "feature_mode": FEATURE_MODE,
-            "top10_model": top10_model_name,
-            "points_model": points_model_name,
+            "top10_model": scenario["top10_model"],
+            "points_model": scenario["points_model"],
             "predicted_champion": constructor_champion["constructor_name"],
             "predicted_champion_probability": constructor_champion["champion_probability"],
             "deterministic_champion": deterministic_constructor["constructor_name"],
         },
+    ]
+
+
+def build_scenario_summary_rows(driver_rows, constructor_rows, scenario):
+    """Build model-scenario champion summary rows with metric metadata."""
+    base_rows = build_summary_rows(driver_rows, constructor_rows, scenario)
+    return [
+        {
+            "scenario_rank": scenario["scenario_rank"],
+            "top10_model_rank": scenario["top10_model_rank"],
+            "top10_metric_name": "f1",
+            "top10_metric_value": format_float(scenario["top10_metric_value"], digits=6),
+            "points_model_rank": scenario["points_model_rank"],
+            "points_metric_name": "mae",
+            "points_metric_value": format_float(scenario["points_metric_value"], digits=6),
+            **row,
+        }
+        for row in base_rows
     ]
 
 
@@ -786,42 +921,102 @@ def main():
     driver_pool = build_driver_pool(state)
     schedule_rows = load_csv(SCHEDULE_PATH)
 
-    top10_model_name, top10_metric_row = select_best_model_name(TOP10_METRICS_PATH, "f1")
-    points_model_name, points_metric_row = select_best_model_name(
+    top10_metric_rows = select_top_model_rows(TOP10_METRICS_PATH, "f1")
+    points_metric_rows = select_top_model_rows(
         POINTS_METRICS_PATH, "mae", lower_is_better=True
     )
-    top10_model, points_model = train_selected_models(
-        feature_rows, top10_model_name, points_model_name
-    )
-    prediction_rows, deterministic_race_rows = build_rolling_future_predictions(
-        schedule_rows, driver_pool, state, feature_rows, top10_model, points_model
-    )
+    scenario_count = min(len(top10_metric_rows), len(points_metric_rows), MODEL_SCENARIO_COUNT)
+    scenarios = []
+    for index in range(scenario_count):
+        top10_metric_row = top10_metric_rows[index]
+        points_metric_row = points_metric_rows[index]
+        scenarios.append(
+            {
+                "scenario_rank": index + 1,
+                "top10_model_rank": index + 1,
+                "top10_model": top10_metric_row["model"],
+                "top10_metric_row": top10_metric_row,
+                "top10_metric_value": to_float(top10_metric_row["f1"]),
+                "points_model_rank": index + 1,
+                "points_model": points_metric_row["model"],
+                "points_metric_row": points_metric_row,
+                "points_metric_value": to_float(points_metric_row["mae"]),
+            }
+        )
 
     current_driver_points = dict(state["driver_points"])
     current_constructor_points = dict(state["constructor_points"])
-    deterministic_driver_points, deterministic_constructor_points = deterministic_projected_points(
-        current_driver_points, current_constructor_points, deterministic_race_rows
-    )
-    driver_samples, constructor_samples, driver_rank_samples, constructor_rank_samples = run_monte_carlo(
-        prediction_rows, current_driver_points, current_constructor_points, state
-    )
-    driver_rows = summarize_driver_predictions(
-        driver_samples, driver_rank_samples, deterministic_driver_points, state
-    )
-    constructor_rows = summarize_constructor_predictions(
-        constructor_samples,
-        constructor_rank_samples,
-        deterministic_constructor_points,
-        state,
-    )
-    summary_rows = build_summary_rows(
-        driver_rows, constructor_rows, top10_model_name, points_model_name
-    )
+    scenario_driver_rows = []
+    scenario_constructor_rows = []
+    scenario_race_rows = []
+    scenario_summary_rows = []
+    primary_result = None
+
+    for scenario in scenarios:
+        print(
+            "Running scenario "
+            f"{scenario['scenario_rank']}: "
+            f"{scenario['top10_model']} + {scenario['points_model']}"
+        )
+        top10_model, points_model = train_selected_models(
+            feature_rows, scenario["top10_model"], scenario["points_model"]
+        )
+        prediction_rows, deterministic_race_rows = build_rolling_future_predictions(
+            schedule_rows, driver_pool, state, feature_rows, top10_model, points_model
+        )
+        deterministic_driver_points, deterministic_constructor_points = deterministic_projected_points(
+            current_driver_points, current_constructor_points, deterministic_race_rows
+        )
+        driver_samples, constructor_samples, driver_rank_samples, constructor_rank_samples = run_monte_carlo(
+            prediction_rows, current_driver_points, current_constructor_points, state
+        )
+        driver_rows = summarize_driver_predictions(
+            driver_samples, driver_rank_samples, deterministic_driver_points, state
+        )
+        constructor_rows = summarize_constructor_predictions(
+            constructor_samples,
+            constructor_rank_samples,
+            deterministic_constructor_points,
+            state,
+        )
+        summary_rows = build_summary_rows(driver_rows, constructor_rows, scenario)
+        scenario_driver_rows.extend(add_scenario_fields(driver_rows, scenario))
+        scenario_constructor_rows.extend(add_scenario_fields(constructor_rows, scenario))
+        scenario_race_rows.extend(add_scenario_fields(deterministic_race_rows, scenario))
+        scenario_summary_rows.extend(
+            build_scenario_summary_rows(driver_rows, constructor_rows, scenario)
+        )
+
+        if scenario["scenario_rank"] == 1:
+            primary_result = {
+                "scenario": scenario,
+                "driver_rows": driver_rows,
+                "constructor_rows": constructor_rows,
+                "deterministic_race_rows": deterministic_race_rows,
+                "summary_rows": summary_rows,
+            }
+
+    if primary_result is None:
+        raise RuntimeError("No model scenarios were available for prediction.")
+
+    primary_scenario = primary_result["scenario"]
+    driver_rows = primary_result["driver_rows"]
+    constructor_rows = primary_result["constructor_rows"]
+    deterministic_race_rows = primary_result["deterministic_race_rows"]
+    summary_rows = primary_result["summary_rows"]
 
     write_csv(DRIVER_OUTPUT_PATH, DRIVER_OUTPUT_FIELDS, driver_rows)
     write_csv(CONSTRUCTOR_OUTPUT_PATH, CONSTRUCTOR_OUTPUT_FIELDS, constructor_rows)
     write_csv(RACE_PREDICTION_OUTPUT_PATH, RACE_PREDICTION_FIELDS, deterministic_race_rows)
     write_csv(SUMMARY_OUTPUT_PATH, SUMMARY_FIELDS, summary_rows)
+    write_csv(DRIVER_SCENARIO_OUTPUT_PATH, DRIVER_SCENARIO_FIELDS, scenario_driver_rows)
+    write_csv(
+        CONSTRUCTOR_SCENARIO_OUTPUT_PATH,
+        CONSTRUCTOR_SCENARIO_FIELDS,
+        scenario_constructor_rows,
+    )
+    write_csv(RACE_SCENARIO_OUTPUT_PATH, RACE_SCENARIO_FIELDS, scenario_race_rows)
+    write_csv(SCENARIO_SUMMARY_OUTPUT_PATH, SCENARIO_SUMMARY_FIELDS, scenario_summary_rows)
 
     figure_paths = [
         save_champion_probability_chart(
@@ -850,6 +1045,7 @@ def main():
             "season_prediction_constructor_points_uncertainty_2026.png",
             "2026 Constructor Points Projection Uncertainty",
         ),
+        save_model_scenario_comparison_chart(scenario_summary_rows),
     ]
     update_model_figure_manifest(
         [
@@ -857,6 +1053,10 @@ def main():
             str(CONSTRUCTOR_OUTPUT_PATH.relative_to(BASE_DIR)),
             str(RACE_PREDICTION_OUTPUT_PATH.relative_to(BASE_DIR)),
             str(SUMMARY_OUTPUT_PATH.relative_to(BASE_DIR)),
+            str(DRIVER_SCENARIO_OUTPUT_PATH.relative_to(BASE_DIR)),
+            str(CONSTRUCTOR_SCENARIO_OUTPUT_PATH.relative_to(BASE_DIR)),
+            str(RACE_SCENARIO_OUTPUT_PATH.relative_to(BASE_DIR)),
+            str(SCENARIO_SUMMARY_OUTPUT_PATH.relative_to(BASE_DIR)),
         ],
         figure_paths,
     )
@@ -869,10 +1069,22 @@ def main():
             "simulation_count": SIMULATION_COUNT,
             "random_seed": RANDOM_SEED,
             "points_rule": F1_POINTS_TABLE,
-            "top10_model": top10_model_name,
-            "top10_model_2025_metric": top10_metric_row,
-            "points_model": points_model_name,
-            "points_model_2025_metric": points_metric_row,
+            "top10_model": primary_scenario["top10_model"],
+            "top10_model_2025_metric": primary_scenario["top10_metric_row"],
+            "points_model": primary_scenario["points_model"],
+            "points_model_2025_metric": primary_scenario["points_metric_row"],
+            "model_scenarios": [
+                {
+                    "scenario_rank": scenario["scenario_rank"],
+                    "top10_model_rank": scenario["top10_model_rank"],
+                    "top10_model": scenario["top10_model"],
+                    "top10_f1": scenario["top10_metric_value"],
+                    "points_model_rank": scenario["points_model_rank"],
+                    "points_model": scenario["points_model"],
+                    "points_mae": scenario["points_metric_value"],
+                }
+                for scenario in scenarios
+            ],
             "remaining_race_count": len(schedule_rows),
             "driver_count": len(driver_pool),
             "outputs": [
@@ -880,6 +1092,10 @@ def main():
                 str(CONSTRUCTOR_OUTPUT_PATH.relative_to(BASE_DIR)),
                 str(RACE_PREDICTION_OUTPUT_PATH.relative_to(BASE_DIR)),
                 str(SUMMARY_OUTPUT_PATH.relative_to(BASE_DIR)),
+                str(DRIVER_SCENARIO_OUTPUT_PATH.relative_to(BASE_DIR)),
+                str(CONSTRUCTOR_SCENARIO_OUTPUT_PATH.relative_to(BASE_DIR)),
+                str(RACE_SCENARIO_OUTPUT_PATH.relative_to(BASE_DIR)),
+                str(SCENARIO_SUMMARY_OUTPUT_PATH.relative_to(BASE_DIR)),
             ],
             "figures": [str(path.relative_to(BASE_DIR)) for path in figure_paths],
             "notes": [
@@ -889,6 +1105,7 @@ def main():
                 "Remaining 2026 races use pre-race features only; qualifying and grid data are not used.",
                 "Sprint points and fastest-lap bonus points are outside this project scope.",
                 "Each simulated race maps the ranked top 10 to the current Grand Prix points table.",
+                "The primary output uses the best-ranked pre-race Top 10 and points models, while by-model outputs compare the top three ranked model pairs.",
             ],
         },
     )

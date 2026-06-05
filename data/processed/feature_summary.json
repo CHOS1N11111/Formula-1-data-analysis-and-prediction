@@ -1,8 +1,8 @@
 {
-  "built_at": "2026-06-01T11:01:07.509700+00:00",
+  "built_at": "2026-06-05T04:06:50.292573+00:00",
   "input": "data\\processed\\f1_model_dataset.csv",
   "output": "data\\processed\\f1_features.csv",
-  "rows_total": 3126,
+  "rows_total": 3148,
   "rows_by_year": {
     "2019": 420,
     "2020": 340,
@@ -11,7 +11,7 @@
     "2023": 440,
     "2024": 479,
     "2025": 479,
-    "2026": 88
+    "2026": 110
   },
   "rolling_window": 3,
   "points_feature_rule": "current_f1_grand_prix_points_from_finish_position",

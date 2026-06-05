@@ -1,5 +1,5 @@
 {
-  "built_at": "2026-05-29T04:28:08.505527+00:00",
+  "built_at": "2026-06-05T04:07:20.787029+00:00",
   "input_features": "data\\processed\\f1_features.csv",
   "input_2026_schedule": "data\\processed\\f1_2026_schedule.csv",
   "output_dir": "data\\analysis",
@@ -32,7 +32,7 @@
   ],
   "analysis_season_range": "2019-2025",
   "analysis_record_count": 3038,
-  "all_available_record_count": 3126,
-  "current_2026_completed_races": 4,
-  "current_2026_remaining_races": 18
+  "all_available_record_count": 3148,
+  "current_2026_completed_races": 5,
+  "current_2026_remaining_races": 17
 }

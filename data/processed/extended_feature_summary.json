@@ -1,5 +1,5 @@
 {
-  "built_at": "2026-06-01T11:08:35.759592+00:00",
+  "built_at": "2026-06-05T04:07:04.680081+00:00",
   "historical_source": "formula-1-race-data-sqlite\\Formula1.sqlite",
   "modern_source": "data\\processed\\f1_model_dataset.csv",
   "historical_year_range": [
@@ -10,8 +10,8 @@
   "output_dataset": "data\\processed\\f1_model_dataset_extended.csv",
   "output_features": "data\\processed\\f1_features_extended.csv",
   "historical_rows": 5970,
-  "modern_rows": 3126,
-  "total_rows": 9096,
+  "modern_rows": 3148,
+  "total_rows": 9118,
   "rows_by_year": {
     "2003": 320,
     "2004": 360,
@@ -35,13 +35,13 @@
     "2023": 440,
     "2024": 479,
     "2025": 479,
-    "2026": 88
+    "2026": 110
   },
   "feature_summary": {
-    "built_at": "2026-06-01T11:08:35.652193+00:00",
+    "built_at": "2026-06-05T04:07:04.581927+00:00",
     "input": "data\\processed\\f1_model_dataset.csv",
     "output": "data\\processed\\f1_features.csv",
-    "rows_total": 9096,
+    "rows_total": 9118,
     "rows_by_year": {
       "2003": 320,
       "2004": 360,
@@ -65,7 +65,7 @@
       "2023": 440,
       "2024": 479,
       "2025": 479,
-      "2026": 88
+      "2026": 110
     },
     "rolling_window": 3,
     "points_feature_rule": "current_f1_grand_prix_points_from_finish_position",

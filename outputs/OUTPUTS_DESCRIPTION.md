@@ -560,7 +560,7 @@ Use in report: probabilistic championship prediction method.
 
 ![2026 Driver Champion Probability](figures/season_prediction_driver_champion_2026.png)
 
-Shows the final 2026 driver champion probabilities from the pre-race championship simulation. Completed 2026 races use real standings as the starting point, while remaining races are simulated with pre-race model signals and F1 rule-mapped points.
+Shows the final 2026 driver champion probabilities from the pre-race championship simulation. Completed 2026 races use finish-position mapped current Grand Prix points as the starting point, while remaining races are simulated with pre-race model signals and F1 rule-mapped points.
 
 Use in report: final 2026 driver championship prediction.
 
@@ -587,3 +587,11 @@ Use in report: final driver standings uncertainty analysis.
 Shows projected 2026 constructor points with uncertainty intervals and current points. It is the constructor-level counterpart of the driver points uncertainty figure.
 
 Use in report: final constructor standings uncertainty analysis.
+
+#### [`figures/season_prediction_model_scenarios_2026.png`](figures/season_prediction_model_scenarios_2026.png)
+
+![2026 Champion Probability by Top-3 Model Scenario](figures/season_prediction_model_scenarios_2026.png)
+
+Compares 2026 driver and constructor champion probabilities across the top three pre-race model scenarios. Each scenario pairs the same-rank Top 10 classifier and points regressor from prior validation metrics.
+
+Use in report: robustness comparison of final championship predictions under different high-performing model choices.

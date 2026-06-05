@@ -1,9 +1,9 @@
 {
-  "built_at": "2026-05-26T12:59:42.623919+00:00",
+  "built_at": "2026-06-05T04:06:40.290691+00:00",
   "source": "data/raw/jolpica",
   "model_dataset": "data\\processed\\f1_model_dataset.csv",
   "schedule_2026": "data\\processed\\f1_2026_schedule.csv",
-  "rows_total": 3126,
+  "rows_total": 3148,
   "rows_by_year": {
     "2019": 420,
     "2020": 340,
@@ -12,7 +12,7 @@
     "2023": 440,
     "2024": 479,
     "2025": 479,
-    "2026": 88
+    "2026": 110
   },
   "completed_rounds_by_year": {
     "2019": [
@@ -185,7 +185,8 @@
       1,
       2,
       3,
-      4
+      4,
+      5
     ]
   },
   "fields": [

@@ -3125,3 +3125,25 @@
 2026,4,Miami Grand Prix,2026-05-03,20:00:00Z,miami,Miami International Autodrome,Miami,USA,lawson,LAW,Liam Lawson,New Zealander,rb,RB F1 Team,Italian,11,11,20,0.0,6,Retired,0,0,Jolpica-F1
 2026,4,Miami Grand Prix,2026-05-03,20:00:00Z,miami,Miami International Autodrome,Miami,USA,gasly,GAS,Pierre Gasly,French,alpine,Alpine F1 Team,French,9,9,21,0.0,4,Retired,0,0,Jolpica-F1
 2026,4,Miami Grand Prix,2026-05-03,20:00:00Z,miami,Miami International Autodrome,Miami,USA,hadjar,HAD,Isack Hadjar,French,red_bull,Red Bull,Austrian,22,22,22,0.0,4,Retired,0,0,Jolpica-F1
+2026,5,Canadian Grand Prix,2026-05-24,20:00:00Z,villeneuve,Circuit Gilles Villeneuve,Montreal,Canada,antonelli,ANT,Andrea Kimi Antonelli,Italian,mercedes,Mercedes,German,2,2,1,25.0,68,Finished,1,1,Jolpica-F1
+2026,5,Canadian Grand Prix,2026-05-24,20:00:00Z,villeneuve,Circuit Gilles Villeneuve,Montreal,Canada,hamilton,HAM,Lewis Hamilton,British,ferrari,Ferrari,Italian,5,5,2,18.0,68,Finished,1,1,Jolpica-F1
+2026,5,Canadian Grand Prix,2026-05-24,20:00:00Z,villeneuve,Circuit Gilles Villeneuve,Montreal,Canada,max_verstappen,VER,Max Verstappen,Dutch,red_bull,Red Bull,Austrian,6,6,3,15.0,68,Finished,1,1,Jolpica-F1
+2026,5,Canadian Grand Prix,2026-05-24,20:00:00Z,villeneuve,Circuit Gilles Villeneuve,Montreal,Canada,leclerc,LEC,Charles Leclerc,Monegasque,ferrari,Ferrari,Italian,8,8,4,12.0,68,Finished,0,1,Jolpica-F1
+2026,5,Canadian Grand Prix,2026-05-24,20:00:00Z,villeneuve,Circuit Gilles Villeneuve,Montreal,Canada,hadjar,HAD,Isack Hadjar,French,red_bull,Red Bull,Austrian,7,7,5,10.0,67,Lapped,0,1,Jolpica-F1
+2026,5,Canadian Grand Prix,2026-05-24,20:00:00Z,villeneuve,Circuit Gilles Villeneuve,Montreal,Canada,colapinto,COL,Franco Colapinto,Argentine,alpine,Alpine F1 Team,French,10,10,6,8.0,67,Lapped,0,1,Jolpica-F1
+2026,5,Canadian Grand Prix,2026-05-24,20:00:00Z,villeneuve,Circuit Gilles Villeneuve,Montreal,Canada,lawson,LAW,Liam Lawson,New Zealander,rb,RB F1 Team,Italian,12,12,7,6.0,67,Lapped,0,1,Jolpica-F1
+2026,5,Canadian Grand Prix,2026-05-24,20:00:00Z,villeneuve,Circuit Gilles Villeneuve,Montreal,Canada,gasly,GAS,Pierre Gasly,French,alpine,Alpine F1 Team,French,14,14,8,4.0,67,Lapped,0,1,Jolpica-F1
+2026,5,Canadian Grand Prix,2026-05-24,20:00:00Z,villeneuve,Circuit Gilles Villeneuve,Montreal,Canada,sainz,SAI,Carlos Sainz,Spanish,williams,Williams,British,15,15,9,2.0,67,Lapped,0,1,Jolpica-F1
+2026,5,Canadian Grand Prix,2026-05-24,20:00:00Z,villeneuve,Circuit Gilles Villeneuve,Montreal,Canada,bearman,BEA,Oliver Bearman,British,haas,Haas F1 Team,American,16,16,10,1.0,67,Lapped,0,1,Jolpica-F1
+2026,5,Canadian Grand Prix,2026-05-24,20:00:00Z,villeneuve,Circuit Gilles Villeneuve,Montreal,Canada,piastri,PIA,Oscar Piastri,Australian,mclaren,McLaren,British,4,4,11,0.0,66,Lapped,0,0,Jolpica-F1
+2026,5,Canadian Grand Prix,2026-05-24,20:00:00Z,villeneuve,Circuit Gilles Villeneuve,Montreal,Canada,hulkenberg,HUL,Nico Hülkenberg,German,audi,Audi,German,11,11,12,0.0,66,Lapped,0,0,Jolpica-F1
+2026,5,Canadian Grand Prix,2026-05-24,20:00:00Z,villeneuve,Circuit Gilles Villeneuve,Montreal,Canada,bortoleto,BOR,Gabriel Bortoleto,Brazilian,audi,Audi,German,13,13,13,0.0,66,Lapped,0,0,Jolpica-F1
+2026,5,Canadian Grand Prix,2026-05-24,20:00:00Z,villeneuve,Circuit Gilles Villeneuve,Montreal,Canada,ocon,OCO,Esteban Ocon,French,haas,Haas F1 Team,American,17,17,14,0.0,66,Lapped,0,0,Jolpica-F1
+2026,5,Canadian Grand Prix,2026-05-24,20:00:00Z,villeneuve,Circuit Gilles Villeneuve,Montreal,Canada,stroll,STR,Lance Stroll,Canadian,aston_martin,Aston Martin,British,22,21,15,0.0,64,Lapped,0,0,Jolpica-F1
+2026,5,Canadian Grand Prix,2026-05-24,20:00:00Z,villeneuve,Circuit Gilles Villeneuve,Montreal,Canada,bottas,BOT,Valtteri Bottas,Finnish,cadillac,Cadillac F1 Team,American,21,22,16,0.0,64,Lapped,0,0,Jolpica-F1
+2026,5,Canadian Grand Prix,2026-05-24,20:00:00Z,villeneuve,Circuit Gilles Villeneuve,Montreal,Canada,perez,PER,Sergio Pérez,Mexican,cadillac,Cadillac F1 Team,American,20,20,17,0.0,39,Retired,0,0,Jolpica-F1
+2026,5,Canadian Grand Prix,2026-05-24,20:00:00Z,villeneuve,Circuit Gilles Villeneuve,Montreal,Canada,norris,NOR,Lando Norris,British,mclaren,McLaren,British,3,3,18,0.0,38,Retired,0,0,Jolpica-F1
+2026,5,Canadian Grand Prix,2026-05-24,20:00:00Z,villeneuve,Circuit Gilles Villeneuve,Montreal,Canada,russell,RUS,George Russell,British,mercedes,Mercedes,German,1,1,19,0.0,29,Retired,0,0,Jolpica-F1
+2026,5,Canadian Grand Prix,2026-05-24,20:00:00Z,villeneuve,Circuit Gilles Villeneuve,Montreal,Canada,alonso,ALO,Fernando Alonso,Spanish,aston_martin,Aston Martin,British,19,19,20,0.0,23,Retired,0,0,Jolpica-F1
+2026,5,Canadian Grand Prix,2026-05-24,20:00:00Z,villeneuve,Circuit Gilles Villeneuve,Montreal,Canada,albon,ALB,Alexander Albon,Thai,williams,Williams,British,18,18,21,0.0,11,Retired,0,0,Jolpica-F1
+2026,5,Canadian Grand Prix,2026-05-24,20:00:00Z,villeneuve,Circuit Gilles Villeneuve,Montreal,Canada,arvid_lindblad,LIN,Arvid Lindblad,British,rb,RB F1 Team,Italian,9,9,22,0.0,0,Did not start,0,0,Jolpica-F1

@@ -271,6 +271,10 @@ python predict_f1_2026_championship.py
 - `season_prediction_race_points_2026.csv`: deterministic rule-mapped points prediction for each remaining 2026 race and driver.
 - `season_prediction_summary_2026.csv`: compact 2026 predicted champion summary for drivers and constructors.
 - `season_prediction_summary_2026.json`: metadata summary for the final 2026 championship prediction pipeline.
+- `season_prediction_model_scenarios_2026.csv`: champion prediction comparison for the top three pre-race Top 10 and points-model scenarios.
+- `season_prediction_driver_standings_2026_by_model.csv`: driver championship prediction details for each top-three model scenario.
+- `season_prediction_constructor_standings_2026_by_model.csv`: constructor championship prediction details for each top-three model scenario.
+- `season_prediction_race_points_2026_by_model.csv`: remaining-race deterministic rule-mapped points predictions for each top-three model scenario.
 
 ### Deep learning outputs
 

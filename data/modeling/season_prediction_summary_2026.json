@@ -1,5 +1,5 @@
 {
-  "built_at": "2026-06-03T06:51:28.854782+00:00",
+  "built_at": "2026-06-05T05:03:40.881657+00:00",
   "feature_mode": "pre_race",
   "simulation_count": 5000,
   "random_seed": 42,
@@ -47,19 +47,53 @@
     "total_actual_points": "2424.000000",
     "total_predicted_points": "2147.647587"
   },
-  "remaining_race_count": 18,
+  "model_scenarios": [
+    {
+      "scenario_rank": 1,
+      "top10_model_rank": 1,
+      "top10_model": "xgboost_classifier",
+      "top10_f1": 0.708861,
+      "points_model_rank": 1,
+      "points_model": "mlp_regressor",
+      "points_mae": 3.617885
+    },
+    {
+      "scenario_rank": 2,
+      "top10_model_rank": 2,
+      "top10_model": "lightgbm_classifier",
+      "top10_f1": 0.708595,
+      "points_model_rank": 2,
+      "points_model": "ridge_regression",
+      "points_mae": 3.623049
+    },
+    {
+      "scenario_rank": 3,
+      "top10_model_rank": 3,
+      "top10_model": "hist_gradient_boosting",
+      "top10_f1": 0.708075,
+      "points_model_rank": 3,
+      "points_model": "catboost_regressor",
+      "points_mae": 3.717629
+    }
+  ],
+  "remaining_race_count": 17,
   "driver_count": 22,
   "outputs": [
     "data\\modeling\\season_prediction_driver_standings_2026.csv",
     "data\\modeling\\season_prediction_constructor_standings_2026.csv",
     "data\\modeling\\season_prediction_race_points_2026.csv",
-    "data\\modeling\\season_prediction_summary_2026.csv"
+    "data\\modeling\\season_prediction_summary_2026.csv",
+    "data\\modeling\\season_prediction_driver_standings_2026_by_model.csv",
+    "data\\modeling\\season_prediction_constructor_standings_2026_by_model.csv",
+    "data\\modeling\\season_prediction_race_points_2026_by_model.csv",
+    "data\\modeling\\season_prediction_model_scenarios_2026.csv"
   ],
   "figures": [
     "outputs\\figures\\season_prediction_driver_champion_2026.png",
     "outputs\\figures\\season_prediction_constructor_champion_2026.png",
     "outputs\\figures\\season_prediction_driver_points_uncertainty_2026.png",
-    "outputs\\figures\\season_prediction_constructor_points_uncertainty_2026.png"
+    "outputs\\figures\\season_prediction_constructor_points_uncertainty_2026.png",
+    "outputs\\figures\\season_prediction_model_scenarios_2026.png"
   ],
   "notes": [
     "Completed 2026 races are converted from finishing positions to the current Grand Prix points table as the starting point.",
@@ -67,6 +101,7 @@
     "Monte Carlo simulations sample from the rolling pre-race prediction signals generated for the remaining races.",
     "Remaining 2026 races use pre-race features only; qualifying and grid data are not used.",
     "Sprint points and fastest-lap bonus points are outside this project scope.",
-    "Each simulated race maps the ranked top 10 to the current Grand Prix points table."
+    "Each simulated race maps the ranked top 10 to the current Grand Prix points table.",
+    "The primary output uses the best-ranked pre-race Top 10 and points models, while by-model outputs compare the top three ranked model pairs."
   ]
 }
