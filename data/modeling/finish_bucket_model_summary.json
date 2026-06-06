@@ -1,0 +1,31 @@
+{
+  "built_at": "2026-06-06T04:18:49.850160+00:00",
+  "target": "finish_bucket",
+  "bucket_labels": [
+    "win",
+    "podium_no_win",
+    "top5_no_podium",
+    "points_no_top5",
+    "no_points"
+  ],
+  "bucket_expected_points": {
+    "win": 25.0,
+    "podium_no_win": 16.5,
+    "top5_no_podium": 11.0,
+    "points_no_top5": 4.2,
+    "no_points": 0.0
+  },
+  "best_model": "hist_gradient_boosting_classifier",
+  "best_feature_mode": "post_qualifying",
+  "best_winner_hit_rate": "0.625000",
+  "best_expected_points_mae": "2.929959",
+  "outputs": [
+    "data\\modeling\\finish_bucket_model_metrics.csv",
+    "data\\modeling\\finish_bucket_predictions_2025.csv",
+    "data\\modeling\\finish_bucket_race_diagnostics_2025.csv"
+  ],
+  "notes": [
+    "This is an additive experiment and does not replace existing Top 10 or race-points models.",
+    "Finish buckets provide a high-points-zone signal that may later be tested in final race ranking."
+  ]
+}

@@ -708,10 +708,10 @@ def build_deterministic_race_predictions(prediction_rows):
 
 
 def update_state_after_damped_projected_race(state, race_rows, feedback_weight):
+    """Apply damped projected race outcomes to future-race feature state."""
     if feedback_weight <= 0:
         return
 
-    """Apply damped projected race outcomes to future-race feature state."""
     race_constructor_points = defaultdict(float)
     race_constructor_has_podium = defaultdict(int)
     race_constructor_ids = set()
@@ -747,10 +747,10 @@ def update_state_after_damped_projected_race(state, race_rows, feedback_weight):
 
 
 def build_projected_history_rows(race_predictions, race_deterministic_rows, feedback_weight):
+    """Create damped projected history rows for circuit-history features."""
     if feedback_weight <= 0:
         return []
 
-    """Create damped projected history rows for circuit-history features."""
     deterministic_by_driver = {
         row["driver_id"]: row for row in race_deterministic_rows
     }

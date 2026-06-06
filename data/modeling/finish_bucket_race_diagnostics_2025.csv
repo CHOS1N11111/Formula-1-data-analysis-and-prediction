@@ -1,0 +1,97 @@
+﻿season,round,race_name,feature_mode,model,predicted_winner,actual_winner,winner_hit,predicted_winner_prob_win,runner_up_by_prob_win,winner_runner_up_prob_gap,predicted_winner_expected_points
+2025,1,Australian Grand Prix,post_qualifying,logistic_regression_multinomial,Max Verstappen,Lando Norris,0,0.600744,Lando Norris,0.213307,20.094545
+2025,2,Chinese Grand Prix,post_qualifying,logistic_regression_multinomial,Oscar Piastri,Oscar Piastri,1,0.340228,Max Verstappen,0.013233,16.723880
+2025,3,Japanese Grand Prix,post_qualifying,logistic_regression_multinomial,Max Verstappen,Max Verstappen,1,0.594314,Lando Norris,0.259858,19.908706
+2025,4,Bahrain Grand Prix,post_qualifying,logistic_regression_multinomial,Oscar Piastri,Oscar Piastri,1,0.414000,George Russell,0.139536,18.259218
+2025,5,Saudi Arabian Grand Prix,post_qualifying,logistic_regression_multinomial,Max Verstappen,Oscar Piastri,0,0.728045,Oscar Piastri,0.274568,21.865341
+2025,6,Miami Grand Prix,post_qualifying,logistic_regression_multinomial,Max Verstappen,Oscar Piastri,0,0.867056,Lando Norris,0.435533,23.497987
+2025,7,Emilia Romagna Grand Prix,post_qualifying,logistic_regression_multinomial,Max Verstappen,Max Verstappen,1,0.660490,Oscar Piastri,0.009791,21.171578
+2025,8,Monaco Grand Prix,post_qualifying,logistic_regression_multinomial,Lando Norris,Lando Norris,1,0.420538,Max Verstappen,0.004438,18.966530
+2025,9,Spanish Grand Prix,post_qualifying,logistic_regression_multinomial,Max Verstappen,Oscar Piastri,0,0.509475,Oscar Piastri,0.037332,19.014161
+2025,10,Canadian Grand Prix,post_qualifying,logistic_regression_multinomial,Max Verstappen,George Russell,0,0.615688,Oscar Piastri,0.270252,20.547049
+2025,11,Austrian Grand Prix,post_qualifying,logistic_regression_multinomial,Lando Norris,Lando Norris,1,0.432255,Oscar Piastri,0.136414,18.961091
+2025,12,British Grand Prix,post_qualifying,logistic_regression_multinomial,Max Verstappen,Lando Norris,0,0.586223,Oscar Piastri,0.196866,19.803258
+2025,13,Belgian Grand Prix,post_qualifying,logistic_regression_multinomial,Lando Norris,Oscar Piastri,0,0.512379,Oscar Piastri,0.091329,20.120285
+2025,14,Hungarian Grand Prix,post_qualifying,logistic_regression_multinomial,Oscar Piastri,Lando Norris,0,0.537113,Lando Norris,0.129430,20.217671
+2025,15,Dutch Grand Prix,post_qualifying,logistic_regression_multinomial,Oscar Piastri,Oscar Piastri,1,0.470072,Lando Norris,0.121700,19.597478
+2025,16,Italian Grand Prix,post_qualifying,logistic_regression_multinomial,Max Verstappen,Max Verstappen,1,0.658544,Oscar Piastri,0.245660,20.949416
+2025,17,Azerbaijan Grand Prix,post_qualifying,logistic_regression_multinomial,Max Verstappen,Max Verstappen,1,0.818841,George Russell,0.689441,23.012942
+2025,18,Singapore Grand Prix,post_qualifying,logistic_regression_multinomial,Max Verstappen,George Russell,0,0.799786,George Russell,0.256978,22.892442
+2025,19,United States Grand Prix,post_qualifying,logistic_regression_multinomial,Max Verstappen,Max Verstappen,1,0.805869,Lando Norris,0.505146,22.930050
+2025,20,Mexico City Grand Prix,post_qualifying,logistic_regression_multinomial,Max Verstappen,Lando Norris,0,0.398442,Lando Norris,0.019544,17.717902
+2025,21,São Paulo Grand Prix,post_qualifying,logistic_regression_multinomial,Lando Norris,Lando Norris,1,0.552590,Andrea Kimi Antonelli,0.367294,20.611091
+2025,22,Las Vegas Grand Prix,post_qualifying,logistic_regression_multinomial,Max Verstappen,Max Verstappen,1,0.823326,Lando Norris,0.154279,23.215617
+2025,23,Qatar Grand Prix,post_qualifying,logistic_regression_multinomial,Max Verstappen,Max Verstappen,1,0.555771,Lando Norris,0.267601,20.210593
+2025,24,Abu Dhabi Grand Prix,post_qualifying,logistic_regression_multinomial,Max Verstappen,Max Verstappen,1,0.836117,Lando Norris,0.539369,23.354765
+2025,1,Australian Grand Prix,post_qualifying,hist_gradient_boosting_classifier,Lando Norris,Lando Norris,1,0.704827,Oscar Piastri,0.480561,21.048789
+2025,2,Chinese Grand Prix,post_qualifying,hist_gradient_boosting_classifier,Oscar Piastri,Oscar Piastri,1,0.512499,George Russell,0.447693,18.020682
+2025,3,Japanese Grand Prix,post_qualifying,hist_gradient_boosting_classifier,Max Verstappen,Max Verstappen,1,0.328493,Lando Norris,0.258696,14.119776
+2025,4,Bahrain Grand Prix,post_qualifying,hist_gradient_boosting_classifier,Oscar Piastri,Oscar Piastri,1,0.558769,George Russell,0.237525,19.408391
+2025,5,Saudi Arabian Grand Prix,post_qualifying,hist_gradient_boosting_classifier,Oscar Piastri,Oscar Piastri,1,0.379616,Max Verstappen,0.166819,18.406329
+2025,6,Miami Grand Prix,post_qualifying,hist_gradient_boosting_classifier,Lando Norris,Oscar Piastri,0,0.063597,Max Verstappen,0.008147,15.580350
+2025,7,Emilia Romagna Grand Prix,post_qualifying,hist_gradient_boosting_classifier,Oscar Piastri,Max Verstappen,0,0.742106,Max Verstappen,0.501037,21.054253
+2025,8,Monaco Grand Prix,post_qualifying,hist_gradient_boosting_classifier,Lando Norris,Lando Norris,1,0.516383,Oscar Piastri,0.021808,18.273794
+2025,9,Spanish Grand Prix,post_qualifying,hist_gradient_boosting_classifier,Oscar Piastri,Oscar Piastri,1,0.316314,Max Verstappen,0.251643,14.026531
+2025,10,Canadian Grand Prix,post_qualifying,hist_gradient_boosting_classifier,George Russell,George Russell,1,0.255185,Oscar Piastri,0.010659,14.230818
+2025,11,Austrian Grand Prix,post_qualifying,hist_gradient_boosting_classifier,Lando Norris,Lando Norris,1,0.504694,Charles Leclerc,0.382347,17.653129
+2025,12,British Grand Prix,post_qualifying,hist_gradient_boosting_classifier,Max Verstappen,Lando Norris,0,0.651832,Oscar Piastri,0.470129,20.516837
+2025,13,Belgian Grand Prix,post_qualifying,hist_gradient_boosting_classifier,Oscar Piastri,Oscar Piastri,1,0.484074,Lando Norris,0.049278,19.902590
+2025,14,Hungarian Grand Prix,post_qualifying,hist_gradient_boosting_classifier,Oscar Piastri,Lando Norris,0,0.497499,Charles Leclerc,0.146412,18.802985
+2025,15,Dutch Grand Prix,post_qualifying,hist_gradient_boosting_classifier,Oscar Piastri,Oscar Piastri,1,0.463621,Max Verstappen,0.351110,19.283173
+2025,16,Italian Grand Prix,post_qualifying,hist_gradient_boosting_classifier,Oscar Piastri,Max Verstappen,0,0.321478,Max Verstappen,0.172999,17.679654
+2025,17,Azerbaijan Grand Prix,post_qualifying,hist_gradient_boosting_classifier,Max Verstappen,Max Verstappen,1,0.059702,Oscar Piastri,0.014049,11.010667
+2025,18,Singapore Grand Prix,post_qualifying,hist_gradient_boosting_classifier,Max Verstappen,George Russell,0,0.735559,George Russell,0.494000,21.258381
+2025,19,United States Grand Prix,post_qualifying,hist_gradient_boosting_classifier,George Russell,Max Verstappen,0,0.501025,Max Verstappen,0.043491,18.091787
+2025,20,Mexico City Grand Prix,post_qualifying,hist_gradient_boosting_classifier,Lando Norris,Lando Norris,1,0.319884,Max Verstappen,0.197731,14.202516
+2025,21,São Paulo Grand Prix,post_qualifying,hist_gradient_boosting_classifier,Lando Norris,Lando Norris,1,0.343816,Charles Leclerc,0.278478,13.506636
+2025,22,Las Vegas Grand Prix,post_qualifying,hist_gradient_boosting_classifier,Lando Norris,Max Verstappen,0,0.636234,Max Verstappen,0.438609,20.932013
+2025,23,Qatar Grand Prix,post_qualifying,hist_gradient_boosting_classifier,Oscar Piastri,Max Verstappen,0,0.769617,Max Verstappen,0.679148,21.590134
+2025,24,Abu Dhabi Grand Prix,post_qualifying,hist_gradient_boosting_classifier,Max Verstappen,Max Verstappen,1,0.791849,George Russell,0.729486,21.171459
+2025,1,Australian Grand Prix,pre_race,logistic_regression_multinomial,Max Verstappen,Lando Norris,0,0.464893,Lewis Hamilton,0.196254,17.614847
+2025,2,Chinese Grand Prix,pre_race,logistic_regression_multinomial,Max Verstappen,Oscar Piastri,0,0.361327,Lando Norris,0.177500,16.153418
+2025,3,Japanese Grand Prix,pre_race,logistic_regression_multinomial,Lando Norris,Max Verstappen,0,0.208050,Max Verstappen,0.040679,15.119858
+2025,4,Bahrain Grand Prix,pre_race,logistic_regression_multinomial,Max Verstappen,Oscar Piastri,0,0.399249,Lando Norris,0.140046,16.455862
+2025,5,Saudi Arabian Grand Prix,pre_race,logistic_regression_multinomial,Max Verstappen,Oscar Piastri,0,0.398278,Oscar Piastri,0.030077,16.956336
+2025,6,Miami Grand Prix,pre_race,logistic_regression_multinomial,Max Verstappen,Oscar Piastri,0,0.525113,Oscar Piastri,0.094905,18.569185
+2025,7,Emilia Romagna Grand Prix,pre_race,logistic_regression_multinomial,Oscar Piastri,Max Verstappen,0,0.565279,Max Verstappen,0.071089,20.618670
+2025,8,Monaco Grand Prix,pre_race,logistic_regression_multinomial,Max Verstappen,Lando Norris,0,0.532493,Oscar Piastri,0.124052,19.002180
+2025,9,Spanish Grand Prix,pre_race,logistic_regression_multinomial,Max Verstappen,Oscar Piastri,0,0.454853,Lando Norris,0.151231,17.731732
+2025,10,Canadian Grand Prix,pre_race,logistic_regression_multinomial,Lando Norris,George Russell,0,0.364351,Oscar Piastri,0.021821,18.139098
+2025,11,Austrian Grand Prix,pre_race,logistic_regression_multinomial,Oscar Piastri,Lando Norris,0,0.280832,Lando Norris,0.012476,16.109541
+2025,12,British Grand Prix,pre_race,logistic_regression_multinomial,Oscar Piastri,Lando Norris,0,0.287252,Lando Norris,0.023455,16.333757
+2025,13,Belgian Grand Prix,pre_race,logistic_regression_multinomial,Lando Norris,Oscar Piastri,0,0.343608,Oscar Piastri,0.067825,17.743086
+2025,14,Hungarian Grand Prix,pre_race,logistic_regression_multinomial,Lando Norris,Lando Norris,1,0.472545,Oscar Piastri,0.030398,19.526550
+2025,15,Dutch Grand Prix,pre_race,logistic_regression_multinomial,Lando Norris,Oscar Piastri,0,0.410485,Oscar Piastri,0.035319,18.756593
+2025,16,Italian Grand Prix,pre_race,logistic_regression_multinomial,Oscar Piastri,Max Verstappen,0,0.456091,Lando Norris,0.137652,19.087741
+2025,17,Azerbaijan Grand Prix,pre_race,logistic_regression_multinomial,Oscar Piastri,Max Verstappen,0,0.492341,Max Verstappen,0.004844,19.312729
+2025,18,Singapore Grand Prix,pre_race,logistic_regression_multinomial,Max Verstappen,George Russell,0,0.631398,Oscar Piastri,0.289424,20.467075
+2025,19,United States Grand Prix,pre_race,logistic_regression_multinomial,Max Verstappen,Max Verstappen,1,0.525199,George Russell,0.323221,18.841995
+2025,20,Mexico City Grand Prix,pre_race,logistic_regression_multinomial,Max Verstappen,Lando Norris,0,0.588370,George Russell,0.405888,19.869199
+2025,21,São Paulo Grand Prix,pre_race,logistic_regression_multinomial,Max Verstappen,Lando Norris,0,0.511555,Lando Norris,0.167670,18.710128
+2025,22,Las Vegas Grand Prix,pre_race,logistic_regression_multinomial,Max Verstappen,Max Verstappen,1,0.642679,Lando Norris,0.125984,20.628939
+2025,23,Qatar Grand Prix,pre_race,logistic_regression_multinomial,Max Verstappen,Max Verstappen,1,0.526107,Lando Norris,0.198481,19.001591
+2025,24,Abu Dhabi Grand Prix,pre_race,logistic_regression_multinomial,Max Verstappen,Max Verstappen,1,0.604099,Lando Norris,0.363579,20.192302
+2025,1,Australian Grand Prix,pre_race,hist_gradient_boosting_classifier,Max Verstappen,Lando Norris,0,0.329015,George Russell,0.149837,13.832478
+2025,2,Chinese Grand Prix,pre_race,hist_gradient_boosting_classifier,Max Verstappen,Oscar Piastri,0,0.069133,Oscar Piastri,0.047959,10.755992
+2025,3,Japanese Grand Prix,pre_race,hist_gradient_boosting_classifier,Lando Norris,Max Verstappen,0,0.219045,George Russell,0.174477,15.421733
+2025,4,Bahrain Grand Prix,pre_race,hist_gradient_boosting_classifier,Max Verstappen,Oscar Piastri,0,0.394316,Lando Norris,0.302797,16.522188
+2025,5,Saudi Arabian Grand Prix,pre_race,hist_gradient_boosting_classifier,Oscar Piastri,Oscar Piastri,1,0.201173,Max Verstappen,0.119707,16.672315
+2025,6,Miami Grand Prix,pre_race,hist_gradient_boosting_classifier,George Russell,Oscar Piastri,0,0.205120,Oscar Piastri,0.041373,11.557100
+2025,7,Emilia Romagna Grand Prix,pre_race,hist_gradient_boosting_classifier,Oscar Piastri,Max Verstappen,0,0.258889,Max Verstappen,0.177796,15.607695
+2025,8,Monaco Grand Prix,pre_race,hist_gradient_boosting_classifier,Oscar Piastri,Lando Norris,0,0.220875,Lando Norris,0.089086,11.352508
+2025,9,Spanish Grand Prix,pre_race,hist_gradient_boosting_classifier,Max Verstappen,Oscar Piastri,0,0.167110,Oscar Piastri,0.094221,11.275661
+2025,10,Canadian Grand Prix,pre_race,hist_gradient_boosting_classifier,Lando Norris,George Russell,0,0.153282,Oscar Piastri,0.029320,13.883327
+2025,11,Austrian Grand Prix,pre_race,hist_gradient_boosting_classifier,Oscar Piastri,Lando Norris,0,0.073731,Lando Norris,0.016414,11.565978
+2025,12,British Grand Prix,pre_race,hist_gradient_boosting_classifier,Charles Leclerc,Lando Norris,0,0.281634,Lando Norris,0.111586,14.038058
+2025,13,Belgian Grand Prix,pre_race,hist_gradient_boosting_classifier,Lando Norris,Oscar Piastri,0,0.382567,Oscar Piastri,0.087257,17.186554
+2025,14,Hungarian Grand Prix,pre_race,hist_gradient_boosting_classifier,Lando Norris,Lando Norris,1,0.515872,Oscar Piastri,0.065545,17.891832
+2025,15,Dutch Grand Prix,pre_race,hist_gradient_boosting_classifier,Lando Norris,Oscar Piastri,0,0.442648,Oscar Piastri,0.238130,17.712367
+2025,16,Italian Grand Prix,pre_race,hist_gradient_boosting_classifier,Oscar Piastri,Max Verstappen,0,0.692684,Lando Norris,0.265400,21.090448
+2025,17,Azerbaijan Grand Prix,pre_race,hist_gradient_boosting_classifier,Lando Norris,Max Verstappen,0,0.523641,Oscar Piastri,0.036873,18.378688
+2025,18,Singapore Grand Prix,pre_race,hist_gradient_boosting_classifier,Oscar Piastri,George Russell,0,0.422700,Lando Norris,0.080762,14.927202
+2025,19,United States Grand Prix,pre_race,hist_gradient_boosting_classifier,Lando Norris,Max Verstappen,0,0.494131,George Russell,0.356146,17.836458
+2025,20,Mexico City Grand Prix,pre_race,hist_gradient_boosting_classifier,Max Verstappen,Lando Norris,0,0.553000,Oscar Piastri,0.347651,18.766085
+2025,21,São Paulo Grand Prix,pre_race,hist_gradient_boosting_classifier,Max Verstappen,Lando Norris,0,0.237991,Lando Norris,0.051957,12.056861
+2025,22,Las Vegas Grand Prix,pre_race,hist_gradient_boosting_classifier,Lando Norris,Max Verstappen,0,0.415816,Max Verstappen,0.280836,17.079000
+2025,23,Qatar Grand Prix,pre_race,hist_gradient_boosting_classifier,Lando Norris,Max Verstappen,0,0.431405,Max Verstappen,0.062244,16.296923
+2025,24,Abu Dhabi Grand Prix,pre_race,hist_gradient_boosting_classifier,Max Verstappen,Max Verstappen,1,0.542286,George Russell,0.330207,17.697325

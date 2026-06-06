@@ -1,0 +1,5 @@
+﻿feature_mode,model,train_seasons,test_season,train_records,test_records,accuracy,macro_f1,weighted_f1,log_loss,expected_points_mae,winner_hit_rate,avg_bucket_rank_of_actual_bucket
+post_qualifying,hist_gradient_boosting_classifier,2003-2024,2025,8529,479,0.592902,0.493467,0.585263,0.957331,2.929959,0.625000,1.620042
+post_qualifying,logistic_regression_multinomial,2003-2024,2025,8529,479,0.532359,0.499378,0.544843,1.069163,3.380667,0.583333,1.682672
+pre_race,logistic_regression_multinomial,2003-2024,2025,8529,479,0.440501,0.386371,0.460531,1.189558,4.072743,0.208333,1.876827
+pre_race,hist_gradient_boosting_classifier,2003-2024,2025,8529,479,0.521921,0.335939,0.498825,1.164634,3.723404,0.125000,1.843424

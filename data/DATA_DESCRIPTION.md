@@ -258,6 +258,10 @@ python predict_f1_2026_championship.py
 - `top10_feature_importance.csv`: feature importance for the best Top 10 model.
 - `points_feature_importance.csv`: feature importance for the best race-points model.
 - `points_model_summary.json`: metadata summary for Top 10 and race-points prediction models.
+- `finish_bucket_model_metrics.csv`: 2025 evaluation metrics for finish-bucket multiclass models.
+- `finish_bucket_predictions_2025.csv`: finish-bucket probabilities, predicted bucket, and expected points for 2025 driver-race rows.
+- `finish_bucket_race_diagnostics_2025.csv`: race-level winner diagnostics from finish-bucket probability models.
+- `finish_bucket_model_summary.json`: metadata summary for the finish-bucket multiclass experiment.
 - `top10_calibrated_predictions_2025.csv`: Top 10 probabilities after leave-one-race-out empirical calibration.
 - `top10_calibrated_probability_bins_2025.csv`: raw versus calibrated probability bins for 2025.
 - `top10_calibrated_probability_summary_2025.csv`: Brier score and expected calibration error before and after calibration.

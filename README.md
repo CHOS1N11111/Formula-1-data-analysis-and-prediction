@@ -112,6 +112,7 @@ python train_f1_podium_model.py
 python train_f1_podium_deep_model.py
 python score_f1_podium_models.py
 python train_f1_points_model.py
+python train_f1_finish_bucket_model.py
 python visualize_f1_model_results.py
 python simulate_f1_season_uncertainty.py
 python tune_f1_feedback_weight.py
