@@ -1,0 +1,16 @@
+﻿scenario_rank,top10_model,points_model,circuit_archetype,race_count,winner_distribution,avg_winner_runner_up_score_gap,min_winner_runner_up_score_gap,max_winner_runner_up_score_gap,avg_winner_runner_up_predicted_points_gap,avg_winner_runner_up_calibrated_top10_gap
+1,xgboost_classifier,mlp_regressor,balanced,4,"{""Andrea Kimi Antonelli"": 1, ""Lewis Hamilton"": 3}",0.019245,0.000000,0.073063,0.696076,-0.012868
+1,xgboost_classifier,mlp_regressor,high_volatility,3,"{""Lewis Hamilton"": 3}",0.014547,0.000000,0.028199,0.574675,0.000000
+1,xgboost_classifier,mlp_regressor,overtaking_friendly,6,"{""Andrea Kimi Antonelli"": 3, ""Lewis Hamilton"": 2, ""George Russell"": 1}",0.020546,0.000000,0.054995,0.538870,0.020966
+1,xgboost_classifier,mlp_regressor,qualifying_heavy,2,"{""Andrea Kimi Antonelli"": 1, ""Lewis Hamilton"": 1}",0.072744,0.011149,0.134339,1.750304,0.018581
+1,xgboost_classifier,mlp_regressor,unknown,2,"{""Lewis Hamilton"": 1, ""Andrea Kimi Antonelli"": 1}",0.005574,0.000000,0.011149,0.000000,0.018581
+2,lightgbm_classifier,ridge_regression,balanced,4,"{""Andrea Kimi Antonelli"": 4}",0.127062,0.112919,0.152483,3.627555,0.000000
+2,lightgbm_classifier,ridge_regression,high_volatility,3,"{""Andrea Kimi Antonelli"": 3}",0.127147,0.124697,0.130739,3.546300,0.031362
+2,lightgbm_classifier,ridge_regression,overtaking_friendly,6,"{""Andrea Kimi Antonelli"": 6}",0.126883,0.097264,0.147275,3.739510,0.013161
+2,lightgbm_classifier,ridge_regression,qualifying_heavy,2,"{""Andrea Kimi Antonelli"": 2}",0.153805,0.133235,0.174375,4.358567,0.000000
+2,lightgbm_classifier,ridge_regression,unknown,2,"{""Andrea Kimi Antonelli"": 2}",0.123561,0.119307,0.127815,3.978132,0.023522
+3,hist_gradient_boosting,catboost_regressor,balanced,4,"{""Andrea Kimi Antonelli"": 4}",0.147886,0.094613,0.175544,3.839993,0.010788
+3,hist_gradient_boosting,catboost_regressor,high_volatility,3,"{""Andrea Kimi Antonelli"": 3}",0.169130,0.145230,0.186118,4.303909,0.043152
+3,hist_gradient_boosting,catboost_regressor,overtaking_friendly,6,"{""Andrea Kimi Antonelli"": 6}",0.147432,0.082322,0.234105,3.324082,0.071294
+3,hist_gradient_boosting,catboost_regressor,qualifying_heavy,2,"{""Andrea Kimi Antonelli"": 2}",0.171063,0.075186,0.266940,3.923137,0.074578
+3,hist_gradient_boosting,catboost_regressor,unknown,2,"{""Andrea Kimi Antonelli"": 2}",0.132965,0.116079,0.149850,3.366415,0.021576

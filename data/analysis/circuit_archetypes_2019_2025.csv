@@ -1,0 +1,32 @@
+﻿circuit_id,circuit_name,country,race_count,pole_win_rate,front3_podium_rate,grid_importance_score,avg_abs_position_change,large_gain_rate,non_front_row_winner_rate,volatility_index,circuit_archetype,archetype_reason
+bahrain,Bahrain International Circuit,Bahrain,8,0.6250,0.5833,0.6067,3.6478,0.1258,0.1250,0.1312,balanced,"No single qualifying, overtaking, or volatility metric dominates."
+baku,Baku City Circuit,Azerbaijan,6,0.3333,0.6667,0.5123,3.5043,0.1026,0.1667,0.1269,balanced,"No single qualifying, overtaking, or volatility metric dominates."
+catalunya,Circuit de Barcelona-Catalunya,Spain,7,0.5714,0.7143,0.6695,2.5145,0.0652,0.0000,0.0478,balanced,"No single qualifying, overtaking, or volatility metric dominates."
+hockenheimring,Hockenheimring,Germany,1,0.0000,0.3333,,,,,,balanced,"No single qualifying, overtaking, or volatility metric dominates."
+istanbul,Istanbul Park,Turkey,2,0.5000,0.5000,,,,,,balanced,"No single qualifying, overtaking, or volatility metric dominates."
+mugello,Autodromo Internazionale del Mugello,Italy,1,1.0000,0.6667,,,,,,balanced,"No single qualifying, overtaking, or volatility metric dominates."
+nurburgring,Nürburgring,Germany,1,0.0000,0.6667,,,,,,balanced,"No single qualifying, overtaking, or volatility metric dominates."
+portimao,Autódromo Internacional do Algarve,Portugal,2,0.5000,1.0000,,,,,,balanced,"No single qualifying, overtaking, or volatility metric dominates."
+ricard,Circuit Paul Ricard,France,3,0.6667,0.6667,0.6734,2.9322,0.1017,0.0000,0.0661,balanced,"No single qualifying, overtaking, or volatility metric dominates."
+rodriguez,Autódromo Hermanos Rodríguez,Mexico,6,0.5000,0.6667,0.6109,3.3051,0.1271,0.0000,0.0992,balanced,"No single qualifying, overtaking, or volatility metric dominates."
+spa,Circuit de Spa-Francorchamps,Belgium,7,0.4286,0.8095,0.6074,3.0741,0.0815,0.2857,0.1472,balanced,"No single qualifying, overtaking, or volatility metric dominates."
+americas,Circuit of the Americas,USA,6,0.5000,0.7222,0.5716,3.7373,0.1610,0.3333,0.2127,high_volatility,High volatility or frequent non-front-row winners.
+hungaroring,Hungaroring,Hungary,7,0.1429,0.5714,0.4164,3.6838,0.1838,0.2857,0.2034,high_volatility,High volatility or frequent non-front-row winners.
+interlagos,Autódromo José Carlos Pace,Brazil,6,0.6667,0.4444,0.5378,4.2627,0.1610,0.3333,0.2153,high_volatility,High volatility or frequent non-front-row winners.
+miami,Miami International Autodrome,USA,4,0.0000,0.6667,0.4264,2.9744,0.1538,0.7500,0.3135,high_volatility,High volatility or frequent non-front-row winners.
+monza,Autodromo Nazionale di Monza,Italy,7,0.2857,0.7143,0.4975,3.7737,0.1387,0.4286,0.2322,high_volatility,High volatility or frequent non-front-row winners.
+sochi,Sochi Autodrom,Russia,3,0.0000,0.6667,0.3609,4.0169,0.1525,0.3333,0.2220,high_volatility,High volatility or frequent non-front-row winners.
+albert_park,Albert Park Grand Prix Circuit,Australia,5,0.6000,0.6667,0.5804,4.2828,0.1717,0.0000,0.1232,overtaking_friendly,Large position changes or frequent large gains.
+imola,Autodromo Enzo e Dino Ferrari,Italy,5,0.4000,0.7333,0.5559,3.9082,0.1837,0.0000,0.1224,overtaking_friendly,Large position changes or frequent large gains.
+jeddah,Jeddah Corniche Circuit,Saudi Arabia,5,0.6000,0.8000,0.6961,2.9899,0.1313,0.2000,0.1459,overtaking_friendly,Large position changes or frequent large gains.
+losail,Losail International Circuit,Qatar,4,0.5000,0.5000,0.5402,3.6750,0.1625,0.0000,0.1175,overtaking_friendly,Large position changes or frequent large gains.
+marina_bay,Marina Bay Street Circuit,Singapore,5,0.6000,0.6000,0.6328,3.2041,0.1327,0.0000,0.0898,overtaking_friendly,Large position changes or frequent large gains.
+red_bull_ring,Red Bull Ring,Austria,9,0.6667,0.7037,0.6641,3.4011,0.1356,0.0000,0.0949,overtaking_friendly,Large position changes or frequent large gains.
+shanghai,Shanghai International Circuit,China,3,0.6667,0.8889,0.7298,3.4915,0.1356,0.0000,0.0898,overtaking_friendly,Large position changes or frequent large gains.
+silverstone,Silverstone Circuit,UK,8,0.3750,0.6667,0.5439,3.4088,0.1384,0.1250,0.1381,overtaking_friendly,Large position changes or frequent large gains.
+vegas,Las Vegas Strip Street Circuit,USA,3,0.3333,0.5556,0.4065,4.7333,0.2167,0.0000,0.1567,overtaking_friendly,Large position changes or frequent large gains.
+villeneuve,Circuit Gilles Villeneuve,Canada,5,0.6000,0.8667,0.6846,3.6667,0.1717,0.0000,0.1141,overtaking_friendly,Large position changes or frequent large gains.
+zandvoort,Circuit Park Zandvoort,Netherlands,5,1.0000,0.6667,0.7787,3.5773,0.1443,0.0000,0.1072,overtaking_friendly,Large position changes or frequent large gains.
+monaco,Circuit de Monaco,Monaco,6,0.6667,0.7778,0.7341,2.4000,0.0500,0.0000,0.0475,qualifying_heavy,"Grid position, pole wins, and front-three starts are historically important."
+suzuka,Suzuka Circuit,Japan,5,0.8000,0.8000,0.7933,2.4141,0.0606,0.0000,0.0424,qualifying_heavy,"Grid position, pole wins, and front-three starts are historically important."
+yas_marina,Yas Marina Circuit,UAE,7,1.0000,0.8571,0.8796,2.6571,0.0857,0.0000,0.0600,qualifying_heavy,"Grid position, pole wins, and front-three starts are historically important."

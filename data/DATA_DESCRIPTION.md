@@ -281,6 +281,7 @@ python predict_f1_2026_championship.py
 - `season_prediction_summary_2026.json`: metadata summary for the final 2026 championship prediction pipeline.
 - `season_prediction_model_scenarios_2026.csv`: champion prediction comparison for the top three pre-race Top 10 and points-model scenarios.
 - `season_prediction_model_scenario_diagnostics_2026.csv`: diagnostics for each 2026 model scenario, including deterministic race-winner concentration and champion probability margins.
+- `season_prediction_race_signal_diagnostics_2026.csv`: race-by-race winner and runner-up signal diagnostics for each 2026 model scenario, including ranking-score gaps, predicted-points gaps, and calibrated Top 10 probability gaps.
 - `season_prediction_top10_calibration_2026.csv`: empirical Top 10 probability calibration table used by each 2026 model scenario.
 - `season_prediction_driver_standings_2026_by_model.csv`: driver championship prediction details for each top-three model scenario.
 - `season_prediction_constructor_standings_2026_by_model.csv`: constructor championship prediction details for each top-three model scenario.
@@ -335,3 +336,11 @@ python predict_f1_2026_championship.py
 ```
 
 Raw downloaded data can be regenerated. Processed, analysis, and modeling files are generated outputs kept in the project for reporting and verification.
+
+### Circuit archetype diagnostics
+
+- `analysis/circuit_archetypes_2019_2025.csv`: rule-based circuit archetype labels built from grid importance, overtaking, and volatility metrics.
+- `analysis/circuit_archetype_summary.json`: metadata summary for the circuit archetype diagnostics.
+- `modeling/season_prediction_circuit_archetype_diagnostics_2026.csv`: 2026 model-scenario winner concentration diagnostics grouped by circuit archetype.
+- `modeling/season_prediction_scenario_selection_2026.csv`: scenario selection scores combining validation performance, winner diversity, concentration penalties, ranking-gap diagnostics, and circuit-archetype concentration.
+- `modeling/season_prediction_scenario_selection_summary_2026.json`: metadata summary for 2026 scenario selection.

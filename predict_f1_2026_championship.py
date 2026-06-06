@@ -66,6 +66,7 @@ CONSTRUCTOR_SCENARIO_OUTPUT_PATH = MODEL_DIR / "season_prediction_constructor_st
 RACE_SCENARIO_OUTPUT_PATH = MODEL_DIR / "season_prediction_race_points_2026_by_model.csv"
 SCENARIO_SUMMARY_OUTPUT_PATH = MODEL_DIR / "season_prediction_model_scenarios_2026.csv"
 SCENARIO_DIAGNOSTICS_OUTPUT_PATH = MODEL_DIR / "season_prediction_model_scenario_diagnostics_2026.csv"
+RACE_SIGNAL_DIAGNOSTICS_OUTPUT_PATH = MODEL_DIR / "season_prediction_race_signal_diagnostics_2026.csv"
 TOP10_CALIBRATION_OUTPUT_PATH = MODEL_DIR / "season_prediction_top10_calibration_2026.csv"
 
 SIMULATION_COUNT = 5000
@@ -201,6 +202,34 @@ SCENARIO_DIAGNOSTICS_FIELDS = [
     "constructor_runner_up",
     "constructor_runner_up_probability",
     "constructor_probability_margin",
+]
+RACE_SIGNAL_DIAGNOSTICS_FIELDS = [
+    "scenario_rank",
+    "top10_model",
+    "points_model",
+    "season",
+    "round",
+    "race_name",
+    "race_date",
+    "winner_driver",
+    "winner_constructor",
+    "winner_ranking_score",
+    "winner_predicted_points",
+    "winner_top10_probability",
+    "winner_calibrated_top10_probability",
+    "runner_up_driver",
+    "runner_up_constructor",
+    "runner_up_ranking_score",
+    "runner_up_predicted_points",
+    "runner_up_top10_probability",
+    "runner_up_calibrated_top10_probability",
+    "third_driver",
+    "third_constructor",
+    "third_ranking_score",
+    "winner_runner_up_score_gap",
+    "winner_third_score_gap",
+    "winner_runner_up_predicted_points_gap",
+    "winner_runner_up_calibrated_top10_gap",
 ]
 TOP10_CALIBRATION_FIELDS = [
     "scenario_rank",
@@ -1236,6 +1265,67 @@ def add_calibration_scenario_fields(calibration_rows, scenario):
     ]
 
 
+def build_race_signal_diagnostics_rows(scenario_race_rows):
+    """Summarize winner and close-chaser prediction signals for each race scenario."""
+    grouped_rows = defaultdict(list)
+    for row in scenario_race_rows:
+        key = (
+            to_int(row["scenario_rank"]),
+            to_int(row["season"]),
+            to_int(row["round"]),
+        )
+        grouped_rows[key].append(row)
+
+    diagnostics = []
+    for _, race_rows in sorted(grouped_rows.items()):
+        sorted_rows = sorted(race_rows, key=lambda row: to_int(row["deterministic_rank"]))
+        if not sorted_rows:
+            continue
+        winner = sorted_rows[0]
+        runner_up = sorted_rows[1] if len(sorted_rows) > 1 else {}
+        third = sorted_rows[2] if len(sorted_rows) > 2 else {}
+
+        winner_score = to_float(winner.get("ranking_score", 0))
+        runner_score = to_float(runner_up.get("ranking_score", 0))
+        third_score = to_float(third.get("ranking_score", 0))
+        winner_points = to_float(winner.get("predicted_points", 0))
+        runner_points = to_float(runner_up.get("predicted_points", 0))
+        winner_top10 = to_float(winner.get("calibrated_top10_probability", 0))
+        runner_top10 = to_float(runner_up.get("calibrated_top10_probability", 0))
+
+        diagnostics.append(
+            {
+                "scenario_rank": winner["scenario_rank"],
+                "top10_model": winner["top10_model"],
+                "points_model": winner["points_model"],
+                "season": winner["season"],
+                "round": winner["round"],
+                "race_name": winner["race_name"],
+                "race_date": winner["race_date"],
+                "winner_driver": winner["driver_name"],
+                "winner_constructor": winner["constructor_name"],
+                "winner_ranking_score": format_float(winner_score),
+                "winner_predicted_points": format_float(winner_points),
+                "winner_top10_probability": winner["top10_probability"],
+                "winner_calibrated_top10_probability": winner["calibrated_top10_probability"],
+                "runner_up_driver": runner_up.get("driver_name", ""),
+                "runner_up_constructor": runner_up.get("constructor_name", ""),
+                "runner_up_ranking_score": format_float(runner_score),
+                "runner_up_predicted_points": format_float(runner_points),
+                "runner_up_top10_probability": runner_up.get("top10_probability", ""),
+                "runner_up_calibrated_top10_probability": runner_up.get("calibrated_top10_probability", ""),
+                "third_driver": third.get("driver_name", ""),
+                "third_constructor": third.get("constructor_name", ""),
+                "third_ranking_score": format_float(third_score),
+                "winner_runner_up_score_gap": format_float(winner_score - runner_score),
+                "winner_third_score_gap": format_float(winner_score - third_score),
+                "winner_runner_up_predicted_points_gap": format_float(winner_points - runner_points),
+                "winner_runner_up_calibrated_top10_gap": format_float(winner_top10 - runner_top10),
+            }
+        )
+    return diagnostics
+
+
 def main():
     """Train pre-race models, simulate 2026, and write championship predictions."""
     feature_rows = add_circuit_history_features(read_csv(get_training_features_path()))
@@ -1362,6 +1452,11 @@ def main():
         scenario_constructor_rows,
     )
     write_csv(RACE_SCENARIO_OUTPUT_PATH, RACE_SCENARIO_FIELDS, scenario_race_rows)
+    write_csv(
+        RACE_SIGNAL_DIAGNOSTICS_OUTPUT_PATH,
+        RACE_SIGNAL_DIAGNOSTICS_FIELDS,
+        build_race_signal_diagnostics_rows(scenario_race_rows),
+    )
     write_csv(SCENARIO_SUMMARY_OUTPUT_PATH, SCENARIO_SUMMARY_FIELDS, scenario_summary_rows)
     write_csv(
         TOP10_CALIBRATION_OUTPUT_PATH,
@@ -1450,6 +1545,7 @@ def main():
             str(CONSTRUCTOR_SCENARIO_OUTPUT_PATH.relative_to(BASE_DIR)),
             str(RACE_SCENARIO_OUTPUT_PATH.relative_to(BASE_DIR)),
             str(SCENARIO_SUMMARY_OUTPUT_PATH.relative_to(BASE_DIR)),
+            str(RACE_SIGNAL_DIAGNOSTICS_OUTPUT_PATH.relative_to(BASE_DIR)),
             str(TOP10_CALIBRATION_OUTPUT_PATH.relative_to(BASE_DIR)),
             str(SCENARIO_DIAGNOSTICS_OUTPUT_PATH.relative_to(BASE_DIR)),
         ],

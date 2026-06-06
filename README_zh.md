@@ -117,6 +117,8 @@ python simulate_f1_season_uncertainty.py
 python tune_f1_feedback_weight.py
 python tune_f1_current_form_boost.py
 python predict_f1_2026_championship.py
+python analyze_f1_circuit_archetypes.py
+python select_f1_prediction_scenarios.py
 ```
 
 如果本地已经存在 Kaggle 原始数据集或 Jolpica-F1 原始文件，可以跳过下载步骤。后续脚本会复用已有文件。
