@@ -240,7 +240,7 @@ Top 10 任务预测某位车手是否进入积分区。该任务作为单站排�
 - 不考虑最快圈附加分。
 - 每场比赛视为普通全积分 Grand Prix，默认有十个得分名额。
 - 最终积分榜和冠军模拟使用 `rule_mapped_points` 作为主要积分结果。
-- 连续型 `predicted_points` 仅作为期望积分辅助信号保留。
+- 连续型 `predicted_points` 仅作为期望积分辅助信号保留。最终 2026 单站排序使用赛内原始预测积分百分位加校准 Top 10 概率，从而减少截断积分饱和，同时保持官方规则映射积分不变。
 - 原始历史 `points` 仍用于描述性分析和可视化。
 
 ## 最终 2026 冠军预测
@@ -260,6 +260,7 @@ Top 10 任务预测某位车手是否进入积分区。该任务作为单站排�
 - 车手预测积分不确定性区间
 - 车队预测积分不确定性区间
 - 剩余比赛的确定性规则映射积分
+- 基于冠亚军排序分差的单站确定性冠军置信度
 - 场景级冠军对比和诊断结果
 
 主输出使用场景 1，同时 by-model 输出文件和图表保留三个场景，便于比较模型选择的稳健性。
@@ -331,6 +332,7 @@ data/modeling/season_prediction_driver_standings_2026.csv
 data/modeling/season_prediction_constructor_standings_2026.csv
 data/modeling/season_prediction_race_points_2026.csv
 data/modeling/season_prediction_model_scenarios_2026.csv
+data/modeling/season_prediction_race_signal_diagnostics_2026.csv
 data/modeling/season_prediction_model_scenario_diagnostics_2026.csv
 data/modeling/season_prediction_summary_2026.json
 data/modeling/current_form_boost_backtest_summary.csv

@@ -240,7 +240,7 @@ Modeling assumptions:
 - Fastest-lap bonus points are not considered.
 - Each race is treated as a normal full-points Grand Prix with ten scoring positions.
 - Final standings and championship simulations use `rule_mapped_points` as the primary points result.
-- Continuous `predicted_points` is retained as an auxiliary expected-value signal.
+- Continuous `predicted_points` is retained as an auxiliary expected-value signal. Final 2026 race ranking uses a race-level raw predicted-points percentile plus calibrated Top 10 probability, which reduces capped-points saturation while keeping official rule-mapped points unchanged.
 - Raw historical `points` remain available for descriptive analysis and visualization.
 
 ## Final 2026 Championship Prediction
@@ -260,6 +260,7 @@ Each scenario produces:
 - Driver projected-points uncertainty intervals
 - Constructor projected-points uncertainty intervals
 - Deterministic remaining-race rule-mapped points
+- Race-level deterministic winner confidence from winner-runner-up score gaps
 - Scenario-level champion comparison and diagnostics
 
 The primary output uses Scenario 1, while by-model output files and figures preserve all three scenarios for robustness comparison.
@@ -331,6 +332,7 @@ data/modeling/season_prediction_driver_standings_2026.csv
 data/modeling/season_prediction_constructor_standings_2026.csv
 data/modeling/season_prediction_race_points_2026.csv
 data/modeling/season_prediction_model_scenarios_2026.csv
+data/modeling/season_prediction_race_signal_diagnostics_2026.csv
 data/modeling/season_prediction_model_scenario_diagnostics_2026.csv
 data/modeling/season_prediction_summary_2026.json
 data/modeling/current_form_boost_backtest_summary.csv

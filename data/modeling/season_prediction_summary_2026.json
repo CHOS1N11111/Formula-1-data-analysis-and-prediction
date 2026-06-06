@@ -1,5 +1,5 @@
 {
-  "built_at": "2026-06-05T13:01:56.500389+00:00",
+  "built_at": "2026-06-06T06:41:37.244814+00:00",
   "feature_mode": "pre_race",
   "simulation_count": 5000,
   "random_seed": 42,
@@ -47,7 +47,7 @@
     "total_actual_points": "2424.000000",
     "total_predicted_points": "2147.647587"
   },
-  "ranking_strategy": "points_calibrated_top10_hybrid",
+  "ranking_strategy": "raw_points_percentile_calibrated_top10_hybrid",
   "ranking_points_weight": 0.7,
   "ranking_top10_weight": 0.3,
   "top10_calibration": {
@@ -100,6 +100,7 @@
     "data\\modeling\\season_prediction_race_points_2026_by_model.csv",
     "data\\modeling\\season_prediction_model_scenarios_2026.csv",
     "data\\modeling\\season_prediction_top10_calibration_2026.csv",
+    "data\\modeling\\season_prediction_race_signal_diagnostics_2026.csv",
     "data\\modeling\\season_prediction_model_scenario_diagnostics_2026.csv"
   ],
   "figures": [
@@ -126,11 +127,12 @@
     "Remaining 2026 predictions support future-feature feedback between not-yet-run races; the selected feedback weight is 1.00, so projected future race results are written into later pre-race rolling features with full weight.",
     "The feedback weight is selected by tune_f1_feedback_weight.py using 2022-2025 historical backtests aligned with current-season online training, a corrected zero-feedback branch, and average combined driver/constructor points MAE.",
     "Completed 2026 rows are repeated once in final model training. This conservative online-training setting was selected by tune_f1_current_form_boost.py because it improves short-history driver MAE without using an unstable explicit ranking boost.",
-    "Race ranking uses the 2025-best rule-mapped strategy: 70% normalized predicted points plus 30% calibrated Top 10 probability.",
+    "Race ranking uses 70% race-level raw predicted-points percentile plus 30% calibrated Top 10 probability, reducing clipped-points saturation while keeping official rule-mapped race points unchanged.",
     "Monte Carlo simulations sample from pre-race prediction signals generated for the remaining races.",
     "Remaining 2026 races use pre-race features only; qualifying and grid data are not used.",
     "Sprint points and fastest-lap bonus points are outside this project scope.",
     "Each simulated race maps the ranked top 10 to the current Grand Prix points table.",
-    "The primary output uses the best-ranked pre-race Top 10 and points models, while by-model outputs compare the top three ranked model pairs."
+    "The primary output uses the best-ranked pre-race Top 10 and points models, while by-model outputs compare the top three ranked model pairs.",
+    "Race-level winner confidence is reported from the winner-runner-up ranking score gap; it explains deterministic race winners but does not alter the Monte Carlo championship simulation."
   ]
 }

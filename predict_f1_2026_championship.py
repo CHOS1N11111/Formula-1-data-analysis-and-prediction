@@ -81,7 +81,7 @@ FINAL_TRAIN_END_SEASON = 2025
 TOP10_CALIBRATION_TRAIN_END_SEASON = 2024
 TOP10_CALIBRATION_SEASON = 2025
 TOP10_CALIBRATION_BIN_COUNT = 10
-RANKING_STRATEGY = "points_calibrated_top10_hybrid"
+RANKING_STRATEGY = "raw_points_percentile_calibrated_top10_hybrid"
 RANKING_POINTS_WEIGHT = 0.7
 RANKING_TOP10_WEIGHT = 0.3
 
@@ -132,11 +132,15 @@ RACE_PREDICTION_FIELDS = [
     "constructor_id",
     "constructor_name",
     "predicted_points",
+    "ranking_points_signal",
     "top10_probability",
     "calibrated_top10_probability",
     "ranking_score",
     "deterministic_rank",
     "deterministic_rule_mapped_points",
+    "winner_runner_up_score_gap",
+    "winner_confidence_level",
+    "winner_confidence_note",
 ]
 
 SUMMARY_FIELDS = [
@@ -215,20 +219,26 @@ RACE_SIGNAL_DIAGNOSTICS_FIELDS = [
     "winner_constructor",
     "winner_ranking_score",
     "winner_predicted_points",
+    "winner_ranking_points_signal",
     "winner_top10_probability",
     "winner_calibrated_top10_probability",
     "runner_up_driver",
     "runner_up_constructor",
     "runner_up_ranking_score",
     "runner_up_predicted_points",
+    "runner_up_ranking_points_signal",
     "runner_up_top10_probability",
     "runner_up_calibrated_top10_probability",
     "third_driver",
     "third_constructor",
     "third_ranking_score",
+    "third_ranking_points_signal",
     "winner_runner_up_score_gap",
+    "winner_confidence_level",
+    "winner_confidence_note",
     "winner_third_score_gap",
     "winner_runner_up_predicted_points_gap",
+    "winner_runner_up_ranking_points_signal_gap",
     "winner_runner_up_calibrated_top10_gap",
 ]
 TOP10_CALIBRATION_FIELDS = [
@@ -629,25 +639,39 @@ def predict_future_races(future_rows, top10_model, points_model, calibration_map
     """Predict Top 10 probabilities and expected points for future 2026 race rows."""
     x_rows = [build_feature_dict(row, FEATURE_MODE) for row in future_rows]
     top10_probabilities = top10_model.predict_proba(x_rows)[:, 1]
-    predicted_points = [clamp_points(value) for value in points_model.predict(x_rows)]
-    max_points = max(predicted_points) if predicted_points else 1.0
+    raw_predicted_points = [float(value) for value in points_model.predict(x_rows)]
+    predicted_points = [clamp_points(value) for value in raw_predicted_points]
+    ordered_raw_scores = sorted(
+        set(raw_predicted_points),
+        reverse=True,
+    )
+    if len(ordered_raw_scores) <= 1:
+        raw_score_percentiles = {
+            value: 1.0 for value in ordered_raw_scores
+        }
+    else:
+        raw_score_percentiles = {
+            value: 1.0 - (index / (len(ordered_raw_scores) - 1))
+            for index, value in enumerate(ordered_raw_scores)
+        }
 
     output_rows = []
-    for row, top10_probability, predicted_point in zip(
-        future_rows, top10_probabilities, predicted_points
+    for row, top10_probability, raw_predicted_point, predicted_point in zip(
+        future_rows, top10_probabilities, raw_predicted_points, predicted_points
     ):
         calibrated_probability = calibrate_top10_probability(
             top10_probability, calibration_map
         )
-        normalized_points = predicted_point / max_points if max_points else 0.0
+        ranking_points_signal = raw_score_percentiles.get(raw_predicted_point, 0.0)
         ranking_score = (
-            RANKING_POINTS_WEIGHT * normalized_points
+            RANKING_POINTS_WEIGHT * ranking_points_signal
             + RANKING_TOP10_WEIGHT * calibrated_probability
         )
         enriched = dict(row)
         enriched["top10_probability"] = float(top10_probability)
         enriched["calibrated_top10_probability"] = float(calibrated_probability)
         enriched["predicted_points"] = float(predicted_point)
+        enriched["ranking_points_signal"] = float(ranking_points_signal)
         enriched["ranking_score"] = float(ranking_score)
         output_rows.append(enriched)
     return output_rows
@@ -668,6 +692,15 @@ def group_by_race(rows):
     return dict(sorted(grouped.items()))
 
 
+def classify_winner_confidence(score_gap):
+    """Classify how clearly the predicted winner leads the runner-up."""
+    if score_gap >= 0.08:
+        return "strong", "Winner score is clearly separated from the runner-up."
+    if score_gap >= 0.02:
+        return "medium", "Winner score has a moderate lead over the runner-up."
+    return "weak", "Winner score is close to the runner-up; treat race winner as low-confidence."
+
+
 def build_deterministic_race_predictions(prediction_rows):
     """Assign deterministic rule-mapped points for each future race."""
     output_rows = []
@@ -682,6 +715,10 @@ def build_deterministic_race_predictions(prediction_rows):
                 row["driver_id"],
             ),
         )
+        winner_score = to_float(ordered[0]["ranking_score"]) if ordered else 0.0
+        runner_up_score = to_float(ordered[1]["ranking_score"]) if len(ordered) > 1 else 0.0
+        winner_score_gap = winner_score - runner_up_score
+        confidence_level, confidence_note = classify_winner_confidence(winner_score_gap)
         for index, row in enumerate(ordered):
             mapped_points = F1_POINTS_TABLE[index] if index < len(F1_POINTS_TABLE) else 0
             output_rows.append(
@@ -695,6 +732,7 @@ def build_deterministic_race_predictions(prediction_rows):
                     "constructor_id": row["constructor_id"],
                     "constructor_name": row["constructor_name"],
                     "predicted_points": format_float(row["predicted_points"]),
+                    "ranking_points_signal": format_float(row["ranking_points_signal"]),
                     "top10_probability": format_float(row["top10_probability"]),
                     "calibrated_top10_probability": format_float(
                         row["calibrated_top10_probability"]
@@ -702,6 +740,11 @@ def build_deterministic_race_predictions(prediction_rows):
                     "ranking_score": format_float(row["ranking_score"]),
                     "deterministic_rank": index + 1,
                     "deterministic_rule_mapped_points": mapped_points,
+                    "winner_runner_up_score_gap": (
+                        format_float(winner_score_gap) if index == 0 else ""
+                    ),
+                    "winner_confidence_level": confidence_level if index == 0 else "",
+                    "winner_confidence_note": confidence_note if index == 0 else "",
                 }
             )
     return output_rows
@@ -1290,8 +1333,13 @@ def build_race_signal_diagnostics_rows(scenario_race_rows):
         third_score = to_float(third.get("ranking_score", 0))
         winner_points = to_float(winner.get("predicted_points", 0))
         runner_points = to_float(runner_up.get("predicted_points", 0))
+        winner_points_signal = to_float(winner.get("ranking_points_signal", 0))
+        runner_points_signal = to_float(runner_up.get("ranking_points_signal", 0))
+        third_points_signal = to_float(third.get("ranking_points_signal", 0))
         winner_top10 = to_float(winner.get("calibrated_top10_probability", 0))
         runner_top10 = to_float(runner_up.get("calibrated_top10_probability", 0))
+        winner_score_gap = winner_score - runner_score
+        confidence_level, confidence_note = classify_winner_confidence(winner_score_gap)
 
         diagnostics.append(
             {
@@ -1306,20 +1354,28 @@ def build_race_signal_diagnostics_rows(scenario_race_rows):
                 "winner_constructor": winner["constructor_name"],
                 "winner_ranking_score": format_float(winner_score),
                 "winner_predicted_points": format_float(winner_points),
+                "winner_ranking_points_signal": format_float(winner_points_signal),
                 "winner_top10_probability": winner["top10_probability"],
                 "winner_calibrated_top10_probability": winner["calibrated_top10_probability"],
                 "runner_up_driver": runner_up.get("driver_name", ""),
                 "runner_up_constructor": runner_up.get("constructor_name", ""),
                 "runner_up_ranking_score": format_float(runner_score),
                 "runner_up_predicted_points": format_float(runner_points),
+                "runner_up_ranking_points_signal": format_float(runner_points_signal),
                 "runner_up_top10_probability": runner_up.get("top10_probability", ""),
                 "runner_up_calibrated_top10_probability": runner_up.get("calibrated_top10_probability", ""),
                 "third_driver": third.get("driver_name", ""),
                 "third_constructor": third.get("constructor_name", ""),
                 "third_ranking_score": format_float(third_score),
-                "winner_runner_up_score_gap": format_float(winner_score - runner_score),
+                "third_ranking_points_signal": format_float(third_points_signal),
+                "winner_runner_up_score_gap": format_float(winner_score_gap),
+                "winner_confidence_level": confidence_level,
+                "winner_confidence_note": confidence_note,
                 "winner_third_score_gap": format_float(winner_score - third_score),
                 "winner_runner_up_predicted_points_gap": format_float(winner_points - runner_points),
+                "winner_runner_up_ranking_points_signal_gap": format_float(
+                    winner_points_signal - runner_points_signal
+                ),
                 "winner_runner_up_calibrated_top10_gap": format_float(winner_top10 - runner_top10),
             }
         )
@@ -1602,6 +1658,7 @@ def main():
                 str(RACE_SCENARIO_OUTPUT_PATH.relative_to(BASE_DIR)),
                 str(SCENARIO_SUMMARY_OUTPUT_PATH.relative_to(BASE_DIR)),
                 str(TOP10_CALIBRATION_OUTPUT_PATH.relative_to(BASE_DIR)),
+                str(RACE_SIGNAL_DIAGNOSTICS_OUTPUT_PATH.relative_to(BASE_DIR)),
                 str(SCENARIO_DIAGNOSTICS_OUTPUT_PATH.relative_to(BASE_DIR)),
             ],
             "figures": [str(path.relative_to(BASE_DIR)) for path in figure_paths],
@@ -1610,12 +1667,13 @@ def main():
                 "Remaining 2026 predictions support future-feature feedback between not-yet-run races; the selected feedback weight is 1.00, so projected future race results are written into later pre-race rolling features with full weight.",
                 "The feedback weight is selected by tune_f1_feedback_weight.py using 2022-2025 historical backtests aligned with current-season online training, a corrected zero-feedback branch, and average combined driver/constructor points MAE.",
                 "Completed 2026 rows are repeated once in final model training. This conservative online-training setting was selected by tune_f1_current_form_boost.py because it improves short-history driver MAE without using an unstable explicit ranking boost.",
-                "Race ranking uses the 2025-best rule-mapped strategy: 70% normalized predicted points plus 30% calibrated Top 10 probability.",
+                "Race ranking uses 70% race-level raw predicted-points percentile plus 30% calibrated Top 10 probability, reducing clipped-points saturation while keeping official rule-mapped race points unchanged.",
                 "Monte Carlo simulations sample from pre-race prediction signals generated for the remaining races.",
                 "Remaining 2026 races use pre-race features only; qualifying and grid data are not used.",
                 "Sprint points and fastest-lap bonus points are outside this project scope.",
                 "Each simulated race maps the ranked top 10 to the current Grand Prix points table.",
                 "The primary output uses the best-ranked pre-race Top 10 and points models, while by-model outputs compare the top three ranked model pairs.",
+                "Race-level winner confidence is reported from the winner-runner-up ranking score gap; it explains deterministic race winners but does not alter the Monte Carlo championship simulation.",
             ],
         },
     )
