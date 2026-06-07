@@ -247,6 +247,8 @@ Modeling assumptions:
 
 The final 2026 prediction starts from completed 2026 race results and current standings. Remaining races are predicted with pre-race models only.
 
+In the current project outputs, the 2026 data state is updated through the Canadian Grand Prix. The final forecast therefore treats the races before Monaco as completed/current-season context and starts remaining-race prediction from the Monaco Grand Prix.
+
 The final prediction compares the top three pre-race model scenarios:
 
 - Scenario 1: `xgboost_classifier + mlp_regressor`
