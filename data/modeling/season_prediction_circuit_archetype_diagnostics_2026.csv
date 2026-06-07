@@ -14,3 +14,13 @@
 3,hist_gradient_boosting,catboost_regressor,overtaking_friendly,6,"{""Andrea Kimi Antonelli"": 6}",0.050662,0.033333,0.091026,3.845186,0.039243
 3,hist_gradient_boosting,catboost_regressor,qualifying_heavy,2,"{""Andrea Kimi Antonelli"": 2}",0.050001,0.033334,0.066667,4.990360,0.000000
 3,hist_gradient_boosting,catboost_regressor,unknown,2,"{""Andrea Kimi Antonelli"": 2}",0.039806,0.033333,0.046279,3.423468,0.021576
+4,hist_gradient_boosting,mlp_regressor,balanced,4,"{""Andrea Kimi Antonelli"": 2, ""Lewis Hamilton"": 2}",0.037562,0.024359,0.046279,0.339698,0.069653
+4,hist_gradient_boosting,mlp_regressor,high_volatility,3,"{""Lewis Hamilton"": 3}",0.033333,0.033333,0.033334,0.199442,0.000000
+4,hist_gradient_boosting,mlp_regressor,overtaking_friendly,6,"{""Andrea Kimi Antonelli"": 2, ""Lewis Hamilton"": 4}",0.054315,0.033333,0.079613,0.621956,0.014384
+4,hist_gradient_boosting,mlp_regressor,qualifying_heavy,2,"{""Andrea Kimi Antonelli"": 1, ""Lewis Hamilton"": 1}",0.039806,0.033333,0.046279,1.750304,0.021576
+4,hist_gradient_boosting,mlp_regressor,unknown,2,"{""Lewis Hamilton"": 2}",0.056474,0.033334,0.079613,0.000000,0.021576
+5,lightgbm_classifier,xgboost_regressor,balanced,4,"{""Andrea Kimi Antonelli"": 4}",0.033333,0.019220,0.047446,4.020415,0.000000
+5,lightgbm_classifier,xgboost_regressor,high_volatility,3,"{""Andrea Kimi Antonelli"": 3}",0.042742,0.033333,0.047446,4.006344,0.031362
+5,lightgbm_classifier,xgboost_regressor,overtaking_friendly,6,"{""Andrea Kimi Antonelli"": 6}",0.034929,0.000571,0.047446,3.296727,0.005320
+5,lightgbm_classifier,xgboost_regressor,qualifying_heavy,2,"{""Andrea Kimi Antonelli"": 2}",0.026277,0.019220,0.033333,3.277655,-0.023522
+5,lightgbm_classifier,xgboost_regressor,unknown,2,"{""Andrea Kimi Antonelli"": 2}",0.040390,0.033333,0.047446,1.965965,0.023522

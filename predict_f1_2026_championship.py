@@ -73,6 +73,20 @@ SIMULATION_COUNT = 5000
 RANDOM_SEED = 42
 FEATURE_MODE = "pre_race"
 MODEL_SCENARIO_COUNT = 3
+EXTRA_MODEL_SCENARIOS = [
+    {
+        "scenario_label": "S4",
+        "top10_model": "hist_gradient_boosting",
+        "points_model": "mlp_regressor",
+        "source": "season_backtest_best_overall_high_concentration",
+    },
+    {
+        "scenario_label": "S5",
+        "top10_model": "lightgbm_classifier",
+        "points_model": "xgboost_regressor",
+        "source": "season_backtest_best_usable_candidate",
+    },
+]
 FUTURE_FEATURE_FEEDBACK_WEIGHT = 1.00
 CURRENT_SEASON_ONLINE_REPEAT = 1
 CURRENT_SEASON_FORM_BOOST_ALPHA = 0.0
@@ -274,6 +288,22 @@ def select_top_model_rows(metrics_path, metric_name, lower_is_better=False, limi
     else:
         ordered_rows = sorted(rows, key=lambda row: to_float(row[metric_name]), reverse=True)
     return ordered_rows[:limit]
+
+
+def find_model_metric_row(metrics_path, model_name):
+    """Return the pre-race metric row for a named model."""
+    for row in load_csv(metrics_path):
+        if row.get("feature_mode") == FEATURE_MODE and row.get("model") == model_name:
+            return row
+    raise ValueError(f"Missing pre-race metric row for model: {model_name}")
+
+
+def rank_metric_row(metric_rows, model_name):
+    """Return one-based rank for a model in an ordered metrics list."""
+    for index, row in enumerate(metric_rows, start=1):
+        if row["model"] == model_name:
+            return index
+    return len(metric_rows) + 1
 
 
 def probability_bin_index(probability):
@@ -1389,7 +1419,18 @@ def main():
     driver_pool = build_driver_pool(state)
     schedule_rows = load_csv(SCHEDULE_PATH)
 
-    top10_metric_rows = select_top_model_rows(TOP10_METRICS_PATH, "f1")
+    ordered_top10_metric_rows = select_top_model_rows(
+        TOP10_METRICS_PATH,
+        "f1",
+        limit=100,
+    )
+    ordered_points_metric_rows = select_top_model_rows(
+        POINTS_METRICS_PATH,
+        "mae",
+        lower_is_better=True,
+        limit=100,
+    )
+    top10_metric_rows = ordered_top10_metric_rows[:MODEL_SCENARIO_COUNT]
     points_metric_rows = select_top_model_rows(
         POINTS_METRICS_PATH, "mae", lower_is_better=True
     )
@@ -1409,8 +1450,49 @@ def main():
                 "points_model": points_metric_row["model"],
                 "points_metric_row": points_metric_row,
                 "points_metric_value": to_float(points_metric_row["mae"]),
+                "scenario_source": "top3_metric_pairing",
             }
         )
+    existing_pairs = {
+        (scenario["top10_model"], scenario["points_model"])
+        for scenario in scenarios
+    }
+    for extra_scenario in EXTRA_MODEL_SCENARIOS:
+        scenario_pair = (
+            extra_scenario["top10_model"],
+            extra_scenario["points_model"],
+        )
+        if scenario_pair in existing_pairs:
+            continue
+        top10_metric_row = find_model_metric_row(
+            TOP10_METRICS_PATH,
+            extra_scenario["top10_model"],
+        )
+        points_metric_row = find_model_metric_row(
+            POINTS_METRICS_PATH,
+            extra_scenario["points_model"],
+        )
+        scenarios.append(
+            {
+                "scenario_rank": len(scenarios) + 1,
+                "top10_model_rank": rank_metric_row(
+                    ordered_top10_metric_rows,
+                    extra_scenario["top10_model"],
+                ),
+                "top10_model": top10_metric_row["model"],
+                "top10_metric_row": top10_metric_row,
+                "top10_metric_value": to_float(top10_metric_row["f1"]),
+                "points_model_rank": rank_metric_row(
+                    ordered_points_metric_rows,
+                    extra_scenario["points_model"],
+                ),
+                "points_model": points_metric_row["model"],
+                "points_metric_row": points_metric_row,
+                "points_metric_value": to_float(points_metric_row["mae"]),
+                "scenario_source": extra_scenario["source"],
+            }
+        )
+        existing_pairs.add(scenario_pair)
 
     current_driver_points = dict(state["driver_points"])
     current_constructor_points = dict(state["constructor_points"])
@@ -1672,7 +1754,7 @@ def main():
                 "Remaining 2026 races use pre-race features only; qualifying and grid data are not used.",
                 "Sprint points and fastest-lap bonus points are outside this project scope.",
                 "Each simulated race maps the ranked top 10 to the current Grand Prix points table.",
-                "The primary output uses the best-ranked pre-race Top 10 and points models, while by-model outputs compare the top three ranked model pairs.",
+                "The primary output uses Scenario 1, while by-model outputs compare the original S1-S3 scenarios plus the season-backtest-derived S4-S5 diagnostic scenarios.",
                 "Race-level winner confidence is reported from the winner-runner-up ranking score gap; it explains deterministic race winners but does not alter the Monte Carlo championship simulation.",
             ],
         },

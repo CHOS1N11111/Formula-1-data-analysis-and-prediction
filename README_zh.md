@@ -117,6 +117,7 @@ python visualize_f1_model_results.py
 python simulate_f1_season_uncertainty.py
 python tune_f1_feedback_weight.py
 python tune_f1_current_form_boost.py
+python backtest_f1_model_scenarios.py
 python predict_f1_2026_championship.py
 python analyze_f1_circuit_archetypes.py
 python select_f1_prediction_scenarios.py
@@ -249,11 +250,13 @@ Top 10 任务预测某位车手是否进入积分区。该任务作为单站排�
 
 在当前项目输出中，2026 数据状态已经更新到加拿大大奖赛。最终预测因此把 Monaco 之前的比赛作为已完成的当前赛季背景，并从 Monaco Grand Prix 开始预测剩余比赛。
 
-最终预测比较三个排名靠前的赛前模型场景：
+最终预测保留原有三个赛前模型场景，并额外加入两个由赛季级回测得到的诊断场景：
 
 - 场景 1：`xgboost_classifier + mlp_regressor`
 - 场景 2：`lightgbm_classifier + ridge_regression`
 - 场景 3：`hist_gradient_boosting + catboost_regressor`
+- 场景 4：`hist_gradient_boosting + mlp_regressor`
+- 场景 5：`lightgbm_classifier + xgboost_regressor`
 
 每个场景都会输出：
 
@@ -265,7 +268,9 @@ Top 10 任务预测某位车手是否进入积分区。该任务作为单站排�
 - 基于冠亚军排序分差的单站确定性冠军置信度
 - 场景级冠军对比和诊断结果
 
-主输出使用场景 1，同时 by-model 输出文件和图表保留三个场景，便于比较模型选择的稳健性。
+主输出使用场景 1，同时 by-model 输出文件和图表保留五个场景，便于比较模型选择的稳健性。
+
+项目还包含 `backtest_f1_model_scenarios.py`，用于在 2022-2025 历史赛季上，从前五站已知结果出发，完整滚动回测候选 Top 10 模型和积分模型组合。场景 4 来自该回测的总分最高诊断组合，场景 5 来自该回测中最佳非高集中可用候选组合。这两个场景用于敏感性分析，不改变场景 1 作为主预测的地位。
 
 ### 最终预测输入
 

@@ -138,15 +138,53 @@ Top constructor probabilities:
 
 ## Model Scenario Comparison
 
-The final pipeline also compares the top three pre-race model scenarios:
+The final pipeline preserves the original three pre-race model scenarios and adds two season-backtest-derived diagnostic scenarios:
 
 | Scenario | Top 10 Model | Points Model | Driver Champion | Driver Probability | Constructor Champion | Constructor Probability | Role |
 |---:|---|---|---|---:|---|---:|---|
 | 1 | xgboost_classifier | mlp_regressor | Andrea Kimi Antonelli | 0.534800 | Mercedes | 0.704600 | primary recommended |
 | 2 | lightgbm_classifier | ridge_regression | Andrea Kimi Antonelli | 0.654000 | Mercedes | 0.825400 | sensitivity only |
 | 3 | hist_gradient_boosting | catboost_regressor | Andrea Kimi Antonelli | 0.673200 | Mercedes | 0.831800 | sensitivity only |
+| 4 | hist_gradient_boosting | mlp_regressor | Andrea Kimi Antonelli | 0.555800 | Mercedes | 0.710600 | secondary sensitivity |
+| 5 | lightgbm_classifier | xgboost_regressor | Andrea Kimi Antonelli | 0.659600 | Mercedes | 0.809800 | sensitivity only |
 
-Scenario 1 is used as the primary result because it has the best scenario-selection score and more realistic winner diversity. Scenarios 2 and 3 are retained as sensitivity checks, but they are too concentrated because both predict Andrea Kimi Antonelli as winner in all remaining races.
+Scenario 1 is used as the primary result because it has the best scenario-selection score and more realistic winner diversity. Scenarios 2 and 3 are retained as sensitivity checks, but they are too concentrated because both predict Andrea Kimi Antonelli as winner in all remaining races. Scenario 4 is added from the season-level backtest best-overall row and behaves similarly to Scenario 1, while Scenario 5 is the season-level best non-concentrated candidate but still becomes concentrated in the 2026 forecast.
+
+## Season-Level Model-Combination Backtest
+
+The project includes an additional diagnostic script:
+
+```text
+backtest_f1_model_scenarios.py
+```
+
+This script does not change the primary Scenario 1 prediction. It evaluates candidate Top 10 and points-model combinations by rolling out historical seasons from 2022 to 2025 after the first five known races.
+
+The current best-ranked diagnostic row by season-level selection score is used as Scenario 4:
+
+```text
+Top 10 model: hist_gradient_boosting
+Points model: mlp_regressor
+Average combined points MAE: 55.655682
+Driver champion hit rate: 0.750000
+Constructor champion hit rate: 0.750000
+Average max winner share: 0.986842
+Recommended role: sensitivity_only_high_concentration
+```
+
+The best non-concentrated candidate is used as Scenario 5:
+
+```text
+Top 10 model: lightgbm_classifier
+Points model: xgboost_regressor
+Average combined points MAE: 60.138582
+Driver champion hit rate: 0.750000
+Constructor champion hit rate: 0.750000
+Average max winner share: 0.731424
+Recommended role: candidate
+```
+
+This result is useful because it confirms that strong season-level error metrics can still coexist with excessive deterministic winner concentration. Therefore, the backtest supports keeping concentrated scenarios as sensitivity-only rather than automatically promoting them to the final forecast. Scenario 5 was less concentrated in historical backtests, but under the 2026 current-season state it still predicts Andrea Kimi Antonelli as winner in all remaining races.
 
 ## Race-Level Winner Confidence
 
@@ -187,6 +225,9 @@ data/modeling/season_prediction_model_scenarios_2026.csv
 data/modeling/season_prediction_model_scenario_diagnostics_2026.csv
 data/modeling/season_prediction_scenario_selection_2026.csv
 data/modeling/season_prediction_scenario_selection_summary_2026.json
+data/modeling/season_model_scenario_backtest_metrics.csv
+data/modeling/season_model_scenario_backtest_summary.csv
+data/modeling/season_model_scenario_backtest_summary.json
 ```
 
 By-model outputs:
@@ -213,6 +254,7 @@ outputs/figures/season_prediction_constructor_champion_2026.png
 outputs/figures/season_prediction_driver_points_uncertainty_2026.png
 outputs/figures/season_prediction_constructor_points_uncertainty_2026.png
 outputs/figures/season_prediction_model_scenarios_2026.png
+outputs/figures/season_model_scenario_backtest.png
 ```
 
 Scenario-specific figures:
@@ -230,6 +272,14 @@ outputs/figures/season_prediction_s3_driver_champion_2026.png
 outputs/figures/season_prediction_s3_constructor_champion_2026.png
 outputs/figures/season_prediction_s3_driver_points_uncertainty_2026.png
 outputs/figures/season_prediction_s3_constructor_points_uncertainty_2026.png
+outputs/figures/season_prediction_s4_driver_champion_2026.png
+outputs/figures/season_prediction_s4_constructor_champion_2026.png
+outputs/figures/season_prediction_s4_driver_points_uncertainty_2026.png
+outputs/figures/season_prediction_s4_constructor_points_uncertainty_2026.png
+outputs/figures/season_prediction_s5_driver_champion_2026.png
+outputs/figures/season_prediction_s5_constructor_champion_2026.png
+outputs/figures/season_prediction_s5_driver_points_uncertainty_2026.png
+outputs/figures/season_prediction_s5_constructor_points_uncertainty_2026.png
 ```
 
 ## How To Interpret The Figures
@@ -238,7 +288,8 @@ outputs/figures/season_prediction_s3_constructor_points_uncertainty_2026.png
 - `season_prediction_constructor_champion_2026.png`: compares constructor championship probabilities from the primary scenario.
 - `season_prediction_driver_points_uncertainty_2026.png`: shows projected driver points intervals. The red marker is current points.
 - `season_prediction_constructor_points_uncertainty_2026.png`: shows projected constructor points intervals. The red marker is current points.
-- `season_prediction_model_scenarios_2026.png`: compares champion probabilities across the top three model scenarios.
+- `season_prediction_model_scenarios_2026.png`: compares champion probabilities across all five model scenarios.
+- `season_model_scenario_backtest.png`: compares season-level backtest MAE and selection score for candidate model combinations.
 
 The uncertainty interval charts should be interpreted as simulated final-points ranges, not exact forecasts.
 

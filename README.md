@@ -117,6 +117,7 @@ python visualize_f1_model_results.py
 python simulate_f1_season_uncertainty.py
 python tune_f1_feedback_weight.py
 python tune_f1_current_form_boost.py
+python backtest_f1_model_scenarios.py
 python predict_f1_2026_championship.py
 python analyze_f1_circuit_archetypes.py
 python select_f1_prediction_scenarios.py
@@ -249,11 +250,13 @@ The final 2026 prediction starts from completed 2026 race results and current st
 
 In the current project outputs, the 2026 data state is updated through the Canadian Grand Prix. The final forecast therefore treats the races before Monaco as completed/current-season context and starts remaining-race prediction from the Monaco Grand Prix.
 
-The final prediction compares the top three pre-race model scenarios:
+The final prediction preserves the original three pre-race model scenarios and adds two season-backtest-derived diagnostic scenarios:
 
 - Scenario 1: `xgboost_classifier + mlp_regressor`
 - Scenario 2: `lightgbm_classifier + ridge_regression`
 - Scenario 3: `hist_gradient_boosting + catboost_regressor`
+- Scenario 4: `hist_gradient_boosting + mlp_regressor`
+- Scenario 5: `lightgbm_classifier + xgboost_regressor`
 
 Each scenario produces:
 
@@ -265,7 +268,9 @@ Each scenario produces:
 - Race-level deterministic winner confidence from winner-runner-up score gaps
 - Scenario-level champion comparison and diagnostics
 
-The primary output uses Scenario 1, while by-model output files and figures preserve all three scenarios for robustness comparison.
+The primary output uses Scenario 1, while by-model output files and figures preserve all five scenarios for robustness comparison.
+
+The project also includes `backtest_f1_model_scenarios.py`, which evaluates candidate Top 10 and points-model combinations by rolling out full historical seasons from 2022 to 2025 after the first five known races. Scenario 4 is the best overall season-level diagnostic row, while Scenario 5 is the best non-concentrated usable candidate from that backtest. These scenarios are added for sensitivity analysis and do not change Scenario 1 as the primary forecast.
 
 ### Final Prediction Inputs
 

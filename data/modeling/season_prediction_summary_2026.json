@@ -1,5 +1,5 @@
 {
-  "built_at": "2026-06-06T06:41:37.244814+00:00",
+  "built_at": "2026-06-07T06:17:13.945387+00:00",
   "feature_mode": "pre_race",
   "simulation_count": 5000,
   "random_seed": 42,
@@ -83,6 +83,24 @@
       "points_model_rank": 3,
       "points_model": "catboost_regressor",
       "points_mae": 3.717629
+    },
+    {
+      "scenario_rank": 4,
+      "top10_model_rank": 3,
+      "top10_model": "hist_gradient_boosting",
+      "top10_f1": 0.708075,
+      "points_model_rank": 1,
+      "points_model": "mlp_regressor",
+      "points_mae": 3.617885
+    },
+    {
+      "scenario_rank": 5,
+      "top10_model_rank": 2,
+      "top10_model": "lightgbm_classifier",
+      "top10_f1": 0.708595,
+      "points_model_rank": 5,
+      "points_model": "xgboost_regressor",
+      "points_mae": 3.7407
     }
   ],
   "future_feature_feedback_weight": 1.0,
@@ -120,7 +138,15 @@
     "outputs\\figures\\season_prediction_s3_driver_champion_2026.png",
     "outputs\\figures\\season_prediction_s3_constructor_champion_2026.png",
     "outputs\\figures\\season_prediction_s3_driver_points_uncertainty_2026.png",
-    "outputs\\figures\\season_prediction_s3_constructor_points_uncertainty_2026.png"
+    "outputs\\figures\\season_prediction_s3_constructor_points_uncertainty_2026.png",
+    "outputs\\figures\\season_prediction_s4_driver_champion_2026.png",
+    "outputs\\figures\\season_prediction_s4_constructor_champion_2026.png",
+    "outputs\\figures\\season_prediction_s4_driver_points_uncertainty_2026.png",
+    "outputs\\figures\\season_prediction_s4_constructor_points_uncertainty_2026.png",
+    "outputs\\figures\\season_prediction_s5_driver_champion_2026.png",
+    "outputs\\figures\\season_prediction_s5_constructor_champion_2026.png",
+    "outputs\\figures\\season_prediction_s5_driver_points_uncertainty_2026.png",
+    "outputs\\figures\\season_prediction_s5_constructor_points_uncertainty_2026.png"
   ],
   "notes": [
     "Completed 2026 races are converted from finishing positions to the current Grand Prix points table as the starting point.",
@@ -132,7 +158,7 @@
     "Remaining 2026 races use pre-race features only; qualifying and grid data are not used.",
     "Sprint points and fastest-lap bonus points are outside this project scope.",
     "Each simulated race maps the ranked top 10 to the current Grand Prix points table.",
-    "The primary output uses the best-ranked pre-race Top 10 and points models, while by-model outputs compare the top three ranked model pairs.",
+    "The primary output uses Scenario 1, while by-model outputs compare the original S1-S3 scenarios plus the season-backtest-derived S4-S5 diagnostic scenarios.",
     "Race-level winner confidence is reported from the winner-runner-up ranking score gap; it explains deterministic race winners but does not alter the Monte Carlo championship simulation."
   ]
 }

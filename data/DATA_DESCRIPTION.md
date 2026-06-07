@@ -278,18 +278,21 @@ python predict_f1_2026_championship.py
 - `current_form_boost_backtest_summary.csv`: aggregated current-form experiment metrics, including the conservative adoption candidate used by the final 2026 predictor.
 - `current_form_boost_backtest_driver_focus.csv`: per-driver diagnostics for active short-history drivers in each current-form backtest.
 - `current_form_boost_backtest_summary.json`: metadata summary for the current-form experiment, including best overall configuration and recommended official configuration.
+- `season_model_scenario_backtest_metrics.csv`: 2022-2025 season-level rollout details for candidate Top 10 and points-model combinations.
+- `season_model_scenario_backtest_summary.csv`: aggregated season-level model-combination backtest metrics, including points MAE, champion hit rates, Top 3 overlap, and winner-concentration diagnostics.
+- `season_model_scenario_backtest_summary.json`: metadata summary for the season-level model-combination backtest and its best-ranked diagnostic row.
 - `season_prediction_driver_standings_2026.csv`: final 2026 driver championship prediction with current points, projected points intervals, champion probability, Top 3 probability, and Top 5 probability.
 - `season_prediction_constructor_standings_2026.csv`: final 2026 constructor championship prediction with current points, projected points intervals, champion probability, Top 3 probability, and Top 5 probability.
 - `season_prediction_race_points_2026.csv`: deterministic rule-mapped points prediction for each remaining 2026 race and driver, including the race-level raw predicted-points percentile used for ranking, winner-runner-up score gap, and a race-level winner confidence label for the predicted winner row.
 - `season_prediction_summary_2026.csv`: compact 2026 predicted champion summary for drivers and constructors.
 - `season_prediction_summary_2026.json`: metadata summary for the final 2026 championship prediction pipeline.
-- `season_prediction_model_scenarios_2026.csv`: champion prediction comparison for the top three pre-race Top 10 and points-model scenarios.
+- `season_prediction_model_scenarios_2026.csv`: champion prediction comparison for the primary pre-race scenario, the original metric-ranked sensitivity scenarios, and the season-backtest-derived S4/S5 diagnostic scenarios.
 - `season_prediction_model_scenario_diagnostics_2026.csv`: diagnostics for each 2026 model scenario, including deterministic race-winner concentration and champion probability margins.
 - `season_prediction_race_signal_diagnostics_2026.csv`: race-by-race winner and runner-up signal diagnostics for each 2026 model scenario, including ranking-score gaps, winner confidence level, raw predicted-points percentile gaps, predicted-points gaps, and calibrated Top 10 probability gaps.
 - `season_prediction_top10_calibration_2026.csv`: empirical Top 10 probability calibration table used by each 2026 model scenario.
-- `season_prediction_driver_standings_2026_by_model.csv`: driver championship prediction details for each top-three model scenario.
-- `season_prediction_constructor_standings_2026_by_model.csv`: constructor championship prediction details for each top-three model scenario.
-- `season_prediction_race_points_2026_by_model.csv`: remaining-race deterministic rule-mapped points predictions for each top-three model scenario.
+- `season_prediction_driver_standings_2026_by_model.csv`: driver championship prediction details for each model scenario.
+- `season_prediction_constructor_standings_2026_by_model.csv`: constructor championship prediction details for each model scenario.
+- `season_prediction_race_points_2026_by_model.csv`: remaining-race deterministic rule-mapped points predictions for each model scenario.
 
 ### Deep learning outputs
 

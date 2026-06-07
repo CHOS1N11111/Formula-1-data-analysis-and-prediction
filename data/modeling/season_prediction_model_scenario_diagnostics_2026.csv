@@ -2,3 +2,5 @@
 1,xgboost_classifier,mlp_regressor,17,2,"{""Andrea Kimi Antonelli"": 4, ""Lewis Hamilton"": 13}",Andrea Kimi Antonelli,0.534800,Lewis Hamilton,0.203000,0.331800,Mercedes,0.704600,Ferrari,0.268200,0.436400
 2,lightgbm_classifier,ridge_regression,17,1,"{""Andrea Kimi Antonelli"": 17}",Andrea Kimi Antonelli,0.654000,George Russell,0.137800,0.516200,Mercedes,0.825400,Ferrari,0.148600,0.676800
 3,hist_gradient_boosting,catboost_regressor,17,1,"{""Andrea Kimi Antonelli"": 17}",Andrea Kimi Antonelli,0.673200,George Russell,0.129000,0.544200,Mercedes,0.831800,Ferrari,0.148600,0.683200
+4,hist_gradient_boosting,mlp_regressor,17,2,"{""Andrea Kimi Antonelli"": 5, ""Lewis Hamilton"": 12}",Andrea Kimi Antonelli,0.555800,Lewis Hamilton,0.208000,0.347800,Mercedes,0.710600,Ferrari,0.267000,0.443600
+5,lightgbm_classifier,xgboost_regressor,17,1,"{""Andrea Kimi Antonelli"": 17}",Andrea Kimi Antonelli,0.659600,George Russell,0.129600,0.530000,Mercedes,0.809800,Ferrari,0.164600,0.645200

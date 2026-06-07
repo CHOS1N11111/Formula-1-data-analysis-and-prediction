@@ -17,7 +17,10 @@
     "data\\modeling\\current_form_boost_backtest_summary.csv",
     "data\\modeling\\current_form_boost_backtest_driver_focus.csv",
     "data\\modeling\\current_form_boost_backtest_summary.json",
-    "data\\modeling\\season_prediction_race_signal_diagnostics_2026.csv"
+    "data\\modeling\\season_prediction_race_signal_diagnostics_2026.csv",
+    "data\\modeling\\season_model_scenario_backtest_metrics.csv",
+    "data\\modeling\\season_model_scenario_backtest_summary.csv",
+    "data\\modeling\\season_model_scenario_backtest_summary.json"
   ],
   "figures": [
     "outputs\\figures\\feedback_weight_tuning_2022_2025.png",
@@ -38,7 +41,16 @@
     "outputs\\figures\\season_prediction_s3_constructor_champion_2026.png",
     "outputs\\figures\\season_prediction_s3_driver_points_uncertainty_2026.png",
     "outputs\\figures\\season_prediction_s3_constructor_points_uncertainty_2026.png",
-    "outputs\\figures\\current_form_boost_backtest_2022_2025.png"
+    "outputs\\figures\\current_form_boost_backtest_2022_2025.png",
+    "outputs\\figures\\season_model_scenario_backtest.png",
+    "outputs\\figures\\season_prediction_s4_driver_champion_2026.png",
+    "outputs\\figures\\season_prediction_s4_constructor_champion_2026.png",
+    "outputs\\figures\\season_prediction_s4_driver_points_uncertainty_2026.png",
+    "outputs\\figures\\season_prediction_s4_constructor_points_uncertainty_2026.png",
+    "outputs\\figures\\season_prediction_s5_driver_champion_2026.png",
+    "outputs\\figures\\season_prediction_s5_constructor_champion_2026.png",
+    "outputs\\figures\\season_prediction_s5_driver_points_uncertainty_2026.png",
+    "outputs\\figures\\season_prediction_s5_constructor_points_uncertainty_2026.png"
   ],
-  "built_at": "2026-06-06T06:41:37.244236+00:00"
+  "built_at": "2026-06-07T06:17:13.944618+00:00"
 }

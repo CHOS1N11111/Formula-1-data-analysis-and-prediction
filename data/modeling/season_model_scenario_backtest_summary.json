@@ -1,0 +1,80 @@
+{
+  "built_at": "2026-06-07T05:38:21.213537+00:00",
+  "backtest_seasons": [
+    2022,
+    2023,
+    2024,
+    2025
+  ],
+  "known_race_count": 5,
+  "top10_candidate_count": 3,
+  "points_candidate_count": 5,
+  "feature_mode": "pre_race",
+  "future_feature_feedback_weight": 1.0,
+  "current_season_online_repeat": 1,
+  "selection_score_weights": {
+    "combined_points_mae": 0.4,
+    "driver_champion_hit_rate": 0.2,
+    "constructor_champion_hit_rate": 0.15,
+    "top3_overlap": 0.15,
+    "winner_concentration": 0.1
+  },
+  "best_overall_row": {
+    "scenario_backtest_rank": 1,
+    "top10_model_rank": 3,
+    "top10_model": "hist_gradient_boosting",
+    "top10_2025_f1": "0.708075",
+    "points_model_rank": 1,
+    "points_model": "mlp_regressor",
+    "points_2025_mae": "3.617885",
+    "season_count": 4,
+    "avg_driver_points_mae": "35.761364",
+    "avg_constructor_points_mae": "75.550000",
+    "avg_combined_points_mae": "55.655682",
+    "driver_champion_hit_rate": "0.750000",
+    "constructor_champion_hit_rate": "0.750000",
+    "avg_driver_top3_overlap": "2.750000",
+    "avg_constructor_top3_overlap": "2.750000",
+    "avg_deterministic_driver_winner_count": "1.250000",
+    "avg_max_driver_winner_share": "0.986842",
+    "avg_winner_runner_up_score_gap": "0.052063",
+    "concentration_penalty": "0.986842",
+    "selection_score": "0.904899",
+    "recommended_role": "sensitivity_only_high_concentration"
+  },
+  "best_usable_candidate_row": {
+    "scenario_backtest_rank": 4,
+    "top10_model_rank": 2,
+    "top10_model": "lightgbm_classifier",
+    "top10_2025_f1": "0.708595",
+    "points_model_rank": 5,
+    "points_model": "xgboost_regressor",
+    "points_2025_mae": "3.740700",
+    "season_count": 4,
+    "avg_driver_points_mae": "38.877165",
+    "avg_constructor_points_mae": "81.400000",
+    "avg_combined_points_mae": "60.138582",
+    "driver_champion_hit_rate": "0.750000",
+    "constructor_champion_hit_rate": "0.750000",
+    "avg_driver_top3_overlap": "2.750000",
+    "avg_constructor_top3_overlap": "2.500000",
+    "avg_deterministic_driver_winner_count": "2.250000",
+    "avg_max_driver_winner_share": "0.731424",
+    "avg_winner_runner_up_score_gap": "0.046824",
+    "concentration_penalty": "0.731424",
+    "selection_score": "0.717217",
+    "recommended_role": "candidate"
+  },
+  "outputs": [
+    "data\\modeling\\season_model_scenario_backtest_metrics.csv",
+    "data\\modeling\\season_model_scenario_backtest_summary.csv",
+    "data\\modeling\\season_model_scenario_backtest_summary.json",
+    "outputs\\figures\\season_model_scenario_backtest.png"
+  ],
+  "notes": [
+    "This script does not modify the final S1/S2/S3 prediction scenarios.",
+    "It evaluates candidate model combinations by rolling out complete historical seasons after the first five known races.",
+    "Lower combined points MAE and lower winner concentration are preferred.",
+    "Backtest features use only past seasons plus known races from the test season."
+  ]
+}

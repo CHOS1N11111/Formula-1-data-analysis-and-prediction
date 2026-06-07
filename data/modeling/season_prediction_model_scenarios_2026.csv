@@ -5,3 +5,7 @@
 2,constructor,5000,pre_race,2,lightgbm_classifier,f1,0.708595,2,ridge_regression,mae,3.623049,Mercedes,0.825400,Ferrari,0.148600,0.676800,Mercedes
 3,driver,5000,pre_race,3,hist_gradient_boosting,f1,0.708075,3,catboost_regressor,mae,3.717629,Andrea Kimi Antonelli,0.673200,George Russell,0.129000,0.544200,Andrea Kimi Antonelli
 3,constructor,5000,pre_race,3,hist_gradient_boosting,f1,0.708075,3,catboost_regressor,mae,3.717629,Mercedes,0.831800,Ferrari,0.148600,0.683200,Mercedes
+4,driver,5000,pre_race,3,hist_gradient_boosting,f1,0.708075,1,mlp_regressor,mae,3.617885,Andrea Kimi Antonelli,0.555800,Lewis Hamilton,0.208000,0.347800,Lewis Hamilton
+4,constructor,5000,pre_race,3,hist_gradient_boosting,f1,0.708075,1,mlp_regressor,mae,3.617885,Mercedes,0.710600,Ferrari,0.267000,0.443600,Mercedes
+5,driver,5000,pre_race,2,lightgbm_classifier,f1,0.708595,5,xgboost_regressor,mae,3.740700,Andrea Kimi Antonelli,0.659600,George Russell,0.129600,0.530000,Andrea Kimi Antonelli
+5,constructor,5000,pre_race,2,lightgbm_classifier,f1,0.708595,5,xgboost_regressor,mae,3.740700,Mercedes,0.809800,Ferrari,0.164600,0.645200,Mercedes
