@@ -2,52 +2,18 @@
 
 This document summarizes the final 2026 driver and constructor championship prediction outputs. It is intended for report and presentation use.
 
-## Prediction Objective
+## Prediction Objective And Scope
 
-The final prediction estimates:
+The final prediction estimates 2026 driver and constructor championship probabilities, projected final-points distributions, deterministic rule-mapped race points, and model-scenario sensitivity.
 
-- 2026 driver championship probabilities
-- 2026 constructor championship probabilities
-- projected final points distributions
-- deterministic rule-mapped points for each remaining Grand Prix
-- model-scenario sensitivity results
+The forecast starts from completed 2026 races and predicts the remaining 17 races with `pre_race` features only, because future qualifying and grid positions are unavailable.
 
-The prediction starts from completed 2026 races and forecasts the remaining 17 races using pre-race features only.
+Main assumptions:
 
-## Data Used
-
-The prediction uses the extended feature dataset:
-
-```text
-data/processed/f1_features_extended.csv
-```
-
-Completed 2026 race results are used as the current-season starting state. Remaining 2026 races are loaded from:
-
-```text
-data/analysis/remaining_2026_schedule.csv
-```
-
-Current standings and completed-race state are available in:
-
-```text
-data/analysis/current_2026_driver_standings.csv
-data/analysis/current_2026_constructor_standings.csv
-data/analysis/completed_2026_results.csv
-```
-
-## Modeling Scope
-
-The final prediction uses `pre_race` features only, because future qualifying positions and grid positions are not available before a race happens.
-
-Important assumptions:
-
-- Sprint races are not modeled.
-- Fastest-lap bonus points are not modeled.
-- Each race is treated as a normal full-points Grand Prix.
-- Exactly 10 drivers score points in each simulated race.
-- Completed 2026 results are converted from finish position to the current Grand Prix points table.
-- Historical descriptive analysis can keep raw points, but prediction-stage points use the current F1 scoring rule.
+- Sprint races and fastest-lap bonus points are not modeled.
+- Each race is treated as a normal full-points Grand Prix with exactly 10 scoring drivers.
+- Completed and predicted 2026 race points are mapped from finish position to the current Grand Prix points table.
+- Historical descriptive analysis may keep raw points, but prediction-stage points use the current F1 scoring rule.
 
 ## Points Rule
 
@@ -205,93 +171,6 @@ strong: 0 races
 ```
 
 This means most single-race winner predictions have moderate separation, while one race remains low-confidence. Race-level winner confidence explains deterministic single-race picks; it does not alter the Monte Carlo championship probabilities.
-
-## Key Output Files
-
-Final prediction tables:
-
-```text
-data/modeling/season_prediction_driver_standings_2026.csv
-data/modeling/season_prediction_constructor_standings_2026.csv
-data/modeling/season_prediction_race_points_2026.csv
-data/modeling/season_prediction_summary_2026.csv
-data/modeling/season_prediction_summary_2026.json
-```
-
-Scenario comparison outputs:
-
-```text
-data/modeling/season_prediction_model_scenarios_2026.csv
-data/modeling/season_prediction_model_scenario_diagnostics_2026.csv
-data/modeling/season_prediction_scenario_selection_2026.csv
-data/modeling/season_prediction_scenario_selection_summary_2026.json
-data/modeling/season_model_scenario_backtest_metrics.csv
-data/modeling/season_model_scenario_backtest_summary.csv
-data/modeling/season_model_scenario_backtest_summary.json
-```
-
-By-model outputs:
-
-```text
-data/modeling/season_prediction_driver_standings_2026_by_model.csv
-data/modeling/season_prediction_constructor_standings_2026_by_model.csv
-data/modeling/season_prediction_race_points_2026_by_model.csv
-```
-
-Race diagnostics:
-
-```text
-data/modeling/season_prediction_race_signal_diagnostics_2026.csv
-data/modeling/season_prediction_circuit_archetype_diagnostics_2026.csv
-data/modeling/season_prediction_top10_calibration_2026.csv
-```
-
-Main figures:
-
-```text
-outputs/figures/season_prediction_driver_champion_2026.png
-outputs/figures/season_prediction_constructor_champion_2026.png
-outputs/figures/season_prediction_driver_points_uncertainty_2026.png
-outputs/figures/season_prediction_constructor_points_uncertainty_2026.png
-outputs/figures/season_prediction_model_scenarios_2026.png
-outputs/figures/season_model_scenario_backtest.png
-```
-
-Scenario-specific figures:
-
-```text
-outputs/figures/season_prediction_s1_driver_champion_2026.png
-outputs/figures/season_prediction_s1_constructor_champion_2026.png
-outputs/figures/season_prediction_s1_driver_points_uncertainty_2026.png
-outputs/figures/season_prediction_s1_constructor_points_uncertainty_2026.png
-outputs/figures/season_prediction_s2_driver_champion_2026.png
-outputs/figures/season_prediction_s2_constructor_champion_2026.png
-outputs/figures/season_prediction_s2_driver_points_uncertainty_2026.png
-outputs/figures/season_prediction_s2_constructor_points_uncertainty_2026.png
-outputs/figures/season_prediction_s3_driver_champion_2026.png
-outputs/figures/season_prediction_s3_constructor_champion_2026.png
-outputs/figures/season_prediction_s3_driver_points_uncertainty_2026.png
-outputs/figures/season_prediction_s3_constructor_points_uncertainty_2026.png
-outputs/figures/season_prediction_s4_driver_champion_2026.png
-outputs/figures/season_prediction_s4_constructor_champion_2026.png
-outputs/figures/season_prediction_s4_driver_points_uncertainty_2026.png
-outputs/figures/season_prediction_s4_constructor_points_uncertainty_2026.png
-outputs/figures/season_prediction_s5_driver_champion_2026.png
-outputs/figures/season_prediction_s5_constructor_champion_2026.png
-outputs/figures/season_prediction_s5_driver_points_uncertainty_2026.png
-outputs/figures/season_prediction_s5_constructor_points_uncertainty_2026.png
-```
-
-## How To Interpret The Figures
-
-- `season_prediction_driver_champion_2026.png`: compares driver championship probabilities from the primary scenario.
-- `season_prediction_constructor_champion_2026.png`: compares constructor championship probabilities from the primary scenario.
-- `season_prediction_driver_points_uncertainty_2026.png`: shows projected driver points intervals. The red marker is current points.
-- `season_prediction_constructor_points_uncertainty_2026.png`: shows projected constructor points intervals. The red marker is current points.
-- `season_prediction_model_scenarios_2026.png`: compares champion probabilities across all five model scenarios.
-- `season_model_scenario_backtest.png`: compares season-level backtest MAE and selection score for candidate model combinations.
-
-The uncertainty interval charts should be interpreted as simulated final-points ranges, not exact forecasts.
 
 ## Main Limitations
 
