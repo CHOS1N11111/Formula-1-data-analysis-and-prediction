@@ -270,6 +270,8 @@ Each scenario produces:
 
 The primary output uses Scenario 1, while by-model output files and figures preserve all five scenarios for robustness comparison.
 
+The current primary Monte Carlo forecast predicts Andrea Kimi Antonelli as the 2026 driver champion probability leader with probability `0.534800`, and Mercedes as the 2026 constructor champion probability leader with probability `0.704600`.
+
 The project also includes `backtest_f1_model_scenarios.py`, which evaluates candidate Top 10 and points-model combinations by rolling out full historical seasons from 2022 to 2025 after the first five known races. Scenario 4 is the best overall season-level diagnostic row, while Scenario 5 is the best non-concentrated usable candidate from that backtest. These scenarios are added for sensitivity analysis and do not change Scenario 1 as the primary forecast.
 
 ### Final Prediction Inputs

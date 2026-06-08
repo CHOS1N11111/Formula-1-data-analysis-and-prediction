@@ -572,6 +572,14 @@ Compares current-season online training and short-history form-boost configurati
 
 Use in report: justification for handling drivers with limited historical samples but strong current-season form.
 
+#### [`figures/season_model_scenario_backtest.png`](figures/season_model_scenario_backtest.png)
+
+![Season-Level Model Scenario Backtest](figures/season_model_scenario_backtest.png)
+
+Compares season-level 2022-2025 rollout performance for candidate Top 10 and race-points model combinations. It is used to choose additional diagnostic scenarios beyond the original S1-S3 metric-ranked scenarios.
+
+Use in report: technical justification for adding S4 and S5 as season-level sensitivity scenarios.
+
 #### [`figures/season_prediction_driver_champion_2026.png`](figures/season_prediction_driver_champion_2026.png)
 
 ![2026 Driver Champion Probability](figures/season_prediction_driver_champion_2026.png)
@@ -606,15 +614,15 @@ Use in report: final constructor standings uncertainty analysis.
 
 #### [`figures/season_prediction_model_scenarios_2026.png`](figures/season_prediction_model_scenarios_2026.png)
 
-![2026 Champion Probability by Top-3 Model Scenario](figures/season_prediction_model_scenarios_2026.png)
+![2026 Champion Probability by Model Scenario](figures/season_prediction_model_scenarios_2026.png)
 
-Compares 2026 driver and constructor champion probabilities across the top three pre-race model scenarios. Each scenario pairs the same-rank Top 10 classifier and points regressor from prior validation metrics.
+Compares 2026 driver and constructor champion probabilities across five pre-race model scenarios. S1-S3 are the original metric-ranked scenarios, while S4 and S5 are additional season-backtest-derived diagnostic scenarios.
 
 Use in report: robustness comparison of final championship predictions under different high-performing model choices.
 
 #### Per-Scenario 2026 Prediction Figures
 
-The following figures repeat the same four final-prediction views for each top-three model scenario:
+The following figures repeat the same four final-prediction views for each 2026 model scenario:
 
 - [`figures/season_prediction_s1_driver_champion_2026.png`](figures/season_prediction_s1_driver_champion_2026.png)
 - [`figures/season_prediction_s1_constructor_champion_2026.png`](figures/season_prediction_s1_constructor_champion_2026.png)
@@ -628,7 +636,15 @@ The following figures repeat the same four final-prediction views for each top-t
 - [`figures/season_prediction_s3_constructor_champion_2026.png`](figures/season_prediction_s3_constructor_champion_2026.png)
 - [`figures/season_prediction_s3_driver_points_uncertainty_2026.png`](figures/season_prediction_s3_driver_points_uncertainty_2026.png)
 - [`figures/season_prediction_s3_constructor_points_uncertainty_2026.png`](figures/season_prediction_s3_constructor_points_uncertainty_2026.png)
+- [`figures/season_prediction_s4_driver_champion_2026.png`](figures/season_prediction_s4_driver_champion_2026.png)
+- [`figures/season_prediction_s4_constructor_champion_2026.png`](figures/season_prediction_s4_constructor_champion_2026.png)
+- [`figures/season_prediction_s4_driver_points_uncertainty_2026.png`](figures/season_prediction_s4_driver_points_uncertainty_2026.png)
+- [`figures/season_prediction_s4_constructor_points_uncertainty_2026.png`](figures/season_prediction_s4_constructor_points_uncertainty_2026.png)
+- [`figures/season_prediction_s5_driver_champion_2026.png`](figures/season_prediction_s5_driver_champion_2026.png)
+- [`figures/season_prediction_s5_constructor_champion_2026.png`](figures/season_prediction_s5_constructor_champion_2026.png)
+- [`figures/season_prediction_s5_driver_points_uncertainty_2026.png`](figures/season_prediction_s5_driver_points_uncertainty_2026.png)
+- [`figures/season_prediction_s5_constructor_points_uncertainty_2026.png`](figures/season_prediction_s5_constructor_points_uncertainty_2026.png)
 
-Scenario 1 uses `xgboost_classifier + mlp_regressor`, Scenario 2 uses `lightgbm_classifier + ridge_regression`, and Scenario 3 uses `hist_gradient_boosting + catboost_regressor`.
+Scenario 1 uses `xgboost_classifier + mlp_regressor`, Scenario 2 uses `lightgbm_classifier + ridge_regression`, Scenario 3 uses `hist_gradient_boosting + catboost_regressor`, Scenario 4 uses `hist_gradient_boosting + mlp_regressor`, and Scenario 5 uses `lightgbm_classifier + xgboost_regressor`.
 
 Use in report: detailed per-model comparison of champion probabilities and final-points uncertainty.
