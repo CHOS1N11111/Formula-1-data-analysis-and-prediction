@@ -1,10 +1,10 @@
-"""Train Top 10 and race-points models as the bridge toward 2026 championship prediction.
+"""Train Top 10 and race-points models for championship prediction.
 
-This script extends the current podium-prediction workflow from a single binary target
-to points-related targets. It trains traditional ML, advanced boosting, and deep-learning
-models for Top 10 classification and race-points regression, evaluates them on the 2025
-season, writes prediction tables, and saves figures that can later feed season-level
-driver and constructor championship simulations.
+This script reads engineered F1 feature tables and extends the podium workflow
+to two points-related targets: Top 10 classification and current-rule race
+points regression. It trains baseline ML, boosting, and neural-network models,
+evaluates them on the 2025 season, writes metrics and prediction tables under
+data/modeling, and saves figures used by season-level championship simulations.
 """
 
 import importlib.util

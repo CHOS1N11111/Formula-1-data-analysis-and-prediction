@@ -1,11 +1,11 @@
-"""Evaluate F1 points-ranking strategies and season uncertainty simulations.
+"""Evaluate points-ranking strategies and season uncertainty simulations.
 
-This script is a post-modeling layer. It reads the existing 2025 Top 10,
-points, and podium predictions, then tests how different race-level ranking
-strategies behave after mapping the ranking to the current F1 Grand Prix points
-table. It also applies empirical Top 10 probability calibration and runs a
-Monte Carlo season simulation as preparation for later 2026 championship
-prediction.
+This post-modeling script reads 2025 Top 10, points, and podium prediction
+outputs, compares race-level ranking strategies after mapping them to the
+current F1 Grand Prix points table, and tests empirical Top 10 probability
+calibration. It writes strategy metrics, calibration outputs, diagnostic
+figures, and Monte Carlo season-simulation summaries used before final 2026
+championship prediction.
 """
 
 import csv

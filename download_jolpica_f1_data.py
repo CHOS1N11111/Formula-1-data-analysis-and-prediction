@@ -1,6 +1,10 @@
-"""Download paginated Jolpica-F1 JSON data for modern Formula 1 seasons.
+"""Download paginated Jolpica-F1 JSON data for modern seasons.
 
-The script collects races, results, qualifying sessions, standings, drivers, and constructors for 2019-2026. Raw API responses are stored unchanged under data/raw/jolpica so later scripts can validate, parse, and rebuild processed datasets reproducibly."""
+This setup script calls the Jolpica-F1 API for races, results, qualifying,
+standings, drivers, and constructors from 2019 to 2026. It downloads paginated
+responses and writes the raw JSON files unchanged under data/raw/jolpica so
+validation and processing scripts can rebuild downstream datasets reproducibly.
+"""
 
 import json
 import time
@@ -14,8 +18,8 @@ from urllib.request import urlopen
 BASE_URL = "https://api.jolpi.ca/ergast/f1"
 OUTPUT_DIR = Path(__file__).resolve().parent / "data" / "raw" / "jolpica"
 
-# 2019-2025 are used to supplement modern historical race data.
-# 2026 is used for the current season schedule, completed results, and standings.
+# 2019-2025 provide complete modern historical seasons; 2026 provides the current
+# season schedule, completed results, and standings used by the final predictor.
 YEARS = range(2019, 2027)
 
 ENDPOINTS = [

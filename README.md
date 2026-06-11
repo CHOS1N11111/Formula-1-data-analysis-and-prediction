@@ -36,22 +36,27 @@ Static historical figures intentionally exclude 2026 data. The 2026 data is used
 |-- train_f1_podium_model.py
 |-- train_f1_podium_deep_model.py
 |-- train_f1_points_model.py
+|-- train_f1_finish_bucket_model.py
 |-- score_f1_podium_models.py
 |-- visualize_f1_model_results.py
 |-- simulate_f1_season_uncertainty.py
 |-- tune_f1_feedback_weight.py
 |-- tune_f1_current_form_boost.py
+|-- backtest_f1_model_scenarios.py
 |-- predict_f1_2026_championship.py
+|-- analyze_f1_circuit_archetypes.py
+|-- select_f1_prediction_scenarios.py
 |-- requirements.txt
 |-- data/
 |   |-- processed/
 |   |-- analysis/
 |   |-- modeling/
 |   `-- DATA_DESCRIPTION.md
-`-- outputs/
-    |-- figures/
-    |-- videos/
-    `-- OUTPUTS_DESCRIPTION.md
+|-- outputs/
+|   |-- figures/
+|   |-- videos/
+|   |-- FINAL_PREDICTION_SUMMARY.md
+|   `-- OUTPUTS_DESCRIPTION.md
 ```
 
 Ignored local directories include raw downloaded data:
@@ -67,10 +72,9 @@ These directories are not required in the Git repository because the raw data ca
 
 ## Data Sources
 
-The project uses four main data sources:
+The project uses external raw data sources and project-generated data tables:
 
-- Kaggle Formula 1 datasets for historical race records and SQLite-based inspection.
-- `Formula1.sqlite` for older historical background analysis.
+- Kaggle Formula 1 datasets, including `Formula1.sqlite`, for historical race records, SQLite-based inspection, and long-term background analysis.
 - Jolpica-F1 Ergast-compatible API for modern Formula 1 race, qualifying, standings, driver, and constructor data.
 - Project-generated processed tables for 2019-2026 modern data and 2003-2026 extended modeling data.
 
@@ -302,7 +306,7 @@ This design is appropriate for a true pre-race championship forecast because it 
 
 Remaining-race predictions support future-feature feedback between not-yet-run races. After aligning the feedback backtest with current-season online training and fixing the zero-feedback branch so it does not create projected history rows, the selected feedback weight is `1.00`, chosen by `tune_f1_feedback_weight.py` using 2022-2025 historical backtests and average combined driver/constructor final-points MAE after Top 10 probability calibration is applied. This means projected future race results are written back into later pre-race rolling features with full weight in the official forecast.
 
-The final models also use conservative current-season online training. Completed 2026 race rows are repeated once in the final model training set. This setting was selected by `tune_f1_current_form_boost.py`: in 2022-2025 backtests, the `online1_boost0.00` configuration improved short-history driver MAE by `14.491071`, while keeping the overall combined MAE close to the baseline. Explicit ranking-score form boosts were kept out of the official prediction because they were unstable on short-history strong-form samples.
+The final models also use conservative current-season online training. Completed 2026 race rows are repeated once in the final model training set. This setting was selected by `tune_f1_current_form_boost.py` on 2022-2025 backtests because it improves short-history driver behavior without adding an explicit ranking-score form boost. Explicit form boosts were kept out of the official prediction because they were unstable on short-history strong-form samples.
 
 Main limitations:
 
@@ -373,7 +377,7 @@ outputs/OUTPUTS_DESCRIPTION.md
 
 ## Notes
 
-- Static report-style historical figures use 2019-2025 modern historical data and SQLite historical data.
+- Static historical figures use 2019-2025 modern historical data and SQLite historical data.
 - Static historical figures do not include 2026 data.
 - 2026 data is used for current-season status analysis and final championship prediction.
 - Raw downloaded data is ignored by Git.

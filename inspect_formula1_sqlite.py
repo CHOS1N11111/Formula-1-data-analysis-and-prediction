@@ -1,6 +1,9 @@
-"""Inspect the local Formula1.sqlite database structure and sample records.
+"""Inspect the downloaded Formula1.sqlite database.
 
-This utility prints table names, row counts, column names, and a small set of sample rows. It is mainly used during project setup to understand the historical Kaggle SQLite schema before writing extraction queries."""
+This utility reads the Kaggle SQLite file and prints table names, row counts,
+column names, and sample rows. It is used during project setup to understand the
+historical schema before building extraction and feature engineering queries.
+"""
 
 import sqlite3
 import sys

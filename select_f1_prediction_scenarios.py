@@ -1,9 +1,9 @@
 """Score and select robust 2026 championship prediction scenarios.
 
-The final prediction keeps several model scenarios for sensitivity analysis.
-This script ranks those scenarios with both validation performance and
-race-level behavior diagnostics, so extremely concentrated winner patterns are
-flagged instead of treated as equally reliable.
+This script reads candidate 2026 model-scenario diagnostics and ranks them with
+both validation performance and race-level behavior checks. It is used to flag
+over-concentrated winner patterns and to justify which scenarios should be
+treated as stronger sensitivity references in the final prediction output.
 """
 
 import csv

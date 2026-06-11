@@ -1,6 +1,10 @@
-"""Train and evaluate deep-learning models for F1 podium prediction.
+"""Train and evaluate deep-learning models for podium prediction.
 
-The script balances the training data, builds post-qualifying and pre-race feature sets, trains an upgraded MLP baseline and an optional TabNet model, records training curves, and writes comparable DL metrics and prediction tables for the 2025 backtest."""
+This script reads engineered F1 features, builds both post-qualifying and
+pre-race feature sets, balances the podium target, and trains deep-learning
+models such as an upgraded MLP and optional TabNet. It writes 2025 backtest
+metrics, prediction tables, summaries, and training-curve diagnostics.
+"""
 
 import csv
 import importlib.util

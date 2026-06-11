@@ -1,12 +1,14 @@
-# Final 2026 Formula 1 Championship Prediction Summary
+﻿# Final 2026 Formula 1 Championship Prediction Summary
 
-This document summarizes the final 2026 driver and constructor championship prediction outputs. It is intended for report and presentation use.
+This document summarizes the final 2026 driver and constructor championship prediction outputs. It is intended as a compact project result summary.
 
 ## Prediction Objective And Scope
 
 The final prediction estimates 2026 driver and constructor championship probabilities, projected final-points distributions, deterministic rule-mapped race points, and model-scenario sensitivity.
 
 The forecast starts from completed 2026 races and predicts the remaining 17 races with `pre_race` features only, because future qualifying and grid positions are unavailable.
+
+In the current processed data state, results are updated through the Canadian Grand Prix, and the remaining-race prediction output starts from the Monaco Grand Prix schedule entry.
 
 Main assumptions:
 
@@ -195,3 +197,4 @@ Champion Probability: 0.704600
 ```
 
 The result should be presented as a probability-based forecast, not a certain outcome.
+

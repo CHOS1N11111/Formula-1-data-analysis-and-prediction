@@ -1,10 +1,10 @@
-"""Predict 2026 Formula 1 driver and constructor championship probabilities.
+"""Predict 2026 Formula 1 driver and constructor championships.
 
-This script is the final application layer of the project. It combines the
-completed 2026 race results with pre-race Top 10 and race-points models, predicts
-the remaining 2026 races, maps each simulated race to the current F1 Grand Prix
-points table, and runs Monte Carlo simulations to estimate championship
-probabilities and points uncertainty.
+This is the final application layer of the project. It reads completed 2026
+race state, trains pre-race Top 10 and race-points models, predicts the
+remaining races, maps each race ranking to the current F1 Grand Prix points
+table, and writes championship standings, scenario comparisons, diagnostics,
+figures, and Monte Carlo uncertainty estimates.
 """
 
 import csv

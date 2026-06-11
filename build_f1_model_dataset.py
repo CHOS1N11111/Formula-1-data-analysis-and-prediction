@@ -1,6 +1,10 @@
-"""Build the modern driver-race modeling table from Jolpica-F1 raw JSON.
+"""Build the modern driver-race modeling table from Jolpica-F1 JSON.
 
-The script parses downloaded API files, joins race result and qualifying information, derives basic target labels such as podium and top-10 finish, and writes processed CSV tables for modeling and the 2026 schedule."""
+This script parses raw API files from data/raw/jolpica, joins race results,
+qualifying information, drivers, constructors, and schedules, then derives
+basic targets such as podium and Top 10 finish. It writes processed CSV tables
+for feature engineering, statistical analysis, and the 2026 schedule.
+"""
 
 import csv
 import json

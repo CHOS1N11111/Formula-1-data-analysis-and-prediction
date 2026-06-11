@@ -1,9 +1,10 @@
 """Backtest F1 model combinations with full season-level metrics.
 
-This script evaluates Top 10 and race-points model combinations on historical
-season rollouts. It does not change the final 2026 prediction scenarios. The
-goal is to provide an additional selection view based on full-season standings
-quality rather than one-race model metrics alone.
+This script reads trained Top 10 and race-points model outputs, replays
+historical seasons, and evaluates complete driver/constructor standings rather
+than only single-race metrics. The resulting tables and figures support model
+scenario selection for the 2026 prediction while leaving the final prediction
+script responsible for producing the championship forecast.
 """
 
 from collections import defaultdict

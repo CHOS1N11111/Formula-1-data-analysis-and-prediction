@@ -1,6 +1,10 @@
-"""Compute a single composite score for every Formula 1 podium prediction model.
+"""Compute composite scores for Formula 1 podium prediction models.
 
-The script reads traditional ML, advanced ML, and DL evaluation files, applies a weighted 0-100 scoring formula based on common metrics, writes a ranked score table, and saves a final model-selection chart."""
+This script reads traditional ML, advanced ML, and deep-learning evaluation
+files, applies a weighted 0-100 scoring formula based on common metrics, and
+writes a ranked model score table under data/modeling. It also saves a
+model-selection figure used to compare podium model families in the report.
+"""
 
 import csv
 import json

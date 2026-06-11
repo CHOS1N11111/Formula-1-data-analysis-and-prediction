@@ -1,6 +1,10 @@
-"""Download external Kaggle Formula 1 datasets used as raw local sources.
+"""Download external Kaggle Formula 1 datasets.
 
-This script retrieves the SQLite historical database and auxiliary Kaggle datasets, copies them from the Kaggle cache into the project workspace, and checks that each target directory contains real files before downstream processing starts."""
+This setup script downloads the historical SQLite database and auxiliary Kaggle
+Formula 1 datasets through kagglehub, then copies the cached files into local
+project folders. It validates that each downloaded directory contains real files
+before later scripts inspect or extract the raw sources.
+"""
 
 import kagglehub
 import shutil

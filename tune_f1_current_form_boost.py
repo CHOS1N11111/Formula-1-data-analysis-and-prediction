@@ -1,10 +1,10 @@
-"""Backtest current-season form handling for short-history F1 drivers.
+"""Backtest current-season form handling for short-history drivers.
 
-This experiment checks whether the 2026 championship predictor should give
-extra attention to drivers with limited historical samples but strong current
-season form. It compares baseline prediction, current-season online training,
-form-based ranking boosts, and their combinations on 2022-2025 historical
-backtests before any rule is promoted into the final 2026 predictor.
+This experiment reads historical season data and tests whether the 2026
+championship predictor should adjust for drivers with limited historical samples
+but strong current-season form. It compares baseline prediction, online
+current-season training, form-based ranking boosts, and their combinations on
+2022-2025 backtests before any rule is considered for the final predictor.
 """
 
 from collections import defaultdict

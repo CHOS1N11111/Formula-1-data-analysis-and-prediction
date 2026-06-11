@@ -36,22 +36,27 @@
 |-- train_f1_podium_model.py
 |-- train_f1_podium_deep_model.py
 |-- train_f1_points_model.py
+|-- train_f1_finish_bucket_model.py
 |-- score_f1_podium_models.py
 |-- visualize_f1_model_results.py
 |-- simulate_f1_season_uncertainty.py
 |-- tune_f1_feedback_weight.py
 |-- tune_f1_current_form_boost.py
+|-- backtest_f1_model_scenarios.py
 |-- predict_f1_2026_championship.py
+|-- analyze_f1_circuit_archetypes.py
+|-- select_f1_prediction_scenarios.py
 |-- requirements.txt
 |-- data/
 |   |-- processed/
 |   |-- analysis/
 |   |-- modeling/
 |   `-- DATA_DESCRIPTION.md
-`-- outputs/
-    |-- figures/
-    |-- videos/
-    `-- OUTPUTS_DESCRIPTION.md
+|-- outputs/
+|   |-- figures/
+|   |-- videos/
+|   |-- FINAL_PREDICTION_SUMMARY.md
+|   `-- OUTPUTS_DESCRIPTION.md
 ```
 
 以下本地目录包含原始下载数据：
@@ -67,10 +72,9 @@ formula1-data-1950-2022/
 
 ## 数据来源
 
-项目使用四类主要数据来源：
+项目使用外部原始数据源和项目生成的数据表：
 
-- Kaggle Formula 1 数据集，用于历史比赛记录和 SQLite 数据检查。
-- `Formula1.sqlite`，用于更早历史背景分析。
+- Kaggle Formula 1 数据集，包括 `Formula1.sqlite`，用于历史比赛记录、SQLite 数据检查和长期背景分析。
 - Jolpica-F1 Ergast 兼容 API，用于现代 Formula 1 比赛、排位、积分榜、车手和车队数据。
 - 项目生成的处理后数据表，用于 2019-2026 现代数据和 2003-2026 扩展建模数据。
 
@@ -302,7 +306,7 @@ Top 10 任务预测某位车手是否进入积分区。该任务作为单站排�
 
 剩余比赛预测支持阻尼式未来特征反馈。在将反馈权重回测与当前赛季在线训练策略对齐并修正零反馈分支后，最终选择的反馈权重为 `1.00`，由 `tune_f1_feedback_weight.py` 在应用 Top 10 概率校准后，使用 2022-2025 历史回测和车手/车队最终积分综合 MAE 选出。这意味着正式预测会把预测出的未来比赛结果以完整权重写回后续赛前滚动特征。
 
-最终模型还使用保守的当前赛季在线训练。已完成的 2026 比赛样本会在最终模型训练集中重复加入一次。该设置由 `tune_f1_current_form_boost.py` 通过 2022-2025 回测选出：`online1_boost0.00` 将短历史车手 MAE 从 `33.159524` 降低到 `24.448214`，同时让整体综合 MAE 基本接近 baseline。显式 `ranking_score` form boost 没有放入正式预测，因为它在短历史强状态样本上表现不稳定。
+最终模型还使用保守的当前赛季在线训练。已完成的 2026 比赛样本会在最终模型训练集中重复加入一次。该设置由 `tune_f1_current_form_boost.py` 通过 2022-2025 回测选出，因为它能改善短历史车手的预测行为，同时不需要额外加入显式 `ranking_score` form boost。显式 form boost 没有放入正式预测，因为它在短历史强状态样本上表现不稳定。
 
 主要局限：
 
@@ -373,7 +377,7 @@ outputs/OUTPUTS_DESCRIPTION.md
 
 ## 备注
 
-- 静态报告式历史图表使用 2019-2025 现代历史数据和 SQLite 历史数据。
+- 静态历史图表使用 2019-2025 现代历史数据和 SQLite 历史数据。
 - 静态历史图表不包含 2026 数据。
 - 2026 数据用于当前赛季状态分析和最终冠军预测。
 - 原始下载数据被 Git 忽略。

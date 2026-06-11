@@ -1,6 +1,10 @@
-"""Generate modern Formula 1 statistical analysis tables from engineered features.
+"""Generate modern Formula 1 statistical analysis tables.
 
-The analysis covers 2019-2025 for report-ready statistics, including grid importance, driver and constructor performance, circuit behavior, reliability, teammate comparisons, and current 2026 reference tables."""
+This script reads engineered driver-race features and writes report-ready
+CSV/JSON summaries under data/analysis. The main analysis range is 2019-2025 so
+incomplete 2026 results do not distort historical statistics; 2026 tables are
+written only as current-season reference inputs for final prediction.
+"""
 
 import csv
 import json

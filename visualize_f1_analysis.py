@@ -1,6 +1,11 @@
-"""Create static visualizations for Formula 1 exploratory data analysis.
+"""Create static visualizations for Formula 1 exploratory analysis.
 
-The script reads analysis CSV outputs and produces report-ready figures covering modern trends, historical context, grid importance, circuit characteristics, constructor competitiveness, reliability, and feature relationships. Figures intentionally exclude 2026 unless explicitly labeled as current-season context elsewhere."""
+This script reads CSV/JSON outputs from data/analysis and writes report-ready
+figures under outputs/figures. The visualizations cover modern trends,
+historical context, grid importance, circuit characteristics, constructor
+competitiveness, reliability, and feature relationships; incomplete 2026 data is
+excluded unless explicitly labeled as current-season context.
+"""
 
 import csv
 import json

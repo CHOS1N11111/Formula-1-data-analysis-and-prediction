@@ -1,6 +1,10 @@
-"""Generate animated Formula 1 driver and constructor points progression videos.
+"""Generate animated Formula 1 points progression videos.
 
-The script builds race-by-race standings frames and exports MP4 bar-chart animations for modern driver points and 1950-2025 constructor points. It also writes a manifest describing video sources, ranges, and frame counts."""
+This script reads processed race and standings data, builds race-by-race
+bar-chart frames, and exports MP4 videos under outputs/videos. The animations
+show modern driver points progress and long-run constructor points changes, and
+a video manifest records source ranges and frame counts for report/PPT use.
+"""
 
 import csv
 import json

@@ -1,6 +1,11 @@
-"""Generate historical background analysis tables from Formula1.sqlite.
+"""Generate long-run historical background tables from Formula1.sqlite.
 
-This script provides lightweight long-run context from the historical database, including race coverage, all-time winners, constructor wins, and grid-position outcome patterns. Output filenames include the _historical suffix."""
+This script reads the Kaggle historical SQLite database and writes lightweight
+background summaries under data/analysis. The outputs cover race coverage,
+all-time winners, constructor wins, and historical grid-position outcome
+patterns; filenames use the _historical suffix to separate them from modern
+2019-2025 analysis tables.
+"""
 
 import csv
 import json

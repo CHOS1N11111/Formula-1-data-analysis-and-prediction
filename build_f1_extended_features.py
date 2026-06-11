@@ -1,6 +1,10 @@
-"""Build an extended 2003-2026 feature table by merging SQLite and Jolpica data.
+"""Build the extended Formula 1 modeling feature table.
 
-The script extracts historical rows from Formula1.sqlite, combines them with modern Jolpica rows, and reuses the leakage-safe feature builder so ML and DL models can train on a larger and more consistent sample."""
+This script extracts usable historical rows from the Kaggle SQLite database,
+combines them with modern Jolpica-F1 records, and reuses the leakage-safe
+feature builder. It writes extended processed datasets so ML and DL models can
+train on a larger 2003-2026 driver-race sample.
+"""
 
 import csv
 import json

@@ -1,10 +1,10 @@
-"""Tune future-feature feedback weight with historical F1 season backtests.
+"""Tune future-feature feedback weight with historical backtests.
 
-The 2026 championship predictor partially feeds projected future race outcomes
-into later pre-race features. This script evaluates candidate feedback weights
-on 2022-2025 seasons: it treats the first five races as known, predicts the
-remaining races, and compares projected final standings with actual final
-standings under the current F1 Grand Prix points table.
+The final 2026 predictor can feed projected future race outcomes into later
+pre-race features. This script reads historical season rows, tests candidate
+feedback weights on 2022-2025 seasons, and writes backtest metrics comparing
+projected final standings with actual standings under the current F1 Grand Prix
+points table.
 """
 
 import csv

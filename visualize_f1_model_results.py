@@ -1,6 +1,10 @@
-"""Generate comparison figures for all Formula 1 podium prediction model families.
+"""Generate comparison figures for podium prediction model families.
 
-The script combines traditional ML, advanced boosting/stacking, and deep-learning metric files, then creates unified F1, ROC-AUC, Top3 Precision, heatmap, best-family, rolling-backtest, and ranking visualizations."""
+This script reads traditional ML, advanced boosting/stacking, and deep-learning
+metric files from data/modeling, then writes unified model comparison figures
+under outputs/figures. The outputs include F1, ROC-AUC, Top 3 precision,
+heatmaps, best-family summaries, rolling backtests, and ranking diagnostics.
+"""
 
 import csv
 import json

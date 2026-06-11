@@ -1,6 +1,10 @@
-"""Validate downloaded Jolpica-F1 JSON files against API-declared totals.
+"""Validate downloaded Jolpica-F1 JSON files.
 
-This script counts the actual records saved in every year-endpoint file and compares them with the total field reported by the API. It fails fast when a file is missing or an endpoint was only partially downloaded."""
+This quality-control script reads every saved year-endpoint API file under
+data/raw/jolpica, counts the actual records, and compares them with the total
+reported by the API response. It fails fast when a file is missing or an
+endpoint was only partially downloaded.
+"""
 
 import json
 from pathlib import Path

@@ -1,6 +1,11 @@
-"""Train and evaluate traditional ML, boosting, stacking, and ranking models for F1 podium prediction.
+"""Train and evaluate machine-learning models for podium prediction.
 
-This script loads engineered features, adds circuit-history signals, trains baseline and advanced classifiers, evaluates 2025 backtests, writes prediction tables, produces model figures, and exports ranking metrics for race-level podium candidate ordering."""
+This script reads engineered F1 features, adds circuit-history signals, trains
+baseline classifiers, boosting models, stacking models, and race-ranking
+diagnostics, then evaluates them on the 2025 season. It writes prediction
+tables, model metrics, summaries, figures, and ranking outputs for comparing
+podium candidate ordering.
+"""
 
 import csv
 import importlib.util

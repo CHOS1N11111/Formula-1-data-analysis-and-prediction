@@ -1,9 +1,10 @@
-"""Train finish-bucket classifiers for high-points-zone F1 prediction.
+"""Train finish-bucket classifiers for high-points-zone prediction.
 
-This script is an experimental extension that does not replace the existing
-Top 10 or race-points models. It predicts finish-position buckets such as win,
-podium, top five, points, and no-points, then converts bucket probabilities into
-expected F1 points for diagnostics.
+This experimental modeling script reads engineered F1 features, trains
+classifiers for finish buckets such as win, podium, Top 5, points, and
+no-points, and converts bucket probabilities into expected F1 points for
+diagnostics. It writes metrics, prediction tables, and race-level checks without
+replacing the main Top 10 or race-points models.
 """
 
 import csv

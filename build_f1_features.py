@@ -1,6 +1,10 @@
 """Create leakage-safe pre-race features for each driver-race record.
 
-For every race, the script computes standings, recent form, podium counts, and data-quality flags using only information available before that race. These features are the base input for later statistical analysis and prediction models."""
+This script reads the processed driver-race table and writes feature datasets
+under data/processed. For every race, it computes standings, recent form,
+podium counts, and data-quality flags using only information available before
+that race, so later analysis and models do not leak future results.
+"""
 
 import csv
 import json
