@@ -340,6 +340,38 @@ Shows the training loss curves for the upgraded MLP and TabNet podium models und
 
 Project use: deep-learning comparison experiment.
 
+#### [`figures/podium_best_ml_vs_dl_models.png`](figures/podium_best_ml_vs_dl_models.png)
+
+![Best ML vs DL Podium Models](figures/podium_best_ml_vs_dl_models.png)
+
+Compares the strongest machine-learning and deep-learning podium models side by side. It summarizes whether the added neural-network complexity improves the main podium prediction metrics.
+
+Project use: ML and DL model-family comparison.
+
+#### [`figures/podium_ml_dl_f1_comparison.png`](figures/podium_ml_dl_f1_comparison.png)
+
+![ML and DL Podium F1 Comparison](figures/podium_ml_dl_f1_comparison.png)
+
+Compares F1 scores across the selected machine-learning and deep-learning podium models. It focuses on the balance between podium precision and recall.
+
+Project use: podium model F1-score comparison.
+
+#### [`figures/podium_ml_dl_roc_auc_comparison.png`](figures/podium_ml_dl_roc_auc_comparison.png)
+
+![ML and DL Podium ROC-AUC Comparison](figures/podium_ml_dl_roc_auc_comparison.png)
+
+Compares ROC-AUC values for machine-learning and deep-learning podium models. It evaluates how well each model separates likely podium finishers from other drivers.
+
+Project use: podium model discrimination comparison.
+
+#### [`figures/podium_ml_dl_top3_precision.png`](figures/podium_ml_dl_top3_precision.png)
+
+![ML and DL Podium Top 3 Precision](figures/podium_ml_dl_top3_precision.png)
+
+Compares race-level top-3 precision for machine-learning and deep-learning podium models. This metric is useful because the podium task is naturally evaluated within each race.
+
+Project use: race-level podium ranking comparison.
+
 #### [`figures/podium_all_models_f1_comparison.png`](figures/podium_all_models_f1_comparison.png)
 
 ![All Models F1 Comparison](figures/podium_all_models_f1_comparison.png)

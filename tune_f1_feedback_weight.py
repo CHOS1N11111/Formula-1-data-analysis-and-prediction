@@ -331,7 +331,7 @@ def summarize_metrics(detail_rows):
 
 
 def save_tuning_chart(summary_rows):
-    """Save feedback-weight tuning chart for report use."""
+    """Save the feedback-weight tuning chart as a generated project figure."""
     rows = sorted(summary_rows, key=lambda row: to_float(row["feedback_weight"]))
     weights = [to_float(row["feedback_weight"]) for row in rows]
     driver_mae = [to_float(row["avg_driver_points_mae"]) for row in rows]
