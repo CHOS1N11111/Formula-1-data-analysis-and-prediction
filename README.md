@@ -31,6 +31,7 @@ Static historical figures intentionally exclude 2026 data. The 2026 data is used
 |-- build_f1_extended_features.py
 |-- analyze_f1_basic_stats.py
 |-- analyze_f1_historical_sqlite.py
+|-- query_f1_data.py
 |-- visualize_f1_analysis.py
 |-- animate_f1_points.py
 |-- train_f1_podium_model.py
@@ -110,6 +111,7 @@ python build_f1_features.py
 python build_f1_extended_features.py
 python analyze_f1_basic_stats.py
 python analyze_f1_historical_sqlite.py
+python query_f1_data.py
 python visualize_f1_analysis.py
 python animate_f1_points.py
 python train_f1_podium_model.py
@@ -167,6 +169,34 @@ Historical SQLite analysis provides background context:
 - Historical driver wins
 - Historical constructor wins
 - Historical grid-position impact
+
+`query_f1_data.py` provides an interactive SQLite-style query console over all available structured project data. It automatically loads generated CSV files, JSON metadata and raw Jolpica-F1 files, local Kaggle CSV folders, and every table from the available historical SQLite databases. It does not load figure or video output manifests, because the query tool is limited to data sources and generated data tables. When `Formula1.sqlite` is available, it also exposes joined convenience tables: `historical_races` for the 1950-2018 race calendar and `historical_results` for 1950-2017 driver-race results. It supports `tables`, keyword-filtered table listing such as `tables modeling`, `schema <table>`, direct read-only `SELECT` statements, quick filters such as `find driver=hamilton season=2025`, historical filters such as `find table=historical_results driver=senna season=1991 limit=5`, and one-shot commands such as `python query_f1_data.py --find table=season_prediction_races_2026 race=Monaco limit=5`. The generated `data_catalog` table records the loaded table names, row counts, source types, paths, and columns.
+
+Query input examples:
+
+```powershell
+python query_f1_data.py
+```
+
+After entering the console, type commands such as:
+
+```sql
+tables
+tables modeling
+schema historical_results
+find table=historical_results driver=Senna season=1991 limit=5
+SELECT table_name, row_count, source_type, source_path FROM data_catalog LIMIT 20;
+exit
+```
+
+One-shot command examples:
+
+```powershell
+python query_f1_data.py --tables modeling
+python query_f1_data.py --schema source_formula1_qualifying
+python query_f1_data.py --find table=season_prediction_races_2026 race=Monaco limit=10
+python query_f1_data.py --query "SELECT r.year AS season, r.name AS race_name, q.position AS qualifying_position, d.forename || ' ' || d.surname AS driver_name, c.name AS constructor_name, q.q1 FROM source_formula1_qualifying q JOIN source_formula1_races r ON q.raceid = r.raceid JOIN source_formula1_drivers d ON q.driverid = d.driverid JOIN source_formula1_constructors c ON q.constructorid = c.constructorid WHERE r.year = '1995' AND r.name = 'Monaco Grand Prix' AND q.position = '1' LIMIT 1"
+```
 
 ### Visualization
 

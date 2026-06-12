@@ -166,6 +166,27 @@ python analyze_f1_historical_sqlite.py
 python analyze_f1_circuit_archetypes.py
 ```
 
+Interactive query helper:
+
+```powershell
+python query_f1_data.py
+```
+
+`query_f1_data.py` loads all available structured project data into an in-memory SQLite database. The query console automatically includes:
+
+- All CSV and JSON files under `data/`.
+- Local Kaggle CSV folders, including `formula-1-fantasy-2021/` and `formula1-data-1950-2022/`, when they exist.
+- Every raw table from local SQLite databases under `formula-1-race-data-sqlite/`, when they exist.
+
+Figure and video output manifests are not loaded, because the query tool is limited to data sources and generated data tables.
+
+When `formula-1-race-data-sqlite/Formula1.sqlite` is available, it also exposes historical joined convenience tables:
+
+- `historical_races`: race calendar and circuit metadata from 1950 to 2018.
+- `historical_results`: driver-race results from 1950 to 2017.
+
+The helper also creates a queryable `data_catalog` table with loaded table names, row counts, source types, source paths, and columns. It does not create new data files; it is used to inspect records with SQL-style commands during exploratory analysis.
+
 ### Modern analysis files
 
 These files mainly use complete modern seasons from 2019 to 2025. The 2026 season is handled separately as current-season state data.
@@ -335,6 +356,7 @@ python build_f1_features.py
 python build_f1_extended_features.py
 python analyze_f1_basic_stats.py
 python analyze_f1_historical_sqlite.py
+python query_f1_data.py
 python visualize_f1_analysis.py
 python animate_f1_points.py
 python train_f1_podium_model.py

@@ -31,6 +31,7 @@
 |-- build_f1_extended_features.py
 |-- analyze_f1_basic_stats.py
 |-- analyze_f1_historical_sqlite.py
+|-- query_f1_data.py
 |-- visualize_f1_analysis.py
 |-- animate_f1_points.py
 |-- train_f1_podium_model.py
@@ -110,6 +111,7 @@ python build_f1_features.py
 python build_f1_extended_features.py
 python analyze_f1_basic_stats.py
 python analyze_f1_historical_sqlite.py
+python query_f1_data.py
 python visualize_f1_analysis.py
 python animate_f1_points.py
 python train_f1_podium_model.py
@@ -167,6 +169,34 @@ SQLite 历史分析提供背景参考：
 - 历史车手胜场
 - 历史车队胜场
 - 历史发车位影响
+
+`query_f1_data.py` 提供一个基于 SQLite 风格的交互式查询控制台，可以查询项目中所有可用的结构化数据。它会自动加载项目生成的 CSV 文件、JSON 元数据和 Jolpica-F1 原始 JSON 文件、本地 Kaggle CSV 文件夹，以及可用历史 SQLite 数据库中的全部原始表。它不会加载图表或视频输出清单，因为该查询工具只面向数据源和生成的数据表。当本地存在 `Formula1.sqlite` 时，工具还会提供两个便捷关联表：`historical_races` 用于查询 1950-2018 年比赛日历，`historical_results` 用于查询 1950-2017 年车手逐场比赛结果。它支持 `tables`、`tables modeling` 这类按关键词筛选表名的命令、`schema <table>`、只读 `SELECT` 语句、`find driver=hamilton season=2025` 这类快速筛选命令、`find table=historical_results driver=senna season=1991 limit=5` 这类历史筛选命令，以及 `python query_f1_data.py --find table=season_prediction_races_2026 race=Monaco limit=5` 这类一次性查询命令。生成的 `data_catalog` 表记录了已加载表名、行数、来源类型、来源路径和字段。
+
+查询输入示例：
+
+```powershell
+python query_f1_data.py
+```
+
+进入控制台后，可以输入：
+
+```sql
+tables
+tables modeling
+schema historical_results
+find table=historical_results driver=Senna season=1991 limit=5
+SELECT table_name, row_count, source_type, source_path FROM data_catalog LIMIT 20;
+exit
+```
+
+也可以使用一次性命令：
+
+```powershell
+python query_f1_data.py --tables modeling
+python query_f1_data.py --schema source_formula1_qualifying
+python query_f1_data.py --find table=season_prediction_races_2026 race=Monaco limit=10
+python query_f1_data.py --query "SELECT r.year AS season, r.name AS race_name, q.position AS qualifying_position, d.forename || ' ' || d.surname AS driver_name, c.name AS constructor_name, q.q1 FROM source_formula1_qualifying q JOIN source_formula1_races r ON q.raceid = r.raceid JOIN source_formula1_drivers d ON q.driverid = d.driverid JOIN source_formula1_constructors c ON q.constructorid = c.constructorid WHERE r.year = '1995' AND r.name = 'Monaco Grand Prix' AND q.position = '1' LIMIT 1"
+```
 
 ### 可视化
 
