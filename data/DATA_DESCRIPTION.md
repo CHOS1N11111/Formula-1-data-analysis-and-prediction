@@ -37,6 +37,7 @@ python validate_jolpica_f1_data.py
 
 Main contents:
 
+- `download_summary.json`: summary metadata for the Jolpica-F1 download run.
 - `2019/` to `2026/`: season-level API files.
 - `races.json`: race calendar and circuit information.
 - `results.json`: race result records.
